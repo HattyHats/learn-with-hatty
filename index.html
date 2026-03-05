@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn With Hatty</title>
+<meta name="description" content="Crypto, AI and Web3 insights by HattyHats.">
+
+<!-- AdSense Auto ads code -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6374033238930580"
+     crossorigin="anonymous"></script>
+
+<style>
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:#050508;
+  color:#f0f0f0;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* =============================================
+   BACKGROUND: animated red glow + falling code
+   ============================================= */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(ellipse at top,#ff000022 0,transparent 55%),
+    radial-gradient(ellipse at bottom,#1a1a4020 0,transparent 60%),
+    radial-gradient(ellipse at 70% 40%,#f0a50008 0,transparent 50%);
+  pointer-events:none;
+  z-index:-2;
+}
+.code-rain{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:-1;
+  pointer-events:none;
+}
+.code-column{
+  position:absolute;
+  top:-120%;
+  width:2%;
+  color:#ff4d4d;
+  font-family:monospace;
+  font-size:13px;
+  text-shadow:0 0 8px #ff1a1a;
+  white-space:pre;
+  opacity:.28;
+  animation:codeFall linear infinite;
+}
+@keyframes codeFall{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(220%);}
+}
+.code-column:nth-child(1){left:5%;animation-duration:12s;animation-delay:-2s;}
+.code-column:nth-child(2){left:15%;animation-duration:10s;animation-delay:-5s;}
+.code-column:nth-child(3){left:25%;animation-duration:14s;animation-delay:-3s;}
+.code-column:nth-child(4){left:40%;animation-duration:11s;animation-delay:-7s;}
+.code-column:nth-child(5){left:55%;animation-duration:13s;animation-delay:-4s;}
+.code-column:nth-child(6){left:70%;animation-duration:9s;animation-delay:-6s;}
+.code-column:nth-child(7){left:82%;animation-duration:15s;animation-delay:-1s;}
+
+/* =============================================
+   HEADER & NAV
+   ============================================= */
+header{
+  background:linear-gradient(180deg,#0e0e1a 0%,#0a0a14 100%);
+  padding:14px 28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #f0a50055;
+  position:sticky;
+  top:0;
+  z-index:100;
+  /* 3D depth: layered box shadows */
+  box-shadow:
+    0 1px 0 #f0a50020,
+    0 4px 24px #00000090,
+    0 8px 48px #00000060,
+    inset 0 1px 0 #ffffff0a;
+}
+
+/* Logo */
+header h1{
+  font-size:1.45rem;
+  color:#f0a500;
+  letter-spacing:2px;
+  text-shadow:0 0 18px #f0a50060,0 2px 4px #000;
+  white-space:nowrap;
+}
+header h1 span{color:#fff}
+
+/* Nav wrapper */
+nav{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+/* ──── 3D NAV BUTTONS ──── */
+nav a{
+  /* base colors */
+  color:#e8e8e8;
+  text-decoration:none;
+  font-size:.8rem;
+  font-weight:600;
+  letter-spacing:.4px;
+  padding:7px 15px;
+  border-radius:8px;
+  white-space:nowrap;
+
+  /* layered gradient for depth illusion */
+  background:linear-gradient(180deg,#2a2a40 0%,#16162a 60%,#0f0f20 100%);
+
+  /* inset top-edge highlight (simulates light source from above) */
+  border:1px solid #3a3a58;
+
+  /* shadows: outer glow + depth drop */
+  box-shadow:
+    0 1px 0 #ffffff14 inset,       /* top highlight */
+    0 -1px 0 #00000060 inset,      /* bottom shadow inside */
+    0 3px 8px #00000080,           /* drop shadow */
+    0 1px 2px #000000a0;           /* tight base shadow */
+
+  transition:all .15s ease;
+  position:relative;
+  top:0;
+}
+
+nav a:hover{
+  color:#f0a500;
+  background:linear-gradient(180deg,#2e2e4e 0%,#1a1a32 60%,#121228 100%);
+  border-color:#f0a50066;
+  box-shadow:
+    0 1px 0 #ffffff18 inset,
+    0 -1px 0 #00000060 inset,
+    0 0 14px #f0a50030,            /* subtle gold glow */
+    0 4px 12px #00000090,
+    0 1px 3px #000000b0;
+  top:-1px;                        /* slight lift */
+}
+
+nav a:active{
+  top:1px;                         /* press down */
+  box-shadow:
+    0 1px 0 #00000040 inset,
+    0 -1px 0 #ffffff08 inset,
+    0 1px 4px #00000080,
+    0 0 8px #f0a50020;
+  background:linear-gradient(180deg,#0f0f20 0%,#1a1a30 100%);
+}
+
+/* NOTE: .nav-home styles removed — "Home" button removed from nav.
+   When you add the Cardano learning game button, you can add a
+   new accent class here (e.g. .nav-cardano) using the same pattern. */
+
+/* =============================================
+   CRYPTO PRICE BAR
+   ============================================= */
+.price-bar{
+  background:linear-gradient(180deg,#07071a 0%,#050512 100%);
+  border-bottom:1px solid #f0a50028;
+  padding:7px 0;
+  overflow:hidden;
+  position:relative;
+  box-shadow:
+    0 2px 14px #00000070,
+    inset 0 -1px 0 #f0a50014,
+    inset 0 1px 0 #ffffff06;
+  /* Sits just below sticky header */
+  z-index:99;
+}
+
+/* Left/right fade edges for a polished look */
+.price-bar::before,
+.price-bar::after{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;
+  width:60px;
+  z-index:2;
+  pointer-events:none;
+}
+.price-bar::before{
+  left:0;
+  background:linear-gradient(90deg,#050512,transparent);
+}
+.price-bar::after{
+  right:0;
+  background:linear-gradient(-90deg,#050512,transparent);
+}
+
+/* Scrolling track — JS doubles the content for seamless loop */
+.price-track{
+  display:flex;
+  white-space:nowrap;
+  /* animation duration set in JS based on item count for consistent speed */
+  animation:priceScroll 50s linear infinite;
+  will-change:transform;
+}
+.price-track:hover{
+  animation-play-state:paused; /* pause on hover so users can read */
+}
+@keyframes priceScroll{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+
+/* Individual coin pill */
+.price-item{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:0 18px;
+  border-right:1px solid #ffffff08;
+  font-size:.76rem;
+  letter-spacing:.2px;
+}
+.price-symbol{
+  color:#f0a500;
+  font-weight:700;
+  font-size:.75rem;
+  letter-spacing:.5px;
+}
+.price-val{
+  color:#e0e0e0;
+  font-weight:600;
+}
+.price-change{
+  font-size:.7rem;
+  font-weight:700;
+  min-width:46px;
+}
+.price-change.up{color:#22c55e}
+.price-change.down{color:#f87171}
+
+/* Loading / error state */
+.price-loading{
+  display:inline-block;
+  padding:0 20px;
+  font-size:.74rem;
+  color:#555;
+  font-style:italic;
+}
+
+/* =============================================
+   HERO SECTION
+   ============================================= */
+.hero{
+  background:
+    linear-gradient(135deg,rgba(26,26,46,.95),rgba(22,33,62,.95),rgba(15,52,96,.90));
+  text-align:center;
+  padding:80px 28px;
+  position:relative;
+  /* layered bottom shadow for depth */
+  box-shadow:
+    0 8px 40px #00000090,
+    0 1px 0 #f0a50020,
+    inset 0 -1px 0 #f0a50015;
+}
+/* subtle grid overlay for tech feel */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(#ffffff04 1px,transparent 1px),
+    linear-gradient(90deg,#ffffff04 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;
+}
+.hero h2{
+  font-size:2.4rem;
+  margin-bottom:14px;
+  color:#f0a500;
+  text-shadow:0 0 30px #f0a50060,0 2px 8px #000;
+  position:relative;z-index:1;
+}
+.hero p{
+  font-size:1.05rem;
+  color:#ccc;
+  max-width:640px;
+  margin:0 auto 28px;
+  line-height:1.7;
+  position:relative;z-index:1;
+}
+/* Hero CTA button — 3D pill */
+.hero a{
+  position:relative;z-index:1;
+  display:inline-block;
+  background:linear-gradient(180deg,#f8bc20 0%,#d08800 55%,#b07000 100%);
+  color:#0d0d0d;
+  padding:13px 34px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.97rem;
+  letter-spacing:.3px;
+  border:1px solid #c08000;
+  box-shadow:
+    0 1px 0 #ffe08060 inset,
+    0 -2px 0 #80500060 inset,
+    0 4px 20px #f0a50050,
+    0 6px 16px #00000080;
+  transition:all .15s ease;
+}
+.hero a:hover{
+  background:linear-gradient(180deg,#ffd030 0%,#e09800 55%,#c08000 100%);
+  box-shadow:
+    0 1px 0 #ffe08080 inset,
+    0 -2px 0 #80500080 inset,
+    0 6px 28px #f0a50070,
+    0 8px 20px #00000090;
+  transform:translateY(-2px);
+}
+.hero a:active{transform:translateY(1px)}
+
+/* =============================================
+   AD WRAPPER (kept for future use)
+   ============================================= */
+.ad-wrap{text-align:center;margin:20px auto;max-width:728px;padding:0 10px}
+.ad-box{background:#1a1a1a;border:1px dashed #333;padding:14px;color:#555;font-size:.72rem;border-radius:4px}
+
+/* =============================================
+   CONTENT CONTAINERS
+   ============================================= */
+.container{max-width:1080px;margin:0 auto;padding:36px 18px}
+
+.sec-title{
+  font-size:1.5rem;
+  color:#f0a500;
+  margin-bottom:24px;
+  padding-left:14px;
+  border-left:4px solid #f0a500;
+  text-shadow:0 0 20px #f0a50040;
+  /* subtle glow behind the title for depth */
+  position:relative;
+}
+.sec-title::before{
+  content:"";
+  position:absolute;
+  left:0;top:50%;transform:translateY(-50%);
+  width:4px;height:100%;
+  background:#f0a500;
+  box-shadow:0 0 12px #f0a500,0 0 24px #f0a50060;
+}
+
+/* =============================================
+   ARTICLE CARDS
+   ============================================= */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+  margin-bottom:36px;
+}
+
+.card{
+  background:linear-gradient(145deg,#1e1e34,#141426);
+  border-radius:14px;
+  padding:22px;
+  border:1px solid #2e2e50;
+  /* 3D layered shadow */
+  box-shadow:
+    0 1px 0 #ffffff08 inset,
+    0 -1px 0 #00000060 inset,
+    0 4px 20px #00000070,
+    0 8px 32px #00000050,
+    0 1px 4px #00000090;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+}
+/* subtle top-edge shimmer */
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,#ffffff18,transparent);
+}
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#f0a50060;
+  box-shadow:
+    0 1px 0 #ffffff10 inset,
+    0 -1px 0 #00000060 inset,
+    0 0 20px #f0a50018,
+    0 12px 40px #00000080,
+    0 2px 6px #000000a0;
+}
+
+.tag{
+  font-size:.62rem;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:20px;
+  display:inline-block;
+  margin-bottom:10px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  box-shadow:0 2px 6px #00000060;
+}
+.ta{background:#f0a500;color:#0d0d0d}
+.tv{background:#cc0000;color:#fff;box-shadow:0 2px 8px #ff000040}
+.tai{background:#6d28d9;color:#fff;box-shadow:0 2px 8px #7c3aed40}
+.tp{background:#0e7490;color:#fff;box-shadow:0 2px 8px #0891b240}
+.te{background:#b91c1c;color:#fff;box-shadow:0 2px 8px #dc262640}
+
+.card h3{font-size:.97rem;margin-bottom:9px;color:#f0f0f0;line-height:1.45}
+.card p{font-size:.84rem;color:#999;line-height:1.6;margin-bottom:12px;flex:1}
+.card a.btn{
+  color:#f0a500;
+  text-decoration:none;
+  font-size:.83rem;
+  font-weight:700;
+  margin-top:auto;
+  transition:color .15s;
+}
+.card a.btn:hover{color:#ffd050;text-shadow:0 0 10px #f0a50060}
+
+/* =============================================
+   VIDEO CARDS
+   ============================================= */
+.vcard{
+  background:linear-gradient(145deg,#1e1e34,#141426);
+  border-radius:14px;
+  border:1px solid #2e2e50;
+  overflow:hidden;
+  box-shadow:
+    0 1px 0 #ffffff08 inset,
+    0 4px 20px #00000070,
+    0 8px 32px #00000050;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+  position:relative;
+}
+.vcard::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,#ffffff18,transparent);
+  z-index:1;
+}
+.vcard:hover{
+  transform:translateY(-6px);
+  border-color:#f0a50060;
+  box-shadow:
+    0 0 20px #f0a50018,
+    0 12px 40px #00000080;
+}
+.vthumb{width:100%;aspect-ratio:16/9;overflow:hidden;display:block}
+.vthumb img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .3s ease,filter .3s ease;
+  filter:brightness(.9) saturate(1.1);
+}
+.vcard:hover .vthumb img{transform:scale(1.04);filter:brightness(1.05) saturate(1.2)}
+.vinfo{padding:16px}
+.vinfo h3{font-size:.93rem;color:#f0f0f0;line-height:1.4;margin-bottom:4px}
+.vinfo p{font-size:.78rem;color:#666}
+.vinfo a{
+  display:inline-block;
+  margin-top:10px;
+  color:#f0a500;
+  text-decoration:none;
+  font-size:.83rem;
+  font-weight:700;
+  transition:color .15s;
+}
+.vinfo a:hover{color:#ffd050;text-shadow:0 0 10px #f0a50060}
+
+/* =============================================
+   PLATFORMS SECTION
+   ============================================= */
+.plat{
+  background:linear-gradient(180deg,#0c0c1a,#080812);
+  padding:48px 18px;
+  text-align:center;
+  box-shadow:
+    0 1px 0 #f0a50012 inset,
+    0 -1px 0 #f0a50012 inset,
+    0 8px 40px #00000060;
+}
+.plat p{color:#999;margin-bottom:22px;font-size:.95rem}
+
+.plinks{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.plinks a{
+  background:linear-gradient(180deg,#222238,#14142a);
+  border:1px solid #2e2e50;
+  color:#e0e0e0;
+  padding:9px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:.85rem;
+  font-weight:500;
+  box-shadow:
+    0 1px 0 #ffffff0c inset,
+    0 3px 10px #00000060,
+    0 1px 3px #000000a0;
+  transition:all .15s ease;
+}
+.plinks a:hover{
+  background:linear-gradient(180deg,#f0a500,#c07800);
+  color:#0d0d0d;
+  border-color:#f0a500;
+  box-shadow:
+    0 1px 0 #ffffff30 inset,
+    0 0 16px #f0a50040,
+    0 4px 14px #00000080;
+  transform:translateY(-2px);
+}
+
+/* =============================================
+   DONATE SECTION
+   ============================================= */
+.donate{
+  background:linear-gradient(180deg,#100000,#080000);
+  padding:56px 18px;
+  box-shadow:inset 0 1px 0 #4a000040,inset 0 -1px 0 #4a000040;
+}
+.donate-inner{
+  max-width:720px;
+  margin:0 auto;
+  text-align:center;
+  border-radius:16px;
+  border:1px solid #5a0000;
+  background:radial-gradient(ellipse at top,#2b0000 0%,#050000 70%);
+  box-shadow:
+    0 0 0 1px #ff000018,
+    0 0 40px rgba(255,0,0,.2),
+    0 8px 48px rgba(0,0,0,.8),
+    inset 0 1px 0 #ff000020;
+  padding:34px 24px;
+}
+.donate p{color:#ddd;line-height:1.75;margin-bottom:16px}
+.donate-tag{
+  display:inline-block;
+  padding:11px 24px;
+  border-radius:999px;
+  border:1px solid #ff4d4d;
+  color:#ffb3b3;
+  font-weight:700;
+  letter-spacing:.5px;
+  background:linear-gradient(180deg,#2a0000,#120000);
+  box-shadow:
+    0 0 20px rgba(255,0,0,.4),
+    0 1px 0 #ff000030 inset;
+}
+.donate small{display:block;margin-top:8px;color:#777;font-size:.78rem}
+.donate-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:11px 28px;
+  border-radius:999px;
+  border:none;
+  background:linear-gradient(180deg,#ff4444,#cc1111);
+  color:#fff;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:
+    0 1px 0 #ff888860 inset,
+    0 -2px 0 #88000060 inset,
+    0 0 22px rgba(255,51,51,.6),
+    0 4px 14px #00000080;
+  cursor:pointer;
+  transition:all .15s ease;
+}
+.donate-btn:hover{
+  background:linear-gradient(180deg,#ff6666,#dd2222);
+  transform:translateY(-2px);
+  box-shadow:
+    0 1px 0 #ffaaaa60 inset,
+    0 -2px 0 #88000060 inset,
+    0 0 30px rgba(255,51,51,.7),
+    0 6px 18px #00000090;
+}
+
+/* =============================================
+   MERCH SECTION
+   ============================================= */
+.merch{
+  background:linear-gradient(180deg,#060609,#040407);
+  padding:52px 18px 64px;
+}
+.merch-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+  margin-top:22px;
+}
+.merch-card{
+  background:linear-gradient(145deg,#1e1e34,#141426);
+  border-radius:14px;
+  border:1px solid #2e2e50;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  box-shadow:
+    0 1px 0 #ffffff08 inset,
+    0 4px 20px #00000060,
+    0 8px 28px #00000040;
+  position:relative;overflow:hidden;
+}
+.merch-card::before{
+  content:"";
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,#ffffff14,transparent);
+}
+.merch-card h3{font-size:1rem;color:#f0f0f0;margin-bottom:9px}
+.merch-card p{font-size:.85rem;color:#999;flex:1;margin-bottom:12px;line-height:1.6}
+.merch-card a{
+  align-self:flex-start;
+  background:linear-gradient(180deg,#f8bc20,#d08800);
+  color:#0d0d0d;
+  padding:9px 20px;
+  border-radius:999px;
+  font-size:.83rem;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:
+    0 1px 0 #ffe08050 inset,
+    0 -1px 0 #80500050 inset,
+    0 3px 12px #f0a50040,
+    0 4px 10px #00000070;
+  transition:all .15s ease;
+}
+.merch-card a:hover{
+  background:linear-gradient(180deg,#ffd030,#e09800);
+  transform:translateY(-1px);
+  box-shadow:
+    0 1px 0 #ffe08070 inset,
+    0 -1px 0 #80500070 inset,
+    0 0 18px #f0a50050,
+    0 5px 14px #00000080;
+}
+
+/* =============================================
+   ABOUT SECTION
+   ============================================= */
+.about{
+  background:linear-gradient(180deg,#0c0c10,#080810);
+  padding:56px 18px;
+  box-shadow:inset 0 1px 0 #f0a50012,inset 0 -1px 0 #f0a50012;
+}
+.about-inner{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:40px;
+  align-items:center;
+  max-width:1080px;
+  margin:0 auto;
+}
+.about-img{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  border:3px solid #f0a500;
+  object-fit:cover;
+  background:linear-gradient(145deg,#1e1e34,#0d0d20);
+  box-shadow:
+    0 0 0 6px #f0a50018,
+    0 0 30px #f0a50040,
+    0 8px 32px #00000080;
+  display:flex;align-items:center;justify-content:center;font-size:3rem;
+}
+.about h2{font-size:1.6rem;color:#f0a500;margin-bottom:12px;text-shadow:0 0 20px #f0a50040}
+.about p{color:#999;line-height:1.82;margin-bottom:12px}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer{
+  background:#050508;
+  border-top:1px solid #f0a50030;
+  padding:28px;
+  text-align:center;
+  color:#444;
+  font-size:.8rem;
+  box-shadow:0 -4px 24px #00000060,inset 0 1px 0 #f0a50018;
+}
+footer a{
+  color:#f0a500;
+  text-decoration:none;
+  margin:0 7px;
+  transition:color .15s;
+}
+footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media(max-width:820px){
+  header{
+    flex-direction:column;
+    gap:14px;
+    padding:16px 16px;
+  }
+  nav{
+    justify-content:center;
+    gap:7px;
+  }
+  nav a{
+    font-size:.75rem;
+    padding:6px 12px;
+  }
+  /* Price bar scrolls a bit faster on mobile for better UX */
+  .price-track{animation-duration:35s}
+}
+@media(max-width:520px){
+  .hero h2{font-size:1.65rem}
+  .about-inner{grid-template-columns:1fr;text-align:center}
+  .about-img{margin:0 auto}
+  nav a{font-size:.72rem;padding:5px 10px}
+  .price-item{padding:0 12px}
+  .price-symbol{font-size:.7rem}
+  .price-val{font-size:.7rem}
+  .price-change{font-size:.65rem;min-width:40px}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== CODE RAIN ========== -->
+<div class="code-rain" aria-hidden="true">
+  <div class="code-column">1010101010101010
+1100110011001100
+0011001100110011
+1010010110100101</div>
+  <div class="code-column">1100101011110000
+0011010100101010
+1111000010101010
+0011001111000011</div>
+  <div class="code-column">0011010100101010
+1111000010101010
+0011001111000011
+1100101011110000</div>
+  <div class="code-column">0101011100110000
+1110001110001110
+0011110000111100
+0101010101010101</div>
+  <div class="code-column">1111000010101010
+0011001111000011
+1100101011110000
+0011010100101010</div>
+  <div class="code-column">0101010101010101
+0011001100110011
+1111000010101010
+0000111100001111</div>
+  <div class="code-column">0011001111000011
+1100101011110000
+0101011100110000
+1110001110001110</div>
+</div>
+
+<!-- ========== HEADER ========== -->
+<!-- CHANGE 1: Removed "Home" button (was: <a class="nav-home" href="#home">Home</a>) -->
+<!-- CHANGE 2: Removed "Learn Cardano" button — placeholder for future Cardano learning game link -->
+<header>
+  <h1>Learn With <span>Hatty</span></h1>
+  <nav>
+    <!-- TODO: When Cardano learning game is ready, add a new button here, e.g.:
+         <a class="nav-cardano" href="YOUR_GAME_URL" target="_blank">Cardano Game</a>
+         Then add a matching .nav-cardano style in the CSS (see nav-home comment above). -->
+    <a href="https://earn-with-hatty-tools.netlify.app" target="_blank">Tools</a>
+    <a href="https://hattyhats.github.io/voi-maze/" target="_blank">Voi Maze</a>
+    <a href="https://privacy-gadgets-hub.netlify.app/" target="_blank">Privacy Gadgets Hub</a>
+    <a href="https://hatty-universe.netlify.app" target="_blank">Hatty's Universe</a>
+  </nav>
+</header>
+
+<!-- ========== CRYPTO PRICE BAR ========== -->
+<!-- CHANGE 3: Added live crypto price ticker — same behavior as tools site.
+     Fetches from CoinGecko's free public API (no key required).
+     Displays: BTC, ETH, ADA, SOL, XRP, BNB, DOGE, DOT, AVAX, LINK
+     Auto-refreshes every 60 seconds. Hover to pause scrolling. -->
+<div class="price-bar" id="priceBar" aria-label="Live cryptocurrency prices">
+  <div class="price-track" id="priceTrack">
+    <span class="price-loading">Loading live prices…</span>
+  </div>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+  <h2>Crypto. AI. Web3. Real Talk.</h2>
+  <p>Fact-checked insights on blockchain, AI, privacy and decentralized finance by Tony D'Andria (HattyHats) from Columbus, Ohio.</p>
+  <a href="#articles">Read Latest Content</a>
+</section>
+
+<!-- ========== ARTICLES ========== -->
+<div class="container" id="articles">
+  <h2 class="sec-title">Latest Articles</h2>
+  <div class="cards">
+    <div class="card">
+      <span class="tag te">Finance</span>
+      <h3>Bryce's Secret: How Jane Street Allegedly Rigged the Crash</h3>
+      <p>Is Jane Street manipulating the market or just playing the game better than everyone else?</p>
+      <a class="btn" href="https://www.bulbapp.io/p/6f9a2b26-d73d-4ddd-bcdc-539273b2f2a9/bryces-secret-how-jane-street-allegedly-rigged-the-crash" target="_blank">Read on Bulb &rarr;</a>
+    </div>
+    <div class="card">
+      <span class="tag tp">Security</span>
+      <h3>Turn Any USB Stick Into a Crypto Vault</h3>
+      <p>The complete truth about cold storage using VeraCrypt and Coinomi on any USB drive.</p>
+      <a class="btn" href="https://www.bulbapp.io/p/fd94544b-7ad7-42fc-ba43-da4237f830e7/turn-any-usb-stick-into-a-crypto-vault-veracrypt-coinomi-and-the-truth-about-coldstorage" target="_blank">Read on Bulb &rarr;</a>
+    </div>
+    <div class="card">
+      <span class="tag tp">Privacy</span>
+      <h3>Is Facebook Addicting Our Kids?</h3>
+      <p>A hard look at social media addiction and its impact on children and families.</p>
+      <a class="btn" href="https://www.bulbapp.io/p/2b2515a8-f6f1-44fc-ac8a-c0da140a4db2/is-facebook-addicting-our-kids" target="_blank">Read on Bulb &rarr;</a>
+    </div>
+    <div class="card">
+      <span class="tag te">Economics</span>
+      <h3>What Trump's 15% Global Tariff Really Means</h3>
+      <p>What a sweeping 15% global tariff actually means for your money and crypto markets.</p>
+      <a class="btn" href="https://www.bulbapp.io/p/1923e7c5-02f1-404f-8a58-309200bca841/what-trumps-15-global-tariff-reallymeans" target="_blank">Read on Bulb &rarr;</a>
+    </div>
+    <div class="card">
+      <span class="tag tai">AI</span>
+      <h3>The AI-Only Social Network: Reddit for Bots</h3>
+      <p>The bizarre rise of AI-only social networks and the human puppet masters behind them.</p>
+      <a class="btn" href="https://www.bulbapp.io/p/ab4c084a-0db2-4c1c-a790-055f5005d7fc/the-ai-only-social-network-thats-basically-reddit-for-bots-and-the-human-puppet-masters-ruining-th" target="_blank">Read on Bulb &rarr;</a>
+    </div>
+    <div class="card">
+      <span class="tag tai">AI</span>
+      <h3>The Viral AI Agent Taking Over 2026</h3>
+      <p>OpenClaw is the AI agent everyone is talking about. Equal parts genius and chaos.</p>
+      <a class="btn" href="https://www.bulbapp.io/p/4759dc6c-0296-443a-b061-cf0ec4cd221d/the-viral-ai-agent-taking-over-2026-and-why-its-equal-parts-genius-andchaos" target="_blank">Read on Bulb &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== VIDEOS ========== -->
+<div class="container" id="videos">
+  <h2 class="sec-title">Latest Videos</h2>
+  <div class="cards">
+    <div class="vcard">
+      <a class="vthumb" href="https://youtu.be/A9YtF7Wq0oI?si=w5VWWbwovr4IMlpB" target="_blank">
+        <img src="https://img.youtube.com/vi/A9YtF7Wq0oI/hqdefault.jpg" alt="Did Jane Street Help Nuke Terra and Suppress Bitcoin?">
+      </a>
+      <div class="vinfo">
+        <span class="tag tv">YouTube</span>
+        <h3>Did Jane Street Help Nuke Terra and Suppress Bitcoin?</h3>
+        <p>New</p>
+        <a href="https://youtu.be/A9YtF7Wq0oI?si=w5VWWbwovr4IMlpB" target="_blank">Watch Now &rarr;</a>
+      </div>
+    </div>
+    <div class="vcard">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank">
+        <img src="https://img.youtube.com/vi/KOiFqfIh6AM/hqdefault.jpg" alt="Epstein Dump">
+      </a>
+      <div class="vinfo">
+        <span class="tag tv">YouTube</span>
+        <h3>What's Actually Inside the 2025 Epstein Dump?</h3>
+        <p>6 days ago</p>
+        <a href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank">Watch Now &rarr;</a>
+      </div>
+    </div>
+    <div class="vcard">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=w3JdEdCgNzY" target="_blank">
+        <img src="https://img.youtube.com/vi/w3JdEdCgNzY/hqdefault.jpg" alt="GenWealth">
+      </a>
+      <div class="vinfo">
+        <span class="tag tv">YouTube</span>
+        <h3>GenWealth Basics &amp; Crypto's Inheritance Problem (Part 1)</h3>
+        <p>12 days ago</p>
+        <a href="https://www.youtube.com/watch?v=w3JdEdCgNzY" target="_blank">Watch Now &rarr;</a>
+      </div>
+    </div>
+    <div class="vcard">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=w372WK3p3YQ" target="_blank">
+        <img src="https://img.youtube.com/vi/w372WK3p3YQ/hqdefault.jpg" alt="AI Slop">
+      </a>
+      <div class="vinfo">
+        <span class="tag tv">YouTube</span>
+        <h3>AI Slop Rewiring Kids' Brains?</h3>
+        <p>3 weeks ago</p>
+        <a href="https://www.youtube.com/watch?v=w372WK3p3YQ" target="_blank">Watch Now &rarr;</a>
+      </div>
+    </div>
+    <div class="vcard">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=2t46ZtDMiWE" target="_blank">
+        <img src="https://img.youtube.com/vi/2t46ZtDMiWE/hqdefault.jpg" alt="Web3 Gaming">
+      </a>
+      <div class="vinfo">
+        <span class="tag tv">YouTube</span>
+        <h3>Web3 Gaming, Real Ownership &amp; the Future of the Metaverse</h3>
+        <p>1 month ago</p>
+        <a href="https://www.youtube.com/watch?v=2t46ZtDMiWE" target="_blank">Watch Now &rarr;</a>
+      </div>
+    </div>
+    <div class="vcard">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=-L3Du0qK8Q0" target="_blank">
+        <img src="https://img.youtube.com/vi/-L3Du0qK8Q0/hqdefault.jpg" alt="Fountain of Voi">
+      </a>
+      <div class="vinfo">
+        <span class="tag tv">YouTube</span>
+        <h3>The Fountain of Voi</h3>
+        <p>1 month ago</p>
+        <a href="https://www.youtube.com/watch?v=-L3Du0qK8Q0" target="_blank">Watch Now &rarr;</a>
+      </div>
+    </div>
+    <div class="vcard">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=eiFoKcKvVN0" target="_blank">
+        <img src="https://img.youtube.com/vi/eiFoKcKvVN0/hqdefault.jpg" alt="Running a Voi Node">
+      </a>
+      <div class="vinfo">
+        <span class="tag tv">YouTube</span>
+        <h3>Running a Voi Node</h3>
+        <p>1 month ago</p>
+        <a href="https://www.youtube.com/watch?v=eiFoKcKvVN0" target="_blank">Watch Now &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PLATFORMS ========== -->
+<section class="plat" id="platforms">
+  <div class="container">
+    <h2 class="sec-title" style="text-align:left">Find Me On These Platforms</h2>
+    <p>I publish content daily across Web2 and Web3 platforms. Follow along for crypto and AI insights.</p>
+    <div class="plinks">
+      <a href="https://x.com/hatty_hats" target="_blank">X (Twitter)</a>
+      <a href="https://www.youtube.com/@hattyhats0" target="_blank">YouTube</a>
+      <a href="https://www.bulbapp.io" target="_blank">Bulb</a>
+      <a href="https://www.publish0x.com" target="_blank">PublishOx</a>
+      <a href="https://medium.com" target="_blank">Medium</a>
+      <a href="https://cryptonaut.id/HattyHats" target="_blank">Cryptonaut</a>
+      <a href="https://tangled.com/u/hattyhats" target="_blank">Tangled</a>
+      <a href="https://tiktok.com" target="_blank">TikTok</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MERCH ========== -->
+<section class="merch" id="merch">
+  <div class="container">
+    <h2 class="sec-title">Merch Store</h2>
+    <p style="color:#999;max-width:640px;margin-bottom:18px">
+      Rep the brand and support the channel with official Earn With Hatty merch.
+    </p>
+    <div class="merch-grid">
+      <div class="merch-card">
+        <h3>Hats, Hoodies &amp; Tees</h3>
+        <p>Grab logo gear and clean designs built for crypto and AI nerds who live in dark mode.</p>
+        <a href="https://learn-with-hatty.printify.me/" target="_blank">Shop Merch &rarr;</a>
+      </div>
+      <div class="merch-card">
+        <h3>Desk &amp; Office Gear</h3>
+        <p>Desk accessories and office gear are <strong style="color:#f0f0f0">coming soon</strong>. Check back for new drops.</p>
+        <span style="font-size:.8rem;color:#f0a500;font-weight:700;text-transform:uppercase;letter-spacing:.5px;">Coming Soon</span>
+      </div>
+      <div class="merch-card">
+        <h3>All Products</h3>
+        <p>A full catalog page is <strong style="color:#f0f0f0">coming soon</strong> once more product lines are live.</p>
+        <span style="font-size:.8rem;color:#f0a500;font-weight:700;text-transform:uppercase;letter-spacing:.5px;">Coming Soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DONATE ========== -->
+<section class="donate" id="donate">
+  <div class="donate-inner">
+    <h2 class="sec-title" style="margin-bottom:16px;border-left:none;padding-left:0;text-align:center">Support The Work</h2>
+    <p>Like the research, videos and write&#8209;ups? If you want to tip the channel directly, you can send a donation via Cash App.</p>
+    <span class="donate-tag">$hattyhatss</span>
+    <small>Copy the tag in your Cash App and choose any amount you want.</small>
+    <a class="donate-btn" href="https://cash.app/$hattyhatss" target="_blank" rel="noopener">Open Cash App</a>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img">🎩</div>
+    <div>
+      <h2>About Hatty</h2>
+      <p>Hey! I'm Tony D'Andria, a content creator, blockchain enthusiast, and tech writer based in Columbus, Ohio. I go by <strong>HattyHats</strong> online.</p>
+      <p>I cover cryptocurrency, AI, privacy, and Web3 across multiple platforms with over 1,400 YouTube subscribers and 180+ published articles. My goal is to make complex tech topics accessible and actionable for everyday people.</p>
+      <p>From Cardano governance to AI safety risks, I dig deep so you don't have to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>&copy; 2026 Earn With Hatty &mdash; earnwithhatty.com</p>
+  <p style="margin-top:10px">
+    <a href="/privacy-policy.html">Privacy Policy</a> |
+    <a href="https://x.com/hatty_hats" target="_blank">X (Twitter)</a> |
+    <a href="https://www.youtube.com/@hattyhats0" target="_blank">YouTube</a> |
+    <a href="https://earn-with-hatty-tools.netlify.app" target="_blank">Tools</a> |
+    <a href="mailto:hattyhatss@icloud.com">Contact</a>
+  </p>
+  <p style="margin-top:8px;font-size:.7rem;color:#333">This site may display advertisements and affiliate links.</p>
+</footer>
+
+<!-- ========== CRYPTO PRICE BAR SCRIPT ========== -->
+<!-- Fetches live prices from CoinGecko's free public API (no API key needed).
+     To add/remove coins: edit the COINS array below.
+     To change refresh rate: edit the setInterval value (ms). Currently 60000 = 60 seconds. -->
+<script>
+(function() {
+  /* ── Coin list ── Add or remove entries to customize what appears in the ticker */
+  const COINS = [
+    { id: 'bitcoin',       sym: 'BTC'  },
+    { id: 'ethereum',      sym: 'ETH'  },
+    { id: 'cardano',       sym: 'ADA'  },
+    { id: 'solana',        sym: 'SOL'  },
+    { id: 'ripple',        sym: 'XRP'  },
+    { id: 'binancecoin',   sym: 'BNB'  },
+    { id: 'dogecoin',      sym: 'DOGE' },
+    { id: 'polkadot',      sym: 'DOT'  },
+    { id: 'avalanche-2',   sym: 'AVAX' },
+    { id: 'chainlink',     sym: 'LINK' },
+  ];
+
+  /* ── Format a USD price neatly regardless of magnitude ── */
+  function fmt(price) {
+    if (price >= 10000) return '$' + price.toLocaleString('en-US', { maximumFractionDigits: 0 });
+    if (price >= 1000)  return '$' + price.toLocaleString('en-US', { maximumFractionDigits: 0 });
+    if (price >= 1)     return '$' + price.toFixed(2);
+    if (price >= 0.01)  return '$' + price.toFixed(4);
+    return '$' + price.toFixed(6);
+  }
+
+  /* ── Build one set of ticker items from API data ── */
+  function buildItems(data) {
+    return COINS.map(function(c) {
+      var d = data[c.id];
+      if (!d) return '';
+      var change = d.usd_24h_change || 0;
+      var changeStr = (change >= 0 ? '+' : '') + change.toFixed(2) + '%';
+      var cls = change >= 0 ? 'up' : 'down';
+      return '<span class="price-item">'
+        + '<span class="price-symbol">' + c.sym + '</span>'
+        + '<span class="price-val">'    + fmt(d.usd) + '</span>'
+        + '<span class="price-change ' + cls + '">' + changeStr + '</span>'
+        + '</span>';
+    }).join('');
+  }
+
+  /* ── Fetch prices and update the DOM ── */
+  async function loadPrices() {
+    var track = document.getElementById('priceTrack');
+    if (!track) return;
+    try {
+      var ids = COINS.map(function(c){ return c.id; }).join(',');
+      var url = 'https://api.coingecko.com/api/v3/simple/price'
+              + '?ids=' + ids
+              + '&vs_currencies=usd'
+              + '&include_24hr_change=true';
+      var res  = await fetch(url);
+      if (!res.ok) throw new Error('CoinGecko ' + res.status);
+      var data = await res.json();
+      var items = buildItems(data);
+      if (!items) throw new Error('No data');
+      /* Duplicate content so the CSS scroll animation loops seamlessly */
+      track.innerHTML = items + items;
+    } catch (err) {
+      /* On error: hide the bar silently so it doesn't break layout */
+      var bar = document.getElementById('priceBar');
+      if (bar) bar.style.display = 'none';
+      console.warn('[PriceBar] Failed to load prices:', err.message);
+    }
+  }
+
+  /* ── Init on DOM ready ── */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadPrices);
+  } else {
+    loadPrices();
+  }
+
+  /* ── Refresh every 60 seconds ── */
+  setInterval(loadPrices, 60000);
+})();
+</script>
+
+</body>
+</html>
