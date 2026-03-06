@@ -81,7 +81,6 @@ header{
   position:sticky;
   top:0;
   z-index:100;
-  /* 3D depth: layered box shadows */
   box-shadow:
     0 1px 0 #f0a50020,
     0 4px 24px #00000090,
@@ -108,9 +107,8 @@ nav{
   justify-content:flex-end;
 }
 
-/* ──── 3D NAV BUTTONS ──── */
+/* ---- 3D NAV BUTTONS ---- */
 nav a{
-  /* base colors */
   color:#e8e8e8;
   text-decoration:none;
   font-size:.8rem;
@@ -119,20 +117,13 @@ nav a{
   padding:7px 15px;
   border-radius:8px;
   white-space:nowrap;
-
-  /* layered gradient for depth illusion */
   background:linear-gradient(180deg,#2a2a40 0%,#16162a 60%,#0f0f20 100%);
-
-  /* inset top-edge highlight (simulates light source from above) */
   border:1px solid #3a3a58;
-
-  /* shadows: outer glow + depth drop */
   box-shadow:
-    0 1px 0 #ffffff14 inset,       /* top highlight */
-    0 -1px 0 #00000060 inset,      /* bottom shadow inside */
-    0 3px 8px #00000080,           /* drop shadow */
-    0 1px 2px #000000a0;           /* tight base shadow */
-
+    0 1px 0 #ffffff14 inset,
+    0 -1px 0 #00000060 inset,
+    0 3px 8px #00000080,
+    0 1px 2px #000000a0;
   transition:all .15s ease;
   position:relative;
   top:0;
@@ -145,14 +136,14 @@ nav a:hover{
   box-shadow:
     0 1px 0 #ffffff18 inset,
     0 -1px 0 #00000060 inset,
-    0 0 14px #f0a50030,            /* subtle gold glow */
+    0 0 14px #f0a50030,
     0 4px 12px #00000090,
     0 1px 3px #000000b0;
-  top:-1px;                        /* slight lift */
+  top:-1px;
 }
 
 nav a:active{
-  top:1px;                         /* press down */
+  top:1px;
   box-shadow:
     0 1px 0 #00000040 inset,
     0 -1px 0 #ffffff08 inset,
@@ -160,10 +151,6 @@ nav a:active{
     0 0 8px #f0a50020;
   background:linear-gradient(180deg,#0f0f20 0%,#1a1a30 100%);
 }
-
-/* NOTE: .nav-home styles removed — "Home" button removed from nav.
-   When you add the Cardano learning game button, you can add a
-   new accent class here (e.g. .nav-cardano) using the same pattern. */
 
 /* =============================================
    CRYPTO PRICE BAR
@@ -178,11 +165,9 @@ nav a:active{
     0 2px 14px #00000070,
     inset 0 -1px 0 #f0a50014,
     inset 0 1px 0 #ffffff06;
-  /* Sits just below sticky header */
   z-index:99;
 }
 
-/* Left/right fade edges for a polished look */
 .price-bar::before,
 .price-bar::after{
   content:"";
@@ -201,23 +186,20 @@ nav a:active{
   background:linear-gradient(-90deg,#050512,transparent);
 }
 
-/* Scrolling track — JS doubles the content for seamless loop */
 .price-track{
   display:flex;
   white-space:nowrap;
-  /* animation duration set in JS based on item count for consistent speed */
   animation:priceScroll 50s linear infinite;
   will-change:transform;
 }
 .price-track:hover{
-  animation-play-state:paused; /* pause on hover so users can read */
+  animation-play-state:paused;
 }
 @keyframes priceScroll{
   0%{transform:translateX(0);}
   100%{transform:translateX(-50%);}
 }
 
-/* Individual coin pill */
 .price-item{
   display:inline-flex;
   align-items:center;
@@ -245,7 +227,6 @@ nav a:active{
 .price-change.up{color:#22c55e}
 .price-change.down{color:#f87171}
 
-/* Loading / error state */
 .price-loading{
   display:inline-block;
   padding:0 20px;
@@ -263,13 +244,11 @@ nav a:active{
   text-align:center;
   padding:80px 28px;
   position:relative;
-  /* layered bottom shadow for depth */
   box-shadow:
     0 8px 40px #00000090,
     0 1px 0 #f0a50020,
     inset 0 -1px 0 #f0a50015;
 }
-/* subtle grid overlay for tech feel */
 .hero::after{
   content:"";
   position:absolute;
@@ -295,7 +274,6 @@ nav a:active{
   line-height:1.7;
   position:relative;z-index:1;
 }
-/* Hero CTA button — 3D pill */
 .hero a{
   position:relative;z-index:1;
   display:inline-block;
@@ -327,7 +305,7 @@ nav a:active{
 .hero a:active{transform:translateY(1px)}
 
 /* =============================================
-   AD WRAPPER (kept for future use)
+   AD WRAPPER
    ============================================= */
 .ad-wrap{text-align:center;margin:20px auto;max-width:728px;padding:0 10px}
 .ad-box{background:#1a1a1a;border:1px dashed #333;padding:14px;color:#555;font-size:.72rem;border-radius:4px}
@@ -344,7 +322,6 @@ nav a:active{
   padding-left:14px;
   border-left:4px solid #f0a500;
   text-shadow:0 0 20px #f0a50040;
-  /* subtle glow behind the title for depth */
   position:relative;
 }
 .sec-title::before{
@@ -371,7 +348,6 @@ nav a:active{
   border-radius:14px;
   padding:22px;
   border:1px solid #2e2e50;
-  /* 3D layered shadow */
   box-shadow:
     0 1px 0 #ffffff08 inset,
     0 -1px 0 #00000060 inset,
@@ -384,7 +360,6 @@ nav a:active{
   position:relative;
   overflow:hidden;
 }
-/* subtle top-edge shimmer */
 .card::before{
   content:"";
   position:absolute;
@@ -715,7 +690,6 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
     font-size:.75rem;
     padding:6px 12px;
   }
-  /* Price bar scrolls a bit faster on mobile for better UX */
   .price-track{animation-duration:35s}
 }
 @media(max-width:520px){
@@ -765,29 +739,21 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
 </div>
 
 <!-- ========== HEADER ========== -->
-<!-- CHANGE 1: Removed "Home" button (was: <a class="nav-home" href="#home">Home</a>) -->
-<!-- CHANGE 2: Removed "Learn Cardano" button — placeholder for future Cardano learning game link -->
 <header>
   <h1>Learn With <span>Hatty</span></h1>
   <nav>
-    <!-- TODO: When Cardano learning game is ready, add a new button here, e.g.:
-         <a class="nav-cardano" href="YOUR_GAME_URL" target="_blank">Cardano Game</a>
-         Then add a matching .nav-cardano style in the CSS (see nav-home comment above). -->
     <a href="https://earn-with-hatty-tools.netlify.app" target="_blank">Tools</a>
     <a href="https://hattyhats.github.io/voi-maze/" target="_blank">Voi Maze</a>
+    <a href="https://cardano-quest-island.netlify.app" target="_blank">Cardano Quest</a>
     <a href="https://privacy-gadgets-hub.netlify.app/" target="_blank">Privacy Gadgets Hub</a>
     <a href="https://hatty-universe.netlify.app" target="_blank">Hatty's Universe</a>
   </nav>
 </header>
 
 <!-- ========== CRYPTO PRICE BAR ========== -->
-<!-- CHANGE 3: Added live crypto price ticker — same behavior as tools site.
-     Fetches from CoinGecko's free public API (no key required).
-     Displays: BTC, ETH, ADA, SOL, XRP, BNB, DOGE, DOT, AVAX, LINK
-     Auto-refreshes every 60 seconds. Hover to pause scrolling. -->
 <div class="price-bar" id="priceBar" aria-label="Live cryptocurrency prices">
   <div class="price-track" id="priceTrack">
-    <span class="price-loading">Loading live prices…</span>
+    <span class="price-loading">Loading live prices&hellip;</span>
   </div>
 </div>
 
@@ -1008,12 +974,8 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
 </footer>
 
 <!-- ========== CRYPTO PRICE BAR SCRIPT ========== -->
-<!-- Fetches live prices from CoinGecko's free public API (no API key needed).
-     To add/remove coins: edit the COINS array below.
-     To change refresh rate: edit the setInterval value (ms). Currently 60000 = 60 seconds. -->
 <script>
 (function() {
-  /* ── Coin list ── Add or remove entries to customize what appears in the ticker */
   const COINS = [
     { id: 'bitcoin',       sym: 'BTC'  },
     { id: 'ethereum',      sym: 'ETH'  },
@@ -1027,7 +989,6 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
     { id: 'chainlink',     sym: 'LINK' },
   ];
 
-  /* ── Format a USD price neatly regardless of magnitude ── */
   function fmt(price) {
     if (price >= 10000) return '$' + price.toLocaleString('en-US', { maximumFractionDigits: 0 });
     if (price >= 1000)  return '$' + price.toLocaleString('en-US', { maximumFractionDigits: 0 });
@@ -1036,7 +997,6 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
     return '$' + price.toFixed(6);
   }
 
-  /* ── Build one set of ticker items from API data ── */
   function buildItems(data) {
     return COINS.map(function(c) {
       var d = data[c.id];
@@ -1052,7 +1012,6 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
     }).join('');
   }
 
-  /* ── Fetch prices and update the DOM ── */
   async function loadPrices() {
     var track = document.getElementById('priceTrack');
     if (!track) return;
@@ -1067,24 +1026,20 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
       var data = await res.json();
       var items = buildItems(data);
       if (!items) throw new Error('No data');
-      /* Duplicate content so the CSS scroll animation loops seamlessly */
       track.innerHTML = items + items;
     } catch (err) {
-      /* On error: hide the bar silently so it doesn't break layout */
       var bar = document.getElementById('priceBar');
       if (bar) bar.style.display = 'none';
       console.warn('[PriceBar] Failed to load prices:', err.message);
     }
   }
 
-  /* ── Init on DOM ready ── */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadPrices);
   } else {
     loadPrices();
   }
 
-  /* ── Refresh every 60 seconds ── */
   setInterval(loadPrices, 60000);
 })();
 </script>
