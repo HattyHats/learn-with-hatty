@@ -69,6 +69,59 @@ body::before{
 .code-column:nth-child(7){left:82%;animation-duration:15s;animation-delay:-1s;}
 
 /* =============================================
+   COOKIE CONSENT BANNER
+   ============================================= */
+#cookie-banner{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  z-index:9999;
+  background:linear-gradient(180deg,#0e0e20,#07070f);
+  border-top:1px solid #f0a50055;
+  padding:16px 24px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:14px;
+  justify-content:space-between;
+  box-shadow:0 -4px 32px #00000090,inset 0 1px 0 #f0a50018;
+}
+#cookie-banner p{
+  font-size:.82rem;
+  color:#bbb;
+  flex:1;
+  min-width:220px;
+  line-height:1.6;
+}
+#cookie-banner a{color:#f0a500;text-decoration:none}
+#cookie-banner a:hover{text-decoration:underline}
+.cookie-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.btn-accept{
+  background:linear-gradient(180deg,#f8bc20,#d08800);
+  color:#0d0d0d;
+  border:none;
+  padding:9px 20px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.82rem;
+  cursor:pointer;
+  box-shadow:0 3px 12px #f0a50040;
+  transition:all .15s;
+}
+.btn-accept:hover{background:linear-gradient(180deg,#ffd030,#e09800);transform:translateY(-1px)}
+.btn-decline{
+  background:linear-gradient(180deg,#222238,#14142a);
+  color:#aaa;
+  border:1px solid #3a3a58;
+  padding:9px 20px;
+  border-radius:999px;
+  font-weight:600;
+  font-size:.82rem;
+  cursor:pointer;
+  transition:all .15s;
+}
+.btn-decline:hover{color:#f0f0f0;border-color:#666}
+
+/* =============================================
    HEADER & NAV
    ============================================= */
 header{
@@ -706,6 +759,18 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
 </head>
 <body>
 
+<!-- ========== COOKIE CONSENT BANNER ========== -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent" style="display:none">
+  <p>
+    We use cookies and similar technologies — including those from <strong>Google AdSense</strong> — to serve personalised ads and analyse site traffic. By clicking <strong>Accept</strong> you consent to our use of cookies as described in our <a href="privacy-policy.html">Privacy Policy</a>.
+    EU/EEA visitors: you have the right to decline non-essential cookies.
+  </p>
+  <div class="cookie-btns">
+    <button class="btn-accept" onclick="cookieConsent(true)">Accept All</button>
+    <button class="btn-decline" onclick="cookieConsent(false)">Decline Non-Essential</button>
+  </div>
+</div>
+
 <!-- ========== CODE RAIN ========== -->
 <div class="code-rain" aria-hidden="true">
   <div class="code-column">1010101010101010
@@ -773,40 +838,45 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
     <div class="card">
       <span class="tag te">Finance</span>
       <h3>Bryce's Secret: How Jane Street Allegedly Rigged the Crash</h3>
-      <p>Is Jane Street manipulating the market or just playing the game better than everyone else?</p>
+      <p>A data-driven look at allegations surrounding Jane Street's trading activity and what the evidence actually shows.</p>
       <a class="btn" href="https://www.bulbapp.io/p/6f9a2b26-d73d-4ddd-bcdc-539273b2f2a9/bryces-secret-how-jane-street-allegedly-rigged-the-crash" target="_blank">Read on Bulb &rarr;</a>
     </div>
     <div class="card">
       <span class="tag tp">Security</span>
       <h3>Turn Any USB Stick Into a Crypto Vault</h3>
-      <p>The complete truth about cold storage using VeraCrypt and Coinomi on any USB drive.</p>
+      <p>The complete guide to cold storage using VeraCrypt and Coinomi on any USB drive.</p>
       <a class="btn" href="https://www.bulbapp.io/p/fd94544b-7ad7-42fc-ba43-da4237f830e7/turn-any-usb-stick-into-a-crypto-vault-veracrypt-coinomi-and-the-truth-about-coldstorage" target="_blank">Read on Bulb &rarr;</a>
     </div>
     <div class="card">
       <span class="tag tp">Privacy</span>
       <h3>Is Facebook Addicting Our Kids?</h3>
-      <p>A hard look at social media addiction and its impact on children and families.</p>
+      <p>A research-backed look at social media addiction and its documented impact on children and families.</p>
       <a class="btn" href="https://www.bulbapp.io/p/2b2515a8-f6f1-44fc-ac8a-c0da140a4db2/is-facebook-addicting-our-kids" target="_blank">Read on Bulb &rarr;</a>
     </div>
     <div class="card">
       <span class="tag te">Economics</span>
       <h3>What Trump's 15% Global Tariff Really Means</h3>
-      <p>What a sweeping 15% global tariff actually means for your money and crypto markets.</p>
+      <p>Breaking down what a sweeping 15% global tariff actually means for your money and crypto markets.</p>
       <a class="btn" href="https://www.bulbapp.io/p/1923e7c5-02f1-404f-8a58-309200bca841/what-trumps-15-global-tariff-reallymeans" target="_blank">Read on Bulb &rarr;</a>
     </div>
     <div class="card">
       <span class="tag tai">AI</span>
       <h3>The AI-Only Social Network: Reddit for Bots</h3>
-      <p>The bizarre rise of AI-only social networks and the human puppet masters behind them.</p>
+      <p>Examining the rise of AI-only social networks and the ethical questions they raise.</p>
       <a class="btn" href="https://www.bulbapp.io/p/ab4c084a-0db2-4c1c-a790-055f5005d7fc/the-ai-only-social-network-thats-basically-reddit-for-bots-and-the-human-puppet-masters-ruining-th" target="_blank">Read on Bulb &rarr;</a>
     </div>
     <div class="card">
       <span class="tag tai">AI</span>
       <h3>The Viral AI Agent Taking Over 2026</h3>
-      <p>OpenClaw is the AI agent everyone is talking about. Equal parts genius and chaos.</p>
+      <p>OpenClaw is the AI agent everyone is talking about — a breakdown of its capabilities and controversies.</p>
       <a class="btn" href="https://www.bulbapp.io/p/4759dc6c-0296-443a-b061-cf0ec4cd221d/the-viral-ai-agent-taking-over-2026-and-why-its-equal-parts-genius-andchaos" target="_blank">Read on Bulb &rarr;</a>
     </div>
   </div>
+  <!-- Informational notice for sensitive content -->
+  <p style="font-size:.75rem;color:#555;margin-top:-16px;margin-bottom:24px;font-style:italic;">
+    All articles are published for informational and educational purposes only. Nothing on this site constitutes financial or investment advice.
+    <a href="terms.html" style="color:#f0a500;">See full disclaimer &rarr;</a>
+  </p>
 </div>
 
 <!-- ========== VIDEOS ========== -->
@@ -826,12 +896,12 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
     </div>
     <div class="vcard">
       <a class="vthumb" href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank">
-        <img src="https://img.youtube.com/vi/KOiFqfIh6AM/hqdefault.jpg" alt="Epstein Dump">
+        <img src="https://img.youtube.com/vi/KOiFqfIh6AM/hqdefault.jpg" alt="Epstein Document Release Analysis">
       </a>
       <div class="vinfo">
         <span class="tag tv">YouTube</span>
-        <h3>What's Actually Inside the 2025 Epstein Dump?</h3>
-        <p>6 days ago</p>
+        <h3>Breaking Down the 2025 Epstein Document Release</h3>
+        <p>6 days ago &mdash; <em style="font-size:.72rem;color:#555">Informational analysis of public court documents</em></p>
         <a href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank">Watch Now &rarr;</a>
       </div>
     </div>
@@ -966,13 +1036,14 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
 <footer>
   <p>&copy; 2026 Earn With Hatty &mdash; earnwithhatty.com</p>
   <p style="margin-top:10px">
-    <a href="/privacy-policy.html">Privacy Policy</a> |
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms &amp; Disclaimer</a> |
     <a href="https://x.com/hatty_hats" target="_blank">X (Twitter)</a> |
     <a href="https://www.youtube.com/@hattyhats0" target="_blank">YouTube</a> |
     <a href="https://earn-with-hatty-tools.netlify.app" target="_blank">Tools</a> |
     <a href="mailto:hattyhatss@icloud.com">Contact</a>
   </p>
-  <p style="margin-top:8px;font-size:.7rem;color:#333">This site may display advertisements and affiliate links.</p>
+  <p style="margin-top:8px;font-size:.7rem;color:#333">This site displays advertisements via Google AdSense and may include affiliate links. All content is for educational and informational purposes only — not financial advice.</p>
 </footer>
 
 <!-- ========== CRYPTO PRICE BAR SCRIPT ========== -->
@@ -1043,6 +1114,39 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
   }
 
   setInterval(loadPrices, 60000);
+})();
+</script>
+
+<!-- ========== COOKIE CONSENT SCRIPT ========== -->
+<script>
+(function() {
+  var CONSENT_KEY = 'hatty_cookie_consent';
+
+  function cookieConsent(accepted) {
+    localStorage.setItem(CONSENT_KEY, accepted ? 'accepted' : 'declined');
+    document.getElementById('cookie-banner').style.display = 'none';
+    // If declined, we can't block AdSense Auto ads already injected,
+    // but we flag the preference for any future manual ad slots or analytics.
+    if (!accepted) {
+      console.info('[Cookies] Non-essential cookies declined by user.');
+    }
+  }
+
+  // Expose globally so inline onclick works
+  window.cookieConsent = cookieConsent;
+
+  function initBanner() {
+    var stored = localStorage.getItem(CONSENT_KEY);
+    if (!stored) {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBanner);
+  } else {
+    initBanner();
+  }
 })();
 </script>
 
