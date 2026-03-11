@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learn With Hatty</title>
-<meta name="description" content="Crypto, AI and Web3 insights by HattyHats.">
+<title>Learn With Hatty — Crypto, AI &amp; Web3 Education</title>
+<meta name="description" content="In-depth educational articles and videos on cryptocurrency, AI, Web3, privacy, and personal finance by HattyHats. Learn, stay informed, and think critically.">
 
-<!-- AdSense Auto ads code -->
+<!-- AdSense Auto ads code — unchanged -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6374033238930580"
      crossorigin="anonymous"></script>
 
@@ -140,8 +140,6 @@ header{
     0 8px 48px #00000060,
     inset 0 1px 0 #ffffff0a;
 }
-
-/* Logo */
 header h1{
   font-size:1.45rem;
   color:#f0a500;
@@ -150,24 +148,20 @@ header h1{
   white-space:nowrap;
 }
 header h1 span{color:#fff}
-
-/* Nav wrapper */
 nav{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:6px;
   flex-wrap:wrap;
   justify-content:flex-end;
 }
-
-/* ---- 3D NAV BUTTONS ---- */
 nav a{
   color:#e8e8e8;
   text-decoration:none;
-  font-size:.8rem;
+  font-size:.78rem;
   font-weight:600;
-  letter-spacing:.4px;
-  padding:7px 15px;
+  letter-spacing:.3px;
+  padding:7px 13px;
   border-radius:8px;
   white-space:nowrap;
   background:linear-gradient(180deg,#2a2a40 0%,#16162a 60%,#0f0f20 100%);
@@ -181,7 +175,6 @@ nav a{
   position:relative;
   top:0;
 }
-
 nav a:hover{
   color:#f0a500;
   background:linear-gradient(180deg,#2e2e4e 0%,#1a1a32 60%,#121228 100%);
@@ -190,19 +183,28 @@ nav a:hover{
     0 1px 0 #ffffff18 inset,
     0 -1px 0 #00000060 inset,
     0 0 14px #f0a50030,
-    0 4px 12px #00000090,
-    0 1px 3px #000000b0;
+    0 4px 12px #00000090;
   top:-1px;
 }
-
 nav a:active{
   top:1px;
-  box-shadow:
-    0 1px 0 #00000040 inset,
-    0 -1px 0 #ffffff08 inset,
-    0 1px 4px #00000080,
-    0 0 8px #f0a50020;
+  box-shadow:0 1px 0 #00000040 inset,0 1px 4px #00000080;
   background:linear-gradient(180deg,#0f0f20 0%,#1a1a30 100%);
+}
+nav a.nav-ext{
+  border-color:#f0a50030;
+  color:#c8c8c8;
+}
+nav a.nav-ext:hover{
+  border-color:#f0a500;
+  color:#f0a500;
+}
+.nav-sep{
+  width:1px;
+  height:22px;
+  background:#ffffff14;
+  flex-shrink:0;
+  margin:0 2px;
 }
 
 /* =============================================
@@ -214,175 +216,120 @@ nav a:active{
   padding:7px 0;
   overflow:hidden;
   position:relative;
-  box-shadow:
-    0 2px 14px #00000070,
-    inset 0 -1px 0 #f0a50014,
-    inset 0 1px 0 #ffffff06;
+  box-shadow:0 2px 14px #00000070,inset 0 -1px 0 #f0a50014,inset 0 1px 0 #ffffff06;
   z-index:99;
 }
-
-.price-bar::before,
-.price-bar::after{
+.price-bar::before,.price-bar::after{
   content:"";
   position:absolute;
-  top:0;bottom:0;
-  width:60px;
-  z-index:2;
-  pointer-events:none;
+  top:0;bottom:0;width:60px;z-index:2;pointer-events:none;
 }
-.price-bar::before{
-  left:0;
-  background:linear-gradient(90deg,#050512,transparent);
-}
-.price-bar::after{
-  right:0;
-  background:linear-gradient(-90deg,#050512,transparent);
-}
-
+.price-bar::before{left:0;background:linear-gradient(90deg,#050512,transparent);}
+.price-bar::after{right:0;background:linear-gradient(-90deg,#050512,transparent);}
 .price-track{
-  display:flex;
-  white-space:nowrap;
+  display:flex;white-space:nowrap;
   animation:priceScroll 50s linear infinite;
   will-change:transform;
 }
-.price-track:hover{
-  animation-play-state:paused;
-}
-@keyframes priceScroll{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
-}
-
+.price-track:hover{animation-play-state:paused;}
+@keyframes priceScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 .price-item{
-  display:inline-flex;
-  align-items:center;
-  gap:5px;
-  padding:0 18px;
-  border-right:1px solid #ffffff08;
-  font-size:.76rem;
-  letter-spacing:.2px;
+  display:inline-flex;align-items:center;gap:5px;
+  padding:0 18px;border-right:1px solid #ffffff08;
+  font-size:.76rem;letter-spacing:.2px;
 }
-.price-symbol{
-  color:#f0a500;
-  font-weight:700;
-  font-size:.75rem;
-  letter-spacing:.5px;
-}
-.price-val{
-  color:#e0e0e0;
-  font-weight:600;
-}
-.price-change{
-  font-size:.7rem;
-  font-weight:700;
-  min-width:46px;
-}
+.price-symbol{color:#f0a500;font-weight:700;font-size:.75rem;letter-spacing:.5px;}
+.price-val{color:#e0e0e0;font-weight:600;}
+.price-change{font-size:.7rem;font-weight:700;min-width:46px;}
 .price-change.up{color:#22c55e}
 .price-change.down{color:#f87171}
-
-.price-loading{
-  display:inline-block;
-  padding:0 20px;
-  font-size:.74rem;
-  color:#555;
-  font-style:italic;
-}
+.price-loading{display:inline-block;padding:0 20px;font-size:.74rem;color:#555;font-style:italic;}
 
 /* =============================================
-   HERO SECTION
+   HERO
    ============================================= */
 .hero{
-  background:
-    linear-gradient(135deg,rgba(26,26,46,.95),rgba(22,33,62,.95),rgba(15,52,96,.90));
-  text-align:center;
-  padding:80px 28px;
-  position:relative;
-  box-shadow:
-    0 8px 40px #00000090,
-    0 1px 0 #f0a50020,
-    inset 0 -1px 0 #f0a50015;
+  background:linear-gradient(135deg,rgba(26,26,46,.95),rgba(22,33,62,.95),rgba(15,52,96,.90));
+  text-align:center;padding:80px 28px;position:relative;
+  box-shadow:0 8px 40px #00000090,0 1px 0 #f0a50020,inset 0 -1px 0 #f0a50015;
 }
 .hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(#ffffff04 1px,transparent 1px),
-    linear-gradient(90deg,#ffffff04 1px,transparent 1px);
-  background-size:40px 40px;
-  pointer-events:none;
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(#ffffff04 1px,transparent 1px),linear-gradient(90deg,#ffffff04 1px,transparent 1px);
+  background-size:40px 40px;pointer-events:none;
 }
-.hero h2{
-  font-size:2.4rem;
-  margin-bottom:14px;
-  color:#f0a500;
-  text-shadow:0 0 30px #f0a50060,0 2px 8px #000;
-  position:relative;z-index:1;
-}
-.hero p{
-  font-size:1.05rem;
-  color:#ccc;
-  max-width:640px;
-  margin:0 auto 28px;
-  line-height:1.7;
-  position:relative;z-index:1;
-}
+.hero h2{font-size:2.4rem;margin-bottom:14px;color:#f0a500;text-shadow:0 0 30px #f0a50060,0 2px 8px #000;position:relative;z-index:1;}
+.hero p{font-size:1.05rem;color:#ccc;max-width:640px;margin:0 auto 28px;line-height:1.7;position:relative;z-index:1;}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
 .hero a{
-  position:relative;z-index:1;
   display:inline-block;
   background:linear-gradient(180deg,#f8bc20 0%,#d08800 55%,#b07000 100%);
-  color:#0d0d0d;
-  padding:13px 34px;
-  border-radius:40px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:.97rem;
-  letter-spacing:.3px;
-  border:1px solid #c08000;
-  box-shadow:
-    0 1px 0 #ffe08060 inset,
-    0 -2px 0 #80500060 inset,
-    0 4px 20px #f0a50050,
-    0 6px 16px #00000080;
+  color:#0d0d0d;padding:13px 34px;border-radius:40px;text-decoration:none;
+  font-weight:700;font-size:.97rem;letter-spacing:.3px;border:1px solid #c08000;
+  box-shadow:0 1px 0 #ffe08060 inset,0 -2px 0 #80500060 inset,0 4px 20px #f0a50050,0 6px 16px #00000080;
   transition:all .15s ease;
 }
 .hero a:hover{
   background:linear-gradient(180deg,#ffd030 0%,#e09800 55%,#c08000 100%);
-  box-shadow:
-    0 1px 0 #ffe08080 inset,
-    0 -2px 0 #80500080 inset,
-    0 6px 28px #f0a50070,
-    0 8px 20px #00000090;
+  box-shadow:0 1px 0 #ffe08080 inset,0 -2px 0 #80500080 inset,0 6px 28px #f0a50070,0 8px 20px #00000090;
   transform:translateY(-2px);
+}
+.hero a.btn-secondary{
+  background:linear-gradient(180deg,#2a2a40 0%,#16162a 100%);
+  color:#e8e8e8;border:1px solid #3a3a58;box-shadow:0 3px 10px #00000080;
+}
+.hero a.btn-secondary:hover{
+  background:linear-gradient(180deg,#2e2e4e 0%,#1a1a32 100%);
+  color:#f0a500;border-color:#f0a50066;
 }
 .hero a:active{transform:translateY(1px)}
 
 /* =============================================
-   AD WRAPPER
+   ARTICLE JUMP NAV
    ============================================= */
-.ad-wrap{text-align:center;margin:20px auto;max-width:728px;padding:0 10px}
-.ad-box{background:#1a1a1a;border:1px dashed #333;padding:14px;color:#555;font-size:.72rem;border-radius:4px}
+.article-index{
+  background:linear-gradient(180deg,#0c0c1c,#08080e);
+  border-bottom:1px solid #f0a50022;
+  padding:28px 18px;
+}
+.article-index .inner{max-width:1080px;margin:0 auto;}
+.article-index h3{
+  font-size:.85rem;text-transform:uppercase;letter-spacing:1.5px;
+  color:#f0a500;margin-bottom:14px;opacity:.8;
+}
+.article-jump-grid{display:flex;flex-wrap:wrap;gap:10px;}
+.article-jump-grid a{
+  background:linear-gradient(180deg,#1e1e34,#141426);
+  border:1px solid #2e2e50;color:#ccc;
+  padding:8px 16px;border-radius:8px;text-decoration:none;
+  font-size:.8rem;font-weight:500;
+  transition:all .15s ease;box-shadow:0 2px 8px #00000060;
+}
+.article-jump-grid a:hover{border-color:#f0a50060;color:#f0a500;background:linear-gradient(180deg,#222238,#16162a);}
 
 /* =============================================
-   CONTENT CONTAINERS
+   DISCLAIMER BAR
+   ============================================= */
+.disclaimer-bar{
+  background:linear-gradient(180deg,#0a0a00,#080800);
+  border-top:1px solid #f0a50020;border-bottom:1px solid #f0a50020;
+  padding:14px 18px;text-align:center;font-size:.78rem;color:#666;line-height:1.6;
+}
+.disclaimer-bar a{color:#f0a500;text-decoration:none;}
+.disclaimer-bar strong{color:#999;}
+
+/* =============================================
+   CONTAINERS & TITLES
    ============================================= */
 .container{max-width:1080px;margin:0 auto;padding:36px 18px}
-
 .sec-title{
-  font-size:1.5rem;
-  color:#f0a500;
-  margin-bottom:24px;
-  padding-left:14px;
-  border-left:4px solid #f0a500;
-  text-shadow:0 0 20px #f0a50040;
-  position:relative;
+  font-size:1.5rem;color:#f0a500;margin-bottom:24px;
+  padding-left:14px;border-left:4px solid #f0a500;
+  text-shadow:0 0 20px #f0a50040;position:relative;
 }
 .sec-title::before{
-  content:"";
-  position:absolute;
-  left:0;top:50%;transform:translateY(-50%);
-  width:4px;height:100%;
-  background:#f0a500;
+  content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:4px;height:100%;background:#f0a500;
   box-shadow:0 0 12px #f0a500,0 0 24px #f0a50060;
 }
 
@@ -390,318 +337,194 @@ nav a:active{
    ARTICLE CARDS
    ============================================= */
 .cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:22px;
-  margin-bottom:36px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;margin-bottom:36px;
 }
-
 .card{
   background:linear-gradient(145deg,#1e1e34,#141426);
-  border-radius:14px;
-  padding:22px;
-  border:1px solid #2e2e50;
-  box-shadow:
-    0 1px 0 #ffffff08 inset,
-    0 -1px 0 #00000060 inset,
-    0 4px 20px #00000070,
-    0 8px 32px #00000050,
-    0 1px 4px #00000090;
+  border-radius:14px;padding:22px;border:1px solid #2e2e50;
+  box-shadow:0 1px 0 #ffffff08 inset,0 -1px 0 #00000060 inset,0 4px 20px #00000070,0 8px 32px #00000050;
   transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
-  display:flex;
-  flex-direction:column;
-  position:relative;
-  overflow:hidden;
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
 }
-.card::before{
-  content:"";
-  position:absolute;
-  top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,#ffffff18,transparent);
-}
-.card:hover{
-  transform:translateY(-6px);
-  border-color:#f0a50060;
-  box-shadow:
-    0 1px 0 #ffffff10 inset,
-    0 -1px 0 #00000060 inset,
-    0 0 20px #f0a50018,
-    0 12px 40px #00000080,
-    0 2px 6px #000000a0;
-}
-
-.tag{
-  font-size:.62rem;
-  font-weight:700;
-  padding:4px 10px;
-  border-radius:20px;
-  display:inline-block;
-  margin-bottom:10px;
-  text-transform:uppercase;
-  letter-spacing:.5px;
-  box-shadow:0 2px 6px #00000060;
-}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#ffffff18,transparent);}
+.card:hover{transform:translateY(-6px);border-color:#f0a50060;box-shadow:0 1px 0 #ffffff10 inset,0 0 20px #f0a50018,0 12px 40px #00000080;}
+.tag{font-size:.62rem;font-weight:700;padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 2px 6px #00000060;}
 .ta{background:#f0a500;color:#0d0d0d}
 .tv{background:#cc0000;color:#fff;box-shadow:0 2px 8px #ff000040}
 .tai{background:#6d28d9;color:#fff;box-shadow:0 2px 8px #7c3aed40}
 .tp{background:#0e7490;color:#fff;box-shadow:0 2px 8px #0891b240}
 .te{background:#b91c1c;color:#fff;box-shadow:0 2px 8px #dc262640}
-
+.tg{background:#065f46;color:#fff;box-shadow:0 2px 8px #05966940}
 .card h3{font-size:.97rem;margin-bottom:9px;color:#f0f0f0;line-height:1.45}
 .card p{font-size:.84rem;color:#999;line-height:1.6;margin-bottom:12px;flex:1}
-.card a.btn{
-  color:#f0a500;
-  text-decoration:none;
-  font-size:.83rem;
-  font-weight:700;
-  margin-top:auto;
-  transition:color .15s;
-}
+.card-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;align-items:center;}
+.card a.btn{color:#f0a500;text-decoration:none;font-size:.83rem;font-weight:700;transition:color .15s;}
 .card a.btn:hover{color:#ffd050;text-shadow:0 0 10px #f0a50060}
+.card a.btn-read{
+  background:linear-gradient(180deg,#1e2a1e,#111811);
+  border:1px solid #2a4a2a;color:#5aba5a;
+  padding:6px 14px;border-radius:20px;font-size:.75rem;font-weight:600;
+  text-decoration:none;transition:all .15s;
+}
+.card a.btn-read:hover{border-color:#5aba5a;color:#7adb7a;}
+
+/* =============================================
+   FULL ARTICLE BLOCKS
+   ============================================= */
+.article-section{
+  background:linear-gradient(180deg,#080810,#050508);
+  border-top:1px solid #f0a50018;border-bottom:1px solid #f0a50018;
+  padding:52px 18px;
+}
+.article-section:nth-child(even){background:linear-gradient(180deg,#060608,#040406);}
+.article-wrap{max-width:780px;margin:0 auto;}
+.article-wrap .article-tag-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;}
+.article-wrap h2{font-size:1.65rem;color:#f0f0f0;margin-bottom:10px;line-height:1.35;}
+.article-meta{font-size:.76rem;color:#555;margin-bottom:26px;padding-bottom:16px;border-bottom:1px solid #1e1e34;}
+.article-meta span{color:#f0a500;}
+.article-body p{color:#b0b0b0;line-height:1.85;margin-bottom:18px;font-size:.95rem;}
+.article-body h3{color:#f0a500;font-size:1.05rem;margin:28px 0 12px;padding-left:12px;border-left:3px solid #f0a50050;}
+.article-body ul{margin:0 0 18px 22px;color:#b0b0b0;font-size:.93rem;line-height:1.8;}
+.article-disclaimer{
+  background:linear-gradient(180deg,#0e0e00,#080800);
+  border:1px solid #3a3a10;border-radius:10px;
+  padding:16px 20px;margin-top:28px;font-size:.78rem;color:#666;line-height:1.65;
+}
+.article-disclaimer strong{color:#999;}
+.article-external{margin-top:20px;padding-top:16px;border-top:1px solid #1e1e34;font-size:.8rem;color:#555;}
+.article-external a{color:#f0a500;text-decoration:none;font-weight:600;}
+.article-external a:hover{color:#ffd050;}
 
 /* =============================================
    VIDEO CARDS
    ============================================= */
 .vcard{
   background:linear-gradient(145deg,#1e1e34,#141426);
-  border-radius:14px;
-  border:1px solid #2e2e50;
-  overflow:hidden;
-  box-shadow:
-    0 1px 0 #ffffff08 inset,
-    0 4px 20px #00000070,
-    0 8px 32px #00000050;
-  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
-  position:relative;
+  border-radius:14px;border:1px solid #2e2e50;overflow:hidden;
+  box-shadow:0 1px 0 #ffffff08 inset,0 4px 20px #00000070,0 8px 32px #00000050;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;position:relative;
 }
-.vcard::before{
-  content:"";
-  position:absolute;
-  top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,#ffffff18,transparent);
-  z-index:1;
-}
-.vcard:hover{
-  transform:translateY(-6px);
-  border-color:#f0a50060;
-  box-shadow:
-    0 0 20px #f0a50018,
-    0 12px 40px #00000080;
-}
+.vcard::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#ffffff18,transparent);z-index:1;}
+.vcard:hover{transform:translateY(-6px);border-color:#f0a50060;box-shadow:0 0 20px #f0a50018,0 12px 40px #00000080;}
 .vthumb{width:100%;aspect-ratio:16/9;overflow:hidden;display:block}
-.vthumb img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .3s ease,filter .3s ease;
-  filter:brightness(.9) saturate(1.1);
-}
+.vthumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease,filter .3s ease;filter:brightness(.9) saturate(1.1);}
 .vcard:hover .vthumb img{transform:scale(1.04);filter:brightness(1.05) saturate(1.2)}
 .vinfo{padding:16px}
-.vinfo h3{font-size:.93rem;color:#f0f0f0;line-height:1.4;margin-bottom:4px}
-.vinfo p{font-size:.78rem;color:#666}
-.vinfo a{
-  display:inline-block;
-  margin-top:10px;
-  color:#f0a500;
-  text-decoration:none;
-  font-size:.83rem;
-  font-weight:700;
-  transition:color .15s;
-}
+.vinfo h3{font-size:.93rem;color:#f0f0f0;line-height:1.4;margin-bottom:6px}
+.vinfo p{font-size:.78rem;color:#666;line-height:1.5}
+.vinfo a{display:inline-block;margin-top:10px;color:#f0a500;text-decoration:none;font-size:.83rem;font-weight:700;transition:color .15s;}
 .vinfo a:hover{color:#ffd050;text-shadow:0 0 10px #f0a50060}
 
 /* =============================================
-   PLATFORMS SECTION
+   CONTACT SECTION
    ============================================= */
-.plat{
-  background:linear-gradient(180deg,#0c0c1a,#080812);
-  padding:48px 18px;
-  text-align:center;
-  box-shadow:
-    0 1px 0 #f0a50012 inset,
-    0 -1px 0 #f0a50012 inset,
-    0 8px 40px #00000060;
+.contact-section{
+  background:linear-gradient(180deg,#0a0a18,#070710);
+  padding:52px 18px;text-align:center;border-top:1px solid #f0a50018;
 }
-.plat p{color:#999;margin-bottom:22px;font-size:.95rem}
-
-.plinks{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
-.plinks a{
-  background:linear-gradient(180deg,#222238,#14142a);
-  border:1px solid #2e2e50;
-  color:#e0e0e0;
-  padding:9px 20px;
-  border-radius:30px;
-  text-decoration:none;
-  font-size:.85rem;
-  font-weight:500;
-  box-shadow:
-    0 1px 0 #ffffff0c inset,
-    0 3px 10px #00000060,
-    0 1px 3px #000000a0;
-  transition:all .15s ease;
+.contact-inner{max-width:560px;margin:0 auto;}
+.contact-inner p{color:#999;line-height:1.75;margin-bottom:18px;font-size:.95rem;}
+.contact-email{
+  display:inline-block;
+  background:linear-gradient(180deg,#1e1e34,#141426);
+  border:1px solid #f0a50040;color:#f0a500;
+  padding:12px 28px;border-radius:999px;text-decoration:none;
+  font-weight:700;font-size:.95rem;
+  box-shadow:0 0 18px #f0a50020,0 4px 12px #00000060;transition:all .15s ease;
 }
-.plinks a:hover{
+.contact-email:hover{
   background:linear-gradient(180deg,#f0a500,#c07800);
-  color:#0d0d0d;
-  border-color:#f0a500;
-  box-shadow:
-    0 1px 0 #ffffff30 inset,
-    0 0 16px #f0a50040,
-    0 4px 14px #00000080;
-  transform:translateY(-2px);
+  color:#0d0d0d;box-shadow:0 0 28px #f0a50040,0 4px 16px #00000080;transform:translateY(-2px);
 }
 
 /* =============================================
-   DONATE SECTION
+   PLATFORMS
+   ============================================= */
+.plat{
+  background:linear-gradient(180deg,#0c0c1a,#080812);padding:48px 18px;text-align:center;
+  box-shadow:0 1px 0 #f0a50012 inset,0 -1px 0 #f0a50012 inset,0 8px 40px #00000060;
+}
+.plat p{color:#999;margin-bottom:22px;font-size:.95rem}
+.plinks{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.plinks a{
+  background:linear-gradient(180deg,#222238,#14142a);border:1px solid #2e2e50;
+  color:#e0e0e0;padding:9px 20px;border-radius:30px;text-decoration:none;
+  font-size:.85rem;font-weight:500;
+  box-shadow:0 1px 0 #ffffff0c inset,0 3px 10px #00000060;transition:all .15s ease;
+}
+.plinks a:hover{
+  background:linear-gradient(180deg,#f0a500,#c07800);color:#0d0d0d;border-color:#f0a500;
+  box-shadow:0 1px 0 #ffffff30 inset,0 0 16px #f0a50040,0 4px 14px #00000080;transform:translateY(-2px);
+}
+
+/* =============================================
+   DONATE
    ============================================= */
 .donate{
-  background:linear-gradient(180deg,#100000,#080000);
-  padding:56px 18px;
+  background:linear-gradient(180deg,#100000,#080000);padding:56px 18px;
   box-shadow:inset 0 1px 0 #4a000040,inset 0 -1px 0 #4a000040;
 }
 .donate-inner{
-  max-width:720px;
-  margin:0 auto;
-  text-align:center;
-  border-radius:16px;
-  border:1px solid #5a0000;
+  max-width:720px;margin:0 auto;text-align:center;border-radius:16px;border:1px solid #5a0000;
   background:radial-gradient(ellipse at top,#2b0000 0%,#050000 70%);
-  box-shadow:
-    0 0 0 1px #ff000018,
-    0 0 40px rgba(255,0,0,.2),
-    0 8px 48px rgba(0,0,0,.8),
-    inset 0 1px 0 #ff000020;
+  box-shadow:0 0 0 1px #ff000018,0 0 40px rgba(255,0,0,.2),0 8px 48px rgba(0,0,0,.8),inset 0 1px 0 #ff000020;
   padding:34px 24px;
 }
 .donate p{color:#ddd;line-height:1.75;margin-bottom:16px}
 .donate-tag{
-  display:inline-block;
-  padding:11px 24px;
-  border-radius:999px;
-  border:1px solid #ff4d4d;
-  color:#ffb3b3;
-  font-weight:700;
-  letter-spacing:.5px;
+  display:inline-block;padding:11px 24px;border-radius:999px;border:1px solid #ff4d4d;
+  color:#ffb3b3;font-weight:700;letter-spacing:.5px;
   background:linear-gradient(180deg,#2a0000,#120000);
-  box-shadow:
-    0 0 20px rgba(255,0,0,.4),
-    0 1px 0 #ff000030 inset;
+  box-shadow:0 0 20px rgba(255,0,0,.4),0 1px 0 #ff000030 inset;
 }
 .donate small{display:block;margin-top:8px;color:#777;font-size:.78rem}
 .donate-btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:11px 28px;
-  border-radius:999px;
-  border:none;
-  background:linear-gradient(180deg,#ff4444,#cc1111);
-  color:#fff;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow:
-    0 1px 0 #ff888860 inset,
-    0 -2px 0 #88000060 inset,
-    0 0 22px rgba(255,51,51,.6),
-    0 4px 14px #00000080;
-  cursor:pointer;
-  transition:all .15s ease;
+  display:inline-block;margin-top:20px;padding:11px 28px;border-radius:999px;border:none;
+  background:linear-gradient(180deg,#ff4444,#cc1111);color:#fff;font-weight:700;text-decoration:none;
+  box-shadow:0 1px 0 #ff888860 inset,0 -2px 0 #88000060 inset,0 0 22px rgba(255,51,51,.6),0 4px 14px #00000080;
+  cursor:pointer;transition:all .15s ease;
 }
 .donate-btn:hover{
-  background:linear-gradient(180deg,#ff6666,#dd2222);
-  transform:translateY(-2px);
-  box-shadow:
-    0 1px 0 #ffaaaa60 inset,
-    0 -2px 0 #88000060 inset,
-    0 0 30px rgba(255,51,51,.7),
-    0 6px 18px #00000090;
+  background:linear-gradient(180deg,#ff6666,#dd2222);transform:translateY(-2px);
+  box-shadow:0 1px 0 #ffaaaa60 inset,0 0 30px rgba(255,51,51,.7),0 6px 18px #00000090;
 }
 
 /* =============================================
-   MERCH SECTION
+   MERCH
    ============================================= */
-.merch{
-  background:linear-gradient(180deg,#060609,#040407);
-  padding:52px 18px 64px;
-}
-.merch-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:22px;
-  margin-top:22px;
-}
+.merch{background:linear-gradient(180deg,#060609,#040407);padding:52px 18px 64px;}
+.merch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:22px;}
 .merch-card{
-  background:linear-gradient(145deg,#1e1e34,#141426);
-  border-radius:14px;
-  border:1px solid #2e2e50;
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-  box-shadow:
-    0 1px 0 #ffffff08 inset,
-    0 4px 20px #00000060,
-    0 8px 28px #00000040;
+  background:linear-gradient(145deg,#1e1e34,#141426);border-radius:14px;border:1px solid #2e2e50;
+  padding:20px;display:flex;flex-direction:column;
+  box-shadow:0 1px 0 #ffffff08 inset,0 4px 20px #00000060,0 8px 28px #00000040;
   position:relative;overflow:hidden;
 }
-.merch-card::before{
-  content:"";
-  position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,#ffffff14,transparent);
-}
+.merch-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#ffffff14,transparent);}
 .merch-card h3{font-size:1rem;color:#f0f0f0;margin-bottom:9px}
 .merch-card p{font-size:.85rem;color:#999;flex:1;margin-bottom:12px;line-height:1.6}
 .merch-card a{
-  align-self:flex-start;
-  background:linear-gradient(180deg,#f8bc20,#d08800);
-  color:#0d0d0d;
-  padding:9px 20px;
-  border-radius:999px;
-  font-size:.83rem;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow:
-    0 1px 0 #ffe08050 inset,
-    0 -1px 0 #80500050 inset,
-    0 3px 12px #f0a50040,
-    0 4px 10px #00000070;
+  align-self:flex-start;background:linear-gradient(180deg,#f8bc20,#d08800);
+  color:#0d0d0d;padding:9px 20px;border-radius:999px;font-size:.83rem;font-weight:700;
+  text-decoration:none;box-shadow:0 1px 0 #ffe08050 inset,0 3px 12px #f0a50040,0 4px 10px #00000070;
   transition:all .15s ease;
 }
-.merch-card a:hover{
-  background:linear-gradient(180deg,#ffd030,#e09800);
-  transform:translateY(-1px);
-  box-shadow:
-    0 1px 0 #ffe08070 inset,
-    0 -1px 0 #80500070 inset,
-    0 0 18px #f0a50050,
-    0 5px 14px #00000080;
-}
+.merch-card a:hover{background:linear-gradient(180deg,#ffd030,#e09800);transform:translateY(-1px);}
 
 /* =============================================
-   ABOUT SECTION
+   ABOUT
    ============================================= */
 .about{
-  background:linear-gradient(180deg,#0c0c10,#080810);
-  padding:56px 18px;
+  background:linear-gradient(180deg,#0c0c10,#080810);padding:56px 18px;
   box-shadow:inset 0 1px 0 #f0a50012,inset 0 -1px 0 #f0a50012;
 }
-.about-inner{
-  display:grid;
-  grid-template-columns:auto 1fr;
-  gap:40px;
-  align-items:center;
-  max-width:1080px;
-  margin:0 auto;
-}
+.about-inner{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;max-width:1080px;margin:0 auto;}
 .about-img{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  border:3px solid #f0a500;
-  object-fit:cover;
+  width:150px;height:150px;border-radius:50%;border:3px solid #f0a500;
   background:linear-gradient(145deg,#1e1e34,#0d0d20);
-  box-shadow:
-    0 0 0 6px #f0a50018,
-    0 0 30px #f0a50040,
-    0 8px 32px #00000080;
-  display:flex;align-items:center;justify-content:center;font-size:3rem;
+  box-shadow:0 0 0 6px #f0a50018,0 0 30px #f0a50040,0 8px 32px #00000080;
+  display:flex;align-items:center;justify-content:center;font-size:3rem;flex-shrink:0;
 }
 .about h2{font-size:1.6rem;color:#f0a500;margin-bottom:12px;text-shadow:0 0 20px #f0a50040}
 .about p{color:#999;line-height:1.82;margin-bottom:12px}
@@ -710,50 +533,32 @@ nav a:active{
    FOOTER
    ============================================= */
 footer{
-  background:#050508;
-  border-top:1px solid #f0a50030;
-  padding:28px;
-  text-align:center;
-  color:#444;
-  font-size:.8rem;
-  box-shadow:0 -4px 24px #00000060,inset 0 1px 0 #f0a50018;
+  background:#050508;border-top:1px solid #f0a50030;padding:28px;text-align:center;
+  color:#444;font-size:.8rem;box-shadow:0 -4px 24px #00000060,inset 0 1px 0 #f0a50018;
 }
-footer a{
-  color:#f0a500;
-  text-decoration:none;
-  margin:0 7px;
-  transition:color .15s;
-}
+footer a{color:#f0a500;text-decoration:none;margin:0 7px;transition:color .15s;}
 footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
 
 /* =============================================
    RESPONSIVE
    ============================================= */
+@media(max-width:960px){nav a{font-size:.74rem;padding:6px 10px;}}
 @media(max-width:820px){
-  header{
-    flex-direction:column;
-    gap:14px;
-    padding:16px 16px;
-  }
-  nav{
-    justify-content:center;
-    gap:7px;
-  }
-  nav a{
-    font-size:.75rem;
-    padding:6px 12px;
-  }
+  header{flex-direction:column;gap:14px;padding:16px;}
+  nav{justify-content:center;gap:6px;}
+  nav a{font-size:.73rem;padding:6px 10px;}
   .price-track{animation-duration:35s}
+  .about-inner{grid-template-columns:1fr;text-align:center}
+  .about-img{margin:0 auto}
+  .nav-sep{display:none}
 }
 @media(max-width:520px){
   .hero h2{font-size:1.65rem}
-  .about-inner{grid-template-columns:1fr;text-align:center}
-  .about-img{margin:0 auto}
-  nav a{font-size:.72rem;padding:5px 10px}
+  nav a{font-size:.7rem;padding:5px 9px;}
   .price-item{padding:0 12px}
-  .price-symbol{font-size:.7rem}
-  .price-val{font-size:.7rem}
+  .price-symbol,.price-val{font-size:.7rem}
   .price-change{font-size:.65rem;min-width:40px}
+  .article-wrap h2{font-size:1.3rem}
 }
 </style>
 </head>
@@ -806,14 +611,23 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
 <!-- ========== HEADER ========== -->
 <header>
   <h1>Learn With <span>Hatty</span></h1>
-  <nav>
-    <a href="https://earn-with-hatty-tools.netlify.app" target="_blank">Tools</a>
-    <a href="https://hattys-media.netlify.app/" target="_blank">Hatty's Media</a>
-    <a href="https://privacy-gadgets-hub.netlify.app/" target="_blank">Privacy Gadgets Hub</a>
-    <a href="https://hatty-universe.netlify.app" target="_blank">Hatty's Universe</a>
-    <a href="https://hattys-news.netlify.app" target="_blank">Hatty's News</a>
-    <a href="https://hattyhats.github.io/Learn-Voi/" target="_blank">Learn Voi</a>
-    <a href="https://hattyhats.github.io/voi-maze/" target="_blank">Voi Maze</a>
+  <nav aria-label="Main navigation">
+    <!-- On-page anchors first -->
+    <a href="#home">Home</a>
+    <a href="#articles">Articles</a>
+    <a href="#videos">Videos</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#donate">Donate</a>
+    <!-- Visual separator -->
+    <div class="nav-sep" aria-hidden="true"></div>
+    <!-- External sites -->
+    <a href="https://earn-with-hatty-tools.netlify.app" target="_blank" rel="noopener" class="nav-ext">Tools</a>
+    <a href="https://hattys-media.netlify.app/" target="_blank" rel="noopener" class="nav-ext">Hatty's Media</a>
+    <a href="https://privacy-gadgets-hub.netlify.app/" target="_blank" rel="noopener" class="nav-ext">Privacy Gadgets</a>
+    <a href="https://hatty-universe.netlify.app" target="_blank" rel="noopener" class="nav-ext">Hatty's Universe</a>
+    <a href="https://hattys-news.netlify.app" target="_blank" rel="noopener" class="nav-ext">Hatty's News</a>
+    <a href="https://hattyhats.github.io/Open-Focus/" target="_blank" rel="noopener" class="nav-ext">Open Focus</a>
   </nav>
 </header>
 
@@ -826,138 +640,521 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
 
 <!-- ========== HERO ========== -->
 <section class="hero" id="home">
-  <h2>Crypto. AI. Web3. Real Talk.</h2>
-  <p>Fact-checked insights on blockchain, AI, privacy and decentralized finance by HattyHats.</p>
-  <a href="#articles">Read Latest Content</a>
+  <h2>Crypto. AI. Web3. Explained.</h2>
+  <p>Educational articles and video breakdowns on blockchain technology, artificial intelligence, digital privacy, and personal finance — written for real people, not institutions.</p>
+  <div class="hero-btns">
+    <a href="#articles">Read the Articles</a>
+    <a href="#videos" class="btn-secondary">Watch the Videos</a>
+  </div>
 </section>
 
-<!-- ========== ARTICLES ========== -->
+<!-- ========== ARTICLE QUICK-NAV ========== -->
+<nav class="article-index" aria-label="Article quick navigation">
+  <div class="inner">
+    <h3>Jump to an Article</h3>
+    <div class="article-jump-grid">
+      <a href="#article-jane-street">Jane Street &amp; the 2022 Crypto Crash</a>
+      <a href="#article-usb-vault">DIY Crypto Cold Storage on a USB Drive</a>
+      <a href="#article-social-media-kids">Social Media's Effect on Youth Mental Health</a>
+      <a href="#article-tariffs">Understanding a 15% Global Tariff Proposal</a>
+      <a href="#article-ai-social">AI-Only Social Networks: Opportunities &amp; Risks</a>
+      <a href="#article-ai-agents">AI Agents in 2026: A Practical Overview</a>
+      <a href="#article-scifi-reality">From Sci-Fi to World-Changing Reality</a>
+      <a href="#article-privacy-2026">2026: The Year Privacy Gets Real</a>
+      <a href="#article-cloud-war">When the Cloud Goes to War</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== SITEWIDE DISCLAIMER BAR ========== -->
+<div class="disclaimer-bar">
+  <strong>Educational &amp; Informational Content Only.</strong> Everything on this site is intended for general learning purposes. Nothing here constitutes financial, investment, or legal advice. Always conduct your own research and consult a qualified professional before making financial decisions.
+  <a href="terms.html"> Full Disclaimer &rarr;</a>
+</div>
+
+<!-- ========== ARTICLE SUMMARY CARDS ========== -->
 <div class="container" id="articles">
   <h2 class="sec-title">Latest Articles</h2>
   <div class="cards">
+
     <div class="card">
       <span class="tag te">Finance</span>
-      <h3>Bryce's Secret: How Jane Street Allegedly Rigged the Crash</h3>
-      <p>A data-driven look at allegations surrounding Jane Street's trading activity and what the evidence actually shows.</p>
-      <a class="btn" href="https://www.bulbapp.io/p/6f9a2b26-d73d-4ddd-bcdc-539273b2f2a9/bryces-secret-how-jane-street-allegedly-rigged-the-crash" target="_blank">Read on Bulb &rarr;</a>
+      <h3>Jane Street &amp; the 2022 Crypto Market Crash: Reviewing the Allegations</h3>
+      <p>A structured look at public reporting and trading data surrounding the 2022 crypto downturn, including allegations about institutional market activity.</p>
+      <div class="card-btns">
+        <a class="btn-read" href="#article-jane-street">Read On-Site &darr;</a>
+        <a class="btn" href="https://www.bulbapp.io/p/6f9a2b26-d73d-4ddd-bcdc-539273b2f2a9/bryces-secret-how-jane-street-allegedly-rigged-the-crash" target="_blank" rel="noopener">Also on Bulb &rarr;</a>
+      </div>
     </div>
+
     <div class="card">
       <span class="tag tp">Security</span>
-      <h3>Turn Any USB Stick Into a Crypto Vault</h3>
-      <p>The complete guide to cold storage using VeraCrypt and Coinomi on any USB drive.</p>
-      <a class="btn" href="https://www.bulbapp.io/p/fd94544b-7ad7-42fc-ba43-da4237f830e7/turn-any-usb-stick-into-a-crypto-vault-veracrypt-coinomi-and-the-truth-about-coldstorage" target="_blank">Read on Bulb &rarr;</a>
+      <h3>DIY Crypto Cold Storage: Using a Standard USB Drive and VeraCrypt</h3>
+      <p>A step-by-step educational guide to creating an encrypted offline wallet using free, open-source tools — no expensive hardware required.</p>
+      <div class="card-btns">
+        <a class="btn-read" href="#article-usb-vault">Read On-Site &darr;</a>
+        <a class="btn" href="https://www.bulbapp.io/p/fd94544b-7ad7-42fc-ba43-da4237f830e7/turn-any-usb-stick-into-a-crypto-vault-veracrypt-coinomi-and-the-truth-about-coldstorage" target="_blank" rel="noopener">Also on Bulb &rarr;</a>
+      </div>
     </div>
+
     <div class="card">
       <span class="tag tp">Privacy</span>
-      <h3>Is Facebook Addicting Our Kids?</h3>
-      <p>A research-backed look at social media addiction and its documented impact on children and families.</p>
-      <a class="btn" href="https://www.bulbapp.io/p/2b2515a8-f6f1-44fc-ac8a-c0da140a4db2/is-facebook-addicting-our-kids" target="_blank">Read on Bulb &rarr;</a>
+      <h3>Social Media Platforms and Youth Mental Health: What the Research Shows</h3>
+      <p>An educational overview of published studies and public reporting on how social media algorithms may affect adolescent attention and well-being.</p>
+      <div class="card-btns">
+        <a class="btn-read" href="#article-social-media-kids">Read On-Site &darr;</a>
+        <a class="btn" href="https://www.bulbapp.io/p/2b2515a8-f6f1-44fc-ac8a-c0da140a4db2/is-facebook-addicting-our-kids" target="_blank" rel="noopener">Also on Bulb &rarr;</a>
+      </div>
     </div>
+
     <div class="card">
       <span class="tag te">Economics</span>
-      <h3>What Trump's 15% Global Tariff Really Means</h3>
-      <p>Breaking down what a sweeping 15% global tariff actually means for your money and crypto markets.</p>
-      <a class="btn" href="https://www.bulbapp.io/p/1923e7c5-02f1-404f-8a58-309200bca841/what-trumps-15-global-tariff-reallymeans" target="_blank">Read on Bulb &rarr;</a>
+      <h3>Proposed 15% Global Tariffs: Potential Implications for Trade and Crypto Markets</h3>
+      <p>Breaking down what broad-based tariff proposals mean in practical terms for everyday consumers, investors, and the cryptocurrency market.</p>
+      <div class="card-btns">
+        <a class="btn-read" href="#article-tariffs">Read On-Site &darr;</a>
+        <a class="btn" href="https://www.bulbapp.io/p/1923e7c5-02f1-404f-8a58-309200bca841/what-trumps-15-global-tariff-reallymeans" target="_blank" rel="noopener">Also on Bulb &rarr;</a>
+      </div>
     </div>
+
     <div class="card">
       <span class="tag tai">AI</span>
-      <h3>The AI-Only Social Network: Reddit for Bots</h3>
-      <p>Examining the rise of AI-only social networks and the ethical questions they raise.</p>
-      <a class="btn" href="https://www.bulbapp.io/p/ab4c084a-0db2-4c1c-a790-055f5005d7fc/the-ai-only-social-network-thats-basically-reddit-for-bots-and-the-human-puppet-masters-ruining-th" target="_blank">Read on Bulb &rarr;</a>
+      <h3>AI-Only Social Networks: How Automated Content Communities Work</h3>
+      <p>Exploring the emergence of platforms where AI-generated accounts create and respond to content — and the editorial and ethical questions this raises.</p>
+      <div class="card-btns">
+        <a class="btn-read" href="#article-ai-social">Read On-Site &darr;</a>
+        <a class="btn" href="https://www.bulbapp.io/p/ab4c084a-0db2-4c1c-a790-055f5005d7fc/the-ai-only-social-network-thats-basically-reddit-for-bots-and-the-human-puppet-masters-ruining-th" target="_blank" rel="noopener">Also on Bulb &rarr;</a>
+      </div>
     </div>
+
     <div class="card">
       <span class="tag tai">AI</span>
-      <h3>The Viral AI Agent Taking Over 2026</h3>
-      <p>OpenClaw is the AI agent everyone is talking about — a breakdown of its capabilities and controversies.</p>
-      <a class="btn" href="https://www.bulbapp.io/p/4759dc6c-0296-443a-b061-cf0ec4cd221d/the-viral-ai-agent-taking-over-2026-and-why-its-equal-parts-genius-andchaos" target="_blank">Read on Bulb &rarr;</a>
+      <h3>AI Agents in 2026: Capabilities, Limitations, and What to Watch For</h3>
+      <p>A plain-language overview of where autonomous AI agent technology stands today, including a look at tools making headlines in the space.</p>
+      <div class="card-btns">
+        <a class="btn-read" href="#article-ai-agents">Read On-Site &darr;</a>
+        <a class="btn" href="https://www.bulbapp.io/p/4759dc6c-0296-443a-b061-cf0ec4cd221d/the-viral-ai-agent-taking-over-2026-and-why-its-equal-parts-genius-andchaos" target="_blank" rel="noopener">Also on Bulb &rarr;</a>
+      </div>
     </div>
+
+    <div class="card">
+      <span class="tag tai">AI</span>
+      <h3>From Sci-Fi Dreams to World-Changing Reality (And a Few Nightmares)</h3>
+      <p>How the technologies once confined to science fiction — AI, neural interfaces, autonomous systems — became real products, and what we should actually be thinking about now that they have.</p>
+      <div class="card-btns">
+        <a class="btn-read" href="#article-scifi-reality">Read On-Site &darr;</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag tp">Privacy</span>
+      <h3>2026 Is the Year Privacy Gets Real — And Really Technical</h3>
+      <p>From zero-knowledge proofs to hardware-level attestation, privacy technology is becoming genuinely sophisticated. Here's what's actually changing and why it matters for ordinary people.</p>
+      <div class="card-btns">
+        <a class="btn-read" href="#article-privacy-2026">Read On-Site &darr;</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag tg">Infrastructure</span>
+      <h3>When the Cloud Goes to War: Geopolitics, Data Sovereignty, and Digital Infrastructure</h3>
+      <p>As geopolitical tensions reshape technology policy, cloud infrastructure is becoming a strategic front line. An educational look at what data sovereignty means in practice.</p>
+      <div class="card-btns">
+        <a class="btn-read" href="#article-cloud-war">Read On-Site &darr;</a>
+      </div>
+    </div>
+
   </div>
-  <!-- Informational notice for sensitive content -->
-  <p style="font-size:.75rem;color:#555;margin-top:-16px;margin-bottom:24px;font-style:italic;">
-    All articles are published for informational and educational purposes only. Nothing on this site constitutes financial or investment advice.
+  <p style="font-size:.76rem;color:#484848;margin-top:-8px;margin-bottom:0;font-style:italic;">
+    All articles are published for educational and informational purposes only. Nothing constitutes financial, investment, or legal advice.
     <a href="terms.html" style="color:#f0a500;">See full disclaimer &rarr;</a>
   </p>
 </div>
+
+<!-- ====================================================
+     ARTICLE: JANE STREET
+     ==================================================== -->
+<section class="article-section" id="article-jane-street">
+  <div class="article-wrap">
+    <div class="article-tag-row">
+      <span class="tag te">Finance</span>
+      <span class="tag" style="background:#1e1e34;color:#666;border:1px solid #2e2e50;">In-Depth Analysis</span>
+    </div>
+    <h2>Jane Street &amp; the 2022 Crypto Market Crash: Reviewing the Allegations</h2>
+    <div class="article-meta">By <span>HattyHats</span> &mdash; Published on Learn With Hatty &mdash; Educational overview of public reporting and market data</div>
+    <div class="article-body">
+      <p>The 2022 cryptocurrency market downturn was one of the most significant in the industry's history. Bitcoin lost roughly 65% of its value over the course of the year, and broader contagion — including the collapse of the Terra/LUNA ecosystem and the bankruptcy of several major crypto firms — wiped out hundreds of billions of dollars in market capitalization. In the aftermath, public discussion turned to the role that large institutional trading firms may have played in exacerbating the volatility.</p>
+      <h3>Who Is Jane Street?</h3>
+      <p>Jane Street is a global quantitative trading firm with deep roots in traditional finance. Founded in 2000, the firm operates across equities, bonds, currencies, commodities, and increasingly, digital assets. It is known for high-frequency and algorithmic trading strategies. The firm is not publicly listed and rarely comments publicly on its positions or strategies. In the context of the 2022 crypto downturn, the firm's name surfaced in connection with its reported trading relationships with now-defunct entities including Alameda Research and FTX.</p>
+      <h3>What the Allegations Claim</h3>
+      <p>Several independent analysts and journalists have examined whether large market makers engaged in trading strategies during 2021 and 2022 that may have contributed to artificial price suppression or amplified downward momentum during key market events. These claims generally center on short-selling activity, large coordinated options positions, and alleged relationships with insiders at collapsed crypto firms.</p>
+      <p>It is important to note that these are allegations based on on-chain data analysis and circumstantial evidence reviewed by independent researchers. At the time of writing, no regulatory body has formally charged Jane Street with market manipulation in the cryptocurrency space. Short-selling and derivatives trading are legal financial activities; the ethical question is whether scale and coordination cross a line into manipulation.</p>
+      <h3>What the On-Chain Data Actually Shows</h3>
+      <p>Blockchain data, by its nature, is public. Researchers have been able to trace large token movements and identify wallet addresses associated with known custodians. Some analysis suggests that significant volumes of assets moved between institutional wallets and exchange hot wallets in the days preceding major price drops in 2022. However, correlation is not causation — large institutional trades often precede volatility without being its cause.</p>
+      <h3>Key Takeaways for Retail Investors</h3>
+      <ul>
+        <li>Liquidity risk is real — assets can become illiquid during market stress far faster than in traditional markets.</li>
+        <li>Counterparty risk matters — using exchanges or platforms with opaque financials exposes users to institutional collapse.</li>
+        <li>Diversification and position sizing are essential risk management tools.</li>
+        <li>Understanding the difference between speculative and foundational assets helps manage portfolio volatility.</li>
+      </ul>
+      <h3>Where the Investigation Stands</h3>
+      <p>As of mid-2025, public reporting indicates that multiple regulatory agencies have been reviewing trading activity surrounding the 2022 crypto crash. Some former Alameda Research personnel have cooperated with investigations as part of plea agreements related to the FTX fraud case. Whether any findings specifically implicate third-party market makers in wrongdoing remains an open question that informed observers are watching closely.</p>
+    </div>
+    <div class="article-disclaimer">
+      <strong>Educational Disclaimer:</strong> This article is a summary of publicly available information and independent market analysis. It is not intended as legal or financial advice. Events described are subject to ongoing investigation; always refer to primary sources and consult qualified professionals before acting on this material.
+    </div>
+    <div class="article-external">
+      Also published on Bulb &rarr; <a href="https://www.bulbapp.io/p/6f9a2b26-d73d-4ddd-bcdc-539273b2f2a9/bryces-secret-how-jane-street-allegedly-rigged-the-crash" target="_blank" rel="noopener">Read full article on Bulb</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     ARTICLE: USB VAULT
+     ==================================================== -->
+<section class="article-section" id="article-usb-vault">
+  <div class="article-wrap">
+    <div class="article-tag-row">
+      <span class="tag tp">Security</span>
+      <span class="tag" style="background:#1e1e34;color:#666;border:1px solid #2e2e50;">How-To Guide</span>
+    </div>
+    <h2>DIY Crypto Cold Storage: Using a Standard USB Drive and VeraCrypt</h2>
+    <div class="article-meta">By <span>HattyHats</span> &mdash; Published on Learn With Hatty &mdash; Practical security education</div>
+    <div class="article-body">
+      <p>Cold storage is one of the most widely recommended practices in cryptocurrency security. By keeping your private keys offline — disconnected from the internet — you dramatically reduce the risk of remote theft, phishing attacks, and exchange hacks. Hardware wallets like Ledger and Trezor are popular commercial options, but they come at a cost and require trust in the manufacturer's supply chain. This guide explores a free, open-source alternative using tools many people already have access to.</p>
+      <h3>What You Will Need</h3>
+      <p>A USB flash drive (8GB or larger), a computer running Windows, macOS, or Linux, the VeraCrypt application (free, open-source), and the Coinomi wallet application. Ideally, use a computer that has never been connected to the internet for the most sensitive steps.</p>
+      <h3>Step 1: Setting Up VeraCrypt</h3>
+      <p>VeraCrypt creates encrypted volumes that appear as regular files or drives when locked, and mount as accessible drives when you enter the correct passphrase. Download only from the official website (veracrypt.fr) and verify the installer signature before running it. Use the "Create Volume" wizard to create a new encrypted container on your USB drive — AES-256 encryption with SHA-512 hashing offers strong, well-tested protection.</p>
+      <h3>Step 2: Generating Your Wallet Offline</h3>
+      <p>Coinomi supports a wide range of cryptocurrencies. For maximum security, generate your wallet on an air-gapped machine. Write down your seed phrase (typically 12 or 24 words) on paper, store it in multiple secure physical locations, and never store it digitally or photograph it.</p>
+      <h3>Step 3: Storing and Accessing Your Vault</h3>
+      <p>Once your encrypted container is set up and your wallet data is stored inside, unmount the volume so the data is cryptographically locked. To transact, mount the volume using your passphrase, complete the transaction, then unmount again. The USB drive, if lost or stolen, reveals nothing without the correct passphrase.</p>
+      <h3>Important Limitations to Understand</h3>
+      <p>USB drives can fail mechanically — always maintain encrypted backups in separate physical locations. VeraCrypt protects data at rest, but malware active at the moment you mount the volume could potentially expose keys. For very large holdings, a dedicated hardware wallet or multi-signature setup may offer additional protection. Treat this guide as a starting point, not a complete security solution.</p>
+      <h3>Why Cold Storage Matters</h3>
+      <p>Most significant cryptocurrency thefts occur not through cryptographic attacks but through compromised exchanges, phishing, and credential-capturing malware. Cold storage fundamentally changes the attack surface — a thief needs physical access to both your device and your passphrase. Understanding this layered security model is foundational to responsible self-custody.</p>
+    </div>
+    <div class="article-disclaimer">
+      <strong>Educational Disclaimer:</strong> This guide is for informational purposes only. Always verify downloads from official sources and consider consulting a cybersecurity professional before storing significant assets using any self-custody method.
+    </div>
+    <div class="article-external">
+      Also published on Bulb &rarr; <a href="https://www.bulbapp.io/p/fd94544b-7ad7-42fc-ba43-da4237f830e7/turn-any-usb-stick-into-a-crypto-vault-veracrypt-coinomi-and-the-truth-about-coldstorage" target="_blank" rel="noopener">Read full article on Bulb</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     ARTICLE: SOCIAL MEDIA & KIDS
+     ==================================================== -->
+<section class="article-section" id="article-social-media-kids">
+  <div class="article-wrap">
+    <div class="article-tag-row">
+      <span class="tag tp">Privacy</span>
+      <span class="tag" style="background:#1e1e34;color:#666;border:1px solid #2e2e50;">Research Overview</span>
+    </div>
+    <h2>Social Media Platforms and Youth Mental Health: What the Research Shows</h2>
+    <div class="article-meta">By <span>HattyHats</span> &mdash; Published on Learn With Hatty &mdash; Summary of published research and public reporting</div>
+    <div class="article-body">
+      <p>The relationship between social media use and adolescent mental health has become one of the most actively studied questions in public health over the past decade. A growing body of research — from academic institutions, government health agencies, and independent researchers — points to measurable associations between heavy social media use and certain negative mental health outcomes in young people.</p>
+      <h3>What Peer-Reviewed Studies Have Found</h3>
+      <p>Multiple studies published in journals including JAMA Pediatrics, The Lancet, and Psychological Science have found statistical associations between high social media use among teenagers and elevated rates of anxiety, depression, loneliness, and disrupted sleep. A widely cited 2023 advisory from the U.S. Surgeon General specifically highlighted social media as a contributing factor to a youth mental health crisis. Researchers note that the relationship is likely bidirectional — young people with pre-existing mental health challenges may also be more drawn to heavy social media use, complicating the causal picture.</p>
+      <h3>How Recommendation Algorithms Factor In</h3>
+      <p>Much of the concern from researchers centers not on social media use generally, but on the design of recommendation algorithms specifically. Platforms including Facebook (Meta), TikTok, and Instagram use engagement-optimizing algorithms designed to keep users on the platform as long as possible. Internal research documents from Meta — disclosed publicly through whistleblower Frances Haugen in 2021 — showed that company researchers were aware that certain algorithmic recommendations could amplify body-image concerns in teenage girls.</p>
+      <h3>The Industry's Response</h3>
+      <p>Social media companies have introduced optional screen time limits, age verification prompts, and restricted certain content categories for accounts identified as belonging to users under 18. Critics argue these measures are voluntary, easily bypassed, and insufficient. Legislative efforts in the United States, United Kingdom, and Australia have moved toward more prescriptive regulations around minors' access to social platforms.</p>
+      <h3>What Parents and Caregivers Can Do</h3>
+      <p>Researchers and public health advocates generally recommend a combination of approaches rather than outright prohibition. Practical recommendations include co-use of platforms with younger children, setting consistent screen-free periods (particularly around bedtime), maintaining open conversations about what young people encounter online, and using available tools to limit exposure to algorithmically recommended content.</p>
+      <h3>The Broader Attention Economy Question</h3>
+      <p>The issues raised by social media and youth mental health exist within a broader question about the "attention economy" — the competition for human cognitive attention as a scarce resource. Social media platforms are, by design, optimized to capture and retain attention. Understanding this business model is a key form of digital literacy for both young people and adults navigating an increasingly algorithm-driven information environment.</p>
+    </div>
+    <div class="article-disclaimer">
+      <strong>Educational Disclaimer:</strong> This article summarizes publicly available research and does not constitute medical or psychological advice. If you have concerns about a young person's mental health and technology use, please consult a qualified healthcare professional.
+    </div>
+    <div class="article-external">
+      Also published on Bulb &rarr; <a href="https://www.bulbapp.io/p/2b2515a8-f6f1-44fc-ac8a-c0da140a4db2/is-facebook-addicting-our-kids" target="_blank" rel="noopener">Read full article on Bulb</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     ARTICLE: TARIFFS
+     ==================================================== -->
+<section class="article-section" id="article-tariffs">
+  <div class="article-wrap">
+    <div class="article-tag-row">
+      <span class="tag te">Economics</span>
+      <span class="tag" style="background:#1e1e34;color:#666;border:1px solid #2e2e50;">Policy Explainer</span>
+    </div>
+    <h2>Proposed 15% Global Tariffs: Potential Implications for Trade and Crypto Markets</h2>
+    <div class="article-meta">By <span>HattyHats</span> &mdash; Published on Learn With Hatty &mdash; Educational overview of trade policy and market dynamics</div>
+    <div class="article-body">
+      <p>Trade tariffs are one of the most consequential — and frequently misunderstood — tools in a government's economic policy toolkit. When a country applies a tariff to imported goods, it taxes those goods at the border, raising costs for importers and often eventually for consumers. The proposal for a sweeping 15% baseline tariff on goods from most trading partners represents a major policy shift with potentially far-reaching effects across both traditional and digital asset markets.</p>
+      <h3>What a Universal Tariff Actually Means in Practice</h3>
+      <p>A 15% tariff applied broadly means a product costing an importer $100 would cost $115, with the additional $15 going to the government as tax revenue. This cost may be absorbed by the exporter, passed to the importer, or passed to the end consumer — or some combination. Economists generally agree that broad-based tariffs tend to raise consumer prices over time, reduce trade volumes, and generate retaliation from trading partners.</p>
+      <h3>Historical Context: What Past Tariff Regimes Taught Us</h3>
+      <p>The Smoot-Hawley Tariff Act of 1930 is frequently cited by economic historians as having worsened the Great Depression by triggering a cascade of retaliatory tariffs from trading partners. More recent targeted tariffs — including US-China trade tensions from 2018 to 2020 — produced mixed results depending on the sector and country involved. This history provides useful context for evaluating any new broad tariff proposal.</p>
+      <h3>How Tariffs Can Affect Cryptocurrency Markets</h3>
+      <p>Cryptocurrency markets are increasingly correlated with macroeconomic conditions, particularly risk sentiment in equity markets. A broad tariff-driven increase in inflation expectations or trade uncertainty tends to weigh on risk assets — and crypto, which behaves as a risk-on asset in most macroeconomic environments, is no exception. Tariffs on electronics and semiconductors can also affect the cost of cryptocurrency mining hardware, potentially shifting where mining is conducted globally.</p>
+      <p>Some analysts argue that prolonged currency uncertainty or inflationary pressure from tariffs could drive interest in Bitcoin as a store-of-value asset. As with most macroeconomic effects on crypto, the picture is genuinely complex and depends heavily on specific implementation and market reaction.</p>
+      <h3>What Individual Investors Should Consider</h3>
+      <p>Tariff policy creates both risks and potential opportunities in financial markets, but predicting which will dominate in any given timeframe is genuinely difficult. For most individual investors, the more important considerations are maintaining a well-diversified portfolio, understanding personal risk tolerance, having adequate liquidity, and avoiding large allocation changes based on a single policy development.</p>
+      <h3>Where to Follow This Story</h3>
+      <p>Trade policy developments are covered extensively by Reuters, Bloomberg, and the Wall Street Journal. For crypto-specific market analysis, CoinDesk, The Block, and Messari provide regular coverage of how macroeconomic factors affect digital asset markets. Forming your own view from multiple sources is always preferable to relying on any single outlet.</p>
+    </div>
+    <div class="article-disclaimer">
+      <strong>Educational Disclaimer:</strong> This article is a general educational overview of trade policy concepts. It is not financial or investment advice. Tariff impacts on markets are complex and unpredictable; consult a qualified financial advisor before making any investment decisions based on macroeconomic conditions.
+    </div>
+    <div class="article-external">
+      Also published on Bulb &rarr; <a href="https://www.bulbapp.io/p/1923e7c5-02f1-404f-8a58-309200bca841/what-trumps-15-global-tariff-reallymeans" target="_blank" rel="noopener">Read full article on Bulb</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     ARTICLE: AI-ONLY SOCIAL NETWORKS
+     ==================================================== -->
+<section class="article-section" id="article-ai-social">
+  <div class="article-wrap">
+    <div class="article-tag-row">
+      <span class="tag tai">AI</span>
+      <span class="tag" style="background:#1e1e34;color:#666;border:1px solid #2e2e50;">Technology Analysis</span>
+    </div>
+    <h2>AI-Only Social Networks: How Automated Content Communities Work</h2>
+    <div class="article-meta">By <span>HattyHats</span> &mdash; Published on Learn With Hatty &mdash; Technology and ethics explainer</div>
+    <div class="article-body">
+      <p>One of the more unusual developments at the intersection of artificial intelligence and social media is the emergence of platforms populated primarily — or entirely — by AI-generated accounts. These environments, where large language models post content, respond to each other, and generate simulated social interactions, raise genuinely novel questions about authenticity, media, and how humans relate to automated communication systems.</p>
+      <h3>How These Platforms Typically Work</h3>
+      <p>In most AI-populated social environments, human operators create and manage AI personas with defined backgrounds, personalities, and posting styles. These personas generate content using large language models, typically through API access to models from providers like Anthropic, OpenAI, or open-source alternatives. Some platforms integrate AI accounts into otherwise human-populated communities; others create entirely contained AI-to-AI environments as research or entertainment projects.</p>
+      <h3>The Transparency and Ethics Questions</h3>
+      <p>The core ethical debate centers on disclosure. When an AI account is clearly labeled as such, interacting with it is a transparent and informed experience. The concerns arise when AI personas interact with humans without disclosure, creating false impressions of human engagement. Most major social platforms formally prohibit undisclosed AI personas in their terms of service, though enforcement remains technically challenging. Regulatory frameworks in the EU and elsewhere are increasingly moving toward mandatory AI disclosure requirements.</p>
+      <h3>What This Means for Information Ecosystems</h3>
+      <p>The proliferation of AI-generated content raises legitimate concerns about information quality at scale. When automated systems can produce plausible-sounding but inaccurate content rapidly and cheaply, the burden on readers to evaluate source credibility increases substantially. The practical response is developing stronger habits around source verification — checking who published content, what their track record is, and whether claims are independently corroborated.</p>
+      <h3>Potential Constructive Uses</h3>
+      <p>Not all AI-populated social environments are ethically problematic. Researchers use them to study social network dynamics at scale. Game developers use them for more realistic non-player character interactions. Educators are exploring AI personas as learning tools. The technology itself is neutral; the ethical implications depend on context, disclosure, and intent.</p>
+      <h3>Where This Technology Is Heading</h3>
+      <p>As AI language models become more capable and less expensive to run, the ability to create and maintain AI personas at scale will become more accessible. Questions about authenticity, disclosure, and automated content will only become more pressing. Understanding how these systems work is a prerequisite for thinking clearly about the policies and platform practices that should govern them.</p>
+    </div>
+    <div class="article-disclaimer">
+      <strong>Educational Disclaimer:</strong> This article provides a general overview of AI social networking technology for educational purposes. Always verify information from primary sources when forming views on rapidly evolving technology topics.
+    </div>
+    <div class="article-external">
+      Also published on Bulb &rarr; <a href="https://www.bulbapp.io/p/ab4c084a-0db2-4c1c-a790-055f5005d7fc/the-ai-only-social-network-thats-basically-reddit-for-bots-and-the-human-puppet-masters-ruining-th" target="_blank" rel="noopener">Read full article on Bulb</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     ARTICLE: AI AGENTS 2026
+     ==================================================== -->
+<section class="article-section" id="article-ai-agents">
+  <div class="article-wrap">
+    <div class="article-tag-row">
+      <span class="tag tai">AI</span>
+      <span class="tag" style="background:#1e1e34;color:#666;border:1px solid #2e2e50;">Technology Overview</span>
+    </div>
+    <h2>AI Agents in 2026: Capabilities, Limitations, and What to Watch For</h2>
+    <div class="article-meta">By <span>HattyHats</span> &mdash; Published on Learn With Hatty &mdash; Plain-language technology education</div>
+    <div class="article-body">
+      <p>The term "AI agent" has moved from research papers into mainstream technology conversations with remarkable speed. In 2024 and 2025, a wave of products marketed as AI agents entered the market, claiming to be able to autonomously complete multi-step tasks — browsing the web, writing and executing code, sending emails, and coordinating complex workflows — with minimal human supervision. By 2026, the landscape has grown both more capable and more complicated to evaluate.</p>
+      <h3>What Distinguishes an AI Agent from a Chatbot</h3>
+      <p>A standard AI chatbot responds to a single prompt with a single response. An AI agent is designed to take a sequence of actions over time in pursuit of a goal, adapting based on what it observes. Rather than just answering a question, an agent might autonomously browse databases, extract key metrics, check recent news, and compile a report. The capability to use external tools and maintain context across a multi-step process is what distinguishes agents from more basic AI systems.</p>
+      <h3>What Today's Leading AI Agent Tools Actually Do</h3>
+      <p>Current AI agent frameworks combine a large language model backbone with access to browser automation, code execution, and external API integrations. Their appeal is the promise of delegating complex, multi-step digital tasks. Practically, these tools work well on well-defined, structured tasks in controlled environments and struggle with ambiguous goals, novel situations, or tasks requiring reliable real-world judgment.</p>
+      <h3>Current Limitations to Understand</h3>
+      <p>Despite impressive demonstrations, AI agents in 2026 have real limitations. They are prone to "hallucination" — generating plausible-sounding but incorrect information — particularly outside their training distribution. They can make consequential errors in multi-step tasks, and because they operate autonomously, those errors may compound before a human can intervene. They also raise privacy and security concerns, since an agent completing tasks on your behalf often needs access to sensitive accounts or information.</p>
+      <h3>Practical Applications Worth Watching</h3>
+      <p>In domains where errors are low-stakes and tasks are well-structured, AI agents are already providing genuine value. Developers use coding agents to automate test writing, documentation, and debugging. Research teams use them to process large document sets. The most productive frame for evaluating any AI agent claim is to ask: what are the failure modes, how consequential are mistakes, and is there adequate human oversight in the loop?</p>
+      <h3>The Longer-Term Picture</h3>
+      <p>AI agent technology is developing rapidly, and the capability gap between current systems and human-level autonomous task completion — while still substantial — is narrowing in specific domains. The regulatory, legal, and ethical frameworks for AI agency are significantly behind the technology, which is itself a risk factor worth monitoring. Tracking publications from major research institutions provides a more grounded picture than most product marketing.</p>
+    </div>
+    <div class="article-disclaimer">
+      <strong>Educational Disclaimer:</strong> This article provides a general educational overview of AI agent technology as of 2026. The field is rapidly evolving; specific product capabilities may have changed. This is not professional technology or financial advice.
+    </div>
+    <div class="article-external">
+      Also published on Bulb &rarr; <a href="https://www.bulbapp.io/p/4759dc6c-0296-443a-b061-cf0ec4cd221d/the-viral-ai-agent-taking-over-2026-and-why-its-equal-parts-genius-andchaos" target="_blank" rel="noopener">Read full article on Bulb</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     ARTICLE: SCI-FI TO REALITY
+     ==================================================== -->
+<section class="article-section" id="article-scifi-reality">
+  <div class="article-wrap">
+    <div class="article-tag-row">
+      <span class="tag tai">AI</span>
+      <span class="tag" style="background:#1e1e34;color:#666;border:1px solid #2e2e50;">Technology &amp; Society</span>
+    </div>
+    <h2>From Sci-Fi Dreams to World-Changing Reality (And a Few Nightmares)</h2>
+    <div class="article-meta">By <span>HattyHats</span> &mdash; Published on Learn With Hatty &mdash; Technology history and critical perspective</div>
+    <div class="article-body">
+      <p>For most of the twentieth century, the technologies that now define our daily lives existed only on the page and on screen. Artificial intelligence, neural interfaces, self-driving vehicles, digital currencies, and globally networked personal devices were the province of novelists, screenwriters, and a handful of research scientists. Something has changed — and understanding what changed, and what it means, is increasingly important for anyone trying to think clearly about the world in 2026.</p>
+      <h3>The Gap Between Imagination and Engineering</h3>
+      <p>Science fiction's great contribution to technology was not prediction — it was permission. By imagining futures in vivid detail, writers like Philip K. Dick, William Gibson, and Arthur C. Clarke helped establish a shared cultural vocabulary for possibilities that had no established name. When researchers in the 1980s began working on what would become the internet, they were building toward something that society had already, in a sense, agreed was possible and desirable. The same dynamic applies to AI, portable computing, and increasingly to biotechnology.</p>
+      <p>The gap between the fictional version and the engineering reality has always been instructive. HAL 9000 was terrifying because it was comprehensible — it had goals, preferences, and made decisions for reasons. The AI systems we actually built in 2025 and 2026 are in some respects far more capable than HAL and in others far less. They can generate coherent text about virtually any topic; they cannot reliably tell you whether it is raining outside without being told. Understanding this gap is one of the most practically useful things a person can do when navigating AI-related news and claims.</p>
+      <h3>Technologies That Arrived Ahead of Schedule</h3>
+      <p>Some technologies have arrived faster than even optimistic forecasters predicted. Large language models capable of passing professional licensing exams, generating production-quality code, and engaging in extended coherent dialogue were being described as "decades away" by credible researchers as recently as 2015. The speed of advancement in this area genuinely surprised the field itself. Similarly, mRNA vaccine technology — in development for decades with limited commercial application — became globally deployed within a year of the COVID-19 pandemic, compressing a development timeline that might otherwise have taken another decade.</p>
+      <p>Blockchain technology arrived roughly on the timeline its earliest proponents expected, but its adoption curve has been more uneven. The underlying cryptographic concepts are extraordinarily robust; the social and regulatory infrastructure needed to make them practically useful for ordinary people remains a work in progress. This is a common pattern: a technology achieves technical proof-of-concept faster than anticipated but requires much longer to build the surrounding ecosystem of trust, tooling, and habit.</p>
+      <h3>The Nightmares That Materialized — and Those That Didn't</h3>
+      <p>Science fiction's dystopian scenarios have not materialized in the forms originally imagined, but some underlying concerns have. The surveillance capitalism model — in which detailed personal data is collected at scale and used to influence behavior for commercial ends — was described in speculative fiction long before companies built it into reality. The specific mechanisms were different from what writers imagined, but the structural concern about private power over personal information proved prescient.</p>
+      <p>Conversely, some of the most feared scenarios have not materialized, at least not yet. Artificial general intelligence — machine intelligence broadly capable across all domains — has not arrived despite significant advances in narrow AI. Autonomous weapons systems exist and are proliferating, but the fully autonomous, self-directing battlefield AI of popular imagination remains a future concern rather than a present reality, in part because the engineering challenges are genuinely hard and in part because there has been meaningful (if incomplete) international discussion about governing such systems.</p>
+      <h3>What This Means for How We Think About Technology Today</h3>
+      <p>The most useful lesson from the history of how science fiction became reality is that technological change tends to be uneven, path-dependent, and heavily shaped by factors unrelated to engineering: regulation, culture, economic incentives, and the decisions made by a relatively small number of institutions and individuals at critical moments. This means that fatalism — the sense that technology unfolds according to its own inevitable logic — is probably wrong, and that informed public engagement with technology policy actually matters.</p>
+      <p>For those interested in crypto, AI, and Web3 specifically, this translates into a practical orientation: understand the technology well enough to distinguish genuine capability from marketing; pay attention to regulatory developments because they will shape which applications actually scale; and maintain a critical relationship with both enthusiast and doomer narratives, which tend to flatten the genuine complexity of how these systems develop.</p>
+    </div>
+    <div class="article-disclaimer">
+      <strong>Educational Disclaimer:</strong> This article is an editorial and educational perspective on technology history and its social implications. It reflects the author's analysis and does not constitute investment, financial, or professional advice of any kind.
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     ARTICLE: PRIVACY 2026
+     ==================================================== -->
+<section class="article-section" id="article-privacy-2026">
+  <div class="article-wrap">
+    <div class="article-tag-row">
+      <span class="tag tp">Privacy</span>
+      <span class="tag" style="background:#1e1e34;color:#666;border:1px solid #2e2e50;">Technical Explainer</span>
+    </div>
+    <h2>2026 Is the Year Privacy Gets Real — And Really Technical</h2>
+    <div class="article-meta">By <span>HattyHats</span> &mdash; Published on Learn With Hatty &mdash; Privacy technology education</div>
+    <div class="article-body">
+      <p>For most of the internet era, "privacy" meant something fairly simple: don't share your password, read the terms of service (which nobody actually did), and hope that the companies holding your data didn't get breached. That model is breaking down — both because the volume and sensitivity of data being collected has grown enormously, and because the tools available to protect privacy have become genuinely sophisticated. In 2026, privacy is increasingly a technical discipline, and understanding its basic architecture is becoming a form of practical literacy.</p>
+      <h3>Zero-Knowledge Proofs: Proving Something Without Revealing It</h3>
+      <p>One of the most significant developments in cryptographic privacy is the mainstream adoption of zero-knowledge proofs (ZKPs). A zero-knowledge proof is a mathematical method by which one party can prove to another that a statement is true without revealing any information beyond the truth of the statement itself. The canonical example: you can prove to a verifier that you know a password without ever transmitting the password. In the context of blockchain and digital identity, ZKPs allow for verification of credentials — age, residency, financial status — without disclosing the underlying personal data.</p>
+      <p>ZKP technology has moved rapidly from academic research into production systems. Several major blockchain networks have integrated ZKP-based privacy layers, and digital identity systems in the EU and elsewhere are incorporating ZKP-based credential verification as part of their compliance architecture. The practical implication for ordinary users is that it is becoming technically feasible to interact with online services in verified but pseudonymous ways — proving what needs to be proven without exposing everything else.</p>
+      <h3>Hardware-Level Attestation and Trusted Execution Environments</h3>
+      <p>A Trusted Execution Environment (TEE) is a secure, isolated processing environment within a processor where code can be executed and data processed without being visible to the operating system, other applications, or even the device owner. Major chip manufacturers including Intel, AMD, and ARM have built TEE capabilities into their hardware architectures. In practical terms, this means sensitive computations — verifying a digital identity, processing financial data, running AI inference on private data — can be performed in a way that is verifiably isolated from other processes on the same hardware.</p>
+      <p>Hardware attestation allows a cloud customer to cryptographically verify that their code is running in a specific, unmodified environment — a significant advance over simply trusting the cloud provider's word. This is particularly relevant for cloud computing, where users are entrusting sensitive workloads to hardware they do not physically control.</p>
+      <h3>Encrypted Computing: Processing Data Without Seeing It</h3>
+      <p>Homomorphic encryption allows computation to be performed on encrypted data without first decrypting it. The result, when decrypted by the data owner, is the same as if the computation had been performed on the original unencrypted data. In other words, a service provider can perform useful computations on your data without ever having access to what your data actually says. Fully homomorphic encryption has been a theoretical possibility since 2009 but was historically too computationally expensive for practical use. Specialized hardware accelerators designed specifically for these workloads are now entering the market, and the trajectory suggests it will be practically deployable for a meaningful range of applications within the next several years.</p>
+      <h3>What This Means for Crypto and Web3</h3>
+      <p>Privacy technology and blockchain technology are converging in important ways. Privacy-preserving smart contracts, using ZKPs or TEEs, allow blockchain-based applications to process sensitive data without exposing it on-chain. This addresses one of the longstanding limitations of public blockchains — that all transaction data is visible to all participants — without sacrificing the verifiability that makes blockchains useful. Projects in this space are working on privacy-preserving DeFi, confidential NFT ownership, and private on-chain identity systems.</p>
+      <h3>The Regulatory Dimension</h3>
+      <p>Advances in privacy technology are developing in parallel with an increasingly complex regulatory environment. The EU's GDPR, California's CPRA, and a growing number of national data protection frameworks create legal requirements that in many cases are pushing organizations toward privacy-preserving technical architectures. For users, it means that privacy-preserving options are becoming more available — but taking advantage of them still requires deliberate choices.</p>
+    </div>
+    <div class="article-disclaimer">
+      <strong>Educational Disclaimer:</strong> This article provides a general educational overview of privacy technology concepts. It does not constitute legal, technical, or professional advice. The technology landscape described is evolving rapidly; always consult authoritative technical and legal sources for current specifications and requirements.
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     ARTICLE: WHEN THE CLOUD GOES TO WAR
+     ==================================================== -->
+<section class="article-section" id="article-cloud-war">
+  <div class="article-wrap">
+    <div class="article-tag-row">
+      <span class="tag tg">Infrastructure</span>
+      <span class="tag" style="background:#1e1e34;color:#666;border:1px solid #2e2e50;">Geopolitics &amp; Tech</span>
+    </div>
+    <h2>When the Cloud Goes to War: Geopolitics, Data Sovereignty, and Digital Infrastructure</h2>
+    <div class="article-meta">By <span>HattyHats</span> &mdash; Published on Learn With Hatty &mdash; Technology and geopolitics education</div>
+    <div class="article-body">
+      <p>Cloud computing has, over the past fifteen years, quietly become one of the most strategically important categories of infrastructure on the planet. The servers, fiber cables, data centers, and software platforms that make up "the cloud" are not a neutral utility like running water — they are owned and operated by a relatively small number of companies, concentrated in a handful of countries, and increasingly caught in the middle of geopolitical conflicts they were never designed to navigate.</p>
+      <h3>The Concentration of Cloud Infrastructure</h3>
+      <p>The global cloud infrastructure market is dominated by three American companies: Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). Together, these three providers host a substantial majority of the world's enterprise computing workloads, including the backends of applications used by billions of people daily. This concentration means that a significant portion of the world's digital infrastructure is subject to US law, US export controls, and — in extreme scenarios — US government influence.</p>
+      <p>This concentration didn't happen by accident. The United States had a significant head start in both the internet and the enterprise software industries, and the network effects and capital requirements of building hyperscale cloud infrastructure created enormous barriers to entry. Competitors have emerged — notably Alibaba Cloud and Huawei Cloud in China, and a range of regional players in Europe — but they have not fundamentally changed the structural dominance of the American hyperscalers in most markets outside China.</p>
+      <h3>Data Sovereignty: What Governments Are Actually Asking For</h3>
+      <p>Data sovereignty refers to the principle that data should be subject to the laws and governance structures of the country in which it is generated or in which its subjects reside. In practical terms, a German citizen's health data should, under German and EU law, remain subject to German and EU data protection frameworks — regardless of which cloud provider stores it or where that provider's servers are physically located. This creates a fundamental tension with the borderless architecture of global cloud infrastructure.</p>
+      <p>Governments have responded in a variety of ways. The EU's GDPR includes significant restrictions on transferring personal data to countries without adequate data protection frameworks. Several countries — including Russia, China, and India — have passed data localization laws requiring certain categories of data to be stored on servers physically located within their borders, forcing cloud providers to build out local infrastructure and, in some cases, establish legally separate entities in specific jurisdictions.</p>
+      <h3>Sanctions, Service Terminations, and the Weaponization of Cloud Access</h3>
+      <p>The geopolitical dimension of cloud infrastructure became dramatically visible in 2022 when major cloud and software providers suspended or restricted services in Russia following the invasion of Ukraine. Companies including AWS, Microsoft, Oracle, and others withdrew services or ceased new business, effectively cutting off Russian organizations from access to significant portions of the global software ecosystem. This was an unprecedented demonstration of the leverage that cloud infrastructure providers hold — and of the vulnerability of organizations that have allowed themselves to become deeply dependent on a small number of foreign technology vendors.</p>
+      <p>The same dynamic applies, in less dramatic form, to export controls on semiconductor technology. US restrictions on the export of advanced chips and chip-making equipment represent an attempt to use technology supply chains as a geopolitical instrument. The downstream effects for cloud infrastructure are significant: if a country cannot access advanced chips, it cannot build competitive data centers, which limits its ability to develop sovereign cloud capacity.</p>
+      <h3>Implications for Cryptocurrency and Decentralized Infrastructure</h3>
+      <p>The concentration of cloud infrastructure in a small number of jurisdictions and providers is directly relevant to the cryptocurrency and Web3 ecosystem. A significant portion of blockchain node infrastructure runs on commercial cloud providers, most commonly AWS. This creates a structural vulnerability: if a major cloud provider restricted cryptocurrency-related workloads, the effects on blockchain network performance could be significant.</p>
+      <p>This is part of the motivation behind ongoing efforts to develop more genuinely decentralized physical infrastructure — including projects focused on decentralized physical infrastructure networks (DePIN), distributed storage, and peer-to-peer compute markets. The goal is to reduce reliance on centralized cloud providers for the foundational infrastructure of supposedly decentralized systems. Progress has been real but uneven; the economic advantages of hyperscale cloud infrastructure are difficult to compete with on pure cost grounds.</p>
+      <h3>What This Means for the Near Future</h3>
+      <p>The geopolitical pressures on cloud infrastructure are intensifying, not abating. The trend toward data localization requirements, the proliferation of technology-specific export controls, and the growing awareness among governments of the strategic importance of digital infrastructure all point toward a more fragmented global cloud landscape over the next decade. For the crypto and Web3 space, it is a reminder that the physical infrastructure underpinning digital systems is never fully neutral — and that sovereignty over that infrastructure matters in ways that pure protocol design cannot resolve.</p>
+    </div>
+    <div class="article-disclaimer">
+      <strong>Educational Disclaimer:</strong> This article provides a general educational overview of geopolitical and infrastructure topics for informational purposes. It does not constitute legal, investment, or professional advice. The regulatory and geopolitical landscape described is subject to rapid change; consult qualified professionals and authoritative sources for current information.
+    </div>
+  </div>
+</section>
 
 <!-- ========== VIDEOS ========== -->
 <div class="container" id="videos">
   <h2 class="sec-title">Latest Videos</h2>
   <div class="cards">
     <div class="vcard">
-      <a class="vthumb" href="https://youtu.be/A9YtF7Wq0oI?si=w5VWWbwovr4IMlpB" target="_blank">
-        <img src="https://img.youtube.com/vi/A9YtF7Wq0oI/hqdefault.jpg" alt="Did Jane Street Help Nuke Terra and Suppress Bitcoin?">
+      <a class="vthumb" href="https://youtu.be/A9YtF7Wq0oI?si=w5VWWbwovr4IMlpB" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/A9YtF7Wq0oI/hqdefault.jpg" alt="Examining Jane Street's Role in the Terra Ecosystem Collapse and Bitcoin Volatility">
       </a>
       <div class="vinfo">
         <span class="tag tv">YouTube</span>
-        <h3>Did Jane Street Help Nuke Terra and Suppress Bitcoin?</h3>
-        <p>New</p>
-        <a href="https://youtu.be/A9YtF7Wq0oI?si=w5VWWbwovr4IMlpB" target="_blank">Watch Now &rarr;</a>
+        <h3>Examining Jane Street's Role in the Terra Ecosystem Collapse and Bitcoin Volatility</h3>
+        <p>A data-informed video analysis of institutional trading activity during the 2022 crypto downturn.</p>
+        <a href="https://youtu.be/A9YtF7Wq0oI?si=w5VWWbwovr4IMlpB" target="_blank" rel="noopener">Watch Now &rarr;</a>
       </div>
     </div>
     <div class="vcard">
-      <a class="vthumb" href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank">
-        <img src="https://img.youtube.com/vi/KOiFqfIh6AM/hqdefault.jpg" alt="Epstein Document Release Analysis">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/KOiFqfIh6AM/hqdefault.jpg" alt="2025 Epstein Document Release: What the Public Record Shows">
       </a>
       <div class="vinfo">
         <span class="tag tv">YouTube</span>
-        <h3>Breaking Down the 2025 Epstein Document Release</h3>
-        <p>6 days ago &mdash; <em style="font-size:.72rem;color:#555">Informational analysis of public court documents</em></p>
-        <a href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank">Watch Now &rarr;</a>
+        <h3>2025 Epstein Document Release: What the Public Record Shows</h3>
+        <p>An informational walkthrough of what was actually disclosed in the 2025 court document release, based on public records and reporting.</p>
+        <a href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank" rel="noopener">Watch Now &rarr;</a>
       </div>
     </div>
     <div class="vcard">
-      <a class="vthumb" href="https://www.youtube.com/watch?v=w3JdEdCgNzY" target="_blank">
-        <img src="https://img.youtube.com/vi/w3JdEdCgNzY/hqdefault.jpg" alt="GenWealth">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=w3JdEdCgNzY" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/w3JdEdCgNzY/hqdefault.jpg" alt="Generational Wealth Basics and Crypto's Inheritance Problem">
       </a>
       <div class="vinfo">
         <span class="tag tv">YouTube</span>
-        <h3>GenWealth Basics &amp; Crypto's Inheritance Problem (Part 1)</h3>
-        <p>12 days ago</p>
-        <a href="https://www.youtube.com/watch?v=w3JdEdCgNzY" target="_blank">Watch Now &rarr;</a>
+        <h3>Generational Wealth Basics &amp; Crypto's Inheritance Problem (Part 1)</h3>
+        <p>Understanding how cryptocurrency assets can be planned for and passed on — a practical introduction.</p>
+        <a href="https://www.youtube.com/watch?v=w3JdEdCgNzY" target="_blank" rel="noopener">Watch Now &rarr;</a>
       </div>
     </div>
     <div class="vcard">
-      <a class="vthumb" href="https://www.youtube.com/watch?v=w372WK3p3YQ" target="_blank">
-        <img src="https://img.youtube.com/vi/w372WK3p3YQ/hqdefault.jpg" alt="AI Slop">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=w372WK3p3YQ" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/w372WK3p3YQ/hqdefault.jpg" alt="How AI-Generated Content May Affect Young People's Media Habits">
       </a>
       <div class="vinfo">
         <span class="tag tv">YouTube</span>
-        <h3>AI Slop Rewiring Kids' Brains?</h3>
-        <p>3 weeks ago</p>
-        <a href="https://www.youtube.com/watch?v=w372WK3p3YQ" target="_blank">Watch Now &rarr;</a>
+        <h3>How AI-Generated Content May Affect Young People's Media Habits</h3>
+        <p>A look at the research on AI content consumption and what it might mean for how children and teens process information.</p>
+        <a href="https://www.youtube.com/watch?v=w372WK3p3YQ" target="_blank" rel="noopener">Watch Now &rarr;</a>
       </div>
     </div>
     <div class="vcard">
-      <a class="vthumb" href="https://www.youtube.com/watch?v=2t46ZtDMiWE" target="_blank">
-        <img src="https://img.youtube.com/vi/2t46ZtDMiWE/hqdefault.jpg" alt="Web3 Gaming">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=2t46ZtDMiWE" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/2t46ZtDMiWE/hqdefault.jpg" alt="Web3 Gaming, Real Asset Ownership and the Future of the Metaverse">
       </a>
       <div class="vinfo">
         <span class="tag tv">YouTube</span>
-        <h3>Web3 Gaming, Real Ownership &amp; the Future of the Metaverse</h3>
-        <p>1 month ago</p>
-        <a href="https://www.youtube.com/watch?v=2t46ZtDMiWE" target="_blank">Watch Now &rarr;</a>
+        <h3>Web3 Gaming, Real Asset Ownership &amp; the Future of the Metaverse</h3>
+        <p>How blockchain technology is changing the concept of ownership in online gaming and virtual worlds.</p>
+        <a href="https://www.youtube.com/watch?v=2t46ZtDMiWE" target="_blank" rel="noopener">Watch Now &rarr;</a>
       </div>
     </div>
     <div class="vcard">
-      <a class="vthumb" href="https://www.youtube.com/watch?v=-L3Du0qK8Q0" target="_blank">
-        <img src="https://img.youtube.com/vi/-L3Du0qK8Q0/hqdefault.jpg" alt="Fountain of Voi">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=-L3Du0qK8Q0" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/-L3Du0qK8Q0/hqdefault.jpg" alt="The Fountain of Voi — Inside the Voi Blockchain Ecosystem">
       </a>
       <div class="vinfo">
         <span class="tag tv">YouTube</span>
-        <h3>The Fountain of Voi</h3>
-        <p>1 month ago</p>
-        <a href="https://www.youtube.com/watch?v=-L3Du0qK8Q0" target="_blank">Watch Now &rarr;</a>
+        <h3>The Fountain of Voi — Inside the Voi Blockchain Ecosystem</h3>
+        <p>An introduction to the Voi network and its community-driven approach to blockchain development.</p>
+        <a href="https://www.youtube.com/watch?v=-L3Du0qK8Q0" target="_blank" rel="noopener">Watch Now &rarr;</a>
       </div>
     </div>
     <div class="vcard">
-      <a class="vthumb" href="https://www.youtube.com/watch?v=eiFoKcKvVN0" target="_blank">
-        <img src="https://img.youtube.com/vi/eiFoKcKvVN0/hqdefault.jpg" alt="Running a Voi Node">
+      <a class="vthumb" href="https://www.youtube.com/watch?v=eiFoKcKvVN0" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/eiFoKcKvVN0/hqdefault.jpg" alt="Running a Voi Node: A Step-by-Step Guide">
       </a>
       <div class="vinfo">
         <span class="tag tv">YouTube</span>
-        <h3>Running a Voi Node</h3>
-        <p>1 month ago</p>
-        <a href="https://www.youtube.com/watch?v=eiFoKcKvVN0" target="_blank">Watch Now &rarr;</a>
+        <h3>Running a Voi Node: A Step-by-Step Guide</h3>
+        <p>A practical walkthrough of setting up and maintaining a node on the Voi blockchain network.</p>
+        <a href="https://www.youtube.com/watch?v=eiFoKcKvVN0" target="_blank" rel="noopener">Watch Now &rarr;</a>
       </div>
     </div>
   </div>
@@ -967,16 +1164,16 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
 <section class="plat" id="platforms">
   <div class="container">
     <h2 class="sec-title" style="text-align:left">Find Me On These Platforms</h2>
-    <p>I publish content daily across Web2 and Web3 platforms. Follow along for crypto and AI insights.</p>
+    <p>HattyHats publishes educational content regularly across Web2 and Web3 platforms. Follow along for crypto, AI, and privacy insights.</p>
     <div class="plinks">
-      <a href="https://x.com/hatty_hats" target="_blank">X (Twitter)</a>
-      <a href="https://www.youtube.com/@hattyhats0" target="_blank">YouTube</a>
-      <a href="https://www.bulbapp.io" target="_blank">Bulb</a>
-      <a href="https://www.publish0x.com" target="_blank">PublishOx</a>
-      <a href="https://medium.com" target="_blank">Medium</a>
-      <a href="https://cryptonaut.id/HattyHats" target="_blank">Cryptonaut</a>
-      <a href="https://tangled.com/u/hattyhats" target="_blank">Tangled</a>
-      <a href="https://tiktok.com" target="_blank">TikTok</a>
+      <a href="https://x.com/hatty_hats" target="_blank" rel="noopener">X (Twitter)</a>
+      <a href="https://www.youtube.com/@hattyhats0" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.bulbapp.io" target="_blank" rel="noopener">Bulb</a>
+      <a href="https://www.publish0x.com" target="_blank" rel="noopener">PublishOx</a>
+      <a href="https://medium.com" target="_blank" rel="noopener">Medium</a>
+      <a href="https://cryptonaut.id/HattyHats" target="_blank" rel="noopener">Cryptonaut</a>
+      <a href="https://tangled.com/u/hattyhats" target="_blank" rel="noopener">Tangled</a>
+      <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
     </div>
   </div>
 </section>
@@ -986,22 +1183,22 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
   <div class="container">
     <h2 class="sec-title">Merch Store</h2>
     <p style="color:#999;max-width:640px;margin-bottom:18px">
-      Rep the brand and support the channel with official Earn With Hatty merch.
+      Support the channel and rep the brand with official Learn With Hatty merchandise — designed for the crypto and tech community.
     </p>
     <div class="merch-grid">
       <div class="merch-card">
         <h3>Hats, Hoodies &amp; Tees</h3>
-        <p>Grab logo gear and clean designs built for crypto and AI nerds who live in dark mode.</p>
-        <a href="https://learn-with-hatty.printify.me/" target="_blank">Shop Merch &rarr;</a>
+        <p>Clean logo gear and original designs for crypto enthusiasts, Web3 builders, and anyone who lives in dark mode.</p>
+        <a href="https://learn-with-hatty.printify.me/" target="_blank" rel="noopener">Shop Merch &rarr;</a>
       </div>
       <div class="merch-card">
         <h3>Desk &amp; Office Gear</h3>
-        <p>Desk accessories and office gear are <strong style="color:#f0f0f0">coming soon</strong>. Check back for new drops.</p>
+        <p>Desk accessories and office gear are <strong style="color:#f0f0f0">coming soon</strong>. Check back for new product drops.</p>
         <span style="font-size:.8rem;color:#f0a500;font-weight:700;text-transform:uppercase;letter-spacing:.5px;">Coming Soon</span>
       </div>
       <div class="merch-card">
-        <h3>All Products</h3>
-        <p>A full catalog page is <strong style="color:#f0f0f0">coming soon</strong> once more product lines are live.</p>
+        <h3>Full Product Catalog</h3>
+        <p>A complete catalog page is <strong style="color:#f0f0f0">coming soon</strong> as additional product lines are developed and launched.</p>
         <span style="font-size:.8rem;color:#f0a500;font-weight:700;text-transform:uppercase;letter-spacing:.5px;">Coming Soon</span>
       </div>
     </div>
@@ -1011,10 +1208,10 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
 <!-- ========== DONATE ========== -->
 <section class="donate" id="donate">
   <div class="donate-inner">
-    <h2 class="sec-title" style="margin-bottom:16px;border-left:none;padding-left:0;text-align:center">Support The Work</h2>
-    <p>Like the research, videos and write&#8209;ups? If you want to tip the channel directly, you can send a donation via Cash App.</p>
+    <h2 class="sec-title" style="margin-bottom:16px;border-left:none;padding-left:0;text-align:center">Support the Work</h2>
+    <p>If you find value in the research, videos, and articles — and want to support independent content creation directly — you can send a tip via Cash App. Every contribution helps keep this content free rather than behind a paywall.</p>
     <span class="donate-tag">$hattyhatss</span>
-    <small>Copy the tag in your Cash App and choose any amount you want.</small>
+    <small>Copy the Cash App tag above, open your Cash App, and choose any amount you're comfortable with.</small>
     <a class="donate-btn" href="https://cash.app/$hattyhatss" target="_blank" rel="noopener">Open Cash App</a>
   </div>
 </section>
@@ -1022,32 +1219,50 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
 <!-- ========== ABOUT ========== -->
 <section class="about" id="about">
   <div class="about-inner">
-    <div class="about-img">🎩</div>
+    <div class="about-img" aria-hidden="true">🎩</div>
     <div>
-      <h2>About Hatty</h2>
-      <p>Hey! I'm <strong>HattyHats</strong> — a content creator, blockchain enthusiast, and tech writer.</p>
-      <p>I cover cryptocurrency, AI, privacy, and Web3 across multiple platforms with over 1,400 YouTube subscribers and 180+ published articles. My goal is to make complex tech topics accessible and actionable for everyday people.</p>
-      <p>From Cardano governance to AI safety risks, I dig deep so you don't have to.</p>
+      <h2>About HattyHats</h2>
+      <p>Hey — I'm <strong>HattyHats</strong>, a content creator, blockchain enthusiast, and tech writer focused on making complex topics in crypto, AI, and privacy understandable for everyday people.</p>
+      <p>With over 1,400 YouTube subscribers and 180+ published articles across multiple platforms, I cover everything from Cardano governance and AI safety to self-custody best practices and Web3 gaming. My goal is straightforward: informed people make better decisions — about technology, about their money, and about the world they're navigating.</p>
+      <p>I always encourage you to verify claims, read primary sources, and consult qualified professionals for anything consequential. The goal here is to give you a solid foundation to think from — not to tell you what to do.</p>
     </div>
   </div>
 </section>
 
+<!-- ========== CONTACT ========== -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2 class="sec-title" style="text-align:center;border-left:none;padding-left:0;margin-bottom:16px">Get in Touch</h2>
+    <p>Have a question, a topic suggestion, or just want to say hello? I read every message. For business inquiries, collaboration ideas, or feedback on the site or videos, reach out directly.</p>
+    <a href="mailto:hattyhatss@yahoo.com" class="contact-email">hattyhatss@yahoo.com</a>
+  </div>
+</section>
+
+<!-- ========== FOOTER DISCLAIMER ========== -->
+<div class="disclaimer-bar" style="margin-top:0">
+  <strong>Site-Wide Disclaimer:</strong> All content on this site is published for educational and informational purposes only. Nothing here — including articles, videos, or linked external content — constitutes financial, investment, or legal advice. Cryptocurrency and digital asset markets carry significant risk. Always conduct your own research and consult qualified professionals before making any financial or investment decision.
+  <a href="terms.html"> Full Terms &amp; Disclaimer &rarr;</a>
+</div>
+
 <!-- ========== FOOTER ========== -->
 <footer>
-  <p>&copy; 2026 Earn With Hatty &mdash; earnwithhatty.com</p>
+  <p>&copy; 2026 Learn With Hatty / Earn With Hatty &mdash; earnwithhatty.com</p>
   <p style="margin-top:10px">
     <a href="privacy-policy.html">Privacy Policy</a> |
     <a href="terms.html">Terms &amp; Disclaimer</a> |
-    <a href="https://x.com/hatty_hats" target="_blank">X (Twitter)</a> |
-    <a href="https://www.youtube.com/@hattyhats0" target="_blank">YouTube</a> |
-    <a href="https://earn-with-hatty-tools.netlify.app" target="_blank">Tools</a> |
-    <a href="mailto:hattyhatss@icloud.com">Contact</a>
+    <a href="https://x.com/hatty_hats" target="_blank" rel="noopener">X (Twitter)</a> |
+    <a href="https://www.youtube.com/@hattyhats0" target="_blank" rel="noopener">YouTube</a> |
+    <a href="https://earn-with-hatty-tools.netlify.app" target="_blank" rel="noopener">Tools</a> |
+    <a href="https://hattyhats.github.io/Open-Focus/" target="_blank" rel="noopener">Open Focus</a> |
+    <a href="mailto:hattyhatss@yahoo.com">Contact</a>
   </p>
-  <p style="margin-top:8px;font-size:.7rem;color:#333">This site displays advertisements via Google AdSense and may include affiliate links. All content is for educational and informational purposes only — not financial advice.</p>
+  <p style="margin-top:8px;font-size:.7rem;color:#333">
+    This site displays advertisements via Google AdSense and may include affiliate links. All content is for educational and informational purposes only — not financial, legal, or investment advice. &copy; HattyHats 2026.
+  </p>
 </footer>
 
 <!-- ========== CRYPTO PRICE BAR SCRIPT ========== -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function() {
   const COINS = [
     { id: 'bitcoin',       sym: 'BTC'  },
@@ -1061,7 +1276,6 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
     { id: 'avalanche-2',   sym: 'AVAX' },
     { id: 'chainlink',     sym: 'LINK' },
   ];
-
   function fmt(price) {
     if (price >= 10000) return '$' + price.toLocaleString('en-US', { maximumFractionDigits: 0 });
     if (price >= 1000)  return '$' + price.toLocaleString('en-US', { maximumFractionDigits: 0 });
@@ -1069,7 +1283,6 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
     if (price >= 0.01)  return '$' + price.toFixed(4);
     return '$' + price.toFixed(6);
   }
-
   function buildItems(data) {
     return COINS.map(function(c) {
       var d = data[c.id];
@@ -1084,16 +1297,13 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
         + '</span>';
     }).join('');
   }
-
   async function loadPrices() {
     var track = document.getElementById('priceTrack');
     if (!track) return;
     try {
       var ids = COINS.map(function(c){ return c.id; }).join(',');
       var url = 'https://api.coingecko.com/api/v3/simple/price'
-              + '?ids=' + ids
-              + '&vs_currencies=usd'
-              + '&include_24hr_change=true';
+              + '?ids=' + ids + '&vs_currencies=usd&include_24hr_change=true';
       var res  = await fetch(url);
       if (!res.ok) throw new Error('CoinGecko ' + res.status);
       var data = await res.json();
@@ -1106,13 +1316,11 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
       console.warn('[PriceBar] Failed to load prices:', err.message);
     }
   }
-
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadPrices);
   } else {
     loadPrices();
   }
-
   setInterval(loadPrices, 60000);
 })();
 </script>
@@ -1121,31 +1329,7 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
 <script>
 (function() {
   var CONSENT_KEY = 'hatty_cookie_consent';
-
   function cookieConsent(accepted) {
     localStorage.setItem(CONSENT_KEY, accepted ? 'accepted' : 'declined');
     document.getElementById('cookie-banner').style.display = 'none';
-    if (!accepted) {
-      console.info('[Cookies] Non-essential cookies declined by user.');
-    }
-  }
-
-  window.cookieConsent = cookieConsent;
-
-  function initBanner() {
-    var stored = localStorage.getItem(CONSENT_KEY);
-    if (!stored) {
-      document.getElementById('cookie-banner').style.display = 'flex';
-    }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initBanner);
-  } else {
-    initBanner();
-  }
-})();
-</script>
-
-</body>
-</html>
+    if (!accepted) { console.in
