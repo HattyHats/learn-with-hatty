@@ -208,6 +208,96 @@ nav a.nav-ext:hover{
 }
 
 /* =============================================
+   NAV DROPDOWN
+   ============================================= */
+.nav-dropdown{
+  position:relative;
+}
+.nav-dropdown-toggle{
+  color:#c8c8c8;
+  text-decoration:none;
+  font-size:.78rem;
+  font-weight:600;
+  letter-spacing:.3px;
+  padding:7px 13px;
+  border-radius:8px;
+  white-space:nowrap;
+  background:linear-gradient(180deg,#2a2a40 0%,#16162a 60%,#0f0f20 100%);
+  border:1px solid #f0a50030;
+  box-shadow:
+    0 1px 0 #ffffff14 inset,
+    0 -1px 0 #00000060 inset,
+    0 3px 8px #00000080,
+    0 1px 2px #000000a0;
+  transition:all .15s ease;
+  position:relative;
+  top:0;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  user-select:none;
+}
+.nav-dropdown-toggle::after{
+  content:"▾";
+  font-size:.7rem;
+  opacity:.7;
+  transition:transform .2s ease;
+}
+.nav-dropdown.open .nav-dropdown-toggle::after{
+  transform:rotate(180deg);
+}
+.nav-dropdown-toggle:hover{
+  color:#f0a500;
+  background:linear-gradient(180deg,#2e2e4e 0%,#1a1a32 60%,#121228 100%);
+  border-color:#f0a50066;
+  box-shadow:
+    0 1px 0 #ffffff18 inset,
+    0 -1px 0 #00000060 inset,
+    0 0 14px #f0a50030,
+    0 4px 12px #00000090;
+  top:-1px;
+}
+.nav-dropdown-menu{
+  display:none;
+  position:absolute;
+  top:calc(100% + 6px);
+  right:0;
+  min-width:180px;
+  background:linear-gradient(180deg,#1a1a30,#0e0e20);
+  border:1px solid #f0a50040;
+  border-radius:10px;
+  box-shadow:0 8px 32px #00000090,0 0 0 1px #ffffff08 inset,0 4px 16px #f0a50018;
+  overflow:hidden;
+  z-index:200;
+  padding:4px;
+}
+.nav-dropdown.open .nav-dropdown-menu{
+  display:block;
+}
+.nav-dropdown-menu a{
+  display:block;
+  color:#c8c8c8;
+  text-decoration:none;
+  font-size:.78rem;
+  font-weight:600;
+  padding:9px 14px;
+  border-radius:7px;
+  transition:all .12s ease;
+  background:transparent;
+  border:1px solid transparent;
+  box-shadow:none;
+  white-space:nowrap;
+  top:0;
+}
+.nav-dropdown-menu a:hover{
+  color:#f0a500;
+  background:linear-gradient(180deg,#2a2a44,#16162e);
+  border-color:#f0a50030;
+  top:0;
+}
+
+/* =============================================
    CRYPTO PRICE BAR
    ============================================= */
 .price-bar{
@@ -621,13 +711,19 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
     <a href="#donate">Donate</a>
     <!-- Visual separator -->
     <div class="nav-sep" aria-hidden="true"></div>
-    <!-- External sites -->
-    <a href="https://earn-with-hatty-tools.netlify.app" target="_blank" rel="noopener" class="nav-ext">Tools</a>
-    <a href="https://hattys-media.netlify.app/" target="_blank" rel="noopener" class="nav-ext">Hatty's Media</a>
-    <a href="https://privacy-gadgets-hub.netlify.app/" target="_blank" rel="noopener" class="nav-ext">Privacy Gadgets</a>
-    <a href="https://hatty-universe.netlify.app" target="_blank" rel="noopener" class="nav-ext">Hatty's Universe</a>
-    <a href="https://hattys-news.netlify.app" target="_blank" rel="noopener" class="nav-ext">Hatty's News</a>
-    <a href="https://hattyhats.github.io/Open-Focus/" target="_blank" rel="noopener" class="nav-ext">Open Focus</a>
+    <!-- External sites dropdown -->
+    <div class="nav-dropdown" id="navDropdown">
+      <span class="nav-dropdown-toggle" id="navDropdownToggle" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Sites</span>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="https://earn-with-hatty-tools.netlify.app" target="_blank" rel="noopener" role="menuitem">🔧 Tools</a>
+        <a href="https://hattys-media.netlify.app/" target="_blank" rel="noopener" role="menuitem">📺 Hatty's Media</a>
+        <a href="https://privacy-gadgets-hub.netlify.app/" target="_blank" rel="noopener" role="menuitem">🔒 Privacy Gadgets</a>
+        <a href="https://hatty-universe.netlify.app" target="_blank" rel="noopener" role="menuitem">🌌 Hatty's Universe</a>
+        <a href="https://hattys-news.netlify.app" target="_blank" rel="noopener" role="menuitem">📰 Hatty's News</a>
+        <a href="https://hattyhats.github.io/Open-Focus/" target="_blank" rel="noopener" role="menuitem">📷 Open Focus</a>
+        <a href="https://orbit-node.netlify.app" target="_blank" rel="noopener" role="menuitem">🛰️ OrbitNode</a>
+      </div>
+    </div>
   </nav>
 </header>
 
@@ -1260,6 +1356,21 @@ footer a:hover{color:#ffd050;text-shadow:0 0 8px #f0a50060}
     This site displays advertisements via Google AdSense and may include affiliate links. All content is for educational and informational purposes only — not financial, legal, or investment advice. &copy; HattyHats 2026.
   </p>
 </footer>
+
+<!-- ========== NAV DROPDOWN SCRIPT ========== -->
+<script>
+(function(){
+  var toggle = document.getElementById('navDropdownToggle');
+  var dropdown = document.getElementById('navDropdown');
+  if(!toggle || !dropdown) return;
+  function open(){ dropdown.classList.add('open'); toggle.setAttribute('aria-expanded','true'); }
+  function close(){ dropdown.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+  toggle.addEventListener('click', function(e){ e.stopPropagation(); dropdown.classList.contains('open') ? close() : open(); });
+  toggle.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); dropdown.classList.contains('open') ? close() : open(); }});
+  document.addEventListener('click', function(){ close(); });
+  dropdown.addEventListener('click', function(e){ e.stopPropagation(); });
+})();
+</script>
 
 <!-- ========== CRYPTO PRICE BAR SCRIPT ========== -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
