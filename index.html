@@ -918,7 +918,44 @@ footer a:hover{color:#ffd050}
 })();
 
 /* ── SCROLL FADE — two phases ── */
-(function(){\n  var heroTitle = document.getElementById('heroTitle');\n  var heroBody  = document.getElementById('heroBody');\n  var hat       = document.getElementById('hat-wrapper');\n  var scene     = document.getElementById('scene');\n  if(!scene) return;\n\n  window.addEventListener('scroll', function(){\n    var sy = window.scrollY;\n    var vh = window.innerHeight;\n\n    // ── PHASE 1 (0 → 1×vh): hat fades out and drifts up ──\n    var p1 = Math.max(0, Math.min((sy - vh * 0.10) / (vh * 0.50), 1));\n    var hatFade = 1 - p1;\n    var hatRise = p1 * -80;\n\n    if(hat){\n      hat.style.opacity = Math.max(0, hatFade);\n      // Pause float animation once it's gone\n      hat.style.animationPlayState = hatFade <= 0 ? 'paused' : 'running';\n    }\n\n    // ── TITLE: fades out, then as hat disappears it ZOOMS toward viewer ──\n    // First half: fade out gently with hat\n    // Second half (p1 > 0.5): scale up and fade away dramatically\n    if(heroTitle){\n      var scaleFactor = 1 + Math.pow(Math.max(0, (p1 - 0.4) / 0.6), 2) * 3.5;\n      var titleFade   = Math.max(0, 1 - p1 * 1.4);\n      var titleRise   = p1 * -40;\n      heroTitle.style.opacity   = titleFade;\n      heroTitle.style.transform = 'translateY(' + titleRise + 'px) scale(' + scaleFactor + ')';\n    }\n\n    // ── PHASE 2: body text fades in sooner ──\n    var p2in  = Math.max(0, Math.min((sy - vh * 0.55) / (vh * 0.30), 1));\n    var p2out = Math.max(0, Math.min((sy - vh * 1.4)  / (vh * 0.25), 1));\n\n    var bodyOpacity   = p2in * (1 - p2out);\n    var bodyTranslate = (1 - p2in) * 30 - p2out * 30;\n\n    if(heroBody){\n      heroBody.style.opacity   = bodyOpacity;\n      heroBody.style.transform = 'translateY(' + bodyTranslate + 'px)';\n    }\n  }, {passive: true});\n})();
+(function(){
+  var heroTitle = document.getElementById('heroTitle');
+  var heroBody  = document.getElementById('heroBody');
+  var hat       = document.getElementById('hat-wrapper');
+  var scene     = document.getElementById('scene');
+  if(!scene) return;
+
+  window.addEventListener('scroll', function(){
+    var sy = window.scrollY;
+    var vh = window.innerHeight;
+
+    var p1 = Math.max(0, Math.min((sy - vh * 0.10) / (vh * 0.50), 1));
+    var hatFade = 1 - p1;
+
+    if(hat){
+      hat.style.opacity = Math.max(0, hatFade);
+      hat.style.animationPlayState = hatFade <= 0 ? 'paused' : 'running';
+    }
+
+    if(heroTitle){
+      var scaleFactor = 1 + Math.pow(Math.max(0, (p1 - 0.4) / 0.6), 2) * 3.5;
+      var titleFade   = Math.max(0, 1 - p1 * 1.4);
+      var titleRise   = p1 * -40;
+      heroTitle.style.opacity   = titleFade;
+      heroTitle.style.transform = 'translateY(' + titleRise + 'px) scale(' + scaleFactor + ')';
+    }
+
+    var p2in  = Math.max(0, Math.min((sy - vh * 0.55) / (vh * 0.30), 1));
+    var p2out = Math.max(0, Math.min((sy - vh * 1.4)  / (vh * 0.25), 1));
+    var bodyOpacity   = p2in * (1 - p2out);
+    var bodyTranslate = (1 - p2in) * 30 - p2out * 30;
+
+    if(heroBody){
+      heroBody.style.opacity   = bodyOpacity;
+      heroBody.style.transform = 'translateY(' + bodyTranslate + 'px)';
+    }
+  }, {passive: true});
+})();
 
 /* ── SCROLL REVEAL ── */
 (function(){
