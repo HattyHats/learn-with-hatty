@@ -888,6 +888,41 @@ header{z-index:1000}
 /* ═══════════════════════════════════════
    BIGGER HERO HAT — responsive overrides
 ═══════════════════════════════════════ */
+
+/* ── HOUSE ADS ── */
+.house-ad-strip{display:flex;justify-content:center;gap:20px;padding:20px 24px 0;flex-wrap:wrap;}
+.house-ad-wrap{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.house-ad{display:block;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(28,26,22,0.10);transition:transform 0.28s cubic-bezier(0.4,0,0.2,1),box-shadow 0.28s cubic-bezier(0.4,0,0.2,1);}
+.house-ad img{width:200px;height:140px;object-fit:cover;display:block;}
+.house-ad:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(28,26,22,0.14);}
+.house-ad-slice{box-shadow:0 0 16px rgba(255,140,0,0.35);}
+.house-ad-slice:hover{box-shadow:0 0 26px rgba(255,140,0,0.55);}
+.house-ad-bulb{box-shadow:0 0 16px rgba(100,200,255,0.35);}
+.house-ad-bulb:hover{box-shadow:0 0 26px rgba(100,200,255,0.55);}
+.house-ad-lofty{box-shadow:0 0 16px rgba(80,200,120,0.35);}
+.house-ad-lofty:hover{box-shadow:0 0 26px rgba(80,200,120,0.55);}
+.house-ad-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A8A199;}
+
+/* ── SECTION TITLE ROW ── */
+.section-title-row{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:44px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.section-title-row .section-title{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.btn-bulb{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(180deg,#1a3a5c,#0e2240);
+  border:1px solid rgba(100,200,255,0.35);
+  color:#7dd3fc;padding:8px 18px;border-radius:999px;
+  font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;
+  box-shadow:0 0 14px rgba(100,200,255,0.15);
+  transition:all .18s ease;
+}
+.btn-bulb:hover{
+  background:linear-gradient(180deg,#1e4a72,#122a52);
+  border-color:rgba(100,200,255,0.65);
+  color:#bae6fd;
+  box-shadow:0 0 24px rgba(100,200,255,0.3);
+  transform:translateY(-1px);
+}
+.btn-bulb .bulb-icon{font-size:.9rem;line-height:1;}
 </style>
 </head>
 <body>
@@ -1017,10 +1052,46 @@ header{z-index:1000}
      ============================================================ -->
 <div class="content-wrapper">
 
+  <!-- HOUSE ADS -->
+  <div class="house-ad-strip" role="complementary" aria-label="Hatty's Picks">
+    <div class="house-ad-wrap">
+      <a class="house-ad house-ad-slice"
+         href="https://addslice.com/?crew=VFFbJ"
+         target="_blank" rel="noopener noreferrer"
+         title="Hatty's Pick – Slice App">
+        <img src="slice-app.gif" alt="Hatty's Pick – Try Slice App" />
+      </a>
+      <span class="house-ad-label">Hatty's Pick</span>
+    </div>
+    <div class="house-ad-wrap">
+      <a class="house-ad house-ad-bulb"
+         href="https://www.bulbapp.io?referral_code=pgx084"
+         target="_blank" rel="noopener noreferrer"
+         title="Hatty's Pick – Bulb.app">
+        <img src="bulb-ad.gif" alt="Hatty's Pick – Try Bulb.app" />
+      </a>
+      <span class="house-ad-label">Hatty's Pick</span>
+    </div>
+    <div class="house-ad-wrap">
+      <a class="house-ad house-ad-lofty"
+         href="https://www.lofty.ai/refer?utm_source=growsurf&utm_medium=referrals&utm_campaign=referral-program&grsf=0143ph"
+         target="_blank" rel="noopener noreferrer"
+         title="Hatty's Pick – Lofty">
+        <img src="lofty-ad.gif" alt="Hatty's Pick – Try Lofty" />
+      </a>
+      <span class="house-ad-label">Hatty's Pick</span>
+    </div>
+  </div>
+
   <!-- ARTICLES -->
   <div class="section-container" id="articles">
     <span class="section-label">Knowledge Base</span>
-    <div class="section-title">Latest Articles</div>
+    <div class="section-title-row">
+      <div class="section-title">Latest Articles</div>
+      <a class="btn-bulb" href="https://www.bulbapp.io/u/7E8fsJ3Wy1onNm8SPtvypAuvzw5rMnumAC6UEChFdTVY/hattyhats" target="_blank" rel="noopener">
+        <span class="bulb-icon">💡</span> Check out my latest articles on Bulb
+      </a>
+    </div>
     <div class="articles-grid">
 
       <div class="article-card reveal">
