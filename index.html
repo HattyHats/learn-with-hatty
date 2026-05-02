@@ -1685,10 +1685,9 @@ header{z-index:1000}
   }
 
   window.enterSite = function(){
-    // Start music on Enter (user gesture required by browsers)
+    // Music does NOT auto-start — user must click the music button
     if(audio){
-      audio.volume = 0.45;
-      audio.play().then(function(){ setPlaying(true); }).catch(function(){});
+      audio.volume = 0.45; // Pre-set volume for when they do press play
     }
     // Fade out splash
     splash.classList.add('hidden');
