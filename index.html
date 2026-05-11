@@ -425,7 +425,7 @@ nav a.nav-btn:hover{color:var(--gold);border-color:#f0a50060}
 .article-card::before{
   content:"";position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  opacity:0;transition:opacity .3s;
+  opacity:0;transition:opacity .3s;z-index:10;
 }
 .article-card:hover{
   transform:translateY(-8px);
@@ -443,6 +443,11 @@ nav a.nav-btn:hover{color:var(--gold);border-color:#f0a50060}
 .tag-privacy{background:#0e7490;color:#fff}
 .tag-economics{background:#b91c1c;color:#fff}
 .tag-ai{background:#6d28d9;color:#fff}
+.tag-news{background:#0284c7;color:#fff}
+.article-image {
+  width:calc(100% + 56px);margin:-28px -28px 20px -28px;
+  height:180px;object-fit:cover;
+}
 .article-card h3{
   font-size:.97rem;font-weight:600;color:#f0f0f0;
   line-height:1.45;margin-bottom:12px;
@@ -924,7 +929,23 @@ header{z-index:1000}
   box-shadow:0 0 24px rgba(100,200,255,0.3);
   transform:translateY(-1px);
 }
-.btn-bulb .bulb-icon{font-size:.9rem;line-height:1;}
+.btn-publishox{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(180deg,#5c1a1a,#400e0e);
+  border:1px solid rgba(255,100,100,0.35);
+  color:#fc7d7d;padding:8px 18px;border-radius:999px;
+  font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;
+  box-shadow:0 0 14px rgba(255,100,100,0.15);
+  transition:all .18s ease;
+}
+.btn-publishox:hover{
+  background:linear-gradient(180deg,#721e1e,#521212);
+  border-color:rgba(255,100,100,0.65);
+  color:#fdbaba;
+  box-shadow:0 0 24px rgba(255,100,100,0.3);
+  transform:translateY(-1px);
+}
+.btn-bulb .bulb-icon, .btn-publishox .bulb-icon{font-size:.9rem;line-height:1;}
 </style>
 </head>
 <body>
@@ -1090,11 +1111,56 @@ header{z-index:1000}
     <span class="section-label">Knowledge Base</span>
     <div class="section-title-row">
       <div class="section-title">Latest Articles</div>
-      <a class="btn-bulb" href="https://www.bulbapp.io/u/7E8fsJ3Wy1onNm8SPtvypAuvzw5rMnumAC6UEChFdTVY/hattyhats" target="_blank" rel="noopener">
-        <span class="bulb-icon">💡</span> Check out my latest articles on Bulb
-      </a>
+      <div style="display:flex; gap: 10px; flex-wrap: wrap;">
+        <a class="btn-bulb" href="https://www.bulbapp.io/u/7E8fsJ3Wy1onNm8SPtvypAuvzw5rMnumAC6UEChFdTVY/hattyhats" target="_blank" rel="noopener">
+          <span class="bulb-icon">💡</span> BULB
+        </a>
+        <a class="btn-publishox" href="https://www.publish0x.com/@HattyHats" target="_blank" rel="noopener">
+          <span class="bulb-icon">📝</span> PublishOX
+        </a>
+      </div>
     </div>
     <div class="articles-grid">
+
+      <div class="article-card reveal">
+        <img class="article-image" src="https://cdn.publish0x.com/prod/fs/images/1e00438f428d47854df5fe2cf5e3cd8a364758dbdfec7f91232bc92f9c3f331f.jpg" alt="Why Hantavirus Is Trending">
+        <span class="article-tag tag-news">News</span>
+        <h3>Why Hantavirus Is Trending (And Why Your Toilet Paper Stash Is Safe)</h3>
+        <p>The recent Hantavirus trend triggered by a cruise ship outbreak of the Andes virus is not a human-to-human pandemic threat like COVID-19. Here is why you shouldn't panic buy.</p>
+        <div class="card-links">
+          <a class="btn-primary" href="https://www.publish0x.com/hattys-news/why-hantavirus-is-trending-and-why-your-toilet-paper-stash-i-xjyqvle" target="_blank" rel="noopener">Read on Publish0x →</a>
+        </div>
+      </div>
+
+      <div class="article-card reveal">
+        <img class="article-image" src="https://cdn.publish0x.com/prod/fs/images/bbc837c43540eb05e6a7fcaff965427ba35714b6094ce14bd99387ed8979fec6.jpg" alt="Why Natix is Sunsetting Drive&">
+        <span class="article-tag tag-finance">Crypto</span>
+        <h3>Why Natix is Sunsetting Drive& for Something Much Bigger</h3>
+        <p>Natix is transitioning from its "Drive&" app to a more expansive "Natix Network" and DePIN ecosystem, focusing on decentralized physical infrastructure beyond just driving rewards.</p>
+        <div class="card-links">
+          <a class="btn-primary" href="https://www.publish0x.com/beginning-crypto/why-natix-is-sunsetting-drive-and-for-something-much-bigger-xgnqoyd" target="_blank" rel="noopener">Read on Publish0x →</a>
+        </div>
+      </div>
+
+      <div class="article-card reveal">
+        <img class="article-image" src="https://cdn.publish0x.com/prod/fs/images/6e56fdc35e0f29203af8be36362ebdd7f2e193074456084635a75c21039644ff.jpg" alt="The Great De-Googling Crisis">
+        <span class="article-tag tag-privacy">Privacy</span>
+        <h3>The Great De-Googling Crisis</h3>
+        <p>This article explores the "De-Googling" movement and the Calyx Institute's role in providing privacy-focused Android experiences, highlighting the challenges users face when "it just works" solutions fail.</p>
+        <div class="card-links">
+          <a class="btn-primary" href="https://www.publish0x.com/hattys-news/the-great-de-googling-crisis-xzrpzxl" target="_blank" rel="noopener">Read on Publish0x →</a>
+        </div>
+      </div>
+
+      <div class="article-card reveal">
+        <img class="article-image" src="https://cdn.publish0x.com/prod/fs/images/e1dc1c3dd1ef9c71f05c3ef3b1541ff460fe094f3de15cfeb262a612dec834d6.jpg" alt="Decentralized Communication? Yes Please">
+        <span class="article-tag tag-security">Security</span>
+        <h3>Decentralized Communication? Yes Please</h3>
+        <p>The vulnerability of relying on centralized communication towers is real. This piece advocates for decentralized solutions like mesh networks that allow direct device-to-device communication.</p>
+        <div class="card-links">
+          <a class="btn-primary" href="https://www.publish0x.com/life-is-love/decentralized-communication-yes-please-xwrkerx" target="_blank" rel="noopener">Read on Publish0x →</a>
+        </div>
+      </div>
 
       <div class="article-card reveal">
         <span class="article-tag tag-economics">Economics</span>
