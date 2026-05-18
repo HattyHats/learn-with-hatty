@@ -682,8 +682,17 @@ header{z-index:1000}
     drop-shadow(0 0 220px rgba(240,165,0,.2))
     drop-shadow(0 60px 100px rgba(0,0,0,.9));
   animation:splashHatFloat 4s ease-in-out infinite;
-  z-index:1;
+  z-index:2;
   display:block;
+}
+
+/* 3D Code Space Canvas */
+#splashCodeSpace {
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  z-index:1;
+  pointer-events:none;
 }
 @keyframes splashHatFloat{
   0%,100%{transform:translate(-50%,-54%) translateY(0);}
@@ -707,7 +716,7 @@ header{z-index:1000}
 
 /* Scanline texture */
 .splash-lines{
-  position:absolute;inset:0;z-index:2;pointer-events:none;
+  position:absolute;inset:0;z-index:3;pointer-events:none;
   background:repeating-linear-gradient(
     0deg,
     transparent,transparent 3px,
@@ -717,7 +726,7 @@ header{z-index:1000}
 
 /* Content overlay */
 .splash-content{
-  position:relative;z-index:3;
+  position:relative;z-index:4;
   text-align:center;
   padding:0 24px;
   display:flex;flex-direction:column;align-items:center;gap:0;
@@ -964,6 +973,8 @@ header{z-index:1000}
 
   <!-- Glow + hat -->
   <div class="splash-glow"></div>
+  <!-- 3D flying code canvas -->
+  <canvas id="splashCodeSpace"></canvas>
   <img class="splash-hat-bg" src="grey-hat-nb.png" alt="">
   <div class="splash-lines"></div>
 
@@ -1727,6 +1738,102 @@ header{z-index:1000}
   // Run at ~30fps to save CPU
   setInterval(draw, 33);
 })();
+
+/* ── SPLASH 3D CODE SPACE ── */
+(function(){
+  var canvas = document.getElementById('splashCodeSpace');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var w, h;
+  var particles = [];
+  var numParticles = 400; // lots of code
+  var chars = '01アイウエオカキクケコサシスセソタチツテトABCDEFGHIJKLMNOPQRSTUVWXYZ{}[]()<>/*';
+  
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+  
+  var mouseX = 0, mouseY = 0;
+  window.addEventListener('mousemove', function(e) {
+    mouseX = (e.clientX - w/2) * 0.4;
+    mouseY = (e.clientY - h/2) * 0.4;
+  });
+  
+  function initParticle(p) {
+    p.x = (Math.random() - 0.5) * 3000;
+    p.y = (Math.random() - 0.5) * 3000;
+    p.z = Math.random() * 2000 + 100; // Add some base depth
+    p.char = chars[Math.floor(Math.random() * chars.length)];
+    p.speed = 5 + Math.random() * 10; // Speed flying toward screen
+    p.color = Math.random() > 0.2 ? 'rgba(34,180,100,' : 'rgba(240,165,0,'; // 80% green, 20% gold
+  }
+  
+  for(var i=0; i<numParticles; i++){
+    var p = {};
+    initParticle(p);
+    particles.push(p);
+  }
+  
+  var animFrame;
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    
+    var cx = w / 2;
+    var cy = h / 2;
+    
+    for(var i=0; i<numParticles; i++){
+      var p = particles[i];
+      p.z -= p.speed;
+      
+      if(p.z <= 0){
+        initParticle(p);
+        p.z = 2000;
+      }
+      
+      var scale = 800 / p.z;
+      var px = cx + (p.x - mouseX) * scale;
+      var py = cy + (p.y - mouseY) * scale;
+      var size = Math.max(0.1, 24 * scale); // Scale the font size
+      
+      if(px >= -50 && px <= w+50 && py >= -50 && py <= h+50){
+        // Fade in from distance, fade out very close
+        var alpha = Math.min(1, (2000 - p.z) / 500);
+        if(p.z < 200) {
+            alpha = Math.min(alpha, p.z / 200);
+        }
+        
+        ctx.fillStyle = p.color + alpha + ')'; 
+        ctx.font = 'bold ' + size + 'px monospace';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        ctx.shadowColor = p.color + alpha + ')'; 
+        ctx.shadowBlur = size * 0.4;
+        
+        ctx.fillText(p.char, px, py);
+        
+        ctx.shadowBlur = 0;
+      }
+    }
+    animFrame = requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Stop animation when splash is hidden
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.target.classList.contains('hidden')) {
+        cancelAnimationFrame(animFrame);
+      }
+    });
+  });
+  var splashEl = document.getElementById('splash');
+  if(splashEl) observer.observe(splashEl, { attributes: true, attributeFilter: ['class'] });
+})();
+
 (function(){
   var splash = document.getElementById('splash');
   var audio  = document.getElementById('splashAudio');
