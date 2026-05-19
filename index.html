@@ -10,6 +10,7 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6374033238930580" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -38,16 +39,20 @@ body{
   position:fixed;width:12px;height:12px;
   background:var(--gold);border-radius:50%;
   pointer-events:none;z-index:200000;
-  transform:translate(-50%,-50%);
-  transition:transform .08s ease,opacity .2s;
+  transform:translate3d(-50%,-50%,0);
+  transition:width .2s, height .2s, opacity .2s;
   mix-blend-mode:screen;
+  top:0; left:0;
+  will-change: transform, width, height;
 }
 #cursor-ring{
   position:fixed;width:36px;height:36px;
   border:1px solid var(--gold);border-radius:50%;opacity:.4;
   pointer-events:none;z-index:199999;
-  transform:translate(-50%,-50%);
+  transform:translate3d(-50%,-50%,0);
   transition:width .2s,height .2s,opacity .2s;
+  top:0; left:0;
+  will-change: transform, width, height;
 }
 
 /* COOKIE BANNER */
@@ -975,7 +980,7 @@ header{z-index:1000}
   <div class="splash-glow"></div>
   <!-- 3D flying code canvas -->
   <canvas id="splashCodeSpace"></canvas>
-  <img class="splash-hat-bg" src="grey-hat-nb.png" alt="">
+  <img class="splash-hat-bg" src="grey-hat-nb.png" alt="" fetchpriority="high">
   <div class="splash-lines"></div>
 
   <!-- Text content -->
@@ -1055,7 +1060,7 @@ header{z-index:1000}
 
     <!-- PHASE 1: Big floating hat + scroll hint -->
     <div id="hat-wrapper">
-      <img class="hat-img" src="grey-hat-nb.png" alt="HattyHats baseball cap">
+      <img class="hat-img" src="grey-hat-nb.png" alt="HattyHats baseball cap" fetchpriority="high">
     </div>
 
     <!-- PHASE 2: Title fades/grows in -->
@@ -1134,7 +1139,7 @@ header{z-index:1000}
     <div class="articles-grid">
 
       <div class="article-card reveal">
-        <img class="article-image" src="https://cdn.publish0x.com/prod/fs/images/1e00438f428d47854df5fe2cf5e3cd8a364758dbdfec7f91232bc92f9c3f331f.jpg" alt="Why Hantavirus Is Trending">
+        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/1e00438f428d47854df5fe2cf5e3cd8a364758dbdfec7f91232bc92f9c3f331f.jpg" alt="Why Hantavirus Is Trending">
         <span class="article-tag tag-news">News</span>
         <h3>Why Hantavirus Is Trending (And Why Your Toilet Paper Stash Is Safe)</h3>
         <p>The recent Hantavirus trend triggered by a cruise ship outbreak of the Andes virus is not a human-to-human pandemic threat like COVID-19. Here is why you shouldn't panic buy.</p>
@@ -1144,7 +1149,7 @@ header{z-index:1000}
       </div>
 
       <div class="article-card reveal">
-        <img class="article-image" src="https://cdn.publish0x.com/prod/fs/images/bbc837c43540eb05e6a7fcaff965427ba35714b6094ce14bd99387ed8979fec6.jpg" alt="Why Natix is Sunsetting Drive&">
+        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/bbc837c43540eb05e6a7fcaff965427ba35714b6094ce14bd99387ed8979fec6.jpg" alt="Why Natix is Sunsetting Drive&">
         <span class="article-tag tag-finance">Crypto</span>
         <h3>Why Natix is Sunsetting Drive& for Something Much Bigger</h3>
         <p>Natix is transitioning from its "Drive&" app to a more expansive "Natix Network" and DePIN ecosystem, focusing on decentralized physical infrastructure beyond just driving rewards.</p>
@@ -1154,7 +1159,7 @@ header{z-index:1000}
       </div>
 
       <div class="article-card reveal">
-        <img class="article-image" src="https://cdn.publish0x.com/prod/fs/images/6e56fdc35e0f29203af8be36362ebdd7f2e193074456084635a75c21039644ff.jpg" alt="The Great De-Googling Crisis">
+        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/6e56fdc35e0f29203af8be36362ebdd7f2e193074456084635a75c21039644ff.jpg" alt="The Great De-Googling Crisis">
         <span class="article-tag tag-privacy">Privacy</span>
         <h3>The Great De-Googling Crisis</h3>
         <p>This article explores the "De-Googling" movement and the Calyx Institute's role in providing privacy-focused Android experiences, highlighting the challenges users face when "it just works" solutions fail.</p>
@@ -1164,7 +1169,7 @@ header{z-index:1000}
       </div>
 
       <div class="article-card reveal">
-        <img class="article-image" src="https://cdn.publish0x.com/prod/fs/images/e1dc1c3dd1ef9c71f05c3ef3b1541ff460fe094f3de15cfeb262a612dec834d6.jpg" alt="Decentralized Communication? Yes Please">
+        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/e1dc1c3dd1ef9c71f05c3ef3b1541ff460fe094f3de15cfeb262a612dec834d6.jpg" alt="Decentralized Communication? Yes Please">
         <span class="article-tag tag-security">Security</span>
         <h3>Decentralized Communication? Yes Please</h3>
         <p>The vulnerability of relying on centralized communication towers is real. This piece advocates for decentralized solutions like mesh networks that allow direct device-to-device communication.</p>
@@ -1324,7 +1329,7 @@ header{z-index:1000}
 
         <div class="video-card reveal">
           <a class="video-thumb" href="https://youtu.be/OPkKmO7qayI?si=9xTsKsD7xNmizFlQ" target="_blank" rel="noopener">
-            <img src="https://img.youtube.com/vi/OPkKmO7qayI/hqdefault.jpg" alt="HattyHats YouTube Video">
+            <img loading="lazy" src="https://img.youtube.com/vi/OPkKmO7qayI/hqdefault.jpg" alt="HattyHats YouTube Video">
             <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           </a>
           <div class="video-info">
@@ -1336,7 +1341,7 @@ header{z-index:1000}
 
         <div class="video-card reveal">
           <a class="video-thumb" href="https://youtu.be/ZY_NyX64AZ0?si=Q75CoDIBLVRHzefM" target="_blank" rel="noopener">
-            <img src="https://img.youtube.com/vi/ZY_NyX64AZ0/hqdefault.jpg" alt="HattyHats YouTube Video">
+            <img loading="lazy" src="https://img.youtube.com/vi/ZY_NyX64AZ0/hqdefault.jpg" alt="HattyHats YouTube Video">
             <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           </a>
           <div class="video-info">
@@ -1348,7 +1353,7 @@ header{z-index:1000}
 
         <div class="video-card reveal">
           <a class="video-thumb" href="https://youtu.be/D2Omkjn-m-s?si=blB5x-eaVu2xWQam" target="_blank" rel="noopener">
-            <img src="https://img.youtube.com/vi/D2Omkjn-m-s/hqdefault.jpg" alt="HattyHats YouTube Video">
+            <img loading="lazy" src="https://img.youtube.com/vi/D2Omkjn-m-s/hqdefault.jpg" alt="HattyHats YouTube Video">
             <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           </a>
           <div class="video-info">
@@ -1360,7 +1365,7 @@ header{z-index:1000}
 
         <div class="video-card reveal">
           <a class="video-thumb" href="https://youtu.be/A9YtF7Wq0oI?si=w5VWWbwovr4IMlpB" target="_blank" rel="noopener">
-            <img src="https://img.youtube.com/vi/A9YtF7Wq0oI/hqdefault.jpg" alt="Jane Street Terra Collapse">
+            <img loading="lazy" src="https://img.youtube.com/vi/A9YtF7Wq0oI/hqdefault.jpg" alt="Jane Street Terra Collapse">
             <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           </a>
           <div class="video-info">
@@ -1372,7 +1377,7 @@ header{z-index:1000}
 
         <div class="video-card reveal">
           <a class="video-thumb" href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank" rel="noopener">
-            <img src="https://img.youtube.com/vi/KOiFqfIh6AM/hqdefault.jpg" alt="Epstein Document Release">
+            <img loading="lazy" src="https://img.youtube.com/vi/KOiFqfIh6AM/hqdefault.jpg" alt="Epstein Document Release">
             <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           </a>
           <div class="video-info">
@@ -1384,7 +1389,7 @@ header{z-index:1000}
 
         <div class="video-card reveal">
           <a class="video-thumb" href="https://www.youtube.com/watch?v=w3JdEdCgNzY" target="_blank" rel="noopener">
-            <img src="https://img.youtube.com/vi/w3JdEdCgNzY/hqdefault.jpg" alt="Generational Wealth Crypto Inheritance">
+            <img loading="lazy" src="https://img.youtube.com/vi/w3JdEdCgNzY/hqdefault.jpg" alt="Generational Wealth Crypto Inheritance">
             <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           </a>
           <div class="video-info">
@@ -1396,7 +1401,7 @@ header{z-index:1000}
 
         <div class="video-card reveal">
           <a class="video-thumb" href="https://www.youtube.com/watch?v=w372WK3p3YQ" target="_blank" rel="noopener">
-            <img src="https://img.youtube.com/vi/w372WK3p3YQ/hqdefault.jpg" alt="AI Content Youth Media">
+            <img loading="lazy" src="https://img.youtube.com/vi/w372WK3p3YQ/hqdefault.jpg" alt="AI Content Youth Media">
             <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           </a>
           <div class="video-info">
@@ -1408,7 +1413,7 @@ header{z-index:1000}
 
         <div class="video-card reveal">
           <a class="video-thumb" href="https://www.youtube.com/watch?v=2t46ZtDMiWE" target="_blank" rel="noopener">
-            <img src="https://img.youtube.com/vi/2t46ZtDMiWE/hqdefault.jpg" alt="Web3 Gaming Metaverse">
+            <img loading="lazy" src="https://img.youtube.com/vi/2t46ZtDMiWE/hqdefault.jpg" alt="Web3 Gaming Metaverse">
             <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           </a>
           <div class="video-info">
@@ -1420,7 +1425,7 @@ header{z-index:1000}
 
         <div class="video-card reveal">
           <a class="video-thumb" href="https://www.youtube.com/watch?v=-L3Du0qK8Q0" target="_blank" rel="noopener">
-            <img src="https://img.youtube.com/vi/-L3Du0qK8Q0/hqdefault.jpg" alt="Fountain of Voi">
+            <img loading="lazy" src="https://img.youtube.com/vi/-L3Du0qK8Q0/hqdefault.jpg" alt="Fountain of Voi">
             <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           </a>
           <div class="video-info">
@@ -1432,7 +1437,7 @@ header{z-index:1000}
 
         <div class="video-card reveal">
           <a class="video-thumb" href="https://www.youtube.com/watch?v=eiFoKcKvVN0" target="_blank" rel="noopener">
-            <img src="https://img.youtube.com/vi/eiFoKcKvVN0/hqdefault.jpg" alt="Running a Voi Node">
+            <img loading="lazy" src="https://img.youtube.com/vi/eiFoKcKvVN0/hqdefault.jpg" alt="Running a Voi Node">
             <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           </a>
           <div class="video-info">
@@ -1517,23 +1522,23 @@ header{z-index:1000}
   var c=document.getElementById('cursor');
   var r=document.getElementById('cursor-ring');
   if(!c||!r) return;
-  var mx=0,my=0,rx=0,ry=0;
+  var mx=window.innerWidth/2, my=window.innerHeight/2, rx=mx, ry=my;
   document.addEventListener('mousemove',function(e){
     mx=e.clientX; my=e.clientY;
-    c.style.left=mx+'px'; c.style.top=my+'px';
+    c.style.transform='translate3d('+mx+'px,'+my+'px,0) translate(-50%,-50%)';
   });
   (function animR(){
-    rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
-    r.style.left=Math.round(rx)+'px'; r.style.top=Math.round(ry)+'px';
+    rx+=(mx-rx)*.15; ry+=(my-ry)*.15;
+    r.style.transform='translate3d('+rx+'px,'+ry+'px,0) translate(-50%,-50%)';
     requestAnimationFrame(animR);
   })();
-  document.querySelectorAll('a,button,[role=button]').forEach(function(el){
+  document.querySelectorAll('a,button,[role=button],input,textarea,select').forEach(function(el){
     el.addEventListener('mouseenter',function(){
-      c.style.transform='translate(-50%,-50%) scale(2.4)';
+      c.style.width='28px'; c.style.height='28px';
       r.style.width='58px'; r.style.height='58px'; r.style.opacity='.18';
     });
     el.addEventListener('mouseleave',function(){
-      c.style.transform='translate(-50%,-50%) scale(1)';
+      c.style.width='12px'; c.style.height='12px';
       r.style.width='36px'; r.style.height='36px'; r.style.opacity='.4';
     });
   });
@@ -1736,7 +1741,9 @@ header{z-index:1000}
   }
 
   // Run at ~30fps to save CPU
-  setInterval(draw, 33);
+  setInterval(function() {
+    if (document.visibilityState === 'visible') draw();
+  }, 33);
 })();
 
 /* ── SPLASH 3D CODE SPACE ── */
@@ -1810,12 +1817,12 @@ header{z-index:1000}
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        ctx.shadowColor = p.color + alpha + ')'; 
-        ctx.shadowBlur = size * 0.4;
+        // ctx.shadowColor = p.color + alpha + ')'; 
+        // ctx.shadowBlur = size * 0.4;
         
         ctx.fillText(p.char, px, py);
         
-        ctx.shadowBlur = 0;
+        // ctx.shadowBlur = 0;
       }
     }
     animFrame = requestAnimationFrame(draw);
