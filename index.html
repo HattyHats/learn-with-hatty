@@ -625,25 +625,14 @@ header{z-index:1000}
   #phase1{padding-top:90px}
 
   /* ── SPLASH MOBILE FIX ── */
-  .splash-hat-bg{
-    width:min(320px,85vw);
-    top:42%;
-    transform:translate(-50%,-50%);
-  }
   .splash-glow{
     width:min(360px,90vw);
     height:min(360px,90vw);
-    top:42%;
+    top:50%;
     transform:translate(-50%,-50%);
   }
   .splash-content{
-    margin-top:0;
-    position:absolute;
-    bottom:10vh;
-    left:50%;
-    transform:translateX(-50%);
     width:90%;
-    align-items:center;
   }
   .splash-welcome{font-size:.85rem;letter-spacing:4px}
   .splash-title{font-size:clamp(2.4rem,13vw,4rem)}
@@ -673,23 +662,7 @@ header{z-index:1000}
   transition:opacity .8s ease;
 }
 
-/* Splash hat — giant glowing background element */
-.splash-hat-bg{
-  position:absolute;
-  width:clamp(260px,68vw,880px);
-  height:auto;
-  top:50%;left:50%;
-  transform:translate(-50%,-52%);
-  background:transparent;
-  filter:
-    drop-shadow(0 0 50px rgba(240,165,0,.65))
-    drop-shadow(0 0 120px rgba(240,165,0,.35))
-    drop-shadow(0 0 220px rgba(240,165,0,.2))
-    drop-shadow(0 60px 100px rgba(0,0,0,.9));
-  animation:splashHatFloat 4s ease-in-out infinite;
-  z-index:2;
-  display:block;
-}
+
 
 /* 3D Code Space Canvas */
 #splashCodeSpace {
@@ -699,10 +672,7 @@ header{z-index:1000}
   z-index:1;
   pointer-events:none;
 }
-@keyframes splashHatFloat{
-  0%,100%{transform:translate(-50%,-54%) translateY(0);}
-  50%{transform:translate(-50%,-54%) translateY(-22px);}
-}
+
 
 /* Radial glow behind hat */
 .splash-glow{
@@ -710,13 +680,13 @@ header{z-index:1000}
   width:700px;height:700px;border-radius:50%;
   background:radial-gradient(ellipse,rgba(240,165,0,.18) 0%,transparent 68%);
   top:50%;left:50%;
-  transform:translate(-50%,-60%);
+  transform:translate(-50%,-50%);
   animation:splashGlowPulse 3s ease-in-out infinite;
   z-index:0;
 }
 @keyframes splashGlowPulse{
-  0%,100%{transform:translate(-50%,-60%) scale(1);opacity:.7;}
-  50%{transform:translate(-50%,-60%) scale(1.12);opacity:1;}
+  0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.7;}
+  50%{transform:translate(-50%,-50%) scale(1.12);opacity:1;}
 }
 
 /* Scanline texture */
@@ -735,8 +705,6 @@ header{z-index:1000}
   text-align:center;
   padding:0 24px;
   display:flex;flex-direction:column;align-items:center;gap:0;
-  /* sits in lower half */
-  margin-top:clamp(240px,46vw,520px);
 }
 
 /* "Welcome To:" */
@@ -980,7 +948,6 @@ header{z-index:1000}
   <div class="splash-glow"></div>
   <!-- 3D flying code canvas -->
   <canvas id="splashCodeSpace"></canvas>
-  <img class="splash-hat-bg" src="grey-hat-nb.png" alt="" fetchpriority="high">
   <div class="splash-lines"></div>
 
   <!-- Text content -->
