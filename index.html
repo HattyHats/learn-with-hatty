@@ -797,33 +797,18 @@ header{z-index:1000}
   animation:splashFadeIn .8s ease forwards;
   animation-delay:2.7s;
 }
-.splash-enter-btn{
-  display:inline-block;
-  padding:14px 52px;
-  border-radius:999px;
-  border:1px solid rgba(240,165,0,.6);
-  background:linear-gradient(180deg,rgba(240,165,0,.12),rgba(240,165,0,.04));
-  color:var(--gold);
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.4rem;letter-spacing:5px;
-  text-transform:uppercase;
-  cursor:pointer;
-  position:relative;overflow:hidden;
-  box-shadow:0 0 28px rgba(240,165,0,.2),inset 0 0 20px rgba(240,165,0,.05);
-  transition:all .2s ease;
+.splash-loader {
+  width: 46px;
+  height: 46px;
+  border: 4px solid rgba(240,165,0,.15);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: splashSpin 1s linear infinite;
+  margin: 0 auto;
 }
-.splash-enter-btn::before{
-  content:"";position:absolute;inset:0;border-radius:999px;
-  background:linear-gradient(180deg,rgba(240,165,0,.22),transparent);
-  opacity:0;transition:opacity .2s;
+@keyframes splashSpin {
+  to { transform: rotate(360deg); }
 }
-.splash-enter-btn:hover{
-  border-color:rgba(240,165,0,1);
-  box-shadow:0 0 50px rgba(240,165,0,.5),0 0 80px rgba(240,165,0,.2),inset 0 0 30px rgba(240,165,0,.1);
-  transform:translateY(-2px);
-  color:#ffd060;
-}
-.splash-enter-btn:hover::before{opacity:1}
 
 /* Splash keyframes */
 @keyframes splashFadeIn{
@@ -960,7 +945,7 @@ header{z-index:1000}
       Created by <span class="splash-hattyhats" data-text="HattyHats">HattyHats</span>
     </div>
     <div class="splash-enter">
-      <button class="splash-enter-btn" id="splashEnterBtn" onclick="enterSite()">Enter</button>
+      <div class="splash-loader"></div>
     </div>
   </div>
 </div>
@@ -1741,10 +1726,6 @@ header{z-index:1000}
   window.addEventListener('resize', resize, {passive:true});
   
   var mouseX = 0, mouseY = 0;
-  window.addEventListener('mousemove', function(e) {
-    mouseX = (e.clientX - w/2) * 0.4;
-    mouseY = (e.clientY - h/2) * 0.4;
-  });
   
   function initParticle(p) {
     p.x = (Math.random() - 0.5) * 3000;
@@ -1853,6 +1834,9 @@ header{z-index:1000}
       document.body.style.overflow = '';
     }, 850);
   };
+
+  // Automatically open the site shortly after the loader appears
+  setTimeout(window.enterSite, 4200);
 
   // Music toggle button
   if(toggle && audio){
