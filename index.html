@@ -3,867 +3,258 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learn With Hatty — Crypto, AI &amp; Web3 Education</title>
+<title>Learn With Hatty | Crypto, AI & Web3 Education</title>
 <meta name="description" content="In-depth educational articles and videos on cryptocurrency, AI, Web3, privacy, and personal finance by HattyHats. Learn, stay informed, and think critically.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="shortcut icon" href="favicon.ico">
-
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6374033238930580" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  --gold:#f0a500;
-  --gold-dim:#c07800;
-  --bg:#04040a;
-  --surface:#0e0e1c;
-  --surface2:#141426;
-  --border:#2a2a46;
-  --text:#e8e8f0;
-  --muted:#666680;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:'DM Sans',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-  cursor:none;
-}
+:root{--gold:#f0a500;--gold-dim:#c07800;--bg:#04040a;--surface:#0e0e1c;--surface2:#141426;--border:#2a2a46;--text:#e8e8f0;--muted:#666680;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none;}
 
 /* CURSOR */
-#cursor{
-  position:fixed;width:12px;height:12px;
-  background:var(--gold);border-radius:50%;
-  pointer-events:none;z-index:200000;
-  transform:translate3d(-50%,-50%,0);
-  transition:width .2s, height .2s, opacity .2s;
-  mix-blend-mode:screen;
-  top:0; left:0;
-  will-change: transform, width, height;
-}
-#cursor-ring{
-  position:fixed;width:36px;height:36px;
-  border:1px solid var(--gold);border-radius:50%;opacity:.4;
-  pointer-events:none;z-index:199999;
-  transform:translate3d(-50%,-50%,0);
-  transition:width .2s,height .2s,opacity .2s;
-  top:0; left:0;
-  will-change: transform, width, height;
-}
+#cursor{position:fixed;width:12px;height:12px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:200000;transform:translate3d(-50%,-50%,0);transition:width .2s, height .2s, opacity .2s;mix-blend-mode:screen;top:0;left:0;will-change:transform, width, height;}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--gold);border-radius:50%;opacity:.4;pointer-events:none;z-index:199999;transform:translate3d(-50%,-50%,0);transition:width .2s,height .2s,opacity .2s;top:0;left:0;will-change:transform, width, height;}
 
 /* COOKIE BANNER */
-#cookie-banner{
-  position:fixed;bottom:0;left:0;right:0;z-index:9999;
-  background:linear-gradient(180deg,#0e0e20,#07070f);
-  border-top:1px solid #f0a50055;
-  padding:16px 24px;display:flex;flex-wrap:wrap;
-  align-items:center;gap:14px;justify-content:space-between;
-  box-shadow:0 -4px 32px #00000090;
-}
-#cookie-banner p{font-size:.8rem;color:#bbb;flex:1;min-width:220px;line-height:1.6}
-#cookie-banner a{color:var(--gold);text-decoration:none}
-.cookie-btns{display:flex;gap:10px;flex-shrink:0}
-.btn-accept{
-  background:linear-gradient(180deg,#f8bc20,#d08800);color:#0d0d0d;
-  border:none;padding:9px 20px;border-radius:999px;font-weight:700;
-  font-size:.8rem;cursor:pointer;transition:all .15s;
-}
-.btn-decline{
-  background:linear-gradient(180deg,#222238,#14142a);color:#aaa;
-  border:1px solid var(--border);padding:9px 20px;border-radius:999px;
-  font-weight:600;font-size:.8rem;cursor:pointer;transition:all .15s;
-}
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(180deg,#0e0e20,#07070f);border-top:1px solid #f0a50055;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;box-shadow:0 -4px 32px #00000090;}
+#cookie-banner p{font-size:.8rem;color:#bbb;flex:1;min-width:220px;line-height:1.6;}
+#cookie-banner a{color:var(--gold);text-decoration:none;}
+.cookie-btns{display:flex;gap:10px;flex-shrink:0;}
+.btn-accept{background:linear-gradient(180deg,#f8bc20,#d08800);color:#0d0d0d;border:none;padding:9px 20px;border-radius:999px;font-weight:700;font-size:.8rem;cursor:pointer;transition:all .15s;}
+.btn-decline{background:linear-gradient(180deg,#222238,#14142a);color:#aaa;border:1px solid var(--border);padding:9px 20px;border-radius:999px;font-weight:600;font-size:.8rem;cursor:pointer;transition:all .15s;}
 
 /* HEADER */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:rgba(4,4,10,.85);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid #f0a50022;
-  padding:14px 28px;
-  display:flex;justify-content:space-between;align-items:center;
-}
-.logo{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.6rem;letter-spacing:3px;
-  color:var(--gold);text-shadow:0 0 20px #f0a50050;
-  text-decoration:none;
-}
-.logo span{color:#fff}
-nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-nav a.nav-btn{
-  color:#e0e0e0;text-decoration:none;font-size:.78rem;font-weight:600;
-  padding:7px 13px;border-radius:8px;white-space:nowrap;
-  background:linear-gradient(180deg,#2a2a40,#16162a);
-  border:1px solid var(--border);
-  box-shadow:0 2px 8px #00000070;
-  transition:all .15s ease;
-}
-nav a.nav-btn:hover{color:var(--gold);border-color:#f0a50060}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(4,4,10,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid #f0a50022;padding:14px 28px;display:flex;justify-content:space-between;align-items:center;}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:3px;color:var(--gold);text-shadow:0 0 20px #f0a50050;text-decoration:none;}
+.logo span{color:#fff;}
+nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;}
+nav a.nav-btn{color:#e0e0e0;text-decoration:none;font-size:.78rem;font-weight:600;padding:7px 13px;border-radius:8px;white-space:nowrap;background:linear-gradient(180deg,#2a2a40,#16162a);border:1px solid var(--border);box-shadow:0 2px 8px #00000070;transition:all .15s ease;}
+nav a.nav-btn:hover{color:var(--gold);border-color:#f0a50060;}
 
 /* MUSIC TOGGLE */
-#musicToggle{
-  display:flex;align-items:center;gap:6px;
-  background:linear-gradient(180deg,#2a2a40,#16162a);
-  border:1px solid #f0a50040;
-  color:#c8c8c8;font-size:.78rem;font-weight:600;
-  padding:7px 13px;border-radius:8px;white-space:nowrap;
-  box-shadow:0 2px 8px #00000070;
-  cursor:pointer;transition:all .15s ease;
-  position:relative;overflow:hidden;
-}
-#musicToggle:hover{color:var(--gold);border-color:#f0a50060}
-#musicToggle.playing{
-  border-color:#f0a500aa;
-  color:var(--gold);
-  box-shadow:0 2px 8px #00000070,0 0 12px #f0a50030;
-}
-.music-icon{font-size:.9rem;line-height:1;transition:transform .3s ease}
-#musicToggle.playing .music-icon{animation:musicPulse 1.2s ease-in-out infinite}
-@keyframes musicPulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.25)}
-}
-/* Ripple bars — visible when playing */
-.music-bars{
-  display:flex;align-items:flex-end;gap:2px;height:12px;
-  overflow:hidden;width:0;opacity:0;
-  transition:width .2s ease,opacity .2s ease;
-}
-#musicToggle.playing .music-bars{width:18px;opacity:1}
-.music-bars span{
-  display:block;width:3px;border-radius:2px;
-  background:var(--gold);
-}
-.music-bars span:nth-child(1){height:4px;animation:bar1 .7s ease-in-out infinite}
-.music-bars span:nth-child(2){height:10px;animation:bar2 .9s ease-in-out infinite}
-.music-bars span:nth-child(3){height:6px;animation:bar3 .8s ease-in-out infinite}
-@keyframes bar1{0%,100%{height:4px}50%{height:10px}}
-@keyframes bar2{0%,100%{height:10px}50%{height:3px}}
-@keyframes bar3{0%,100%{height:6px}50%{height:12px}}
+#musicToggle{display:flex;align-items:center;gap:6px;background:linear-gradient(180deg,#2a2a40,#16162a);border:1px solid #f0a50040;color:#c8c8c8;font-size:.78rem;font-weight:600;padding:7px 13px;border-radius:8px;white-space:nowrap;box-shadow:0 2px 8px #00000070;cursor:pointer;transition:all .15s ease;position:relative;overflow:hidden;}
+#musicToggle:hover{color:var(--gold);border-color:#f0a50060;}
+#musicToggle.playing{border-color:#f0a500aa;color:var(--gold);box-shadow:0 2px 8px #00000070,0 0 12px #f0a50030;}
+.music-icon{font-size:.9rem;line-height:1;transition:transform .3s ease;}
+#musicToggle.playing .music-icon{animation:musicPulse 1.2s ease-in-out infinite;}
+@keyframes musicPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.25);}}
+.music-bars{display:flex;align-items:flex-end;gap:2px;height:12px;overflow:hidden;width:0;opacity:0;transition:width .2s ease,opacity .2s ease;}
+#musicToggle.playing .music-bars{width:18px;opacity:1;}
+.music-bars span{display:block;width:3px;border-radius:2px;background:var(--gold);}
+.music-bars span:nth-child(1){height:4px;animation:bar1 .7s ease-in-out infinite;}
+.music-bars span:nth-child(2){height:10px;animation:bar2 .9s ease-in-out infinite;}
+.music-bars span:nth-child(3){height:6px;animation:bar3 .8s ease-in-out infinite;}
+@keyframes bar1{0%,100%{height:4px;}50%{height:10px;}}
+@keyframes bar2{0%,100%{height:10px;}50%{height:3px;}}
+@keyframes bar3{0%,100%{height:6px;}50%{height:12px;}}
 
 /* NAV DROPDOWN */
-.nav-dropdown{position:relative}
-.nav-dropdown-toggle{
-  color:#c8c8c8;font-size:.78rem;font-weight:600;
-  padding:7px 13px;border-radius:8px;white-space:nowrap;
-  background:linear-gradient(180deg,#2a2a40,#16162a);
-  border:1px solid #f0a50030;
-  box-shadow:0 2px 8px #00000070;
-  cursor:pointer;display:flex;align-items:center;gap:6px;
-  user-select:none;transition:all .15s ease;
-}
-.nav-dropdown-toggle::after{content:"▾";font-size:.7rem;opacity:.7;transition:transform .2s}
-.nav-dropdown.open .nav-dropdown-toggle::after{transform:rotate(180deg)}
-.nav-dropdown-toggle:hover{color:var(--gold);border-color:#f0a50060}
-.nav-dropdown-menu{
-  display:none;position:absolute;top:calc(100% + 6px);right:0;
-  min-width:180px;
-  background:linear-gradient(180deg,#1a1a30,#0e0e20);
-  border:1px solid #f0a50040;border-radius:10px;
-  box-shadow:0 8px 32px #00000090;
-  overflow:hidden;z-index:200;padding:4px;
-}
-.nav-dropdown.open .nav-dropdown-menu{display:block}
-.nav-dropdown-menu a{
-  display:block;color:#c8c8c8;text-decoration:none;
-  font-size:.78rem;font-weight:600;padding:9px 14px;
-  border-radius:7px;transition:all .12s ease;
-}
-.nav-dropdown-menu a:hover{color:var(--gold);background:linear-gradient(180deg,#2a2a44,#16162e)}
+.nav-dropdown{position:relative;}
+.nav-dropdown-toggle{color:#c8c8c8;font-size:.78rem;font-weight:600;padding:7px 13px;border-radius:8px;white-space:nowrap;background:linear-gradient(180deg,#2a2a40,#16162a);border:1px solid #f0a50030;box-shadow:0 2px 8px #00000070;cursor:pointer;display:flex;align-items:center;gap:6px;user-select:none;transition:all .15s ease;}
+.nav-dropdown-toggle::after{content:"▾";font-size:.7rem;opacity:.7;transition:transform .2s;}
+.nav-dropdown.open .nav-dropdown-toggle::after{transform:rotate(180deg);}
+.nav-dropdown-toggle:hover{color:var(--gold);border-color:#f0a50060;}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 6px);right:0;min-width:180px;background:linear-gradient(180deg,#1a1a30,#0e0e20);border:1px solid #f0a50040;border-radius:10px;box-shadow:0 8px 32px #00000090;overflow:hidden;z-index:200;padding:4px;}
+.nav-dropdown.open .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu a{display:block;color:#c8c8c8;text-decoration:none;font-size:.78rem;font-weight:600;padding:9px 14px;border-radius:7px;transition:all .12s ease;}
+.nav-dropdown-menu a:hover{color:var(--gold);background:linear-gradient(180deg,#2a2a44,#16162e);}
 
 /* PRICE BAR */
-.price-bar{
-  position:fixed;top:58px;left:0;right:0;z-index:999;
-  background:rgba(4,4,12,.9);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid #f0a50020;
-  padding:5px 0;overflow:hidden;
-}
-.price-bar::before,.price-bar::after{
-  content:"";position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none;
-}
-.price-bar::before{left:0;background:linear-gradient(90deg,rgba(4,4,12,.9),transparent)}
-.price-bar::after{right:0;background:linear-gradient(-90deg,rgba(4,4,12,.9),transparent)}
-.price-track{display:flex;white-space:nowrap;animation:priceScroll 50s linear infinite;will-change:transform}
-.price-track:hover{animation-play-state:paused}
-@keyframes priceScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.price-item{display:inline-flex;align-items:center;gap:5px;padding:0 16px;border-right:1px solid #ffffff08;font-size:.72rem}
-.price-symbol{color:var(--gold);font-weight:700;letter-spacing:.5px}
-.price-val{color:#e0e0e0;font-weight:600}
-.price-change{font-size:.68rem;font-weight:700;min-width:44px}
-.price-change.up{color:#22c55e}.price-change.down{color:#f87171}
-.price-loading{display:inline-block;padding:0 20px;font-size:.72rem;color:#444;font-style:italic}
+.price-bar{position:fixed;top:58px;left:0;right:0;z-index:999;background:rgba(4,4,12,.9);backdrop-filter:blur(12px);border-bottom:1px solid #f0a50020;padding:5px 0;overflow:hidden;}
+.price-bar::before,.price-bar::after{content:"";position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none;}
+.price-bar::before{left:0;background:linear-gradient(90deg,rgba(4,4,12,.9),transparent);}
+.price-bar::after{right:0;background:linear-gradient(-90deg,rgba(4,4,12,.9),transparent);}
+.price-track{display:flex;white-space:nowrap;animation:priceScroll 50s linear infinite;will-change:transform;}
+.price-track:hover{animation-play-state:paused;}
+@keyframes priceScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.price-item{display:inline-flex;align-items:center;gap:5px;padding:0 16px;border-right:1px solid #ffffff08;font-size:.72rem;}
+.price-symbol{color:var(--gold);font-weight:700;letter-spacing:.5px;}
+.price-val{color:#e0e0e0;font-weight:600;}
+.price-change{font-size:.68rem;font-weight:700;min-width:44px;}
+.price-change.up{color:#22c55e;}.price-change.down{color:#f87171;}
+.price-loading{display:inline-block;padding:0 20px;font-size:.72rem;color:#444;font-style:italic;}
 
 /* HERO SCENE — 200vh for two scroll phases */
-#scene{
-  position:relative;
-  height:calc(2800px + 100vh);
-  background:radial-gradient(ellipse at 50% 25%,#1a1a3a 0%,#07070f 55%,#020206 100%);
-}
-/* Sticky stage — holds full viewport while we scroll through the scene */
-#phase1{
-  position:sticky;
-  top:0;
-  height:100vh;
-  width:100%;
-  overflow:hidden;
-  display:grid;
-  place-items:center;
-  padding-top:80px;
-  z-index:5;
-}
-.scene-bg-grid{
-  position:absolute;inset:0;pointer-events:none;
-  background-image:
-    linear-gradient(#f0a50007 1px,transparent 1px),
-    linear-gradient(90deg,#f0a50007 1px,transparent 1px);
-  background-size:60px 60px;
-  transform:rotateX(60deg) scale(2.5) translateY(10%);
-  transform-origin:50% 100%;
-  will-change:transform;
-  z-index:0;
-}
-.scene-glow{
-  position:absolute;width:800px;height:800px;border-radius:50%;
-  background:radial-gradient(ellipse,#f0a50014 0%,transparent 70%);
-  pointer-events:none;top:50%;left:50%;
-  transform:translate(-50%,-55%);
-  z-index:0;
-}
+#scene{position:relative;height:calc(2800px + 100vh);background:radial-gradient(ellipse at 50% 25%,#1a1a3a 0%,#07070f 55%,#020206 100%);}
+#phase1{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;display:grid;place-items:center;padding-top:80px;z-index:5;}
+.scene-bg-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#f0a50007 1px,transparent 1px),linear-gradient(90deg,#f0a50007 1px,transparent 1px);background-size:60px 60px;transform:rotateX(60deg) scale(2.5) translateY(10%);transform-origin:50% 100%;will-change:transform;z-index:0;}
+.scene-glow{position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(ellipse,#f0a50014 0%,transparent 70%);pointer-events:none;top:50%;left:50%;transform:translate(-50%,-55%);z-index:0;}
 
-/* HERO TITLE — absolute inside sticky phase1, starts invisible */
-.hero-title-wrap{
-  position:absolute;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%) scale(0.2);
-  opacity:0;
-  z-index:4;
-  text-align:center;
-  will-change:opacity,transform;
-  transform-origin:center center;
-  width:90%;
-  max-width:900px;
-  pointer-events:none;
-}
-.hero-eyebrow{
-  font-family:'DM Mono',monospace;
-  font-size:.72rem;letter-spacing:4px;text-transform:uppercase;
-  color:var(--gold);opacity:.7;margin-bottom:14px;display:block;
-}
-.hero-main-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3.5rem,10vw,7.5rem);
-  line-height:.92;letter-spacing:4px;
-  color:#ffffff;
-  text-shadow:
-    0 0 60px rgba(240,165,0,.5),
-    0 0 120px rgba(240,165,0,.25),
-    0 4px 24px rgba(0,0,0,.9),
-    0 2px 4px rgba(0,0,0,1);
-}
-.hero-main-title .accent{
-  color:var(--gold);
-  text-shadow:
-    0 0 40px rgba(240,165,0,.8),
-    0 0 80px rgba(240,165,0,.4),
-    0 4px 16px rgba(0,0,0,1);
-}
-.hero-subtitle-line{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(1.1rem,2.5vw,1.6rem);
-  letter-spacing:7px;color:var(--gold);opacity:.9;
-  margin-top:12px;
-  text-shadow:0 0 30px rgba(240,165,0,.6),0 2px 8px rgba(0,0,0,1);
-}
+/* HERO TITLE */
+.hero-title-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.2);opacity:0;z-index:4;text-align:center;will-change:opacity,transform;transform-origin:center center;width:90%;max-width:900px;pointer-events:none;}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:14px;display:block;}
+.hero-main-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,10vw,7.5rem);line-height:.92;letter-spacing:4px;color:#ffffff;text-shadow:0 0 60px rgba(240,165,0,.5),0 0 120px rgba(240,165,0,.25),0 4px 24px rgba(0,0,0,.9),0 2px 4px rgba(0,0,0,1);}
+.hero-main-title .accent{color:var(--gold);text-shadow:0 0 40px rgba(240,165,0,.8),0 0 80px rgba(240,165,0,.4),0 4px 16px rgba(0,0,0,1);}
+.hero-subtitle-line{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.1rem,2.5vw,1.6rem);letter-spacing:7px;color:var(--gold);opacity:.9;margin-top:12px;text-shadow:0 0 30px rgba(240,165,0,.6),0 2px 8px rgba(0,0,0,1);}
 
-/* HAT WRAPPER — centered in the sticky grid cell */
-#hat-wrapper{
-  position:relative;z-index:10;
-  will-change:opacity;
-  transform-style:preserve-3d;
-  animation:hatFloat 4s ease-in-out infinite;
-}
-@keyframes hatFloat{
-  0%,100%{transform:translateY(0px) rotateX(0deg);}
-  25%{transform:translateY(-16px) rotateX(2deg);}
-  50%{transform:translateY(-26px) rotateX(0deg);}
-  75%{transform:translateY(-12px) rotateX(-1.5deg);}
-}
-.hat-img{
-  width:clamp(280px,72vw,900px);height:auto;display:block;
-  background:transparent;
-  /* PNG with transparent bg — ensure no browser compositing box */
-  -webkit-tap-highlight-color:transparent;
-  image-rendering:auto;
-  filter:
-    drop-shadow(0 0 40px rgba(240,165,0,.55))
-    drop-shadow(0 0 90px rgba(240,165,0,.28))
-    drop-shadow(0 0 160px rgba(240,165,0,.14))
-    drop-shadow(0 60px 110px rgba(0,0,0,.97));
-}
-#hat-canvas{
-  width:clamp(460px,72vw,900px);height:auto;display:block;
-  filter:
-    drop-shadow(0 0 40px rgba(240,165,0,.55))
-    drop-shadow(0 0 90px rgba(240,165,0,.28))
-    drop-shadow(0 60px 110px rgba(0,0,0,.97));
-}
+/* HAT WRAPPER */
+#hat-wrapper{position:relative;z-index:10;will-change:opacity;transform-style:preserve-3d;animation:hatFloat 4s ease-in-out infinite;}
+@keyframes hatFloat{0%,100%{transform:translateY(0px) rotateX(0deg);}25%{transform:translateY(-16px) rotateX(2deg);}50%{transform:translateY(-26px) rotateX(0deg);}75%{transform:translateY(-12px) rotateX(-1.5deg);}}
+.hat-img{width:clamp(280px,72vw,900px);height:auto;display:block;background:transparent;-webkit-tap-highlight-color:transparent;image-rendering:auto;filter:drop-shadow(0 0 40px rgba(240,165,0,.55)) drop-shadow(0 0 90px rgba(240,165,0,.28)) drop-shadow(0 0 160px rgba(240,165,0,.14)) drop-shadow(0 60px 110px rgba(0,0,0,.97));}
 
 /* GLITCH LOGO */
-.logo{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.6rem;letter-spacing:3px;
-  color:var(--gold);text-shadow:0 0 20px #f0a50050;
-  text-decoration:none;
-  position:relative;
-  animation:logoGlitch 6s infinite;
-}
-.logo::before,.logo::after{
-  content:attr(data-text);
-  position:absolute;top:0;left:0;
-  width:100%;height:100%;
-  background:transparent;
-}
-.logo::before{
-  color:#ff003c;
-  animation:glitchTop 6s infinite;
-  clip-path:polygon(0 0,100% 0,100% 35%,0 35%);
-  transform:translateX(-2px);
-}
-.logo::after{
-  color:#00f0ff;
-  animation:glitchBot 6s infinite;
-  clip-path:polygon(0 65%,100% 65%,100% 100%,0 100%);
-  transform:translateX(2px);
-}
-@keyframes logoGlitch{
-  0%,94%,100%{text-shadow:0 0 20px #f0a50050;}
-  95%{text-shadow:3px 0 0 #ff003c,-3px 0 0 #00f0ff,0 0 30px #f0a500;}
-  96%{text-shadow:-2px 0 0 #ff003c,2px 0 0 #00f0ff,0 0 20px #f0a500;}
-  97%{text-shadow:3px 0 0 #ff003c,-3px 0 0 #00f0ff;}
-  98%{text-shadow:0 0 20px #f0a50050;}
-  99%{text-shadow:-3px 0 0 #ff003c,3px 0 0 #00f0ff;}
-}
-@keyframes glitchTop{
-  0%,93%,100%{transform:translateX(0);opacity:0;}
-  94%{transform:translateX(-3px);opacity:.85;}
-  95%{transform:translateX(3px);opacity:.85;}
-  96%{transform:translateX(-2px);opacity:.85;}
-  97%{transform:translateX(0);opacity:0;}
-}
-@keyframes glitchBot{
-  0%,93%,100%{transform:translateX(0);opacity:0;}
-  94%{transform:translateX(3px);opacity:.75;}
-  95%{transform:translateX(-3px);opacity:.75;}
-  96%{transform:translateX(2px);opacity:.75;}
-  97%{transform:translateX(0);opacity:0;}
-}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:3px;color:var(--gold);text-shadow:0 0 20px #f0a50050;text-decoration:none;position:relative;animation:logoGlitch 6s infinite;}
+.logo::before,.logo::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;background:transparent;}
+.logo::before{color:#ff003c;animation:glitchTop 6s infinite;clip-path:polygon(0 0,100% 0,100% 35%,0 35%);transform:translateX(-2px);}
+.logo::after{color:#00f0ff;animation:glitchBot 6s infinite;clip-path:polygon(0 65%,100% 65%,100% 100%,0 100%);transform:translateX(2px);}
+@keyframes logoGlitch{0%,94%,100%{text-shadow:0 0 20px #f0a50050;}95%{text-shadow:3px 0 0 #ff003c,-3px 0 0 #00f0ff,0 0 30px #f0a500;}96%{text-shadow:-2px 0 0 #ff003c,2px 0 0 #00f0ff,0 0 20px #f0a500;}97%{text-shadow:3px 0 0 #ff003c,-3px 0 0 #00f0ff;}98%{text-shadow:0 0 20px #f0a50050;}99%{text-shadow:-3px 0 0 #ff003c,3px 0 0 #00f0ff;}}
+@keyframes glitchTop{0%,93%,100%{transform:translateX(0);opacity:0;}94%{transform:translateX(-3px);opacity:.85;}95%{transform:translateX(3px);opacity:.85;}96%{transform:translateX(-2px);opacity:.85;}97%{transform:translateX(0);opacity:0;}}
+@keyframes glitchBot{0%,93%,100%{transform:translateX(0);opacity:0;}94%{transform:translateX(3px);opacity:.75;}95%{transform:translateX(-3px);opacity:.75;}96%{transform:translateX(2px);opacity:.75;}97%{transform:translateX(0);opacity:0;}}
 
-/* HERO BODY — absolute inside sticky phase1, starts invisible */
-.hero-body{
-  position:absolute;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%) translateY(60px);
-  width:90%;
-  font-size:1.4rem;color:#b0b0cc;max-width:780px;line-height:1.75;
-  text-align:center;
-  will-change:opacity,transform;
-  z-index:6;
-  padding:0 40px;
-  opacity:0;
-  pointer-events:none;
-  font-weight:300;
-  letter-spacing:.3px;
-}
+/* HERO BODY */
+.hero-body{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) translateY(60px);width:90%;font-size:1.4rem;color:#b0b0cc;max-width:780px;line-height:1.75;text-align:center;will-change:opacity,transform;z-index:6;padding:0 40px;opacity:0;pointer-events:none;font-weight:300;letter-spacing:.3px;}
 
 /* SCROLL HINT */
-.hero-scroll-hint{
-  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  color:#555;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;
-  font-family:'DM Mono',monospace;
-  animation:hintFade 2.5s ease-in-out infinite;
-  z-index:20;
-}
-@keyframes hintFade{0%,100%{opacity:.3;}50%{opacity:1;}}
-.scroll-line{
-  width:1px;height:40px;
-  background:linear-gradient(180deg,transparent,var(--gold),transparent);
-  animation:scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse{0%,100%{opacity:.2;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+.hero-scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:#555;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;font-family:'DM Mono',monospace;animation:hintFade 2.5s ease-in-out infinite;z-index:20;}
+@keyframes hintFade{0%,100%{opacity:.35;}50%{opacity:1;}}
+.scroll-line{width:1px;height:40px;background:linear-gradient(180deg,transparent,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite;}
+@keyframes scrollPulse{0%,100%{opacity:.2;transform:scaleY(.6);}50%{opacity:1;transform:scaleY(1);}}
 
 /* CONTENT */
-.content-wrapper{position:relative;z-index:2;background:var(--bg)}
-.section-container{max-width:1100px;margin:0 auto;padding:80px 24px}
-.section-label{
-  font-family:'DM Mono',monospace;
-  font-size:.68rem;letter-spacing:4px;text-transform:uppercase;
-  color:var(--gold);opacity:.55;margin-bottom:10px;display:block;
-}
-.section-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(2rem,4vw,3rem);letter-spacing:2px;
-  color:#f0f0f0;margin-bottom:44px;
-  padding-bottom:14px;border-bottom:1px solid var(--border);
-}
+.content-wrapper{position:relative;z-index:2;background:var(--bg);}
+.section-container{max-width:1100px;margin:0 auto;padding:80px 24px;}
+.section-label{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);opacity:.55;margin-bottom:10px;display:block;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spacing:2px;color:#f0f0f0;margin-bottom:44px;padding-bottom:14px;border-bottom:1px solid var(--border);}
 
 /* ARTICLES */
-.articles-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
-  gap:24px;
-}
-.article-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:16px;padding:28px;
-  display:flex;flex-direction:column;
-  position:relative;overflow:hidden;
-  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
-}
-.article-card::before{
-  content:"";position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  opacity:0;transition:opacity .3s;z-index:10;
-}
-.article-card:hover{
-  transform:translateY(-8px);
-  border-color:#f0a50050;
-  box-shadow:0 24px 60px #00000090,0 0 30px #f0a50010;
-}
-.article-card:hover::before{opacity:1}
-.article-tag{
-  display:inline-block;font-size:.6rem;font-weight:700;
-  padding:4px 10px;border-radius:20px;margin-bottom:14px;
-  text-transform:uppercase;letter-spacing:.5px;
-}
-.tag-finance{background:#b91c1c;color:#fff}
-.tag-security{background:#0e7490;color:#fff}
-.tag-privacy{background:#0e7490;color:#fff}
-.tag-economics{background:#b91c1c;color:#fff}
-.tag-ai{background:#6d28d9;color:#fff}
-.tag-news{background:#0284c7;color:#fff}
-.article-image {
-  width:calc(100% + 56px);margin:-28px -28px 20px -28px;
-  height:180px;object-fit:cover;
-}
-.article-card h3{
-  font-size:.97rem;font-weight:600;color:#f0f0f0;
-  line-height:1.45;margin-bottom:12px;
-}
-.article-card p{
-  font-size:.845rem;color:var(--muted);line-height:1.75;
-  flex:1;margin-bottom:20px;
-}
-.card-links{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:auto}
-.btn-primary{
-  display:inline-block;
-  background:linear-gradient(180deg,#f8bc20,#d08800);
-  color:#0d0d0d;padding:8px 18px;border-radius:999px;
-  font-size:.78rem;font-weight:700;text-decoration:none;
-  transition:all .15s ease;
-}
-.btn-primary:hover{background:linear-gradient(180deg,#ffd030,#e09800);transform:translateY(-1px)}
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:24px;}
+.article-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;}
+.article-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s;z-index:10;}
+.article-card:hover{transform:translateY(-8px);border-color:#f0a50050;box-shadow:0 24px 60px #00000090,0 0 30px #f0a50010;}
+.article-card:hover::before{opacity:1;}
+.article-tag{display:inline-block;font-size:.6rem;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px;}
+.tag-finance{background:#b91c1c;color:#fff;}
+.tag-security{background:#0e7490;color:#fff;}
+.tag-privacy{background:#0e7490;color:#fff;}
+.tag-economics{background:#b91c1c;color:#fff;}
+.tag-ai{background:#6d28d9;color:#fff;}
+.tag-news{background:#0284c7;color:#fff;}
+.article-image{width:calc(100% + 56px);margin:-28px -28px 20px -28px;height:180px;object-fit:cover;}
+.article-card h3{font-size:.97rem;font-weight:600;color:#f0f0f0;line-height:1.45;margin-bottom:12px;}
+.article-card p{font-size:.845rem;color:var(--muted);line-height:1.75;flex:1;margin-bottom:20px;}
+.card-links{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:auto;}
+.btn-primary{display:inline-block;background:linear-gradient(180deg,#f8bc20,#d08800);color:#0d0d0d;padding:8px 18px;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;transition:all .15s ease;}
+.btn-primary:hover{background:linear-gradient(180deg,#ffd030,#e09800);transform:translateY(-1px);}
 
 /* VIDEOS */
-.videos-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:24px;
-}
-.video-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:16px;overflow:hidden;
-  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
-}
-.video-card:hover{
-  transform:translateY(-8px);border-color:#f0a50050;
-  box-shadow:0 24px 60px #00000090,0 0 30px #f0a50010;
-}
-.video-thumb{
-  display:block;width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;
-}
-.video-thumb img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .35s ease,filter .35s ease;
-  filter:brightness(.85) saturate(1.1);
-}
-.video-card:hover .video-thumb img{transform:scale(1.06);filter:brightness(1) saturate(1.2)}
-.play-overlay{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  background:rgba(0,0,0,.2);transition:background .25s;
-}
-.play-btn{
-  width:52px;height:52px;border-radius:50%;
-  background:rgba(240,165,0,.85);
-  display:flex;align-items:center;justify-content:center;
-  transition:transform .2s,background .2s;
-}
-.play-btn svg{fill:#0d0d0d;width:18px;height:18px;margin-left:3px}
-.video-card:hover .play-overlay{background:rgba(0,0,0,.05)}
-.video-card:hover .play-btn{transform:scale(1.12);background:rgba(240,165,0,1)}
-.video-info{padding:18px}
-.video-info h3{font-size:.9rem;font-weight:600;color:#f0f0f0;line-height:1.4;margin-bottom:6px}
-.video-info p{font-size:.78rem;color:var(--muted);line-height:1.5;margin-bottom:12px}
-.video-info a{color:var(--gold);text-decoration:none;font-size:.8rem;font-weight:600;transition:color .15s}
-.video-info a:hover{color:#ffd050}
+.videos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.video-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;}
+.video-card:hover{transform:translateY(-8px);border-color:#f0a50050;box-shadow:0 24px 60px #00000090,0 0 30px #f0a50010;}
+.video-thumb{display:block;width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;}
+.video-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease,filter .35s ease;filter:brightness(.85) saturate(1.1);}
+.video-card:hover .video-thumb img{transform:scale(1.06);filter:brightness(1) saturate(1.2);}
+.play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.2);transition:background .25s;}
+.play-btn{width:52px;height:52px;border-radius:50%;background:rgba(240,165,0,.85);display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;}
+.play-btn svg{fill:#0d0d0d;width:18px;height:18px;margin-left:3px;}
+.video-card:hover .play-overlay{background:rgba(0,0,0,.05);}
+.video-card:hover .play-btn{transform:scale(1.12);background:rgba(240,165,0,1);}
+.video-info{padding:18px;}
+.video-info h3{font-size:.9rem;font-weight:600;color:#f0f0f0;line-height:1.4;margin-bottom:6px;}
+.video-info p{font-size:.78rem;color:var(--muted);line-height:1.5;margin-bottom:12px;}
+.video-info a{color:var(--gold);text-decoration:none;font-size:.8rem;font-weight:600;transition:color .15s;}
+.video-info a:hover{color:#ffd050;}
 
 /* DONATE */
-.donate-section{
-  background:radial-gradient(ellipse at top,#1a0000 0%,var(--bg) 70%);
-  border-top:1px solid #3a0000;border-bottom:1px solid #3a0000;
-  padding:80px 24px;text-align:center;
-}
-.donate-inner{max-width:600px;margin:0 auto}
-.donate-inner p{color:#bbb;line-height:1.8;margin-bottom:20px;font-size:.95rem}
-.donate-tag{
-  display:inline-block;padding:12px 28px;border-radius:999px;
-  border:1px solid #ff4d4d;color:#ffb3b3;font-weight:700;letter-spacing:.5px;
-  background:linear-gradient(180deg,#2a0000,#120000);
-  box-shadow:0 0 24px rgba(255,0,0,.3);font-size:1.1rem;
-}
-.donate-small{display:block;margin-top:10px;color:#555;font-size:.78rem}
-.donate-btn{
-  display:inline-block;margin-top:24px;padding:13px 32px;border-radius:999px;
-  background:linear-gradient(180deg,#ff4444,#cc1111);color:#fff;
-  font-weight:700;text-decoration:none;font-size:.95rem;
-  box-shadow:0 0 28px rgba(255,51,51,.5);
-  transition:all .15s ease;
-}
-.donate-btn:hover{background:linear-gradient(180deg,#ff6666,#dd2222);transform:translateY(-2px)}
+.donate-section{background:radial-gradient(ellipse at top,#1a0000 0%,var(--bg) 70%);border-top:1px solid #3a0000;border-bottom:1px solid #3a0000;padding:80px 24px;text-align:center;}
+.donate-inner{max-width:600px;margin:0 auto;}
+.donate-inner p{color:#bbb;line-height:1.8;margin-bottom:20px;font-size:.95rem;}
+.donate-tag{display:inline-block;padding:12px 28px;border-radius:999px;border:1px solid #ff4d4d;color:#ffb3b3;font-weight:700;letter-spacing:.5px;background:linear-gradient(180deg,#2a0000,#120000);box-shadow:0 0 24px rgba(255,0,0,.3);font-size:1.1rem;}
+.donate-small{display:block;margin-top:10px;color:#555;font-size:.78rem;}
+.donate-btn{display:inline-block;margin-top:24px;padding:13px 32px;border-radius:999px;background:linear-gradient(180deg,#ff4444,#cc1111);color:#fff;font-weight:700;text-decoration:none;font-size:.95rem;box-shadow:0 0 28px rgba(255,51,51,.5);transition:all .15s ease;}
+.donate-btn:hover{background:linear-gradient(180deg,#ff6666,#dd2222);transform:translateY(-2px);}
 
 /* ABOUT */
-.about-section{background:linear-gradient(180deg,var(--bg),#0a0a18);padding:80px 24px}
-.about-inner{
-  max-width:820px;margin:0 auto;
-  display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start;
-}
-.about-avatar{
-  width:130px;height:130px;border-radius:50%;
-  background:linear-gradient(145deg,var(--surface2),#0d0d20);
-  border:2px solid var(--gold);
-  box-shadow:0 0 0 6px #f0a50015,0 0 40px #f0a50030;
-  display:flex;align-items:center;justify-content:center;
-  font-size:3rem;flex-shrink:0;
-}
-.about-text h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:2rem;letter-spacing:2px;color:var(--gold);margin-bottom:14px;
-}
-.about-text p{color:var(--muted);line-height:1.85;margin-bottom:12px;font-size:.92rem}
+.about-section{background:linear-gradient(180deg,var(--bg),#0a0a18);padding:80px 24px;}
+.about-inner{max-width:820px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start;}
+.about-avatar{width:130px;height:130px;border-radius:50%;background:linear-gradient(145deg,var(--surface2),#0d0d20);border:2px solid var(--gold);box-shadow:0 0 0 6px #f0a50015,0 0 40px #f0a50030;display:flex;align-items:center;justify-content:center;font-size:3rem;flex-shrink:0;}
+.about-text h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;color:var(--gold);margin-bottom:14px;}
+.about-text p{color:var(--muted);line-height:1.85;margin-bottom:12px;font-size:.92rem;}
 
 /* PLATFORMS */
-.platforms-bar{
-  background:#030305;border-top:1px solid var(--border);
-  padding:40px 24px;text-align:center;
-}
-.platforms-bar .plinks{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:16px}
-.platforms-bar .plinks a{
-  background:var(--surface);border:1px solid var(--border);
-  color:#ddd;padding:9px 20px;border-radius:30px;text-decoration:none;
-  font-size:.83rem;font-weight:500;transition:all .15s ease;
-}
-.platforms-bar .plinks a:hover{color:var(--gold);border-color:var(--gold)}
+.platforms-bar{background:#030305;border-top:1px solid var(--border);padding:40px 24px;text-align:center;}
+.platforms-bar .plinks{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:16px;}
+.platforms-bar .plinks a{background:var(--surface);border:1px solid var(--border);color:#ddd;padding:9px 20px;border-radius:30px;text-decoration:none;font-size:.83rem;font-weight:500;transition:all .15s ease;}
+.platforms-bar .plinks a:hover{color:var(--gold);border-color:var(--gold);}
 
 /* DISCLAIMER / FOOTER */
-.disclaimer-bar{
-  background:#020205;border-top:1px solid #1a1a2a;
-  padding:18px 24px;text-align:center;font-size:.76rem;color:#333;line-height:1.65;
-}
-.disclaimer-bar a{color:var(--gold);text-decoration:none}
-footer{
-  background:#020205;border-top:1px solid #f0a50020;
-  padding:28px;text-align:center;color:#333;font-size:.78rem;
-}
-footer a{color:var(--gold);text-decoration:none;margin:0 7px;transition:color .15s}
-footer a:hover{color:#ffd050}
+.disclaimer-bar{background:#020205;border-top:1px solid #1a1a2a;padding:18px 24px;text-align:center;font-size:.76rem;color:#333;line-height:1.65;}
+.disclaimer-bar a{color:var(--gold);text-decoration:none;}
+footer{background:#020205;border-top:1px solid #f0a50020;padding:28px;text-align:center;color:#333;font-size:.78rem;}
+footer a{color:var(--gold);text-decoration:none;margin:0 7px;transition:color .15s;}
+footer a:hover{color:#ffd050;}
 
 /* SCROLL REVEAL */
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .65s ease,transform .65s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
 
 /* MATRIX RAIN CANVAS */
-#matrixRain{
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  z-index:0;
-  pointer-events:none;
-  opacity:.18;
-}
-
-/* Ensure all content layers sit above the rain */
-#splash{z-index:100000}
-header{z-index:1000}
-.price-bar{z-index:999}
-#scene{z-index:1}
-.content-wrapper{z-index:2;position:relative}
-#cursor,#cursor-ring{z-index:200000}
-#cookie-banner{z-index:9999}
+#matrixRain{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.18;}
+header{z-index:1000;}
+.price-bar{z-index:999;}
+#scene{z-index:1;}
+.content-wrapper{z-index:2;position:relative;}
+#cursor,#cursor-ring{z-index:200000;}
+#cookie-banner{z-index:9999;}
 
 /* RESPONSIVE */
-@media(max-width:820px){
-  header{padding:12px 16px}
-  .hat-img{
-    width:min(420px,88vw);
-    /* PNG transparency fix — no background box */
-    background:transparent;
-    mix-blend-mode:normal;
-  }
-  .about-inner{grid-template-columns:1fr;text-align:center}
-  .about-avatar{margin:0 auto}
+@media (max-width:820px){
+header{padding:12px 16px;}
+.hat-img{width:min(420px,88vw);background:transparent;mix-blend-mode:normal;}
+.about-inner{grid-template-columns:1fr;text-align:center;}
+.about-avatar{margin:0 auto;}
 }
-@media(max-width:520px){
-  .hat-img{width:min(310px,85vw)}
-  nav a.nav-btn{display:none}
-  #phase1{padding-top:90px}
-
-  /* ── SPLASH MOBILE FIX ── */
-  .splash-glow{
-    width:min(360px,90vw);
-    height:min(360px,90vw);
-    top:50%;
-    transform:translate(-50%,-50%);
-  }
-  .splash-content{
-    width:90%;
-  }
-  .splash-welcome{font-size:.85rem;letter-spacing:4px}
-  .splash-title{font-size:clamp(2.4rem,13vw,4rem)}
-  .splash-byline{font-size:.72rem;letter-spacing:3px}
-  .splash-enter-btn{padding:12px 38px;font-size:1.2rem;letter-spacing:4px}
-  #splash{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-  }
+@media (max-width:520px){
+.hat-img{width:min(310px,85vw);}
+nav a.nav-btn{display:none;}
+#phase1{padding-top:90px;}
 }
 
-/* ═══════════════════════════════════════
-   SPLASH SCREEN
-═══════════════════════════════════════ */
-#splash{
-  position:fixed;inset:0;z-index:100000;
-  background:#02020a;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  overflow:hidden;
-  cursor:none;
-}
-#splash.hidden{
-  opacity:0;pointer-events:none;
-  transition:opacity .8s ease;
-}
+/* SPLASH MOBILE FIX */
+.splash-glow{width:min(360px,90vw);height:min(360px,90vw);top:50%;transform:translate(-50%,-50%);}
+.splash-content{width:90%;}
+.splash-welcome{font-size:.85rem;letter-spacing:4px;}
+.splash-title{font-size:clamp(2.4rem,13vw,4rem);}
+.splash-byline{font-size:.72rem;letter-spacing:3px;}
+.splash-enter-btn{padding:12px 38px;font-size:1.2rem;letter-spacing:4px;}
+#splash{display:flex;flex-direction:column;align-items:center;justify-content:center;}
 
+/* SPLASH SCREEN */
+#splash{position:fixed;inset:0;z-index:100000;background:#02020a;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;cursor:none;}
+#splash.hidden{opacity:0;pointer-events:none;transition:opacity .8s ease;}
+#splashCodeSpace{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;}
+.splash-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(ellipse,rgba(240,165,0,.18) 0%,transparent 68%);top:50%;left:50%;transform:translate(-50%,-50%);animation:splashGlowPulse 3s ease-in-out infinite;z-index:0;}
+@keyframes splashGlowPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.7;}50%{transform:translate(-50%,-50%) scale(1.12);opacity:1;}}
+.splash-lines{position:absolute;inset:0;z-index:3;pointer-events:none;background:repeating-linear-gradient(0deg, transparent,transparent 3px, rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px);}
+.splash-content{position:relative;z-index:4;text-align:center;padding:0 24px;display:flex;flex-direction:column;align-items:center;gap:0;}
+.splash-welcome{font-family:'DM Mono',monospace;font-size:clamp(1rem,2.5vw,1.5rem);letter-spacing:6px;text-transform:uppercase;color:#c8a84a;opacity:0;animation:splashFadeIn .9s ease forwards;animation-delay:.6s;text-shadow:0 0 24px rgba(240,165,0,.5);margin-bottom:10px;}
+.splash-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,7rem);letter-spacing:5px;line-height:.9;color:#fff;opacity:0;animation:splashFadeIn 1s ease forwards;animation-delay:1.3s;text-shadow:0 0 50px rgba(240,165,0,.6),0 0 100px rgba(240,165,0,.3),0 4px 20px rgba(0,0,0,1);margin-bottom:6px;}
+.splash-title .splash-hatty{color:var(--gold);position:relative;display:inline-block;animation:splashTitleGlitch 5s 2.5s infinite;}
+.splash-title .splash-hatty::before,.splash-title .splash-hatty::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;}
+.splash-title .splash-hatty::before{color:#ff003c;animation:splashGlitchTop 5s 2.5s infinite;clip-path:polygon(0 0,100% 0,100% 40%,0 40%);}
+.splash-title .splash-hatty::after{color:#00f0ff;animation:splashGlitchBot 5s 2.5s infinite;clip-path:polygon(0 60%,100% 60%,100% 100%,0 100%);}
+.splash-byline{font-family:'DM Mono',monospace;font-size:clamp(.75rem,1.8vw,1rem);letter-spacing:4px;text-transform:uppercase;color:#888;opacity:0;animation:splashFadeIn .8s ease forwards;animation-delay:2s;margin-bottom:36px;}
+.splash-byline .splash-hattyhats{color:#aaa;position:relative;display:inline-block;animation:splashBylineGlitch 7s 3s infinite;}
+.splash-byline .splash-hattyhats::before,.splash-byline .splash-hattyhats::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;}
+.splash-byline .splash-hattyhats::before{color:#ff003c55;animation:splashGlitchTopSm 7s 3s infinite;clip-path:polygon(0 0,100% 0,100% 45%,0 45%);}
+.splash-byline .splash-hattyhats::after{color:#00f0ff55;animation:splashGlitchBotSm 7s 3s infinite;clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%);}
+.splash-enter{opacity:0;animation:splashFadeIn .8s ease forwards;animation-delay:2.7s;}
+.splash-loader{width:46px;height:46px;border:4px solid rgba(240,165,0,.15);border-top-color:var(--gold);border-radius:50%;animation:splashSpin 1s linear infinite;margin:0 auto;}
+@keyframes splashSpin{to{transform:rotate(360deg);}}
+@keyframes splashFadeIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+@keyframes splashTitleGlitch{0%,88%,100%{text-shadow:0 0 40px rgba(240,165,0,.7);}89%{text-shadow:4px 0 0 #ff003c,-4px 0 0 #00f0ff,0 0 50px #f0a500;}90%{text-shadow:-3px 0 0 #ff003c,3px 0 0 #00f0ff;}91%{text-shadow:4px 0 0 #ff003c,-4px 0 0 #00f0ff,0 0 40px #f0a500;}92%{text-shadow:0 0 40px rgba(240,165,0,.7);}94%{text-shadow:-4px 0 0 #ff003c,4px 0 0 #00f0ff;}95%{text-shadow:0 0 40px rgba(240,165,0,.7);}}
+@keyframes splashGlitchTop{0%,87%,100%{transform:translateX(0);opacity:0;}88%{transform:translateX(-5px);opacity:.9;}89%{transform:translateX(5px);opacity:.9;}90%{transform:translateX(-3px);opacity:.9;}91%{transform:translateX(0);opacity:0;}93%{transform:translateX(-4px);opacity:.7;}94%{transform:translateX(0);opacity:0;}}
+@keyframes splashGlitchBot{0%,87%,100%{transform:translateX(0);opacity:0;}88%{transform:translateX(5px);opacity:.8;}89%{transform:translateX(-5px);opacity:.8;}90%{transform:translateX(3px);opacity:.8;}91%{transform:translateX(0);opacity:0;}93%{transform:translateX(4px);opacity:.6;}94%{transform:translateX(0);opacity:0;}}
+@keyframes splashBylineGlitch{0%,90%,100%{color:#aaa;}91%{color:#ff9999;transform:translateX(-2px);}92%{color:#99ffff;transform:translateX(2px);}93%{color:#aaa;transform:translateX(0);}}
+@keyframes splashGlitchTopSm{0%,89%,100%{transform:translateX(0);opacity:0;}90%{transform:translateX(-3px);opacity:.6;}91%{transform:translateX(0);opacity:0;}}
+@keyframes splashGlitchBotSm{0%,89%,100%{transform:translateX(0);opacity:0;}90%{transform:translateX(3px);opacity:.5;}91%{transform:translateX(0);opacity:0;}}
 
-
-/* 3D Code Space Canvas */
-#splashCodeSpace {
-  position:absolute;
-  top:0;left:0;
-  width:100%;height:100%;
-  z-index:1;
-  pointer-events:none;
-}
-
-
-/* Radial glow behind hat */
-.splash-glow{
-  position:absolute;
-  width:700px;height:700px;border-radius:50%;
-  background:radial-gradient(ellipse,rgba(240,165,0,.18) 0%,transparent 68%);
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  animation:splashGlowPulse 3s ease-in-out infinite;
-  z-index:0;
-}
-@keyframes splashGlowPulse{
-  0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.7;}
-  50%{transform:translate(-50%,-50%) scale(1.12);opacity:1;}
-}
-
-/* Scanline texture */
-.splash-lines{
-  position:absolute;inset:0;z-index:3;pointer-events:none;
-  background:repeating-linear-gradient(
-    0deg,
-    transparent,transparent 3px,
-    rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px
-  );
-}
-
-/* Content overlay */
-.splash-content{
-  position:relative;z-index:4;
-  text-align:center;
-  padding:0 24px;
-  display:flex;flex-direction:column;align-items:center;gap:0;
-}
-
-/* "Welcome To:" */
-.splash-welcome{
-  font-family:'DM Mono',monospace;
-  font-size:clamp(1rem,2.5vw,1.5rem);
-  letter-spacing:6px;text-transform:uppercase;
-  color:#c8a84a;
-  opacity:0;
-  animation:splashFadeIn .9s ease forwards;
-  animation-delay:.6s;
-  text-shadow:0 0 24px rgba(240,165,0,.5);
-  margin-bottom:10px;
-}
-
-/* "Learn With Hatty" */
-.splash-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3rem,10vw,7rem);
-  letter-spacing:5px;
-  line-height:.9;
-  color:#fff;
-  opacity:0;
-  animation:splashFadeIn 1s ease forwards;
-  animation-delay:1.3s;
-  text-shadow:
-    0 0 50px rgba(240,165,0,.6),
-    0 0 100px rgba(240,165,0,.3),
-    0 4px 20px rgba(0,0,0,1);
-  margin-bottom:6px;
-}
-.splash-title .splash-hatty{
-  color:var(--gold);
-  position:relative;
-  display:inline-block;
-  animation:splashTitleGlitch 5s 2.5s infinite;
-}
-.splash-title .splash-hatty::before,
-.splash-title .splash-hatty::after{
-  content:attr(data-text);
-  position:absolute;top:0;left:0;width:100%;height:100%;
-}
-.splash-title .splash-hatty::before{
-  color:#ff003c;
-  animation:splashGlitchTop 5s 2.5s infinite;
-  clip-path:polygon(0 0,100% 0,100% 40%,0 40%);
-}
-.splash-title .splash-hatty::after{
-  color:#00f0ff;
-  animation:splashGlitchBot 5s 2.5s infinite;
-  clip-path:polygon(0 60%,100% 60%,100% 100%,0 100%);
-}
-
-/* "Created by HattyHats" */
-.splash-byline{
-  font-family:'DM Mono',monospace;
-  font-size:clamp(.75rem,1.8vw,1rem);
-  letter-spacing:4px;text-transform:uppercase;
-  color:#888;
-  opacity:0;
-  animation:splashFadeIn .8s ease forwards;
-  animation-delay:2s;
-  margin-bottom:36px;
-}
-.splash-byline .splash-hattyhats{
-  color:#aaa;
-  position:relative;
-  display:inline-block;
-  animation:splashBylineGlitch 7s 3s infinite;
-}
-.splash-byline .splash-hattyhats::before,
-.splash-byline .splash-hattyhats::after{
-  content:attr(data-text);
-  position:absolute;top:0;left:0;width:100%;height:100%;
-}
-.splash-byline .splash-hattyhats::before{
-  color:#ff003c55;
-  animation:splashGlitchTopSm 7s 3s infinite;
-  clip-path:polygon(0 0,100% 0,100% 45%,0 45%);
-}
-.splash-byline .splash-hattyhats::after{
-  color:#00f0ff55;
-  animation:splashGlitchBotSm 7s 3s infinite;
-  clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%);
-}
-
-/* Enter button */
-.splash-enter{
-  opacity:0;
-  animation:splashFadeIn .8s ease forwards;
-  animation-delay:2.7s;
-}
-.splash-loader {
-  width: 46px;
-  height: 46px;
-  border: 4px solid rgba(240,165,0,.15);
-  border-top-color: var(--gold);
-  border-radius: 50%;
-  animation: splashSpin 1s linear infinite;
-  margin: 0 auto;
-}
-@keyframes splashSpin {
-  to { transform: rotate(360deg); }
-}
-
-/* Splash keyframes */
-@keyframes splashFadeIn{
-  from{opacity:0;transform:translateY(16px);}
-  to{opacity:1;transform:translateY(0);}
-}
-@keyframes splashTitleGlitch{
-  0%,88%,100%{text-shadow:0 0 40px rgba(240,165,0,.7);}
-  89%{text-shadow:4px 0 0 #ff003c,-4px 0 0 #00f0ff,0 0 50px #f0a500;}
-  90%{text-shadow:-3px 0 0 #ff003c,3px 0 0 #00f0ff;}
-  91%{text-shadow:4px 0 0 #ff003c,-4px 0 0 #00f0ff,0 0 40px #f0a500;}
-  92%{text-shadow:0 0 40px rgba(240,165,0,.7);}
-  94%{text-shadow:-4px 0 0 #ff003c,4px 0 0 #00f0ff;}
-  95%{text-shadow:0 0 40px rgba(240,165,0,.7);}
-}
-@keyframes splashGlitchTop{
-  0%,87%,100%{transform:translateX(0);opacity:0;}
-  88%{transform:translateX(-5px);opacity:.9;}
-  89%{transform:translateX(5px);opacity:.9;}
-  90%{transform:translateX(-3px);opacity:.9;}
-  91%{transform:translateX(0);opacity:0;}
-  93%{transform:translateX(-4px);opacity:.7;}
-  94%{transform:translateX(0);opacity:0;}
-}
-@keyframes splashGlitchBot{
-  0%,87%,100%{transform:translateX(0);opacity:0;}
-  88%{transform:translateX(5px);opacity:.8;}
-  89%{transform:translateX(-5px);opacity:.8;}
-  90%{transform:translateX(3px);opacity:.8;}
-  91%{transform:translateX(0);opacity:0;}
-  93%{transform:translateX(4px);opacity:.6;}
-  94%{transform:translateX(0);opacity:0;}
-}
-@keyframes splashBylineGlitch{
-  0%,90%,100%{color:#aaa;}
-  91%{color:#ff9999;transform:translateX(-2px);}
-  92%{color:#99ffff;transform:translateX(2px);}
-  93%{color:#aaa;transform:translateX(0);}
-}
-@keyframes splashGlitchTopSm{
-  0%,89%,100%{transform:translateX(0);opacity:0;}
-  90%{transform:translateX(-3px);opacity:.6;}
-  91%{transform:translateX(0);opacity:0;}
-}
-@keyframes splashGlitchBotSm{
-  0%,89%,100%{transform:translateX(0);opacity:0;}
-  90%{transform:translateX(3px);opacity:.5;}
-  91%{transform:translateX(0);opacity:0;}
-}
-
-/* ═══════════════════════════════════════
-   BIGGER HERO HAT — responsive overrides
-═══════════════════════════════════════ */
-
-/* ── HOUSE ADS ── */
+/* HOUSE ADS */
 .house-ad-strip{display:flex;justify-content:center;gap:20px;padding:20px 24px 0;flex-wrap:wrap;}
 .house-ad-wrap{display:flex;flex-direction:column;align-items:center;gap:6px;}
 .house-ad{display:block;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(28,26,22,0.10);transition:transform 0.28s cubic-bezier(0.4,0,0.2,1),box-shadow 0.28s cubic-bezier(0.4,0,0.2,1);}
@@ -877,77 +268,37 @@ header{z-index:1000}
 .house-ad-lofty:hover{box-shadow:0 0 26px rgba(80,200,120,0.55);}
 .house-ad-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#A8A199;}
 
-/* ── SECTION TITLE ROW ── */
+/* SECTION TITLE ROW */
 .section-title-row{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:44px;padding-bottom:14px;border-bottom:1px solid var(--border);}
 .section-title-row .section-title{margin-bottom:0;padding-bottom:0;border-bottom:none;}
-.btn-bulb{
-  display:inline-flex;align-items:center;gap:7px;
-  background:linear-gradient(180deg,#1a3a5c,#0e2240);
-  border:1px solid rgba(100,200,255,0.35);
-  color:#7dd3fc;padding:8px 18px;border-radius:999px;
-  font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;
-  box-shadow:0 0 14px rgba(100,200,255,0.15);
-  transition:all .18s ease;
-}
-.btn-bulb:hover{
-  background:linear-gradient(180deg,#1e4a72,#122a52);
-  border-color:rgba(100,200,255,0.65);
-  color:#bae6fd;
-  box-shadow:0 0 24px rgba(100,200,255,0.3);
-  transform:translateY(-1px);
-}
-.btn-publishox{
-  display:inline-flex;align-items:center;gap:7px;
-  background:linear-gradient(180deg,#5c1a1a,#400e0e);
-  border:1px solid rgba(255,100,100,0.35);
-  color:#fc7d7d;padding:8px 18px;border-radius:999px;
-  font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;
-  box-shadow:0 0 14px rgba(255,100,100,0.15);
-  transition:all .18s ease;
-}
-.btn-publishox:hover{
-  background:linear-gradient(180deg,#721e1e,#521212);
-  border-color:rgba(255,100,100,0.65);
-  color:#fdbaba;
-  box-shadow:0 0 24px rgba(255,100,100,0.3);
-  transform:translateY(-1px);
-}
-.btn-bulb .bulb-icon, .btn-publishox .bulb-icon{font-size:.9rem;line-height:1;}
+.btn-bulb{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(180deg,#1a3a5c,#0e2240);border:1px solid rgba(100,200,255,0.35);color:#7dd3fc;padding:8px 18px;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 0 14px rgba(100,200,255,0.15);transition:all .18s ease;}
+.btn-bulb:hover{background:linear-gradient(180deg,#1e4a72,#122a52);border-color:rgba(100,200,255,0.65);color:#bae6fd;box-shadow:0 0 24px rgba(100,200,255,0.3);transform:translateY(-1px);}
+.btn-publishox{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(180deg,#5c1a1a,#400e0e);border:1px solid rgba(255,100,100,0.35);color:#fc7d7d;padding:8px 18px;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 0 14px rgba(255,100,100,0.15);transition:all .18s ease;}
+.btn-publishox:hover{background:linear-gradient(180deg,#721e1e,#521212);border-color:rgba(255,100,100,0.65);color:#fdbaba;box-shadow:0 0 24px rgba(255,100,100,0.3);transform:translateY(-1px);}
+.btn-bulb .bulb-icon,.btn-publishox .bulb-icon{font-size:.9rem;line-height:1;}
 </style>
 </head>
 <body>
 
-<!-- MATRIX RAIN CANVAS — fixed behind everything -->
+<!-- MATRIX RAIN CANVAS -->
 <canvas id="matrixRain"></canvas>
 
-<!-- ═══════════════════════════════════════════════════════
-     SPLASH SCREEN
-════════════════════════════════════════════════════════ -->
+<!-- SPLASH SCREEN -->
 <div id="splash">
-  <!-- Background music — plays on enter -->
-  <audio id="splashAudio" loop preload="none">
-    <source src="future-echoes.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Glow + hat -->
-  <div class="splash-glow"></div>
-  <!-- 3D flying code canvas -->
-  <canvas id="splashCodeSpace"></canvas>
-  <div class="splash-lines"></div>
-
-  <!-- Text content -->
-  <div class="splash-content">
-    <div class="splash-welcome">Welcome To:</div>
-    <div class="splash-title">
-      Learn With <span class="splash-hatty" data-text="Hatty">Hatty</span>
-    </div>
-    <div class="splash-byline">
-      Created by <span class="splash-hattyhats" data-text="HattyHats">HattyHats</span>
-    </div>
-    <div class="splash-enter">
-      <div class="splash-loader"></div>
-    </div>
-  </div>
+<audio id="splashAudio" loop preload="none">
+<source src="future-echoes.mp3" type="audio/mpeg">
+</audio>
+<div class="splash-glow"></div>
+<canvas id="splashCodeSpace"></canvas>
+<div class="splash-lines"></div>
+<div class="splash-content">
+<div class="splash-welcome">Welcome To</div>
+<div class="splash-title">Learn With <span class="splash-hatty" data-text="Hatty">Hatty</span></div>
+<div class="splash-byline">Created by <span class="splash-hattyhats" data-text="HattyHats">HattyHats</span></div>
+<div class="splash-enter">
+<div class="splash-loader"></div>
+</div>
+</div>
 </div>
 
 <!-- CURSOR -->
@@ -956,857 +307,777 @@ header{z-index:1000}
 
 <!-- COOKIE BANNER -->
 <div id="cookie-banner" role="dialog" aria-label="Cookie consent" style="display:none">
-  <p>We use cookies and similar technologies — including those from <strong>Google AdSense</strong> — to serve personalised ads and analyse site traffic. By clicking <strong>Accept</strong> you consent to our use of cookies as described in our <a href="privacy-policy.html">Privacy Policy</a>. EU/EEA visitors: you have the right to decline non-essential cookies.</p>
-  <div class="cookie-btns">
-    <button class="btn-accept" onclick="cookieConsent(true)">Accept All</button>
-    <button class="btn-decline" onclick="cookieConsent(false)">Decline Non-Essential</button>
-  </div>
+<p>We use cookies and similar technologies, including those from <strong>Google AdSense</strong>, to serve personalised ads and analyse site traffic. By clicking <strong>Accept</strong> you consent to our use of cookies as described in our <a href="privacy-policy.html">Privacy Policy</a>. EU/EEA visitors, you have the right to decline non-essential cookies.</p>
+<div class="cookie-btns">
+<button class="btn-accept" onclick="cookieConsent(true)">Accept All</button>
+<button class="btn-decline" onclick="cookieConsent(false)">Decline Non-Essential</button>
+</div>
 </div>
 
 <!-- HEADER -->
 <header>
-  <a href="#" class="logo" data-text="Learn With Hatty">Learn With <span>Hatty</span></a>
-  <nav aria-label="Main navigation">
-    <a href="#articles" class="nav-btn">Articles</a>
-    <a href="#videos" class="nav-btn">Videos</a>
-    <a href="#about" class="nav-btn">About</a>
-    <a href="#donate" class="nav-btn">Donate</a>
-    <a href="mailto:hattyhatss@yahoo.com" class="nav-btn">Contact</a>
-    <button id="musicToggle" aria-label="Toggle music" title="Toggle background music">
-      <span class="music-icon">🎵</span>
-      <span id="musicLabel">Music</span>
-      <div class="music-bars">
-        <span></span><span></span><span></span>
-      </div>
-    </button>
-    <div class="nav-dropdown" id="navDropdown">
-      <span class="nav-dropdown-toggle" id="navDropdownToggle" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Sites</span>
-      <div class="nav-dropdown-menu" role="menu">
-        <a href="https://hatsquickpad.netlify.app/" target="_blank" rel="noopener">📝 Quick-Pad</a>
-        <a href="https://hattyhats.github.io/local-cast/" target="_blank" rel="noopener">📡 Local-Cast</a>
-        <a href="https://data-phone-app.onrender.com/" target="_blank" rel="noopener">📱 Data-Phone</a>
-        <a href="https://hattyhats.github.io/Open-Focus/" target="_blank" rel="noopener">📷 Open Focus</a>
-        <a href="https://case-board.netlify.app" target="_blank" rel="noopener">📋 CaseBoard</a>
-        <a href="https://hattys-news.netlify.app" target="_blank" rel="noopener">📰 Hatty's News</a>
-        <a href="https://hatty-universe.netlify.app" target="_blank" rel="noopener">🌌 Hatty's Universe</a>
-        <a href="https://privacy-gadgets-hub.netlify.app/" target="_blank" rel="noopener">🔒 Privacy Gadgets</a>
-        <a href="https://hattyhats.github.io/chill-with-hatty/" target="_blank" rel="noopener">🎧 Chill With Hatty</a>
-        <a href="https://hattyhats.github.io/Stellar_Assault/" target="_blank" rel="noopener">🚀 Stellar Assault</a>
-        <a href="https://hattyhats.github.io/voi-maze/" target="_blank" rel="noopener">🕹️ Voi-Maze</a>
-      </div>
-    </div>
-  </nav>
+<a href="#" class="logo" data-text="Learn With Hatty">Learn With <span>Hatty</span></a>
+<nav aria-label="Main navigation">
+<a href="#articles" class="nav-btn">Articles</a>
+<a href="#videos" class="nav-btn">Videos</a>
+<a href="#about" class="nav-btn">About</a>
+<a href="#donate" class="nav-btn">Donate</a>
+<a href="mailto:hattyhatss@yahoo.com" class="nav-btn">Contact</a>
+<button id="musicToggle" aria-label="Toggle music" title="Toggle background music">
+<span class="music-icon">♪</span><span id="musicLabel">Music</span>
+<div class="music-bars"><span></span><span></span><span></span></div>
+</button>
+<div class="nav-dropdown" id="navDropdown">
+<span class="nav-dropdown-toggle" id="navDropdownToggle" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Sites</span>
+<div class="nav-dropdown-menu" role="menu">
+<a href="https://hatsquickpad.netlify.app" target="_blank" rel="noopener">Quick-Pad</a>
+<a href="https://hattyhats.github.io/local-cast" target="_blank" rel="noopener">Local-Cast</a>
+<a href="https://data-phone-app.onrender.com" target="_blank" rel="noopener">Data-Phone</a>
+<a href="https://hattyhats.github.io/Open-Focus" target="_blank" rel="noopener">Open Focus</a>
+<a href="https://case-board.netlify.app" target="_blank" rel="noopener">CaseBoard</a>
+<a href="https://hattys-news.netlify.app" target="_blank" rel="noopener">Hattys News</a>
+<a href="https://hatty-universe.netlify.app" target="_blank" rel="noopener">Hattys Universe</a>
+<a href="https://privacy-gadgets-hub.netlify.app" target="_blank" rel="noopener">Privacy Gadgets</a>
+<a href="https://hattyhats.github.io/chill-with-hatty" target="_blank" rel="noopener">Chill With Hatty</a>
+<a href="https://hattyhats.github.io/StellarAssault" target="_blank" rel="noopener">Stellar Assault</a>
+<a href="https://hattyhats.github.io/voi-maze" target="_blank" rel="noopener">Voi-Maze</a>
+</div>
+</div>
+</nav>
 </header>
 
 <!-- PRICE BAR -->
 <div class="price-bar" id="priceBar">
-  <div class="price-track" id="priceTrack">
-    <span class="price-loading">Loading live prices…</span>
-  </div>
+<div class="price-track" id="priceTrack">
+<span class="price-loading">Loading live prices…</span>
+</div>
 </div>
 
-<!-- ===== 3D HERO SCENE ===== -->
+<!-- 3D HERO SCENE -->
 <section id="scene">
+<div id="phase1">
+<div class="scene-bg-grid" id="sceneGrid"></div>
+<div class="scene-glow"></div>
 
-  <!-- Single sticky stage — all three phases driven by scroll JS -->
-  <div id="phase1">
-    <div class="scene-bg-grid" id="sceneGrid"></div>
-    <div class="scene-glow"></div>
+<!-- PHASE 1 -->
+<div id="hat-wrapper">
+<img class="hat-img" src="grey-hat-nb.png" alt="HattyHats baseball cap" fetchpriority="high">
+</div>
 
-    <!-- PHASE 1: Big floating hat + scroll hint -->
-    <div id="hat-wrapper">
-      <img class="hat-img" src="grey-hat-nb.png" alt="HattyHats baseball cap" fetchpriority="high">
-    </div>
+<!-- PHASE 2 -->
+<div class="hero-title-wrap" id="heroTitle">
+<span class="hero-eyebrow">HattyHats · Crypto · AI · Web3</span>
+<div class="hero-main-title">Learn.<br><span class="accent">Earn.</span><br>Connect.</div>
+<div class="hero-subtitle-line">Learn With Hatty</div>
+</div>
 
-    <!-- PHASE 2: Title fades/grows in -->
-    <div class="hero-title-wrap" id="heroTitle">
-      <span class="hero-eyebrow">HattyHats · Crypto · AI · Web3</span>
-      <div class="hero-main-title">
-        Learn.<br><span class="accent">Earn.</span><br>Connect.
-      </div>
-      <div class="hero-subtitle-line">Learn With Hatty</div>
-    </div>
+<!-- PHASE 3 -->
+<p class="hero-body" id="heroBody">Educational articles and video breakdowns on blockchain technology, artificial intelligence, digital privacy, and personal finance. Written for real people, not institutions.</p>
 
-    <!-- PHASE 3: Body text -->
-    <p class="hero-body" id="heroBody">
-      Educational articles and video breakdowns on blockchain technology, artificial intelligence, digital privacy, and personal finance. Written for real people, not institutions.
-    </p>
-
-    <!-- Scroll hint -->
-    <div class="hero-scroll-hint" id="scrollHint">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </div>
-
+<div class="hero-scroll-hint" id="scrollHint">
+<div class="scroll-line"></div>
+<span>Scroll</span>
+</div>
+</div>
 </section>
 
-<!-- ============================================================
-     CONTENT BODY
-     ============================================================ -->
+<!-- CONTENT BODY -->
 <div class="content-wrapper">
 
-  <!-- HOUSE ADS -->
-  <div class="house-ad-strip" role="complementary" aria-label="Hatty's Picks">
-    <div class="house-ad-wrap">
-      <a class="house-ad house-ad-slice"
-         href="https://addslice.com/?crew=VFFbJ"
-         target="_blank" rel="noopener noreferrer"
-         title="Hatty's Pick – Slice App">
-        <img src="slice-app.gif" alt="Hatty's Pick – Try Slice App" />
-      </a>
-      <span class="house-ad-label">Hatty's Pick</span>
-    </div>
-    <div class="house-ad-wrap">
-      <a class="house-ad house-ad-bulb"
-         href="https://www.bulbapp.io?referral_code=pgx084"
-         target="_blank" rel="noopener noreferrer"
-         title="Hatty's Pick – Bulb.app">
-        <img src="bulb-ad.gif" alt="Hatty's Pick – Try Bulb.app" />
-      </a>
-      <span class="house-ad-label">Hatty's Pick</span>
-    </div>
-    <div class="house-ad-wrap">
-      <a class="house-ad house-ad-lofty"
-         href="https://www.lofty.ai/refer?utm_source=growsurf&utm_medium=referrals&utm_campaign=referral-program&grsf=0143ph"
-         target="_blank" rel="noopener noreferrer"
-         title="Hatty's Pick – Lofty">
-        <img src="lofty-ad.gif" alt="Hatty's Pick – Try Lofty" />
-      </a>
-      <span class="house-ad-label">Hatty's Pick</span>
-    </div>
-  </div>
+<!-- HOUSE ADS -->
+<div class="house-ad-strip" role="complementary" aria-label="Hatty's Picks">
+<div class="house-ad-wrap">
+<a class="house-ad house-ad-slice" href="https://addslice.com/?crew=VFFbJ" target="_blank" rel="noopener noreferrer" title="Hatty's Pick: Slice App"><img src="slice-app.gif" alt="Hatty's Pick: Try Slice App"></a>
+<span class="house-ad-label">Hatty's Pick</span>
+</div>
+<div class="house-ad-wrap">
+<a class="house-ad house-ad-bulb" href="https://www.bulbapp.io/?referralcode=pgx084" target="_blank" rel="noopener noreferrer" title="Hatty's Pick: Bulb.app"><img src="bulb-ad.gif" alt="Hatty's Pick: Try Bulb.app"></a>
+<span class="house-ad-label">Hatty's Pick</span>
+</div>
+<div class="house-ad-wrap">
+<a class="house-ad house-ad-lofty" href="https://www.lofty.ai/refer?utm_source=growsurf&utm_medium=referrals&utm_campaign=referral-program&grsf=0143ph" target="_blank" rel="noopener noreferrer" title="Hatty's Pick: Lofty"><img src="lofty-ad.gif" alt="Hatty's Pick: Try Lofty"></a>
+<span class="house-ad-label">Hatty's Pick</span>
+</div>
+</div>
 
-  <!-- ARTICLES -->
-  <div class="section-container" id="articles">
-    <span class="section-label">Knowledge Base</span>
-    <div class="section-title-row">
-      <div class="section-title">Latest Articles</div>
-      <div style="display:flex; gap: 10px; flex-wrap: wrap;">
-        <a class="btn-bulb" href="https://www.bulbapp.io/u/7E8fsJ3Wy1onNm8SPtvypAuvzw5rMnumAC6UEChFdTVY/hattyhats" target="_blank" rel="noopener">
-          <span class="bulb-icon">💡</span> BULB
-        </a>
-        <a class="btn-publishox" href="https://www.publish0x.com/@HattyHats" target="_blank" rel="noopener">
-          <span class="bulb-icon">📝</span> PublishOX
-        </a>
-      </div>
-    </div>
-    <div class="articles-grid">
+<!-- ARTICLES -->
+<div class="section-container" id="articles">
+<span class="section-label">Knowledge Base</span>
+<div class="section-title-row">
+<div class="section-title">Latest Articles</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
+<a class="btn-bulb" href="https://www.bulbapp.io/u/7E8fsJ3Wy1onNm8SPtvypAuvzw5rMnumAC6UEChFdTVY/hattyhats" target="_blank" rel="noopener"><span class="bulb-icon">💡</span> BULB</a>
+<a class="btn-publishox" href="https://www.publish0x.com/@HattyHats" target="_blank" rel="noopener"><span class="bulb-icon">📰</span> PublishOX</a>
+</div>
+</div>
+<div class="articles-grid">
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/9af1fc638af535f1ce9dc5ce4652378993d954425ccb35bba17d2039e0cc2b86.jpg" alt="Google AI Pro">
-        <span class="article-tag tag-ai">AI</span>
-        <h3>Why Google AI Pro Is Silently Winning the Frontier Tech War</h3>
-        <p>This article explores how Google is quietly establishing a dominant position in the artificial intelligence landscape amidst the noise of the broader industry.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/why-google-ai-pro-is-silently-winning-the-frontier-tech-war-xrprvwq" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<!-- ===== NEW ARTICLES (added Aug 27, 2026) ===== -->
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="grey-hat-nb.jpg" alt="The Old Rulebook">
+<span class="article-tag tag-news">News</span>
+<h3>What Happens When the World Refuses the Old Rulebook?</h3>
+<p>A look at the accelerating collapse of the postwar rules-based international order, and what a world without a shared rulebook means for power, trade, and everyday people caught in the shift.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/hattys-news/what-happens-when-the-world-refuses-the-old-rulebook-xnjzgor" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/82acc08ab8a4eb2b98138e026b44f4e2c27b879adba84bcc2ad56e116e94c9a5.jpg" alt="Vibe Coding">
-        <span class="article-tag tag-ai">Tech</span>
-        <h3>How Vibe Coding Is Rewiring Geopolitics, Power, and the Web</h3>
-        <p>The rise of "vibe coding"—creating software by describing goals to AI in natural language—is lowering the barrier to entry and fundamentally altering global power structures and security.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/how-vibe-coding-is-rewiring-geopolitics-power-and-the-web-xeozgry" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="grey-hat-nb.jpg" alt="Smart Device Listening">
+<span class="article-tag tag-privacy">Privacy</span>
+<h3>Your Smart Device Is Quietly Listening, But Not How You Think</h3>
+<p>Your phone probably isn't secretly recording your conversations, but the real story is stranger: inaudible ultrasonic audio beacons that silently link your devices together to track you across screens and rooms.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/hattys-news/your-smart-device-is-quietly-listening-but-not-how-you-think-xrpemmy" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/04f75aa78ddfecb18f02b1cbd97c808c73b012a17b452edcd413df3fba6b6597.jpg" alt="Machine-to-Machine Economy">
-        <span class="article-tag tag-finance">Crypto</span>
-        <h3>Inside the Secret Multi-Trillion Dollar Machine-to-Machine Economy</h3>
-        <p>Autonomous AI agents are establishing a post-human economy using cryptocurrency as the primary payment primitive to transact and move capital at unprecedented speeds.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/inside-the-secret-multi-trillion-dollar-machine-to-machine-e-xgnqkxr" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="grey-hat-nb.jpg" alt="AI Replaces Human Relationships">
+<span class="article-tag tag-ai">AI</span>
+<h3>What Happens When AI Replaces Human Relationships?</h3>
+<p>Inside the multi-billion-dollar "loneliness machine": how AI companionship apps engineer frictionless intimacy, why that's so seductive, and what it could mean for human connection long-term.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/what-happens-when-ai-replaces-human-relationships-xjyvwxp" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/0923edea6011ca9288919f2c2fec74e4552c4434b85f66c6e8aca765f62ce2ac.jpg" alt="Anthropic Cyber-Weapon">
-        <span class="article-tag tag-security">Security</span>
-        <h3>Anthropic Unlocks Its Restricted Cyber-Weapon AI</h3>
-        <p>A look at the alleged development and potential release of Anthropic's "Mythos-class" model, a powerful AI capable of advanced offensive cyber warfare and vulnerability exploitation.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/anthropic-unlocks-its-restricted-cyber-weapon-ai-xokrxnp" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="grey-hat-nb.jpg" alt="Social Algorithms and Division">
+<span class="article-tag tag-ai">Tech</span>
+<h3>Social Algorithms Are Engineered to Make Us Hate Each Other</h3>
+<p>Outrage keeps people scrolling, and platforms know it. This piece breaks down how engagement-driven social algorithms are built to amplify conflict and division, and why that's a feature, not a bug.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/social-algorithms-are-engineered-to-make-us-hate-each-other-xywozqj" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/67b11e78fbf42738b2495a1a740ad59fd1d03cd5f8f8330ec1d2946a3a57c451.jpg" alt="Privacy vs Convenience">
-        <span class="article-tag tag-privacy">Privacy</span>
-        <h3>How We Traded Privacy for Convenience, and Why AI Might Make it Permanent</h3>
-        <p>An exploration of the historical shift where individuals sacrificed personal privacy for modern conveniences, and how artificial intelligence might cement this loss permanently.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/how-we-traded-privacy-for-convenience-and-why-ai-might-make-xeonjwp" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="grey-hat-nb.jpg" alt="Death of Paper Money">
+<span class="article-tag tag-finance">Finance</span>
+<h3>The Death of Paper Money is the End of Privacy</h3>
+<p>As cash disappears and digital, fully-traceable payment rails take over, this article examines what's really lost when every transaction becomes a permanent, searchable record.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/hattys-news/the-death-of-paper-money-is-the-end-of-privacy-xdqlwnz" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
+<!-- ===== END NEW ARTICLES ===== -->
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/3d7ffec8b5d170a733d5f309208fed55351408c7473427b950536d99e7baf622.jpg" alt="Decentralized Autonomous Robots">
-        <span class="article-tag tag-news">Tech</span>
-        <h3>How Decentralized Autonomous Robots Are Laying the Brickwork for Humanity's Moon Base</h3>
-        <p>This article explores the shift in space exploration strategy from "monolithic" engineering to a decentralized, multi-agent philosophy using swarms of smaller, modular robots to build infrastructure.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/hattys-news/how-decentralized-autonomous-robots-are-laying-the-brickwork-xokrekg" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/9af1fc638af535f1ce9dc5ce4652378993d954425ccb35bba17d2039e0cc2b86.jpg" alt="Google AI Pro">
+<span class="article-tag tag-ai">AI</span>
+<h3>Why Google AI Pro Is Silently Winning the Frontier Tech War</h3>
+<p>This article explores how Google is quietly establishing a dominant position in the artificial intelligence landscape amidst the noise of the broader industry.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/why-google-ai-pro-is-silently-winning-the-frontier-tech-war-xrprvwq" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/42a8d43542cfd27b81ec987f45ed441c9643087059c34782117272867befb978.jpg" alt="Big Tech Nuclear Power">
-        <span class="article-tag tag-ai">AI</span>
-        <h3>Why Big Tech is Buying Up Nuclear Power Plants</h3>
-        <p>Major tech companies are investing heavily in nuclear energy infrastructure to secure the reliable, 24/7 "firm power" required to meet the massive electricity demands of Artificial Intelligence and data centers.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/why-big-tech-is-buying-up-nuclear-power-plants-xokrndz" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/82acc08ab8a4eb2b98138e026b44f4e2c27b879adba84bcc2ad56e116e94c9a5.jpg" alt="Vibe Coding">
+<span class="article-tag tag-ai">Tech</span>
+<h3>How Vibe Coding Is Rewiring Geopolitics, Power, and the Web</h3>
+<p>The rise of "vibe coding"—creating software by describing goals to AI in natural language—is lowering the barrier to entry and fundamentally altering global power structures and security.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/how-vibe-coding-is-rewiring-geopolitics-power-and-the-web-xeozgry" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/3a7efb609cc6956d9596676c99aba4193ae893244dc88a8686b6033e20eb0732.jpg" alt="The Decentralized Web">
-        <span class="article-tag tag-ai">Web3</span>
-        <h3>The Decentralized Web Was Never Meant for Us</h3>
-        <p>Web3's clunky user experience and deterministic nature suggest that the decentralized web may not have been built for humans, but rather designed as the perfect infrastructure for autonomous AI agents.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/the-decentralized-web-was-never-meant-for-us-xqvypmw" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/04f75aa78ddfecb18f02b1cbd97c808c73b012a17b452edcd413df3fba6b6597.jpg" alt="Machine-to-Machine Economy">
+<span class="article-tag tag-finance">Crypto</span>
+<h3>Inside the Secret Multi-Trillion Dollar Machine-to-Machine Economy</h3>
+<p>Autonomous AI agents are establishing a post-human economy using cryptocurrency as the primary payment primitive to transact and move capital at unprecedented speeds.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/inside-the-secret-multi-trillion-dollar-machine-to-machine-e-xgnqkxr" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/1f0b4a577015317be457e50ed3dbef50ca8432c3cef3065c177d7cd68b028fb9.jpg" alt="Torum Global Community">
-        <span class="article-tag tag-finance">Crypto</span>
-        <h3>How Torum Left Its Global Community in the Dust</h3>
-        <p>A critical retrospective on how Torum, a once-promising Web3 SocialFi ecosystem, abandoned its global community by quietly pivoting into a localized fintech product without adequate transparency.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/beginning-crypto/how-torum-left-its-global-community-in-the-dust-xmgrezg" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/0923edea6011ca9288919f2c2fec74e4552c4434b85f66c6e8aca765f62ce2ac.jpg" alt="Anthropic Cyber-Weapon">
+<span class="article-tag tag-security">Security</span>
+<h3>Anthropic Unlocks Its Restricted Cyber-Weapon AI</h3>
+<p>A look at the alleged development and potential release of Anthropic's "Mythos-class" model, a powerful AI capable of advanced offensive cyber warfare and vulnerability exploitation.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/anthropic-unlocks-its-restricted-cyber-weapon-ai-xokrxnp" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/1e00438f428d47854df5fe2cf5e3cd8a364758dbdfec7f91232bc92f9c3f331f.jpg" alt="Why Hantavirus Is Trending">
-        <span class="article-tag tag-news">News</span>
-        <h3>Why Hantavirus Is Trending (And Why Your Toilet Paper Stash Is Safe)</h3>
-        <p>The recent Hantavirus trend triggered by a cruise ship outbreak of the Andes virus is not a human-to-human pandemic threat like COVID-19. Here is why you shouldn't panic buy.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/hattys-news/why-hantavirus-is-trending-and-why-your-toilet-paper-stash-i-xjyqvle" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/67b11e78fbf42738b2495a1a740ad59fd1d03cd5f8f8330ec1d2946a3a57c451.jpg" alt="Privacy vs Convenience">
+<span class="article-tag tag-privacy">Privacy</span>
+<h3>How We Traded Privacy for Convenience, and Why AI Might Make it Permanent</h3>
+<p>An exploration of the historical shift where individuals sacrificed personal privacy for modern conveniences, and how artificial intelligence might cement this loss permanently.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/how-we-traded-privacy-for-convenience-and-why-ai-might-make-xeonjwp" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/bbc837c43540eb05e6a7fcaff965427ba35714b6094ce14bd99387ed8979fec6.jpg" alt="Why Natix is Sunsetting Drive&">
-        <span class="article-tag tag-finance">Crypto</span>
-        <h3>Why Natix is Sunsetting Drive& for Something Much Bigger</h3>
-        <p>Natix is transitioning from its "Drive&" app to a more expansive "Natix Network" and DePIN ecosystem, focusing on decentralized physical infrastructure beyond just driving rewards.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/beginning-crypto/why-natix-is-sunsetting-drive-and-for-something-much-bigger-xgnqoyd" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/3d7ffec8b5d170a733d5f309208fed55351408c7473427b950536d99e7baf622.jpg" alt="Decentralized Autonomous Robots">
+<span class="article-tag tag-news">Tech</span>
+<h3>How Decentralized Autonomous Robots Are Laying the Brickwork for Humanity's Moon Base</h3>
+<p>This article explores the shift in space exploration strategy from "monolithic" engineering to a decentralized, multi-agent philosophy using swarms of smaller, modular robots to build infrastructure.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/hattys-news/how-decentralized-autonomous-robots-are-laying-the-brickwork-xokrekg" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/6e56fdc35e0f29203af8be36362ebdd7f2e193074456084635a75c21039644ff.jpg" alt="The Great De-Googling Crisis">
-        <span class="article-tag tag-privacy">Privacy</span>
-        <h3>The Great De-Googling Crisis</h3>
-        <p>This article explores the "De-Googling" movement and the Calyx Institute's role in providing privacy-focused Android experiences, highlighting the challenges users face when "it just works" solutions fail.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/hattys-news/the-great-de-googling-crisis-xzrpzxl" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/42a8d43542cfd27b81ec987f45ed441c9643087059c34782117272867befb978.jpg" alt="Big Tech Nuclear Power">
+<span class="article-tag tag-ai">AI</span>
+<h3>Why Big Tech is Buying Up Nuclear Power Plants</h3>
+<p>Major tech companies are investing heavily in nuclear energy infrastructure to secure the reliable, 24/7 "firm power" required to meet the massive electricity demands of Artificial Intelligence and data centers.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/why-big-tech-is-buying-up-nuclear-power-plants-xokrndz" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-      <div class="article-card reveal">
-        <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/e1dc1c3dd1ef9c71f05c3ef3b1541ff460fe094f3de15cfeb262a612dec834d6.jpg" alt="Decentralized Communication? Yes Please">
-        <span class="article-tag tag-security">Security</span>
-        <h3>Decentralized Communication? Yes Please</h3>
-        <p>The vulnerability of relying on centralized communication towers is real. This piece advocates for decentralized solutions like mesh networks that allow direct device-to-device communication.</p>
-        <div class="card-links">
-          <a class="btn-primary" href="https://www.publish0x.com/life-is-love/decentralized-communication-yes-please-xwrkerx" target="_blank" rel="noopener">Read on Publish0x →</a>
-        </div>
-      </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/3a7efb609cc6956d9596676c99aba4193ae893244dc88a8686b6033e20eb0732.jpg" alt="The Decentralized Web">
+<span class="article-tag tag-ai">Web3</span>
+<h3>The Decentralized Web Was Never Meant for Us</h3>
+<p>Web3's clunky user experience and deterministic nature suggest that the decentralized web may not have been built for humans, but rather designed as the perfect infrastructure for autonomous AI agents.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/the-decentralized-web-was-never-meant-for-us-xqvypmw" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/1f0b4a577015317be457e50ed3dbef50ca8432c3cef3065c177d7cd68b028fb9.jpg" alt="Torum Global Community">
+<span class="article-tag tag-finance">Crypto</span>
+<h3>How Torum Left Its Global Community in the Dust</h3>
+<p>A critical retrospective on how Torum, a once-promising Web3 SocialFi ecosystem, abandoned its global community by quietly pivoting into a localized fintech product without adequate transparency.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/beginning-crypto/how-torum-left-its-global-community-in-the-dust-xmgrezg" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/1e00438f428d47854df5fe2cf5e3cd8a364758dbdfec7f91232bc92f9c3f331f.jpg" alt="Why Hantavirus Is Trending">
+<span class="article-tag tag-news">News</span>
+<h3>Why Hantavirus Is Trending And Why Your Toilet Paper Stash Is Safe</h3>
+<p>The recent Hantavirus trend triggered by a cruise ship outbreak of the Andes virus is not a human-to-human pandemic threat like COVID-19. Here is why you shouldn't panic buy.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/hattys-news/why-hantavirus-is-trending-and-why-your-toilet-paper-stash-i-xjyqvle" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/bbc837c43540eb05e6a7fcaff965427ba35714b6094ce14bd99387ed8979fec6.jpg" alt="Why Natix is Sunsetting Drive">
+<span class="article-tag tag-finance">Crypto</span>
+<h3>Why Natix is Sunsetting Drive for Something Much Bigger</h3>
+<p>Natix is transitioning from its "Drive&" app to a more expansive "Natix Network" and DePIN ecosystem, focusing on decentralized physical infrastructure beyond just driving rewards.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/beginning-crypto/why-natix-is-sunsetting-drive-and-for-something-much-bigger-xgnqoyd" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/6e56fdc35e0f29203af8be36362ebdd7f2e193074456084635a75c21039644ff.jpg" alt="The Great De-Googling Crisis">
+<span class="article-tag tag-privacy">Privacy</span>
+<h3>The Great De-Googling Crisis</h3>
+<p>This article explores the "De-Googling" movement and the Calyx Institute's role in providing privacy-focused Android experiences, highlighting the challenges users face when "it just works" solutions fail.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/hattys-news/the-great-de-googling-crisis-xzrpzxl" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-    </div>
-    <p style="margin-top:28px;font-size:.74rem;color:#333;font-style:italic">
-      All articles are published for educational and informational purposes only. Nothing constitutes financial, investment, or legal advice.
-      <a href="terms.html" style="color:var(--gold)">See full disclaimer →</a>
-    </p>
-  </div>
+<div class="article-card reveal">
+<img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/e1dc1c3dd1ef9c71f05c3ef3b1541ff460fe094f3de15cfeb262a612dec834d6.jpg" alt="Decentralized Communication? Yes Please">
+<span class="article-tag tag-security">Security</span>
+<h3>Decentralized Communication? Yes Please</h3>
+<p>The vulnerability of relying on centralized communication towers is real. This piece advocates for decentralized solutions like mesh networks that allow direct device-to-device communication.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/life-is-love/decentralized-communication-yes-please-xwrkerx" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
 
-  <!-- VIDEOS -->
-  <div style="background:linear-gradient(180deg,#060610,#040409);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-    <div class="section-container" id="videos">
-      <span class="section-label">YouTube Channel</span>
-      <div class="section-title">Latest Videos</div>
-      <div class="videos-grid">
+</div>
+<p style="margin-top:28px;font-size:.74rem;color:#333;font-style:italic;">All articles are published for educational and informational purposes only. Nothing constitutes financial, investment, or legal advice. <a href="terms.html" style="color:var(--gold)">See full disclaimer →</a></p>
+</div>
 
-        <div class="video-card reveal">
-          <a class="video-thumb" href="https://youtu.be/OPkKmO7qayI?si=9xTsKsD7xNmizFlQ" target="_blank" rel="noopener">
-            <img loading="lazy" src="https://img.youtube.com/vi/OPkKmO7qayI/hqdefault.jpg" alt="HattyHats YouTube Video">
-            <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </a>
-          <div class="video-info">
-            <h3>Latest Video — HattyHats</h3>
-            <p>The newest upload from the HattyHats YouTube channel. Crypto, AI, Web3, and more.</p>
-            <a href="https://youtu.be/OPkKmO7qayI?si=9xTsKsD7xNmizFlQ" target="_blank" rel="noopener">Watch Now →</a>
-          </div>
-        </div>
+<!-- VIDEOS -->
+<div style="background:linear-gradient(180deg,#060610,#040409);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+<div class="section-container" id="videos">
+<span class="section-label">YouTube Channel</span>
+<div class="section-title">Latest Videos</div>
+<div class="videos-grid">
 
-        <div class="video-card reveal">
-          <a class="video-thumb" href="https://youtu.be/ZY_NyX64AZ0?si=Q75CoDIBLVRHzefM" target="_blank" rel="noopener">
-            <img loading="lazy" src="https://img.youtube.com/vi/ZY_NyX64AZ0/hqdefault.jpg" alt="HattyHats YouTube Video">
-            <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </a>
-          <div class="video-info">
-            <h3>Latest Video — HattyHats</h3>
-            <p>The newest upload from the HattyHats YouTube channel. Crypto, AI, Web3, and more.</p>
-            <a href="https://youtu.be/ZY_NyX64AZ0?si=Q75CoDIBLVRHzefM" target="_blank" rel="noopener">Watch Now →</a>
-          </div>
-        </div>
+<div class="video-card reveal">
+<a class="video-thumb" href="https://youtu.be/OPkKmO7qayI?si=9xTsKsD7xNmizFlQ" target="_blank" rel="noopener">
+<img loading="lazy" src="https://img.youtube.com/vi/OPkKmO7qayI/hqdefault.jpg" alt="HattyHats YouTube Video">
+<div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</a>
+<div class="video-info">
+<h3>Latest Video – HattyHats</h3>
+<p>The newest upload from the HattyHats YouTube channel. Crypto, AI, Web3, and more.</p>
+<a href="https://youtu.be/OPkKmO7qayI?si=9xTsKsD7xNmizFlQ" target="_blank" rel="noopener">Watch Now →</a>
+</div>
+</div>
 
-        <div class="video-card reveal">
-          <a class="video-thumb" href="https://youtu.be/D2Omkjn-m-s?si=blB5x-eaVu2xWQam" target="_blank" rel="noopener">
-            <img loading="lazy" src="https://img.youtube.com/vi/D2Omkjn-m-s/hqdefault.jpg" alt="HattyHats YouTube Video">
-            <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </a>
-          <div class="video-info">
-            <h3>Latest Video — HattyHats</h3>
-            <p>The newest upload from the HattyHats YouTube channel. Crypto, AI, Web3, and more.</p>
-            <a href="https://youtu.be/D2Omkjn-m-s?si=blB5x-eaVu2xWQam" target="_blank" rel="noopener">Watch Now →</a>
-          </div>
-        </div>
+<div class="video-card reveal">
+<a class="video-thumb" href="https://youtu.be/ZYNyX64AZ0?si=Q75CoDIBLVRHzefM" target="_blank" rel="noopener">
+<img loading="lazy" src="https://img.youtube.com/vi/ZYNyX64AZ0/hqdefault.jpg" alt="HattyHats YouTube Video">
+<div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</a>
+<div class="video-info">
+<h3>Latest Video – HattyHats</h3>
+<p>The newest upload from the HattyHats YouTube channel. Crypto, AI, Web3, and more.</p>
+<a href="https://youtu.be/ZYNyX64AZ0?si=Q75CoDIBLVRHzefM" target="_blank" rel="noopener">Watch Now →</a>
+</div>
+</div>
 
-        <div class="video-card reveal">
-          <a class="video-thumb" href="https://youtu.be/A9YtF7Wq0oI?si=w5VWWbwovr4IMlpB" target="_blank" rel="noopener">
-            <img loading="lazy" src="https://img.youtube.com/vi/A9YtF7Wq0oI/hqdefault.jpg" alt="Jane Street Terra Collapse">
-            <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </a>
-          <div class="video-info">
-            <h3>Examining Jane Street's Role in the Terra Ecosystem Collapse and Bitcoin Volatility</h3>
-            <p>A data-informed video analysis of institutional trading activity during the 2022 crypto downturn.</p>
-            <a href="https://youtu.be/A9YtF7Wq0oI?si=w5VWWbwovr4IMlpB" target="_blank" rel="noopener">Watch Now →</a>
-          </div>
-        </div>
+<div class="video-card reveal">
+<a class="video-thumb" href="https://youtu.be/D2Omkjn-m-s?si=blB5x-eaVu2xWQam" target="_blank" rel="noopener">
+<img loading="lazy" src="https://img.youtube.com/vi/D2Omkjn-m-s/hqdefault.jpg" alt="HattyHats YouTube Video">
+<div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</a>
+<div class="video-info">
+<h3>Latest Video – HattyHats</h3>
+<p>The newest upload from the HattyHats YouTube channel. Crypto, AI, Web3, and more.</p>
+<a href="https://youtu.be/D2Omkjn-m-s?si=blB5x-eaVu2xWQam" target="_blank" rel="noopener">Watch Now →</a>
+</div>
+</div>
 
-        <div class="video-card reveal">
-          <a class="video-thumb" href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank" rel="noopener">
-            <img loading="lazy" src="https://img.youtube.com/vi/KOiFqfIh6AM/hqdefault.jpg" alt="Epstein Document Release">
-            <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </a>
-          <div class="video-info">
-            <h3>2025 Epstein Document Release: What the Public Record Shows</h3>
-            <p>An informational walkthrough of what was actually disclosed in the 2025 court document release, based on public records and reporting.</p>
-            <a href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank" rel="noopener">Watch Now →</a>
-          </div>
-        </div>
+<div class="video-card reveal">
+<a class="video-thumb" href="https://youtu.be/A9YtF7Wq0oI?si=w5VWWbwovr4IMlpB" target="_blank" rel="noopener">
+<img loading="lazy" src="https://img.youtube.com/vi/A9YtF7Wq0oI/hqdefault.jpg" alt="Jane Street Terra Collapse">
+<div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</a>
+<div class="video-info">
+<h3>Examining Jane Street's Role in the Terra Ecosystem Collapse and Bitcoin Volatility</h3>
+<p>A data-informed video analysis of institutional trading activity during the 2022 crypto downturn.</p>
+<a href="https://youtu.be/A9YtF7Wq0oI?si=w5VWWbwovr4IMlpB" target="_blank" rel="noopener">Watch Now →</a>
+</div>
+</div>
 
-        <div class="video-card reveal">
-          <a class="video-thumb" href="https://www.youtube.com/watch?v=w3JdEdCgNzY" target="_blank" rel="noopener">
-            <img loading="lazy" src="https://img.youtube.com/vi/w3JdEdCgNzY/hqdefault.jpg" alt="Generational Wealth Crypto Inheritance">
-            <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </a>
-          <div class="video-info">
-            <h3>Generational Wealth Basics &amp; Crypto's Inheritance Problem (Part 1)</h3>
-            <p>Understanding how cryptocurrency assets can be planned for and passed on — a practical introduction.</p>
-            <a href="https://www.youtube.com/watch?v=w3JdEdCgNzY" target="_blank" rel="noopener">Watch Now →</a>
-          </div>
-        </div>
+<div class="video-card reveal">
+<a class="video-thumb" href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank" rel="noopener">
+<img loading="lazy" src="https://img.youtube.com/vi/KOiFqfIh6AM/hqdefault.jpg" alt="Epstein Document Release">
+<div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</a>
+<div class="video-info">
+<h3>2025 Epstein Document Release: What the Public Record Shows</h3>
+<p>An informational walkthrough of what was actually disclosed in the 2025 court document release, based on public records and reporting.</p>
+<a href="https://www.youtube.com/watch?v=KOiFqfIh6AM" target="_blank" rel="noopener">Watch Now →</a>
+</div>
+</div>
 
-        <div class="video-card reveal">
-          <a class="video-thumb" href="https://www.youtube.com/watch?v=w372WK3p3YQ" target="_blank" rel="noopener">
-            <img loading="lazy" src="https://img.youtube.com/vi/w372WK3p3YQ/hqdefault.jpg" alt="AI Content Youth Media">
-            <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </a>
-          <div class="video-info">
-            <h3>How AI-Generated Content May Affect Young People's Media Habits</h3>
-            <p>A look at the research on AI content consumption and what it might mean for how children and teens process information.</p>
-            <a href="https://www.youtube.com/watch?v=w372WK3p3YQ" target="_blank" rel="noopener">Watch Now →</a>
-          </div>
-        </div>
+<div class="video-card reveal">
+<a class="video-thumb" href="https://www.youtube.com/watch?v=w3JdEdCgNzY" target="_blank" rel="noopener">
+<img loading="lazy" src="https://img.youtube.com/vi/w3JdEdCgNzY/hqdefault.jpg" alt="Generational Wealth Crypto Inheritance">
+<div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</a>
+<div class="video-info">
+<h3>Generational Wealth Basics & Crypto's Inheritance Problem (Part 1)</h3>
+<p>Understanding how cryptocurrency assets can be planned for and passed on — a practical introduction.</p>
+<a href="https://www.youtube.com/watch?v=w3JdEdCgNzY" target="_blank" rel="noopener">Watch Now →</a>
+</div>
+</div>
 
-        <div class="video-card reveal">
-          <a class="video-thumb" href="https://www.youtube.com/watch?v=2t46ZtDMiWE" target="_blank" rel="noopener">
-            <img loading="lazy" src="https://img.youtube.com/vi/2t46ZtDMiWE/hqdefault.jpg" alt="Web3 Gaming Metaverse">
-            <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </a>
-          <div class="video-info">
-            <h3>Web3 Gaming, Real Asset Ownership &amp; the Future of the Metaverse</h3>
-            <p>How blockchain technology is changing the concept of ownership in online gaming and virtual worlds.</p>
-            <a href="https://www.youtube.com/watch?v=2t46ZtDMiWE" target="_blank" rel="noopener">Watch Now →</a>
-          </div>
-        </div>
+<div class="video-card reveal">
+<a class="video-thumb" href="https://www.youtube.com/watch?v=w372WK3p3YQ" target="_blank" rel="noopener">
+<img loading="lazy" src="https://img.youtube.com/vi/w372WK3p3YQ/hqdefault.jpg" alt="AI Content Youth Media">
+<div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</a>
+<div class="video-info">
+<h3>How AI-Generated Content May Affect Young People's Media Habits</h3>
+<p>A look at the research on AI content consumption and what it might mean for how children and teens process information.</p>
+<a href="https://www.youtube.com/watch?v=w372WK3p3YQ" target="_blank" rel="noopener">Watch Now →</a>
+</div>
+</div>
 
-        <div class="video-card reveal">
-          <a class="video-thumb" href="https://www.youtube.com/watch?v=-L3Du0qK8Q0" target="_blank" rel="noopener">
-            <img loading="lazy" src="https://img.youtube.com/vi/-L3Du0qK8Q0/hqdefault.jpg" alt="Fountain of Voi">
-            <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </a>
-          <div class="video-info">
-            <h3>The Fountain of Voi — Inside the Voi Blockchain Ecosystem</h3>
-            <p>An introduction to the Voi network and its community-driven approach to blockchain development.</p>
-            <a href="https://www.youtube.com/watch?v=-L3Du0qK8Q0" target="_blank" rel="noopener">Watch Now →</a>
-          </div>
-        </div>
+<div class="video-card reveal">
+<a class="video-thumb" href="https://www.youtube.com/watch?v=2t46ZtDMiWE" target="_blank" rel="noopener">
+<img loading="lazy" src="https://img.youtube.com/vi/2t46ZtDMiWE/hqdefault.jpg" alt="Web3 Gaming Metaverse">
+<div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</a>
+<div class="video-info">
+<h3>Web3 Gaming, Real Asset Ownership & the Future of the Metaverse</h3>
+<p>How blockchain technology is changing the concept of ownership in online gaming and virtual worlds.</p>
+<a href="https://www.youtube.com/watch?v=2t46ZtDMiWE" target="_blank" rel="noopener">Watch Now →</a>
+</div>
+</div>
 
-        <div class="video-card reveal">
-          <a class="video-thumb" href="https://www.youtube.com/watch?v=eiFoKcKvVN0" target="_blank" rel="noopener">
-            <img loading="lazy" src="https://img.youtube.com/vi/eiFoKcKvVN0/hqdefault.jpg" alt="Running a Voi Node">
-            <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </a>
-          <div class="video-info">
-            <h3>Running a Voi Node: A Step-by-Step Guide</h3>
-            <p>A practical walkthrough of setting up and maintaining a node on the Voi blockchain network.</p>
-            <a href="https://www.youtube.com/watch?v=eiFoKcKvVN0" target="_blank" rel="noopener">Watch Now →</a>
-          </div>
-        </div>
+<div class="video-card reveal">
+<a class="video-thumb" href="https://www.youtube.com/watch?v=-L3Du0qK8Q0" target="_blank" rel="noopener">
+<img loading="lazy" src="https://img.youtube.com/vi/-L3Du0qK8Q0/hqdefault.jpg" alt="Fountain of Voi">
+<div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</a>
+<div class="video-info">
+<h3>The Fountain of Voi: Inside the Voi Blockchain Ecosystem</h3>
+<p>An introduction to the Voi network and its community-driven approach to blockchain development.</p>
+<a href="https://www.youtube.com/watch?v=-L3Du0qK8Q0" target="_blank" rel="noopener">Watch Now →</a>
+</div>
+</div>
 
-      </div>
-    </div>
-  </div>
+<div class="video-card reveal">
+<a class="video-thumb" href="https://www.youtube.com/watch?v=eiFoKcKvVN0" target="_blank" rel="noopener">
+<img loading="lazy" src="https://img.youtube.com/vi/eiFoKcKvVN0/hqdefault.jpg" alt="Running a Voi Node">
+<div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</a>
+<div class="video-info">
+<h3>Running a Voi Node: A Step-by-Step Guide</h3>
+<p>A practical walkthrough of setting up and maintaining a node on the Voi blockchain network.</p>
+<a href="https://www.youtube.com/watch?v=eiFoKcKvVN0" target="_blank" rel="noopener">Watch Now →</a>
+</div>
+</div>
 
-  <!-- DONATE -->
-  <section class="donate-section" id="donate">
-    <div class="donate-inner reveal">
-      <span class="section-label">Support Independent Content</span>
-      <div class="section-title" style="border:none;text-align:center;margin-bottom:20px">Support the Work</div>
-      <p>If you find value in the research, videos, and articles, and want to support independent content creation directly, you can send a tip via Cash App or buy me a coffee. Every contribution helps keep this content free rather than behind a paywall.</p>
-      <span class="donate-tag">$hattyhatss</span>
-      <small class="donate-small">Copy the tag above, open your Cash App, and choose any amount you're comfortable with.</small>
-      <br>
-      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 5px;">
-        <a class="donate-btn" href="https://cash.app/$hattyhatss" target="_blank" rel="noopener">Open Cash App</a>
-        <a class="donate-btn" style="background: linear-gradient(180deg, #ffdd00, #ffb700); color: #111; text-shadow: none; box-shadow: 0 4px 14px rgba(255, 200, 0, 0.2);" href="https://buymeacoffee.com/hatty" target="_blank" rel="noopener">Buy Me a Coffee ☕</a>
-      </div>
-    </div>
-  </section>
+</div>
+</div>
+</div>
 
-  <!-- ABOUT -->
-  <section class="about-section" id="about">
-    <div class="about-inner reveal">
-      <div class="about-avatar" aria-hidden="true">🎩</div>
-      <div class="about-text">
-        <h2>About HattyHats</h2>
-        <p>Hey, I'm <strong style="color:#f0f0f0">HattyHats!</strong> A content creator, blockchain enthusiast, and tech writer focused on making complex topics in crypto, AI, and privacy understandable for everyday people.</p>
-        <p>With over 1,400 YouTube subscribers and 180+ published articles across multiple platforms, I cover everything from Cardano governance and AI safety to self-custody best practices and Web3 gaming. My goal is simple: informed people make better decisions about technology, about their money, and about the world they're navigating.</p>
-        <p>I always encourage you to verify claims, read primary sources, and consult qualified professionals for anything consequential. The goal here is to give you a solid foundation to think from, not to tell you what to do.</p>
-      </div>
-    </div>
-  </section>
+<!-- DONATE -->
+<section class="donate-section" id="donate">
+<div class="donate-inner reveal">
+<span class="section-label">Support Independent Content</span>
+<div class="section-title" style="border:none;text-align:center;margin-bottom:20px;">Support the Work</div>
+<p>If you find value in the research, videos, and articles, and want to support independent content creation directly, you can send a tip via Cash App or buy me a coffee. Every contribution helps keep this content free rather than behind a paywall.</p>
+<span class="donate-tag">$hattyhatss</span>
+<small class="donate-small">Copy the tag above, open your Cash App, and choose any amount you're comfortable with.</small>
+<br>
+<div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:5px;">
+<a class="donate-btn" href="https://cash.app/$hattyhatss" target="_blank" rel="noopener">Open Cash App</a>
+<a class="donate-btn" style="background:linear-gradient(180deg,#ffdd00,#ffb700);color:#111;text-shadow:none;box-shadow:0 4px 14px rgba(255,200,0,0.2);" href="https://buymeacoffee.com/hatty" target="_blank" rel="noopener">Buy Me a Coffee</a>
+</div>
+</div>
+</section>
 
-  <!-- PLATFORMS -->
-  <div class="platforms-bar">
-    <div style="max-width:700px;margin:0 auto">
-      <span class="section-label">Find Me Online</span>
-      <div class="plinks">
-        <a href="https://x.com/hatty_hats" target="_blank" rel="noopener">X (Twitter)</a>
-        <a href="https://www.youtube.com/@hattyhats0" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.bulbapp.io" target="_blank" rel="noopener">Bulb</a>
-        <a href="https://www.publish0x.com" target="_blank" rel="noopener">PublishOx</a>
-        <a href="https://medium.com" target="_blank" rel="noopener">Medium</a>
-        <a href="https://cryptonaut.id/HattyHats" target="_blank" rel="noopener">Cryptonaut</a>
-        <a href="https://tangled.com/u/hattyhats" target="_blank" rel="noopener">Tangled</a>
-      </div>
-    </div>
-  </div>
+<!-- ABOUT -->
+<section class="about-section" id="about">
+<div class="about-inner reveal">
+<div class="about-avatar" aria-hidden="true">🎩</div>
+<div class="about-text">
+<h2>About HattyHats</h2>
+<p>Hey, I'm <strong style="color:#f0f0f0">HattyHats!</strong> A content creator, blockchain enthusiast, and tech writer focused on making complex topics in crypto, AI, and privacy understandable for everyday people.</p>
+<p>With over 1,400 YouTube subscribers and 180+ published articles across multiple platforms, I cover everything from Cardano governance and AI safety to self-custody best practices and Web3 gaming. My goal is simple: informed people make better decisions about technology, about their money, and about the world they're navigating.</p>
+<p>I always encourage you to verify claims, read primary sources, and consult qualified professionals for anything consequential. The goal here is to give you a solid foundation to think from, not to tell you what to do.</p>
+</div>
+</div>
+</section>
 
-  <!-- DISCLAIMER -->
-  <div class="disclaimer-bar">
-    <strong style="color:#555">Site-Wide Disclaimer:</strong> All content on this site is published for educational and informational purposes only. Nothing here constitutes financial, investment, or legal advice. Cryptocurrency and digital asset markets carry significant risk. Always conduct your own research and consult qualified professionals before making any financial or investment decision.
-    <a href="terms.html"> Full Terms &amp; Disclaimer →</a>
-  </div>
+<!-- PLATFORMS -->
+<div class="platforms-bar">
+<div style="max-width:700px;margin:0 auto;">
+<span class="section-label">Find Me Online</span>
+<div class="plinks">
+<a href="https://x.com/hattyhats" target="_blank" rel="noopener">X / Twitter</a>
+<a href="https://www.youtube.com/@hattyhats0" target="_blank" rel="noopener">YouTube</a>
+<a href="https://www.bulbapp.io" target="_blank" rel="noopener">Bulb</a>
+<a href="https://www.publish0x.com" target="_blank" rel="noopener">PublishOx</a>
+<a href="https://medium.com" target="_blank" rel="noopener">Medium</a>
+<a href="https://cryptonaut.id/HattyHats" target="_blank" rel="noopener">Cryptonaut</a>
+<a href="https://tangled.com/u/hattyhats" target="_blank" rel="noopener">Tangled</a>
+</div>
+</div>
+</div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Learn With Hatty / Earn With Hatty — earnwithhatty.com</p>
-    <p style="margin-top:10px">
-      <a href="privacy-policy.html">Privacy Policy</a> |
-      <a href="terms.html">Terms &amp; Disclaimer</a> |
-      <a href="https://x.com/hatty_hats" target="_blank" rel="noopener">X (Twitter)</a> |
-      <a href="https://www.youtube.com/@hattyhats0" target="_blank" rel="noopener">YouTube</a> |
-      <a href="mailto:hattyhatss@yahoo.com">Contact</a>
-    </p>
-    <p style="margin-top:8px;font-size:.7rem;color:#222">
-      This site displays advertisements via Google AdSense and may include affiliate links. All content is for educational and informational purposes only — not financial, legal, or investment advice. © HattyHats 2026.
-    </p>
-  </footer>
+<!-- DISCLAIMER -->
+<div class="disclaimer-bar">
+<strong style="color:#555">Site-Wide Disclaimer:</strong> All content on this site is published for educational and informational purposes only. Nothing here constitutes financial, investment, or legal advice. Cryptocurrency and digital asset markets carry significant risk. Always conduct your own research and consult qualified professionals before making any financial or investment decision.
+<a href="terms.html"> Full Terms &amp; Disclaimer →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Learn With Hatty / Earn With Hatty (earnwithhatty.com)</p>
+<p style="margin-top:10px">
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="terms.html">Terms &amp; Disclaimer</a>
+<a href="https://x.com/hattyhats" target="_blank" rel="noopener">X / Twitter</a>
+<a href="https://www.youtube.com/@hattyhats0" target="_blank" rel="noopener">YouTube</a>
+<a href="mailto:hattyhatss@yahoo.com">Contact</a>
+</p>
+<p style="margin-top:8px;font-size:.7rem;color:#222">
+This site displays advertisements via Google AdSense and may include affiliate links. All content is for educational and informational purposes only — not financial, legal, or investment advice. © HattyHats 2026.
+</p>
+</footer>
 
 </div><!-- /content-wrapper -->
 
 <script data-cfasync="false">
-/* ── CUSTOM CURSOR ── */
+/* PRICE BAR */
 (function(){
-  var c=document.getElementById('cursor');
-  var r=document.getElementById('cursor-ring');
-  if(!c||!r) return;
-  var mx=window.innerWidth/2, my=window.innerHeight/2, rx=mx, ry=my;
-  document.addEventListener('mousemove',function(e){
-    mx=e.clientX; my=e.clientY;
-    c.style.transform='translate3d('+mx+'px,'+my+'px,0) translate(-50%,-50%)';
-  });
-  (function animR(){
-    rx+=(mx-rx)*.15; ry+=(my-ry)*.15;
-    r.style.transform='translate3d('+rx+'px,'+ry+'px,0) translate(-50%,-50%)';
-    requestAnimationFrame(animR);
-  })();
-  document.querySelectorAll('a,button,[role=button],input,textarea,select').forEach(function(el){
-    el.addEventListener('mouseenter',function(){
-      c.style.width='28px'; c.style.height='28px';
-      r.style.width='58px'; r.style.height='58px'; r.style.opacity='.18';
-    });
-    el.addEventListener('mouseleave',function(){
-      c.style.width='12px'; c.style.height='12px';
-      r.style.width='36px'; r.style.height='36px'; r.style.opacity='.4';
-    });
-  });
+var COINS=[{id:"bitcoin",sym:"BTC"},{id:"ethereum",sym:"ETH"},{id:"cardano",sym:"ADA"},
+{id:"solana",sym:"SOL"},{id:"ripple",sym:"XRP"},{id:"binancecoin",sym:"BNB"},
+{id:"dogecoin",sym:"DOGE"},{id:"polkadot",sym:"DOT"},{id:"avalanche-2",sym:"AVAX"},
+{id:"chainlink",sym:"LINK"}];
+function fmt(p){if(p>=1000)return p.toLocaleString('en-US',{maximumFractionDigits:0});if(p>=1)return p.toFixed(2);if(p>=.01)return p.toFixed(4);return p.toFixed(6);}
+async function load(){
+var track=document.getElementById('priceTrack');
+if(!track)return;
+try{
+var ids=COINS.map(function(c){return c.id;}).join(',');
+var res=await fetch("https://api.coingecko.com/api/v3/simple/price?ids="+ids+"&vs_currencies=usd&include_24hr_change=true");
+if(!res.ok)throw new Error("err");
+var data=await res.json();
+var html=COINS.map(function(c){
+var d=data[c.id];
+if(!d)return"";
+var ch=d.usd_24h_change||0;
+return '<span class="price-item"><span class="price-symbol">'+c.sym+'</span> <span class="price-val">$'+fmt(d.usd)+'</span> <span class="price-change '+(ch>=0?'up':'down')+'">'+(ch>=0?'▲':'▼')+ch.toFixed(2)+'%</span></span>';
+}).join('');
+if(!html)throw new Error("no data");
+track.innerHTML=html+html;
+}catch(e){
+var bar=document.getElementById('priceBar');
+if(bar)bar.style.display='none';
+}
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load);else load();
+setInterval(load,60000);
 })();
 
-/* ── 3D PARALLAX ── */
+/* COOKIE CONSENT */
 (function(){
-  var grid  = document.getElementById('sceneGrid');
-  var phase1 = document.getElementById('phase1');
-  if(!phase1) return;
-  var tx=0, ox=0;
-  phase1.addEventListener('mousemove', function(e){
-    var rect = phase1.getBoundingClientRect();
-    tx = (e.clientX - rect.left) / rect.width - .5;
-  });
-  phase1.addEventListener('mouseleave', function(){ tx=0; });
-  (function anim(){
-    ox += (tx - ox) * .055;
-    if(grid){
-      grid.style.transform = 'rotateX(60deg) scale(2.5) translateY(10%) translateX('+(ox*25)+'px)';
-    }
-    requestAnimationFrame(anim);
-  })();
+var KEY='hattycookieconsent';
+window.cookieConsent=function(a){
+localStorage.setItem(KEY,a?'accepted':'declined');
+document.getElementById('cookie-banner').style.display='none';
+};
+if(!localStorage.getItem(KEY)){
+document.getElementById('cookie-banner').style.display='flex';
+}
 })();
 
-/* ── SCROLL FADE — three phases ── */
+/* MATRIX RAIN */
 (function(){
-  var hat        = document.getElementById('hat-wrapper');
-  var heroTitle  = document.getElementById('heroTitle');
-  var heroBody   = document.getElementById('heroBody');
-  var scrollHint = document.getElementById('scrollHint');
-
-  function clamp(val,mn,mx){ return Math.max(mn,Math.min(val,mx)); }
-  // Linear map: when sy goes from a→b, output goes 0→1
-  function progress(sy,a,b){ return clamp((sy-a)/(b-a),0,1); }
-
-  window.addEventListener('scroll', function(){
-    var sy = window.scrollY;
-    var vh = window.innerHeight;
-
-    // Hint fades away in first 15% of first viewport
-    if(scrollHint) scrollHint.style.opacity = 1 - progress(sy, 0, vh * 0.15);
-
-    // Hat: visible 0→300px, fades out 300px→700px
-    var hatP = progress(sy, 300, 700);
-    if(hat){
-      hat.style.opacity = 1 - hatP;
-      hat.style.animationPlayState = hatP >= 1 ? 'paused' : 'running';
-    }
-
-    // Title: fades+scales IN from 400px→900px scroll
-    //        fades OUT from 1100px→1500px scroll
-    var tIn  = progress(sy, 400, 900);
-    var tOut = progress(sy, 1100, 1500);
-    if(heroTitle){
-      heroTitle.style.opacity   = tIn * (1 - tOut);
-      heroTitle.style.transform = 'translate(-50%,-50%) scale(' + (0.2 + tIn * 0.8) + ')';
-    }
-
-    // Body: fades IN from 1400px→1900px, OUT from 2200px→2500px
-    var bIn  = progress(sy, 1400, 1900);
-    var bOut = progress(sy, 2200, 2500);
-    if(heroBody){
-      heroBody.style.opacity   = bIn * (1 - bOut);
-      heroBody.style.transform = 'translate(-50%,-50%) translateY(' + ((1-bIn)*70) + 'px)';
-      heroBody.style.pointerEvents = bIn > 0.1 ? 'auto' : 'none';
-    }
-  }, {passive:true});
+var canvas=document.getElementById('matrixRain');
+if(!canvas)return;
+var ctx=canvas.getContext('2d');
+var CHARS="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var cols,drops,fontSize;
+function resize(){
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+fontSize=window.innerWidth<520?11:14;
+cols=Math.floor(canvas.width/fontSize);
+drops=new Array(cols).fill(1).map(function(){return Math.random()*-100|0;});
+}
+resize();
+window.addEventListener('resize',resize,{passive:true});
+function draw(){
+ctx.fillStyle='rgba(4,4,10,0.06)';
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.font=fontSize+'px monospace';
+for(var i=0;i<drops.length;i++){
+var ch=CHARS[Math.floor(Math.random()*CHARS.length)];
+if(drops[i]*fontSize>0&&drops[i]*fontSize<canvas.height){
+ctx.fillStyle='rgba(240,165,0,0.9)';
+ctx.fillText(ch,i*fontSize,drops[i]*fontSize);
+ctx.fillStyle='rgba(34,180,100,0.55)';
+var body=Math.floor(Math.random()*CHARS.length);
+ctx.fillText(CHARS[body],i*fontSize,(drops[i]-1)*fontSize);
+}
+if(drops[i]*fontSize>canvas.height&&Math.random()>0.975){drops[i]=0;}
+drops[i]+=0.5;
+}
+}
+setInterval(function(){
+if(document.visibilityState==='visible')draw();
+},33);
 })();
 
-/* ── SCROLL REVEAL ── */
+/* SCROLL FADE — three phases */
 (function(){
-  var els=document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)){
-    els.forEach(function(e){ e.classList.add('visible'); }); return;
-  }
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  },{threshold:.1});
-  els.forEach(function(e){ io.observe(e); });
+var hat=document.getElementById('hat-wrapper');
+var heroTitle=document.getElementById('heroTitle');
+var heroBody=document.getElementById('heroBody');
+var scrollHint=document.getElementById('scrollHint');
+function clamp(val,mn,mx){return Math.max(mn,Math.min(val,mx));}
+function progress(sy,a,b){return clamp((sy-a)/(b-a),0,1);}
+window.addEventListener('scroll',function(){
+var sy=window.scrollY;
+var vh=window.innerHeight;
+if(scrollHint)scrollHint.style.opacity=1-progress(sy,0,vh*0.15);
+var hatP=progress(sy,300,700);
+if(hat){hat.style.opacity=1-hatP;hat.style.animationPlayState=hatP>=1?'paused':'running';}
+var tIn=progress(sy,400,900);
+var tOut=progress(sy,1100,1500);
+if(heroTitle){
+heroTitle.style.opacity=tIn*(1-tOut);
+heroTitle.style.transform='translate(-50%,-50%) scale('+(0.2+tIn*0.8)+')';
+}
+var bIn=progress(sy,1400,1900);
+var bOut=progress(sy,2200,2500);
+if(heroBody){
+heroBody.style.opacity=bIn*(1-bOut);
+heroBody.style.transform='translate(-50%,-50%) translateY('+((1-bIn)*70)+'px)';
+heroBody.style.pointerEvents=bIn>0.1?'auto':'none';
+}
+},{passive:true});
 })();
 
-/* ── DROPDOWN ── */
+/* 3D PARALLAX */
 (function(){
-  var toggle=document.getElementById('navDropdownToggle');
-  var dd=document.getElementById('navDropdown');
-  if(!toggle||!dd) return;
-  function open(){ dd.classList.add('open'); toggle.setAttribute('aria-expanded','true'); }
-  function close(){ dd.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
-  toggle.addEventListener('click',function(e){ e.stopPropagation(); dd.classList.contains('open')?close():open(); });
-  toggle.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); dd.classList.contains('open')?close():open(); }});
-  document.addEventListener('click',function(){ close(); });
-  dd.addEventListener('click',function(e){ e.stopPropagation(); });
+var grid=document.getElementById('sceneGrid');
+var phase1=document.getElementById('phase1');
+if(!phase1)return;
+var tx=0,ox=0;
+phase1.addEventListener('mousemove',function(e){
+var rect=phase1.getBoundingClientRect();
+tx=(e.clientX-rect.left)/rect.width-.5;
+});
+phase1.addEventListener('mouseleave',function(){tx=0;});
+function anim(){
+ox+=(tx-ox)*.055;
+if(grid)grid.style.transform='rotateX(60deg) scale(2.5) translateY(10%) translateX('+(ox*25)+'px)';
+requestAnimationFrame(anim);
+}
+anim();
 })();
 
-/* ── PRICE BAR ── */
+/* SCROLL REVEAL */
 (function(){
-  var COINS=[
-    {id:'bitcoin',sym:'BTC'},{id:'ethereum',sym:'ETH'},{id:'cardano',sym:'ADA'},
-    {id:'solana',sym:'SOL'},{id:'ripple',sym:'XRP'},{id:'binancecoin',sym:'BNB'},
-    {id:'dogecoin',sym:'DOGE'},{id:'polkadot',sym:'DOT'},{id:'avalanche-2',sym:'AVAX'},
-    {id:'chainlink',sym:'LINK'}
-  ];
-  function fmt(p){
-    if(p>=1000) return '$'+p.toLocaleString('en-US',{maximumFractionDigits:0});
-    if(p>=1) return '$'+p.toFixed(2);
-    if(p>=.01) return '$'+p.toFixed(4);
-    return '$'+p.toFixed(6);
-  }
-  async function load(){
-    var track=document.getElementById('priceTrack');
-    if(!track) return;
-    try{
-      var ids=COINS.map(function(c){return c.id;}).join(',');
-      var res=await fetch('https://api.coingecko.com/api/v3/simple/price?ids='+ids+'&vs_currencies=usd&include_24hr_change=true');
-      if(!res.ok) throw new Error('err');
-      var data=await res.json();
-      var html=COINS.map(function(c){
-        var d=data[c.id]; if(!d) return '';
-        var ch=d.usd_24h_change||0;
-        return '<span class="price-item"><span class="price-symbol">'+c.sym+'</span>'
-          +'<span class="price-val">'+fmt(d.usd)+'</span>'
-          +'<span class="price-change '+(ch>=0?'up':'down')+'">'+(ch>=0?'+':'')+ch.toFixed(2)+'%</span></span>';
-      }).join('');
-      if(!html) throw new Error('no data');
-      track.innerHTML=html+html;
-    }catch(e){
-      var bar=document.getElementById('priceBar');
-      if(bar) bar.style.display='none';
-    }
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',load);
-  else load();
-  setInterval(load,60000);
+var els=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver' in window)){
+els.forEach(function(e){e.classList.add('visible');});
+return;
+}
+var io=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+});
+},{threshold:.1});
+els.forEach(function(e){io.observe(e);});
 })();
 
+/* DROPDOWN */
 (function(){
-  var KEY='hatty_cookie_consent';
-  window.cookieConsent=function(a){
-    localStorage.setItem(KEY,a?'accepted':'declined');
-    document.getElementById('cookie-banner').style.display='none';
-  };
-  if(!localStorage.getItem(KEY)) document.getElementById('cookie-banner').style.display='flex';
+var toggle=document.getElementById('navDropdownToggle');
+var dd=document.getElementById('navDropdown');
+if(!toggle||!dd)return;
+function open(){dd.classList.add('open');toggle.setAttribute('aria-expanded','true');}
+function close(){dd.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
+toggle.addEventListener('click',function(e){
+e.stopPropagation();
+dd.classList.contains('open')?close():open();
+});
+toggle.addEventListener('keydown',function(e){
+if(e.key==='Enter'||e.key===' '){e.preventDefault();dd.classList.contains('open')?close():open();}
+});
+document.addEventListener('click',function(){close();});
+dd.addEventListener('click',function(e){e.stopPropagation();});
 })();
 
-/* ── MATRIX RAIN ── */
+/* CUSTOM CURSOR */
 (function(){
-  var canvas = document.getElementById('matrixRain');
-  if(!canvas) return;
-  var ctx = canvas.getContext('2d');
-
-  // Characters — mix of katakana, latin, digits for that matrix feel
-  var CHARS = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%';
-
-  var cols, drops, fontSize;
-
-  function resize(){
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-    fontSize = window.innerWidth < 520 ? 11 : 14;
-    cols   = Math.floor(canvas.width / fontSize);
-    drops  = new Array(cols).fill(1).map(function(){ return Math.random() * -100 | 0; });
-  }
-
-  resize();
-  window.addEventListener('resize', resize, {passive:true});
-
-  function draw(){
-    // Fading trail
-    ctx.fillStyle = 'rgba(4,4,10,0.06)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Gold-tinted green — matches the site palette
-    ctx.font = fontSize + 'px monospace';
-
-    for(var i = 0; i < drops.length; i++){
-      // Random char
-      var ch = CHARS[Math.floor(Math.random() * CHARS.length)];
-
-      // Leading character is bright gold, rest are muted green
-      if(drops[i] * fontSize > 0 && drops[i] * fontSize < canvas.height){
-        // Bright head
-        ctx.fillStyle = 'rgba(240,165,0,0.9)';
-        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
-      }
-
-      // Slightly behind — green body
-      ctx.fillStyle = 'rgba(34,180,100,0.55)';
-      var body = Math.floor(Math.random() * CHARS.length);
-      ctx.fillText(CHARS[body], i * fontSize, (drops[i] - 1) * fontSize);
-
-      // Reset when off screen
-      if(drops[i] * fontSize > canvas.height && Math.random() > 0.975){
-        drops[i] = 0;
-      }
-      drops[i] += 0.5;
-    }
-  }
-
-  // Run at ~30fps to save CPU
-  setInterval(function() {
-    if (document.visibilityState === 'visible') draw();
-  }, 33);
+var c=document.getElementById('cursor');
+var r=document.getElementById('cursor-ring');
+if(!c||!r)return;
+var mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+document.addEventListener('mousemove',function(e){
+mx=e.clientX;my=e.clientY;
+c.style.transform='translate3d('+mx+'px,'+my+'px,0) translate(-50%,-50%)';
+});
+function animR(){
+rx+=(mx-rx)*.15;ry+=(my-ry)*.15;
+r.style.transform='translate3d('+rx+'px,'+ry+'px,0) translate(-50%,-50%)';
+requestAnimationFrame(animR);
+}
+animR();
+document.querySelectorAll('a,button,[role=button],input,textarea,select').forEach(function(el){
+el.addEventListener('mouseenter',function(){
+c.style.width='28px';c.style.height='28px';
+r.style.width='58px';r.style.height='58px';r.style.opacity='.18';
+});
+el.addEventListener('mouseleave',function(){
+c.style.width='12px';c.style.height='12px';
+r.style.width='36px';r.style.height='36px';r.style.opacity='.4';
+});
+});
 })();
 
-/* ── SPLASH 3D CODE SPACE ── */
+/* SPLASH 3D CODE SPACE */
 (function(){
-  var canvas = document.getElementById('splashCodeSpace');
-  if(!canvas) return;
-  var ctx = canvas.getContext('2d');
-  var w, h;
-  var particles = [];
-  var numParticles = 400; // lots of code
-  var chars = '01アイウエオカキクケコサシスセソタチツテトABCDEFGHIJKLMNOPQRSTUVWXYZ{}[]()<>/*';
-  
-  function resize(){
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize, {passive:true});
-  
-  var mouseX = 0, mouseY = 0;
-  
-  function initParticle(p) {
-    p.x = (Math.random() - 0.5) * 3000;
-    p.y = (Math.random() - 0.5) * 3000;
-    p.z = Math.random() * 2000 + 100; // Add some base depth
-    p.char = chars[Math.floor(Math.random() * chars.length)];
-    p.speed = 5 + Math.random() * 10; // Speed flying toward screen
-    p.color = Math.random() > 0.2 ? 'rgba(34,180,100,' : 'rgba(240,165,0,'; // 80% green, 20% gold
-  }
-  
-  for(var i=0; i<numParticles; i++){
-    var p = {};
-    initParticle(p);
-    particles.push(p);
-  }
-  
-  var animFrame;
-  function draw(){
-    ctx.clearRect(0,0,w,h);
-    
-    var cx = w / 2;
-    var cy = h / 2;
-    
-    for(var i=0; i<numParticles; i++){
-      var p = particles[i];
-      p.z -= p.speed;
-      
-      if(p.z <= 0){
-        initParticle(p);
-        p.z = 2000;
-      }
-      
-      var scale = 800 / p.z;
-      var px = cx + (p.x - mouseX) * scale;
-      var py = cy + (p.y - mouseY) * scale;
-      var size = Math.max(0.1, 24 * scale); // Scale the font size
-      
-      if(px >= -50 && px <= w+50 && py >= -50 && py <= h+50){
-        // Fade in from distance, fade out very close
-        var alpha = Math.min(1, (2000 - p.z) / 500);
-        if(p.z < 200) {
-            alpha = Math.min(alpha, p.z / 200);
-        }
-        
-        ctx.fillStyle = p.color + alpha + ')'; 
-        ctx.font = 'bold ' + size + 'px monospace';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        
-        // ctx.shadowColor = p.color + alpha + ')'; 
-        // ctx.shadowBlur = size * 0.4;
-        
-        ctx.fillText(p.char, px, py);
-        
-        // ctx.shadowBlur = 0;
-      }
-    }
-    animFrame = requestAnimationFrame(draw);
-  }
-  draw();
-
-  // Stop animation when splash is hidden
-  var observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      if (mutation.target.classList.contains('hidden')) {
-        cancelAnimationFrame(animFrame);
-      }
-    });
-  });
-  var splashEl = document.getElementById('splash');
-  if(splashEl) observer.observe(splashEl, { attributes: true, attributeFilter: ['class'] });
+var canvas=document.getElementById('splashCodeSpace');
+if(!canvas)return;
+var ctx=canvas.getContext('2d');
+var w,h;
+var particles=[];
+var numParticles=400;
+var chars="01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
+resize();
+window.addEventListener('resize',resize,{passive:true});
+var mouseX=0,mouseY=0;
+function initParticle(p){
+p.x=(Math.random()-0.5)*3000;
+p.y=(Math.random()-0.5)*3000;
+p.z=Math.random()*2000+100;
+p.char=chars[Math.floor(Math.random()*chars.length)];
+p.speed=5+Math.random()*10;
+p.color=Math.random()>0.2?'rgba(34,180,100,':'rgba(240,165,0,';
+}
+for(var i=0;i<numParticles;i++){var p={};initParticle(p);particles.push(p);}
+var animFrame;
+function draw(){
+ctx.clearRect(0,0,w,h);
+var cx=w/2,cy=h/2;
+for(var i=0;i<numParticles;i++){
+var p=particles[i];
+p.z-=p.speed;
+if(p.z<=0){initParticle(p);p.z=2000;}
+var scale=800/p.z;
+var px=cx+(p.x-mouseX)*scale;
+var py=cy+(p.y-mouseY)*scale;
+var size=Math.max(0.1,24*scale);
+if(px<-50||px>w+50||py<-50||py>h+50)continue;
+var alpha=Math.min(1,(2000-p.z)/500);
+if(p.z<200)alpha=Math.min(alpha,p.z/200);
+ctx.fillStyle=p.color+alpha+')';
+ctx.font='bold '+size+'px monospace';
+ctx.textAlign='center';
+ctx.textBaseline='middle';
+ctx.shadowColor=p.color+alpha+')';
+ctx.shadowBlur=size*0.4;
+ctx.fillText(p.char,px,py);
+ctx.shadowBlur=0;
+}
+animFrame=requestAnimationFrame(draw);
+}
+draw();
+var observer=new MutationObserver(function(mutations){
+mutations.forEach(function(mutation){
+if(mutation.target.classList.contains('hidden')){cancelAnimationFrame(animFrame);}
+});
+});
+var splashEl=document.getElementById('splash');
+if(splashEl)observer.observe(splashEl,{attributes:true,attributeFilter:['class']});
 })();
 
+/* SPLASH CONTROL + MUSIC TOGGLE */
 (function(){
-  var splash = document.getElementById('splash');
-  var audio  = document.getElementById('splashAudio');
-  var toggle = document.getElementById('musicToggle');
-  var label  = document.getElementById('musicLabel');
-
-  // Lock body scroll while splash is visible
-  document.body.style.overflow = 'hidden';
-
-  // Shared playing state
-  var isPlaying = false;
-
-  function setPlaying(val){
-    isPlaying = val;
-    if(val){
-      toggle.classList.add('playing');
-      label.textContent = 'Music On';
-    } else {
-      toggle.classList.remove('playing');
-      label.textContent = 'Music';
-    }
-  }
-
-  window.enterSite = function(){
-    // Music does NOT auto-start — user must click the music button
-    if(audio){
-      audio.volume = 0.45; // Pre-set volume for when they do press play
-    }
-    // Fade out splash
-    splash.classList.add('hidden');
-    setTimeout(function(){
-      splash.style.display = 'none';
-      document.body.style.overflow = '';
-    }, 850);
-  };
-
-  // Automatically open the site shortly after the loader appears
-  setTimeout(window.enterSite, 4200);
-
-  // Music toggle button
-  if(toggle && audio){
-    toggle.addEventListener('click', function(){
-      if(isPlaying){
-        audio.pause();
-        setPlaying(false);
-      } else {
-        audio.play().then(function(){ setPlaying(true); }).catch(function(){});
-      }
-    });
-    // Keep state in sync if audio ends or is interrupted
-    audio.addEventListener('pause', function(){ setPlaying(false); });
-    audio.addEventListener('play',  function(){ setPlaying(true);  });
-  }
+var splash=document.getElementById('splash');
+var audio=document.getElementById('splashAudio');
+var toggle=document.getElementById('musicToggle');
+var label=document.getElementById('musicLabel');
+document.body.style.overflow='hidden';
+var isPlaying=false;
+function setPlaying(val){
+isPlaying=val;
+if(val){toggle.classList.add('playing');label.textContent='Music On';}
+else{toggle.classList.remove('playing');label.textContent='Music';}
+}
+window.enterSite=function(){
+if(audio)audio.volume=0.45;
+splash.classList.add('hidden');
+setTimeout(function(){
+splash.style.display='none';
+document.body.style.overflow='';
+},850);
+};
+setTimeout(window.enterSite,4200);
+if(toggle&&audio){
+toggle.addEventListener('click',function(){
+if(isPlaying){audio.pause();setPlaying(false);}
+else{audio.play().then(function(){setPlaying(true);}).catch(function(){});}
+});
+audio.addEventListener('pause',function(){setPlaying(false);});
+audio.addEventListener('play',function(){setPlaying(true);});
+}
 })();
 </script>
 </body>
