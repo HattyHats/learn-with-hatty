@@ -7,6 +7,23 @@
 <meta name="description" content="In-depth educational articles and videos on cryptocurrency, AI, Web3, privacy, and personal finance by HattyHats. Learn, stay informed, and think critically.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="shortcut icon" href="favicon.ico">
+<meta name="theme-color" content="#04040a">
+<!-- Open Graph / Facebook / Discord -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://earnwithhatty.com">
+<meta property="og:title" content="Learn With Hatty | Crypto, AI & Web3 Education">
+<meta property="og:description" content="In-depth educational articles, tools, and interactive web apps on cryptocurrency, AI, Web3, privacy, and personal finance by HattyHats.">
+<meta property="og:image" content="https://earnwithhatty.com/grey-hat-nb.png">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hattyhats">
+<meta name="twitter:creator" content="@hattyhats">
+<meta name="twitter:url" content="https://earnwithhatty.com">
+<meta name="twitter:title" content="Learn With Hatty | Crypto, AI & Web3 Education">
+<meta name="twitter:description" content="In-depth educational articles, tools, and interactive web apps on cryptocurrency, AI, Web3, privacy, and personal finance by HattyHats.">
+<meta name="twitter:image" content="https://earnwithhatty.com/grey-hat-nb.png">
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6374033238930580" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -276,6 +293,498 @@ nav a.nav-btn{display:none;}
 .btn-publishox{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(180deg,#5c1a1a,#400e0e);border:1px solid rgba(255,100,100,0.35);color:#fc7d7d;padding:8px 18px;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 0 14px rgba(255,100,100,0.15);transition:all .18s ease;}
 .btn-publishox:hover{background:linear-gradient(180deg,#721e1e,#521212);border-color:rgba(255,100,100,0.65);color:#fdbaba;box-shadow:0 0 24px rgba(255,100,100,0.3);transform:translateY(-1px);}
 .btn-bulb .bulb-icon,.btn-publishox .bulb-icon{font-size:.9rem;line-height:1;}
+
+/* ========================================================
+   ARTICLE FILTER, SEARCH & PAGINATION STYLES
+   ======================================================== */
+.articles-controls {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.search-and-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.articles-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 260px;
+  max-width: 520px;
+}
+.articles-search-wrap .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: .85rem;
+  opacity: .5;
+  pointer-events: none;
+}
+.articles-search-wrap input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 11px 40px 11px 38px;
+  color: var(--text);
+  font-size: .85rem;
+  font-family: inherit;
+  outline: none;
+  transition: all .2s ease;
+}
+.articles-search-wrap input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 16px rgba(240,165,0,0.25);
+  background: var(--surface2);
+}
+.articles-search-wrap input::placeholder {
+  color: var(--muted);
+  font-size: .82rem;
+}
+.search-clear-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: .85rem;
+  padding: 4px;
+  line-height: 1;
+  display: none;
+  transition: color .15s;
+}
+.search-clear-btn:hover {
+  color: var(--gold);
+}
+.articles-count-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: .75rem;
+  color: var(--muted);
+  letter-spacing: .5px;
+}
+.articles-count-badge strong {
+  color: var(--gold);
+}
+.category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.cat-pill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: #aaa;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s ease;
+  user-select: none;
+}
+.cat-pill:hover {
+  color: #fff;
+  border-color: rgba(240,165,0,.5);
+  transform: translateY(-1px);
+}
+.cat-pill.active {
+  background: linear-gradient(180deg, #f8bc20, #d08800);
+  color: #0d0d0d;
+  border-color: var(--gold);
+  box-shadow: 0 2px 10px rgba(240,165,0,.35);
+  font-weight: 700;
+}
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 8px;
+}
+.card-header-row .article-tag {
+  margin-bottom: 0;
+}
+.article-read-time {
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: .3px;
+}
+.btn-share-x {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: #aaa;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: .74rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .15s ease;
+}
+.btn-share-x:hover {
+  background: #111;
+  color: #fff;
+  border-color: #888;
+  box-shadow: 0 0 12px rgba(255,255,255,0.15);
+  transform: translateY(-1px);
+}
+.btn-load-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(180deg, #1c1c30, #0f0f20);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(240,165,0,.15);
+  transition: all .2s ease;
+}
+.btn-load-more:hover {
+  background: linear-gradient(180deg, #f8bc20, #d08800);
+  color: #0d0d0d;
+  box-shadow: 0 0 28px rgba(240,165,0,.45);
+  transform: translateY(-2px);
+}
+.btn-load-more span {
+  font-size: .72rem;
+  opacity: .8;
+  font-family: 'DM Mono', monospace;
+}
+
+/* ========================================================
+   CRYPTO TIP JAR STYLES
+   ======================================================== */
+.crypto-tip-box {
+  margin-top: 48px;
+  background: linear-gradient(180deg, #121226, #090914);
+  border: 1px solid rgba(240,165,0,0.3);
+  border-radius: 18px;
+  padding: 32px 24px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.7), 0 0 30px rgba(240,165,0,0.06);
+  text-align: left;
+}
+.crypto-tip-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.crypto-tip-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+}
+.crypto-tip-badge {
+  background: rgba(240,165,0,0.12);
+  border: 1px solid rgba(240,165,0,0.4);
+  color: var(--gold);
+  font-size: .65rem;
+  font-family: 'DM Mono', monospace;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+.crypto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.crypto-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all .2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.crypto-card:hover {
+  border-color: rgba(240,165,0,0.5);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 16px rgba(240,165,0,0.1);
+  transform: translateY(-2px);
+}
+.crypto-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.coin-icon-bubble {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: .95rem;
+  flex-shrink: 0;
+}
+.icon-btc { background: #f7931a; color: #fff; }
+.icon-eth { background: linear-gradient(135deg, #627eea, #3c3c3d); color: #fff; }
+.icon-sol { background: linear-gradient(135deg, #9945ff, #14f195); color: #000; }
+.icon-ada { background: #0033ad; color: #fff; }
+.coin-meta {
+  flex: 1;
+  min-width: 0;
+}
+.coin-meta .coin-name {
+  font-size: .88rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+.coin-meta .coin-net {
+  font-size: .68rem;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  display: block;
+}
+.crypto-addr-box {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.crypto-addr-box code {
+  font-family: 'DM Mono', monospace;
+  font-size: .7rem;
+  color: #bbb;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.btn-copy-addr {
+  background: rgba(240,165,0,0.12);
+  border: 1px solid rgba(240,165,0,0.35);
+  color: var(--gold);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: .68rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .15s ease;
+  white-space: nowrap;
+}
+.btn-copy-addr:hover {
+  background: var(--gold);
+  color: #0d0d0d;
+}
+.btn-copy-addr.copied {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: #0d0d0d;
+}
+
+/* ========================================================
+   TOAST & MOBILE FIXES
+   ======================================================== */
+#hattyToast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: linear-gradient(180deg, #1f1f38, #111122);
+  border: 1px solid var(--gold);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: .82rem;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(240,165,0,0.25);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all .25s ease;
+  pointer-events: none;
+}
+#hattyToast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.splash-skip-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .5;
+  margin-top: 14px;
+  transition: opacity .2s;
+  animation: hintFade 2s infinite ease-in-out;
+}
+
+@media (hover: none) or (pointer: coarse) {
+  body, #splash { cursor: auto !important; }
+  #cursor, #cursor-ring { display: none !important; opacity: 0 !important; pointer-events: none !important; }
+}
+
+
+/* ========================================================
+   ECOSYSTEM / APPS & TOOLS SECTION
+   ======================================================== */
+.ecosystem-section {
+  padding: 80px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.ecosystem-subtitle {
+  font-size: .84rem;
+  color: var(--muted);
+  margin-left: auto;
+  align-self: flex-end;
+  padding-bottom: 4px;
+}
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+}
+.app-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.app-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity .3s;
+  z-index: 10;
+}
+.app-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(240,165,0,0.5);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 24px rgba(240,165,0,0.12);
+}
+.app-card:hover::before {
+  opacity: 1;
+}
+.app-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.app-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(240,165,0,0.15), rgba(20,20,40,0.8));
+  border: 1px solid rgba(240,165,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+}
+.app-tag {
+  display: inline-block;
+  font-size: .6rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #c0c0d8;
+}
+.app-tag-p2p { background: rgba(14,116,144,0.3); border-color: rgba(14,116,144,0.6); color: #67e8f9; }
+.app-tag-privacy { background: rgba(13,148,136,0.3); border-color: rgba(13,148,136,0.6); color: #5eead4; }
+.app-tag-game { background: rgba(109,40,217,0.3); border-color: rgba(109,40,217,0.6); color: #c4b5fd; }
+.app-tag-prod { background: rgba(217,119,6,0.3); border-color: rgba(217,119,6,0.6); color: #fde68a; }
+.app-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.app-card p {
+  font-size: .83rem;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 20px;
+}
+.app-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #18182c, #101020);
+  border: 1px solid var(--border);
+  color: #ddd;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .18s ease;
+  margin-top: auto;
+}
+.app-link-btn:hover {
+  background: linear-gradient(180deg, #f8bc20, #d08800);
+  color: #0d0d0d;
+  border-color: var(--gold);
+  box-shadow: 0 4px 16px rgba(240,165,0,0.35);
+  transform: translateY(-1px);
+}
+.app-link-btn span.arrow {
+  transition: transform .18s;
+}
+.app-link-btn:hover span.arrow {
+  transform: translateX(3px);
+}
+
 </style>
 </head>
 <body>
@@ -297,6 +806,7 @@ nav a.nav-btn{display:none;}
 <div class="splash-byline">Created by <span class="splash-hattyhats" data-text="HattyHats">HattyHats</span></div>
 <div class="splash-enter">
 <div class="splash-loader"></div>
+<div class="splash-skip-hint">Click anywhere to skip</div>
 </div>
 </div>
 </div>
@@ -320,6 +830,7 @@ nav a.nav-btn{display:none;}
 <nav aria-label="Main navigation">
 <a href="#articles" class="nav-btn">Articles</a>
 <a href="https://www.youtube.com/@hattyhats0" target="_blank" rel="noopener" class="nav-btn">Videos</a>
+<a href="#ecosystem" class="nav-btn">Apps &amp; Tools</a>
 <a href="#about" class="nav-btn">About</a>
 <a href="#donate" class="nav-btn">Donate</a>
 <a href="mailto:hattyhatss@yahoo.com" class="nav-btn">Contact</a>
@@ -410,12 +921,78 @@ nav a.nav-btn{display:none;}
 <a class="btn-publishox" href="https://www.publish0x.com/@HattyHats" target="_blank" rel="noopener"><span class="bulb-icon">📰</span> PublishOX</a>
 </div>
 </div>
-<div class="articles-grid">
+
+<div class="articles-controls">
+  <div class="search-and-stats">
+    <div class="articles-search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="articleSearch" placeholder="Search 25 articles by title, topic, or keyword..." aria-label="Search articles">
+      <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">✕</button>
+    </div>
+    <div class="articles-count-badge" id="articlesCountBadge">
+      Showing <strong>25</strong> of <strong>25</strong> articles
+    </div>
+  </div>
+  <div class="category-pills" id="categoryPills" role="tablist" aria-label="Article categories">
+    <button class="cat-pill active" data-cat="all">All (25)</button>
+    <button class="cat-pill" data-cat="ai">AI</button>
+    <button class="cat-pill" data-cat="privacy">Privacy</button>
+    <button class="cat-pill" data-cat="security">Security</button>
+    <button class="cat-pill" data-cat="tech">Tech</button>
+    <button class="cat-pill" data-cat="crypto">Crypto & Web3</button>
+    <button class="cat-pill" data-cat="finance">Finance & Economics</button>
+    <button class="cat-pill" data-cat="news">News</button>
+  </div>
+</div>
+
+<div class="articles-grid" id="articlesGrid">
 
 <!-- ===== NEW ARTICLES ===== -->
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="ai" data-title="your phone is now a supercomputer">
+<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1192448.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=b082354054e848cf7e3766d2a9d8b74407405034971a950365534913a37cf8a1" alt="Your Phone is Now a Supercomputer">
+<div class="card-header-row">
+<span class="article-tag tag-ai">AI</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
+<h3>Your Phone is Now a Supercomputer</h3>
+<p>Thanks to breakthroughs in open-source models and mobile silicon, powerful AI can now run 100% locally on your smartphone—completely offline, private, and subscription-free.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/your-phone-is-now-a-supercomputer-xmgwvwy" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
+
+<div class="article-card reveal" data-category="security" data-title="decentralized cloud storage beats big tech servers">
+<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1192338.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=e19b31cf2a52dc264f4814c2331af1ffe1ad3f2eacde7a4cff7c6d7c0b7e1e15" alt="Decentralized Cloud Storage Beats Big Tech Servers">
+<div class="card-header-row">
+<span class="article-tag tag-security">Security</span>
+<span class="article-read-time">⏱️ 5 min read</span>
+</div>
+<h3>Decentralized Cloud Storage Beats Big Tech Servers</h3>
+<p>There is no cloud—only other people's computers. This article explores how decentralized storage, local encryption, and user-held keys fundamentally outperform corporate server monopolies in privacy, resilience, and sovereignty.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/hattys-news/decentralized-cloud-storage-beats-big-tech-servers-xmgwvjg" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
+
+<div class="article-card reveal" data-category="privacy" data-title="your data built silicon valley">
+<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1192172.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=9e201d7abd0640d671666b9cd454c4068368b302852329b645dc482bae9353ff" alt="Your Data Built Silicon Valley">
+<div class="card-header-row">
+<span class="article-tag tag-privacy">Privacy</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
+<h3>Your Data Built Silicon Valley</h3>
+<p>The garage founder narrative is a myth: Silicon Valley was built on the unconsenting behavioral data of billions. A breakdown of the modern data extraction machine and why digital privacy is a fundamental human right.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/hattys-news/your-data-built-silicon-valley-xxrnqjk" target="_blank" rel="noopener">Read on Publish0x →</a>
+</div>
+</div>
+
+<div class="article-card reveal" data-category="finance" data-title="ai bubbles, corporate money, and the coming economic reset">
 <img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191969.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=860cbc2914b76243aacbd532e05f79ebcf31134f60adb539fd8e843c506fcef1" alt="AI Bubbles, Corporate Money, and the Coming Economic Reset">
+<div class="card-header-row">
 <span class="article-tag tag-economics">Economics</span>
+<span class="article-read-time">⏱️ 5 min read</span>
+</div>
 <h3>AI Bubbles, Corporate Money, and the Coming Economic Reset</h3>
 <p>As massive corporate spending on artificial intelligence collides with real-world economic pressure on working families, this article explores the looming AI market correction, the fracturing global financial order, and how to build grassroots resilience.</p>
 <div class="card-links">
@@ -423,9 +1000,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="privacy" data-title="your digital footprint is worth more than gold">
 <img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191824.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=44f8cf376f5ccbdfd08ea51b95c2f9b6fbd206f5f9cde2d67db788d40a52b3d2" alt="Your Digital Footprint is Worth More Than Gold">
+<div class="card-header-row">
 <span class="article-tag tag-privacy">Privacy</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>Your Digital Footprint is Worth More Than Gold</h3>
 <p>Inside the multi-billion-dollar data brokerage shadow economy: how your online behavior is harvested to feed predictive AI engines, and practical steps you can take for digital self-defense.</p>
 <div class="card-links">
@@ -433,9 +1013,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="news" data-title="telecoms want to privatize the radio spectrum">
 <img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191689.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=9d5b4a2ba74fb35bfe619534f091536907194806b63e60a66a4b010fad27fb00" alt="Telecoms Want to Privatize the Radio Spectrum">
+<div class="card-header-row">
 <span class="article-tag tag-news">News</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>Telecoms Want to Privatize the Radio Spectrum</h3>
 <p>A deep dive into why the airwaves should remain a public commons, the push by corporate telecoms to privatize the radio spectrum, and how decentralized tools like LoRa and Meshtastic offer a path to communication autonomy.</p>
 <div class="card-links">
@@ -443,9 +1026,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="tech" data-title="over half of web traffic no longer involves human eyes">
 <img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191616.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=6422915943b5c45d8f7cdd08df8949a52d1bbafff46c07b05f68602c64eaa6d4" alt="Over Half of Web Traffic No Longer Involves Human Eyes">
+<div class="card-header-row">
 <span class="article-tag tag-ai">Tech</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>Over Half of Web Traffic No Longer Involves Human Eyes</h3>
 <p>As bots, scrapers, and autonomous AI agents surpass human activity on the web, this piece examines the profound shift toward an internet where content is increasingly generated, indexed, and consumed without human eyes.</p>
 <div class="card-links">
@@ -454,9 +1040,12 @@ nav a.nav-btn{display:none;}
 </div>
 <!-- ===== END NEW ARTICLES ===== -->
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="news" data-title="what happens when the world refuses the old rulebook?">
 <img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191529.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=2abd55f7bf29bda464461b39ada9c8b1cf0e7551e883dc12d5c3c4e51e283ced" alt="The Old Rulebook">
+<div class="card-header-row">
 <span class="article-tag tag-news">News</span>
+<span class="article-read-time">⏱️ 5 min read</span>
+</div>
 <h3>What Happens When the World Refuses the Old Rulebook?</h3>
 <p>A look at the accelerating collapse of the postwar rules-based international order, and what a world without a shared rulebook means for power, trade, and everyday people caught in the shift.</p>
 <div class="card-links">
@@ -464,9 +1053,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="privacy" data-title="your smart device is quietly listening, but not how you think">
 <img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191393.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=43c24853bcc39f8ed95b70f739bc3089148f666714b8a7b75733eb6935a217b1" alt="Smart Device Listening">
+<div class="card-header-row">
 <span class="article-tag tag-privacy">Privacy</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>Your Smart Device Is Quietly Listening, But Not How You Think</h3>
 <p>Your phone probably isn't secretly recording your conversations, but the real story is stranger: inaudible ultrasonic audio beacons that silently link your devices together to track you across screens and rooms.</p>
 <div class="card-links">
@@ -474,9 +1066,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="ai" data-title="what happens when ai replaces human relationships?">
 <img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191302.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=4dd5dbe462c1f40c5b0f5d9bddeb1d13e73527e2019b5d79a149a809f50df295" alt="AI Replaces Human Relationships">
+<div class="card-header-row">
 <span class="article-tag tag-ai">AI</span>
+<span class="article-read-time">⏱️ 5 min read</span>
+</div>
 <h3>What Happens When AI Replaces Human Relationships?</h3>
 <p>Inside the multi-billion-dollar "loneliness machine": how AI companionship apps engineer frictionless intimacy, why that's so seductive, and what it could mean for human connection long-term.</p>
 <div class="card-links">
@@ -484,9 +1079,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="tech" data-title="social algorithms are engineered to make us hate each other">
 <img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191217.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=53f67d04865502e7ba0dcc4b8112ba4fa3099667be02e8d6ce0ab3a19ef41c73" alt="Social Algorithms and Division">
+<div class="card-header-row">
 <span class="article-tag tag-ai">Tech</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>Social Algorithms Are Engineered to Make Us Hate Each Other</h3>
 <p>Outrage keeps people scrolling, and platforms know it. This piece breaks down how engagement-driven social algorithms are built to amplify conflict and division, and why that's a feature, not a bug.</p>
 <div class="card-links">
@@ -494,9 +1092,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="finance" data-title="the death of paper money is the end of privacy">
 <img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191148.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=b2668e640ec061099a097df5a43fdd2d7d356373b1be4108834046fec1e245e3" alt="Death of Paper Money">
+<div class="card-header-row">
 <span class="article-tag tag-finance">Finance</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>The Death of Paper Money is the End of Privacy</h3>
 <p>As cash disappears and digital, fully-traceable payment rails take over, this article examines what's really lost when every transaction becomes a permanent, searchable record.</p>
 <div class="card-links">
@@ -504,9 +1105,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="ai" data-title="why google ai pro is silently winning the frontier tech war">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/9af1fc638af535f1ce9dc5ce4652378993d954425ccb35bba17d2039e0cc2b86.jpg" alt="Google AI Pro">
+<div class="card-header-row">
 <span class="article-tag tag-ai">AI</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>Why Google AI Pro Is Silently Winning the Frontier Tech War</h3>
 <p>This article explores how Google is quietly establishing a dominant position in the artificial intelligence landscape amidst the noise of the broader industry.</p>
 <div class="card-links">
@@ -514,9 +1118,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="tech" data-title="how vibe coding is rewiring geopolitics, power, and the web">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/82acc08ab8a4eb2b98138e026b44f4e2c27b879adba84bcc2ad56e116e94c9a5.jpg" alt="Vibe Coding">
+<div class="card-header-row">
 <span class="article-tag tag-ai">Tech</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>How Vibe Coding Is Rewiring Geopolitics, Power, and the Web</h3>
 <p>The rise of "vibe coding"—creating software by describing goals to AI in natural language—is lowering the barrier to entry and fundamentally altering global power structures and security.</p>
 <div class="card-links">
@@ -524,9 +1131,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="crypto" data-title="inside the secret multi-trillion dollar machine-to-machine economy">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/04f75aa78ddfecb18f02b1cbd97c808c73b012a17b452edcd413df3fba6b6597.jpg" alt="Machine-to-Machine Economy">
+<div class="card-header-row">
 <span class="article-tag tag-finance">Crypto</span>
+<span class="article-read-time">⏱️ 5 min read</span>
+</div>
 <h3>Inside the Secret Multi-Trillion Dollar Machine-to-Machine Economy</h3>
 <p>Autonomous AI agents are establishing a post-human economy using cryptocurrency as the primary payment primitive to transact and move capital at unprecedented speeds.</p>
 <div class="card-links">
@@ -534,9 +1144,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="security" data-title="anthropic unlocks its restricted cyber-weapon ai">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/0923edea6011ca9288919f2c2fec74e4552c4434b85f66c6e8aca765f62ce2ac.jpg" alt="Anthropic Cyber-Weapon">
+<div class="card-header-row">
 <span class="article-tag tag-security">Security</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>Anthropic Unlocks Its Restricted Cyber-Weapon AI</h3>
 <p>A look at the alleged development and potential release of Anthropic's "Mythos-class" model, a powerful AI capable of advanced offensive cyber warfare and vulnerability exploitation.</p>
 <div class="card-links">
@@ -544,9 +1157,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="privacy" data-title="how we traded privacy for convenience, and why ai might make it permanent">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/67b11e78fbf42738b2495a1a740ad59fd1d03cd5f8f8330ec1d2946a3a57c451.jpg" alt="Privacy vs Convenience">
+<div class="card-header-row">
 <span class="article-tag tag-privacy">Privacy</span>
+<span class="article-read-time">⏱️ 5 min read</span>
+</div>
 <h3>How We Traded Privacy for Convenience, and Why AI Might Make it Permanent</h3>
 <p>An exploration of the historical shift where individuals sacrificed personal privacy for modern conveniences, and how artificial intelligence might cement this loss permanently.</p>
 <div class="card-links">
@@ -554,9 +1170,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="tech" data-title="how decentralized autonomous robots are laying the brickwork for humanity's moon base">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/3d7ffec8b5d170a733d5f309208fed55351408c7473427b950536d99e7baf622.jpg" alt="Decentralized Autonomous Robots">
+<div class="card-header-row">
 <span class="article-tag tag-news">Tech</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>How Decentralized Autonomous Robots Are Laying the Brickwork for Humanity's Moon Base</h3>
 <p>This article explores the shift in space exploration strategy from "monolithic" engineering to a decentralized, multi-agent philosophy using swarms of smaller, modular robots to build infrastructure.</p>
 <div class="card-links">
@@ -564,9 +1183,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="ai" data-title="why big tech is buying up nuclear power plants">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/42a8d43542cfd27b81ec987f45ed441c9643087059c34782117272867befb978.jpg" alt="Big Tech Nuclear Power">
+<div class="card-header-row">
 <span class="article-tag tag-ai">AI</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>Why Big Tech is Buying Up Nuclear Power Plants</h3>
 <p>Major tech companies are investing heavily in nuclear energy infrastructure to secure the reliable, 24/7 "firm power" required to meet the massive electricity demands of Artificial Intelligence and data centers.</p>
 <div class="card-links">
@@ -574,9 +1196,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="crypto" data-title="the decentralized web was never meant for us">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/3a7efb609cc6956d9596676c99aba4193ae893244dc88a8686b6033e20eb0732.jpg" alt="The Decentralized Web">
+<div class="card-header-row">
 <span class="article-tag tag-ai">Web3</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>The Decentralized Web Was Never Meant for Us</h3>
 <p>Web3's clunky user experience and deterministic nature suggest that the decentralized web may not have been built for humans, but rather designed as the perfect infrastructure for autonomous AI agents.</p>
 <div class="card-links">
@@ -584,9 +1209,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="crypto" data-title="how torum left its global community in the dust">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/1f0b4a577015317be457e50ed3dbef50ca8432c3cef3065c177d7cd68b028fb9.jpg" alt="Torum Global Community">
+<div class="card-header-row">
 <span class="article-tag tag-finance">Crypto</span>
+<span class="article-read-time">⏱️ 5 min read</span>
+</div>
 <h3>How Torum Left Its Global Community in the Dust</h3>
 <p>A critical retrospective on how Torum, a once-promising Web3 SocialFi ecosystem, abandoned its global community by quietly pivoting into a localized fintech product without adequate transparency.</p>
 <div class="card-links">
@@ -594,9 +1222,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="news" data-title="why hantavirus is trending and why your toilet paper stash is safe">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/1e00438f428d47854df5fe2cf5e3cd8a364758dbdfec7f91232bc92f9c3f331f.jpg" alt="Why Hantavirus Is Trending">
+<div class="card-header-row">
 <span class="article-tag tag-news">News</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>Why Hantavirus Is Trending And Why Your Toilet Paper Stash Is Safe</h3>
 <p>The recent Hantavirus trend triggered by a cruise ship outbreak of the Andes virus is not a human-to-human pandemic threat like COVID-19. Here is why you shouldn't panic buy.</p>
 <div class="card-links">
@@ -604,9 +1235,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="crypto" data-title="why natix is sunsetting drive for something much bigger">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/bbc837c43540eb05e6a7fcaff965427ba35714b6094ce14bd99387ed8979fec6.jpg" alt="Why Natix is Sunsetting Drive">
+<div class="card-header-row">
 <span class="article-tag tag-finance">Crypto</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>Why Natix is Sunsetting Drive for Something Much Bigger</h3>
 <p>Natix is transitioning from its "Drive&" app to a more expansive "Natix Network" and DePIN ecosystem, focusing on decentralized physical infrastructure beyond just driving rewards.</p>
 <div class="card-links">
@@ -614,9 +1248,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="privacy" data-title="the great de-googling crisis">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/6e56fdc35e0f29203af8be36362ebdd7f2e193074456084635a75c21039644ff.jpg" alt="The Great De-Googling Crisis">
+<div class="card-header-row">
 <span class="article-tag tag-privacy">Privacy</span>
+<span class="article-read-time">⏱️ 5 min read</span>
+</div>
 <h3>The Great De-Googling Crisis</h3>
 <p>This article explores the "De-Googling" movement and the Calyx Institute's role in providing privacy-focused Android experiences, highlighting the challenges users face when "it just works" solutions fail.</p>
 <div class="card-links">
@@ -624,9 +1261,12 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<div class="article-card reveal">
+<div class="article-card reveal" data-category="security" data-title="decentralized communication? yes please">
 <img class="article-image" loading="lazy" src="https://cdn.publish0x.com/prod/fs/images/e1dc1c3dd1ef9c71f05c3ef3b1541ff460fe094f3de15cfeb262a612dec834d6.jpg" alt="Decentralized Communication? Yes Please">
+<div class="card-header-row">
 <span class="article-tag tag-security">Security</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
 <h3>Decentralized Communication? Yes Please</h3>
 <p>The vulnerability of relying on centralized communication towers is real. This piece advocates for decentralized solutions like mesh networks that allow direct device-to-device communication.</p>
 <div class="card-links">
@@ -634,8 +1274,179 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
+
+<div id="noArticlesState" style="display:none; text-align:center; padding:60px 20px; color:var(--muted);">
+  <div style="font-size:2.5rem; margin-bottom:12px;">🔍</div>
+  <p style="font-size:1.1rem; color:#fff; font-weight:600; margin-bottom:8px;">No matching articles found</p>
+  <p style="font-size:.85rem; max-width:400px; margin:0 auto 20px auto;">We couldn't find any articles matching your search or category filter.</p>
+  <button id="resetSearchBtn" class="btn-primary" style="cursor:pointer; border:none;">Clear Filters & Show All</button>
+</div>
+
+<div class="load-more-wrap" id="loadMoreWrap" style="text-align:center; margin-top:40px;">
+  <button id="loadMoreBtn" class="btn-load-more" aria-label="Load more articles">
+    Load More Articles <span id="loadMoreCounter">(Showing 9 of 25)</span>
+  </button>
+</div>
+
 </div>
 <p style="margin-top:28px;font-size:.74rem;color:#333;font-style:italic;">All articles are published for educational and informational purposes only. Nothing constitutes financial, investment, or legal advice. <a href="terms.html" style="color:var(--gold)">See full disclaimer →</a></p>
+</div>
+
+
+<!-- APPS & TOOLS ECOSYSTEM -->
+<div style="background:linear-gradient(180deg,#060612,#04040a);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+<div class="ecosystem-section" id="ecosystem">
+  <span class="section-label">Interactive Ecosystem</span>
+  <div class="section-title-row">
+    <div class="section-title">Hatty's Apps &amp; Tools</div>
+    <span class="ecosystem-subtitle">11 custom-built web apps, privacy utilities, productivity tools, and browser games.</span>
+  </div>
+
+  <div class="ecosystem-grid">
+    <!-- Quick-Pad -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">📝</div>
+        <span class="app-tag app-tag-prod">Productivity</span>
+      </div>
+      <h3>Quick-Pad</h3>
+      <p>A fast, minimalist in-browser scratchpad and markdown editor for instant thoughts, notes, and code snippets without account friction.</p>
+      <a class="app-link-btn" href="https://hatsquickpad.netlify.app" target="_blank" rel="noopener">
+        <span>Launch Quick-Pad</span><span class="arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- Local-Cast -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">📡</div>
+        <span class="app-tag app-tag-p2p">P2P Sharing</span>
+      </div>
+      <h3>Local-Cast</h3>
+      <p>Direct peer-to-peer file sharing and media casting across your local network. No cloud middlemen, zero tracking, and pure local speeds.</p>
+      <a class="app-link-btn" href="https://hattyhats.github.io/local-cast" target="_blank" rel="noopener">
+        <span>Launch Local-Cast</span><span class="arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- Data-Phone -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">📱</div>
+        <span class="app-tag app-tag-privacy">Privacy</span>
+      </div>
+      <h3>Data-Phone</h3>
+      <p>An interactive cellular plan comparison and mobile data analytics tool built for cost-conscious, privacy-minded users.</p>
+      <a class="app-link-btn" href="https://data-phone-app.onrender.com" target="_blank" rel="noopener">
+        <span>Launch Data-Phone</span><span class="arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- Open Focus -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">⏱️</div>
+        <span class="app-tag app-tag-prod">Deep Work</span>
+      </div>
+      <h3>Open Focus</h3>
+      <p>A distraction-free productivity timer and visual deep-work sanctuary designed to beat algorithm doomscrolling and keep you in flow.</p>
+      <a class="app-link-btn" href="https://hattyhats.github.io/Open-Focus" target="_blank" rel="noopener">
+        <span>Launch Open Focus</span><span class="arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- CaseBoard -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">📌</div>
+        <span class="app-tag">Research</span>
+      </div>
+      <h3>CaseBoard</h3>
+      <p>A digital pinboard and visual case-mapping canvas for investigative researchers, tech writers, and complex project planning.</p>
+      <a class="app-link-btn" href="https://case-board.netlify.app" target="_blank" rel="noopener">
+        <span>Launch CaseBoard</span><span class="arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- Hattys News -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">📰</div>
+        <span class="app-tag">News Feed</span>
+      </div>
+      <h3>Hattys News</h3>
+      <p>Curated tech, censorship-resistance, and decentralized web intelligence feed cutting through the mainstream media noise.</p>
+      <a class="app-link-btn" href="https://hattys-news.netlify.app" target="_blank" rel="noopener">
+        <span>Launch Hattys News</span><span class="arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- Hattys Universe -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">🌌</div>
+        <span class="app-tag">Portal</span>
+      </div>
+      <h3>Hattys Universe</h3>
+      <p>The central hub and interactive gateway connecting all decentralized experiments, creative projects, and multiverse portals.</p>
+      <a class="app-link-btn" href="https://hatty-universe.netlify.app" target="_blank" rel="noopener">
+        <span>Explore Universe</span><span class="arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- Privacy Gadgets Hub -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">🛡️</div>
+        <span class="app-tag app-tag-privacy">Hardware & Gear</span>
+      </div>
+      <h3>Privacy Gadgets Hub</h3>
+      <p>Curated showcase of battle-tested hardware, Faraday protection, hardware security keys, and tactical gear for digital self-defense.</p>
+      <a class="app-link-btn" href="https://privacy-gadgets-hub.netlify.app" target="_blank" rel="noopener">
+        <span>Explore Gadgets</span><span class="arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- Chill With Hatty -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">🎧</div>
+        <span class="app-tag">Audio Vibes</span>
+      </div>
+      <h3>Chill With Hatty</h3>
+      <p>Ambient cyberpunk soundscapes, background rain, and lofi focus audio designed to accompany reading, writing, and coding.</p>
+      <a class="app-link-btn" href="https://hattyhats.github.io/chill-with-hatty" target="_blank" rel="noopener">
+        <span>Listen & Chill</span><span class="arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- Stellar Assault -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">🚀</div>
+        <span class="app-tag app-tag-game">Arcade Game</span>
+      </div>
+      <h3>Stellar Assault</h3>
+      <p>An action-packed retro 2D arcade space shooter built directly in JavaScript. Dodge asteroid fields and blast alien swarms in your browser.</p>
+      <a class="app-link-btn" href="https://hattyhats.github.io/StellarAssault" target="_blank" rel="noopener">
+        <span>Play Game</span><span class="arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- Voi-Maze -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">🌀</div>
+        <span class="app-tag app-tag-game">Web3 Game</span>
+      </div>
+      <h3>Voi-Maze</h3>
+      <p>An interactive labyrinth adventure built for the community-driven Voi blockchain ecosystem. Solve dynamic mazes and discover hidden secrets.</p>
+      <a class="app-link-btn" href="https://hattyhats.github.io/voi-maze" target="_blank" rel="noopener">
+        <span>Play Voi-Maze</span><span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</div>
 </div>
 
 <!-- DONATE -->
@@ -651,6 +1462,81 @@ nav a.nav-btn{display:none;}
 <a class="donate-btn" href="https://cash.app/$hattyhatss" target="_blank" rel="noopener">Open Cash App</a>
 <a class="donate-btn" style="background:linear-gradient(180deg,#ffdd00,#ffb700);color:#111;text-shadow:none;box-shadow:0 4px 14px rgba(255,200,0,0.2);" href="https://buymeacoffee.com/hatty" target="_blank" rel="noopener">Buy Me a Coffee</a>
 </div>
+
+<div class="crypto-tip-box">
+  <div class="crypto-tip-heading">
+    <div class="crypto-tip-title">
+      <span>🪙</span>
+      <span>Web3 & Crypto Tip Jar</span>
+    </div>
+    <span class="crypto-tip-badge">Instant 1-Click Copy</span>
+  </div>
+  <p style="font-size:.84rem; color:var(--muted); line-height:1.6; margin-bottom:20px;">
+    Prefer on-chain support? Send directly to any of the addresses below across major blockchains. Click any address to instantly copy it.
+  </p>
+  <div class="crypto-grid">
+    <!-- BITCOIN -->
+    <div class="crypto-card">
+      <div class="crypto-card-top">
+        <div class="coin-icon-bubble icon-btc">₿</div>
+        <div class="coin-meta">
+          <div class="coin-name">Bitcoin</div>
+          <span class="coin-net">BTC (Native SegWit)</span>
+        </div>
+      </div>
+      <div class="crypto-addr-box">
+        <code id="addr-btc">bc1qe78kku3yd58tkzjxkzs8hc84eclhswpenz5pm2</code>
+        <button class="btn-copy-addr" onclick="copyCrypto('addr-btc', this)">Copy</button>
+      </div>
+    </div>
+
+    <!-- ETHEREUM -->
+    <div class="crypto-card">
+      <div class="crypto-card-top">
+        <div class="coin-icon-bubble icon-eth">Ξ</div>
+        <div class="coin-meta">
+          <div class="coin-name">Ethereum / EVM</div>
+          <span class="coin-net">ETH, USDT, USDC (Arbitrum / Base)</span>
+        </div>
+      </div>
+      <div class="crypto-addr-box">
+        <code id="addr-eth">0x583C7b25ddDF3f205cF31FF76CC608Cc5F206B46</code>
+        <button class="btn-copy-addr" onclick="copyCrypto('addr-eth', this)">Copy</button>
+      </div>
+    </div>
+
+    <!-- SOLANA -->
+    <div class="crypto-card">
+      <div class="crypto-card-top">
+        <div class="coin-icon-bubble icon-sol">◎</div>
+        <div class="coin-meta">
+          <div class="coin-name">Solana</div>
+          <span class="coin-net">SOL / SPL Tokens</span>
+        </div>
+      </div>
+      <div class="crypto-addr-box">
+        <code id="addr-sol">DWFaMQKVD7iixc9X7pk5tYmZhuHmefwBvPEw78M4A2dS</code>
+        <button class="btn-copy-addr" onclick="copyCrypto('addr-sol', this)">Copy</button>
+      </div>
+    </div>
+
+    <!-- CARDANO -->
+    <div class="crypto-card">
+      <div class="crypto-card-top">
+        <div class="coin-icon-bubble icon-ada">₳</div>
+        <div class="coin-meta">
+          <div class="coin-name">Cardano</div>
+          <span class="coin-net">ADA Handle / Cardano</span>
+        </div>
+      </div>
+      <div class="crypto-addr-box">
+        <code id="addr-ada">$hattyhats</code>
+        <button class="btn-copy-addr" onclick="copyCrypto('addr-ada', this)">Copy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 </section>
 
@@ -873,6 +1759,7 @@ dd.addEventListener('click',function(e){e.stopPropagation();});
 
 /* CUSTOM CURSOR */
 (function(){
+if(window.matchMedia && window.matchMedia('(hover: none) or (pointer: coarse)').matches) return;
 var c=document.getElementById('cursor');
 var r=document.getElementById('cursor-ring');
 if(!c||!r)return;
@@ -957,28 +1844,46 @@ var splashEl=document.getElementById('splash');
 if(splashEl)observer.observe(splashEl,{attributes:true,attributeFilter:['class']});
 })();
 
-/* SPLASH CONTROL + MUSIC TOGGLE */
+/* SPLASH CONTROL + MUSIC TOGGLE (WITH RETURNING VISITOR & CLICK TO SKIP) */
 (function(){
 var splash=document.getElementById('splash');
 var audio=document.getElementById('splashAudio');
 var toggle=document.getElementById('musicToggle');
 var label=document.getElementById('musicLabel');
-document.body.style.overflow='hidden';
 var isPlaying=false;
+
 function setPlaying(val){
 isPlaying=val;
 if(val){toggle.classList.add('playing');label.textContent='Music On';}
 else{toggle.classList.remove('playing');label.textContent='Music';}
 }
+
+var hasSeenSplash = false;
+try {
+  hasSeenSplash = sessionStorage.getItem('hatty_splash_seen') === '1';
+} catch(e){}
+
 window.enterSite=function(){
+try { sessionStorage.setItem('hatty_splash_seen', '1'); } catch(e){}
 if(audio)audio.volume=0.45;
-splash.classList.add('hidden');
-setTimeout(function(){
-splash.style.display='none';
-document.body.style.overflow='';
-},850);
+if(splash){
+  splash.classList.add('hidden');
+  setTimeout(function(){
+    splash.style.display='none';
+    document.body.style.overflow='';
+  },850);
+}
 };
-setTimeout(window.enterSite,4200);
+
+if(hasSeenSplash && splash){
+  splash.style.display='none';
+  document.body.style.overflow='';
+} else {
+  document.body.style.overflow='hidden';
+  if(splash) splash.addEventListener('click', window.enterSite);
+  setTimeout(window.enterSite,4200);
+}
+
 if(toggle&&audio){
 toggle.addEventListener('click',function(){
 if(isPlaying){audio.pause();setPlaying(false);}
@@ -988,6 +1893,165 @@ audio.addEventListener('pause',function(){setPlaying(false);});
 audio.addEventListener('play',function(){setPlaying(true);});
 }
 })();
+
+/* TOAST NOTIFICATION */
+function showToast(msg){
+  var t = document.getElementById('hattyToast');
+  var m = document.getElementById('toastMsg');
+  if(!t) return;
+  if(m) m.textContent = msg || 'Copied to clipboard!';
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2200);
+}
+
+/* CRYPTO COPY FUNCTION */
+window.copyCrypto = function(id, btn){
+  var el = document.getElementById(id);
+  if(!el) return;
+  var text = el.textContent.trim();
+  navigator.clipboard.writeText(text).then(function(){
+    var oldText = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    showToast('Copied address to clipboard!');
+    setTimeout(function(){
+      btn.textContent = oldText;
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(function(){
+    showToast('Failed to copy');
+  });
+};
+
+/* ARTICLE FILTER, SEARCH & PAGINATION */
+(function(){
+  var cards = Array.from(document.querySelectorAll('#articlesGrid .article-card'));
+  var pills = document.querySelectorAll('.cat-pill');
+  var searchInput = document.getElementById('articleSearch');
+  var clearBtn = document.getElementById('searchClearBtn');
+  var countBadge = document.getElementById('articlesCountBadge');
+  var noArticles = document.getElementById('noArticlesState');
+  var resetBtn = document.getElementById('resetSearchBtn');
+  var loadMoreBtn = document.getElementById('loadMoreBtn');
+  var loadMoreWrap = document.getElementById('loadMoreWrap');
+  var loadMoreCounter = document.getElementById('loadMoreCounter');
+
+  if(!cards.length) return;
+
+  var currentCat = 'all';
+  var searchQuery = '';
+  var PAGE_SIZE = 9;
+  var visibleLimit = PAGE_SIZE;
+
+  function updateDisplay(){
+    var filtered = cards.filter(function(card){
+      var cardCat = (card.getAttribute('data-category') || '').toLowerCase();
+      var cardTitle = (card.getAttribute('data-title') || '').toLowerCase();
+      var cardText = card.textContent.toLowerCase();
+
+      var matchesCat = (currentCat === 'all') || (cardCat === currentCat);
+      var matchesSearch = !searchQuery || cardTitle.indexOf(searchQuery) !== -1 || cardText.indexOf(searchQuery) !== -1;
+
+      return matchesCat && matchesSearch;
+    });
+
+    // Update count badge
+    if(countBadge){
+      if(filtered.length === cards.length){
+        countBadge.innerHTML = 'Showing <strong>' + filtered.length + '</strong> articles';
+      } else {
+        countBadge.innerHTML = 'Showing <strong>' + filtered.length + '</strong> of <strong>' + cards.length + '</strong> articles';
+      }
+    }
+
+    // Toggle No Articles state
+    if(filtered.length === 0){
+      cards.forEach(function(c){ c.style.display = 'none'; });
+      if(noArticles) noArticles.style.display = 'block';
+      if(loadMoreWrap) loadMoreWrap.style.display = 'none';
+      return;
+    } else {
+      if(noArticles) noArticles.style.display = 'none';
+    }
+
+    // Apply pagination to filtered list
+    cards.forEach(function(c){ c.style.display = 'none'; });
+
+    var toShow = filtered.slice(0, visibleLimit);
+    toShow.forEach(function(c){
+      c.style.display = 'flex';
+      c.classList.add('visible');
+    });
+
+    // Update Load More button
+    if(loadMoreWrap){
+      if(toShow.length < filtered.length){
+        loadMoreWrap.style.display = 'block';
+        if(loadMoreCounter){
+          loadMoreCounter.textContent = '(Showing ' + toShow.length + ' of ' + filtered.length + ')';
+        }
+      } else {
+        loadMoreWrap.style.display = 'none';
+      }
+    }
+  }
+
+  // Pill click handlers
+  pills.forEach(function(pill){
+    pill.addEventListener('click', function(){
+      pills.forEach(function(p){ p.classList.remove('active'); });
+      pill.classList.add('active');
+      currentCat = pill.getAttribute('data-cat') || 'all';
+      visibleLimit = PAGE_SIZE; // reset pagination
+      updateDisplay();
+    });
+  });
+
+  // Search input handlers
+  if(searchInput){
+    searchInput.addEventListener('input', function(e){
+      searchQuery = e.target.value.trim().toLowerCase();
+      if(clearBtn) clearBtn.style.display = searchQuery ? 'block' : 'none';
+      visibleLimit = PAGE_SIZE; // reset pagination
+      updateDisplay();
+    });
+  }
+
+  if(clearBtn){
+    clearBtn.addEventListener('click', function(){
+      if(searchInput) searchInput.value = '';
+      searchQuery = '';
+      clearBtn.style.display = 'none';
+      visibleLimit = PAGE_SIZE;
+      updateDisplay();
+      if(searchInput) searchInput.focus();
+    });
+  }
+
+  if(resetBtn){
+    resetBtn.addEventListener('click', function(){
+      if(searchInput) searchInput.value = '';
+      searchQuery = '';
+      if(clearBtn) clearBtn.style.display = 'none';
+      currentCat = 'all';
+      pills.forEach(function(p){ p.classList.toggle('active', p.getAttribute('data-cat') === 'all'); });
+      visibleLimit = PAGE_SIZE;
+      updateDisplay();
+    });
+  }
+
+  // Load More click handler
+  if(loadMoreBtn){
+    loadMoreBtn.addEventListener('click', function(){
+      visibleLimit += 6;
+      updateDisplay();
+    });
+  }
+
+  updateDisplay();
+})();
+
 </script>
+<div id="hattyToast"><span>✓</span> <span id="toastMsg">Address copied to clipboard!</span></div>
 </body>
 </html>
