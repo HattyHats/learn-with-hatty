@@ -785,6 +785,40 @@ nav a.nav-btn{display:none;}
   transform: translateX(3px);
 }
 
+
+/* SPLASH HAT (FLOATING BEHIND WORDS) */
+#splash {
+  padding-top: 80px;
+}
+#splash-hat-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding-top: 80px;
+  pointer-events: none;
+  z-index: 2;
+}
+#splash-hat-inner {
+  position: relative;
+  will-change: transform;
+  transform-style: preserve-3d;
+  animation: hatFloat 4s ease-in-out infinite;
+}
+@media (max-width: 820px) {
+  #splash, #splash-hat-wrapper {
+    padding-top: 80px;
+  }
+}
+@media (max-width: 520px) {
+  #splash, #splash-hat-wrapper {
+    padding-top: 90px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -800,6 +834,14 @@ nav a.nav-btn{display:none;}
 <div class="splash-glow"></div>
 <canvas id="splashCodeSpace"></canvas>
 <div class="splash-lines"></div>
+
+<!-- SPLASH HAT (FLOATING BEHIND WORDS) -->
+<div id="splash-hat-wrapper">
+  <div id="splash-hat-inner">
+    <img class="hat-img" src="grey-hat-nb.png" alt="HattyHats baseball cap" fetchpriority="high">
+  </div>
+</div>
+
 <div class="splash-content">
 <div class="splash-welcome">Welcome To</div>
 <div class="splash-title">Learn With <span class="splash-hatty" data-text="Hatty">Hatty</span></div>
