@@ -25,6 +25,9 @@
 <meta name="twitter:image" content="https://earnwithhatty.com/grey-hat-nb.png">
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6374033238930580" crossorigin="anonymous"></script>
+<link rel="dns-prefetch" href="https://www.publish0x.com">
+<link rel="preconnect" href="https://www.publish0x.com" crossorigin>
+<link rel="dns-prefetch" href="https://api.coingecko.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -32,11 +35,20 @@
 :root{--gold:#f0a500;--gold-dim:#c07800;--bg:#04040a;--surface:#0e0e1c;--surface2:#141426;--border:#2a2a46;--text:#e8e8f0;--muted:#666680;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
 
-/* CURSOR */
-#cursor{position:fixed;width:12px;height:12px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:200000;transform:translate3d(-50%,-50%,0);transition:width .2s, height .2s, opacity .2s;mix-blend-mode:screen;top:0;left:0;will-change:transform, width, height;}
-#cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--gold);border-radius:50%;opacity:.4;pointer-events:none;z-index:199999;transform:translate3d(-50%,-50%,0);transition:width .2s,height .2s,opacity .2s;top:0;left:0;will-change:transform, width, height;}
+:root {
+  --cursor-arrow: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%20%20%20%3Cdefs%3E%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ffffff%22/%3E%20%20%20%20%20%20%20%3Cstop%20offset%3D%2245%25%22%20stop-color%3D%22%23d6dae4%22/%3E%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238a94a8%22/%3E%20%20%20%20%20%3C/linearGradient%3E%20%20%20%3C/defs%3E%20%20%20%3Cpath%20d%3D%22M%202%2C2%20L%202%2C21%20L%207.5%2C15.5%20L%2011.2%2C24%20L%2014.2%2C22.7%20L%2010.5%2C14.5%20L%2017%2C14.5%20Z%22%20%20%20%20%20%20%20%20%20%20fill%3D%22none%22%20stroke%3D%22rgba%28160%2C175%2C205%2C0.38%29%22%20stroke-width%3D%225%22%20stroke-linejoin%3D%22round%22/%3E%20%20%20%3Cpath%20d%3D%22M%202%2C2%20L%202%2C21%20L%207.5%2C15.5%20L%2011.2%2C24%20L%2014.2%2C22.7%20L%2010.5%2C14.5%20L%2017%2C14.5%20Z%22%20%20%20%20%20%20%20%20%20%20fill%3D%22none%22%20stroke%3D%22rgba%28220%2C230%2C248%2C0.85%29%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22round%22/%3E%20%20%20%3Cpath%20d%3D%22M%202%2C2%20L%202%2C21%20L%207.5%2C15.5%20L%2011.2%2C24%20L%2014.2%2C22.7%20L%2010.5%2C14.5%20L%2017%2C14.5%20Z%22%20%20%20%20%20%20%20%20%20%20fill%3D%22%230b0d14%22%20stroke%3D%22%230b0d14%22%20stroke-width%3D%221.2%22%20stroke-linejoin%3D%22round%22/%3E%20%20%20%3Cpath%20d%3D%22M%202%2C2%20L%202%2C21%20L%207.5%2C15.5%20L%2011.2%2C24%20L%2014.2%2C22.7%20L%2010.5%2C14.5%20L%2017%2C14.5%20Z%22%20%20%20%20%20%20%20%20%20%20fill%3D%22url%28%23g%29%22/%3E%20%20%20%3Cpolygon%20points%3D%223.5%2C4%203.5%2C18%207.5%2C14%2010%2C13.2%203.5%2C4%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.6%29%22/%3E%20%3C/svg%3E") 2 2, default;
+  --cursor-pointer: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%20%20%20%3Cdefs%3E%20%20%20%20%20%3ClinearGradient%20id%3D%22gp%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ffffff%22/%3E%20%20%20%20%20%20%20%3Cstop%20offset%3D%2245%25%22%20stop-color%3D%22%23d6dae4%22/%3E%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238a94a8%22/%3E%20%20%20%20%20%3C/linearGradient%3E%20%20%20%3C/defs%3E%20%20%20%3Cg%3E%20%20%20%20%20%3Cpath%20d%3D%22M9%2C2%20C7.9%2C2%207%2C2.9%207%2C4%20L7%2C13%20L6.2%2C12.6%20C5.2%2C12%204%2C12.2%203.3%2C13.1%20C2.6%2C14%202.7%2C15.2%203.6%2C15.9%20L9.5%2C21.5%20C11%2C23%2013.1%2C23.9%2015.3%2C23.9%20L17.5%2C23.9%20C20.7%2C23.9%2023.3%2C21.3%2023.3%2C18.1%20L23.3%2C11.2%20C23.3%2C10.1%2022.4%2C9.2%2021.3%2C9.2%20C21%2C9.2%2020.7%2C9.3%2020.4%2C9.4%20C20.1%2C8.4%2019.2%2C7.7%2018.1%2C7.7%20C17.7%2C7.7%2017.3%2C7.8%2017%2C8%20C16.6%2C7.1%2015.6%2C6.4%2014.5%2C6.4%20C14.1%2C6.4%2013.8%2C6.5%2013.5%2C6.7%20L13.5%2C4%20C13.5%2C2.9%2012.6%2C2%2011.5%2C2%20Z%22%20%20%20%20%20%20%20%20%20%20%20fill%3D%22none%22%20stroke%3D%22rgba%28160%2C175%2C205%2C0.38%29%22%20stroke-width%3D%225%22%20stroke-linejoin%3D%22round%22/%3E%20%20%20%20%20%3Cpath%20d%3D%22M9%2C2%20C7.9%2C2%207%2C2.9%207%2C4%20L7%2C13%20L6.2%2C12.6%20C5.2%2C12%204%2C12.2%203.3%2C13.1%20C2.6%2C14%202.7%2C15.2%203.6%2C15.9%20L9.5%2C21.5%20C11%2C23%2013.1%2C23.9%2015.3%2C23.9%20L17.5%2C23.9%20C20.7%2C23.9%2023.3%2C21.3%2023.3%2C18.1%20L23.3%2C11.2%20C23.3%2C10.1%2022.4%2C9.2%2021.3%2C9.2%20C21%2C9.2%2020.7%2C9.3%2020.4%2C9.4%20C20.1%2C8.4%2019.2%2C7.7%2018.1%2C7.7%20C17.7%2C7.7%2017.3%2C7.8%2017%2C8%20C16.6%2C7.1%2015.6%2C6.4%2014.5%2C6.4%20C14.1%2C6.4%2013.8%2C6.5%2013.5%2C6.7%20L13.5%2C4%20C13.5%2C2.9%2012.6%2C2%2011.5%2C2%20Z%22%20%20%20%20%20%20%20%20%20%20%20fill%3D%22none%22%20stroke%3D%22rgba%28220%2C230%2C248%2C0.85%29%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22round%22/%3E%20%20%20%20%20%3Cpath%20d%3D%22M9%2C2%20C7.9%2C2%207%2C2.9%207%2C4%20L7%2C13%20L6.2%2C12.6%20C5.2%2C12%204%2C12.2%203.3%2C13.1%20C2.6%2C14%202.7%2C15.2%203.6%2C15.9%20L9.5%2C21.5%20C11%2C23%2013.1%2C23.9%2015.3%2C23.9%20L17.5%2C23.9%20C20.7%2C23.9%2023.3%2C21.3%2023.3%2C18.1%20L23.3%2C11.2%20C23.3%2C10.1%2022.4%2C9.2%2021.3%2C9.2%20C21%2C9.2%2020.7%2C9.3%2020.4%2C9.4%20C20.1%2C8.4%2019.2%2C7.7%2018.1%2C7.7%20C17.7%2C7.7%2017.3%2C7.8%2017%2C8%20C16.6%2C7.1%2015.6%2C6.4%2014.5%2C6.4%20C14.1%2C6.4%2013.8%2C6.5%2013.5%2C6.7%20L13.5%2C4%20C13.5%2C2.9%2012.6%2C2%2011.5%2C2%20Z%22%20%20%20%20%20%20%20%20%20%20%20fill%3D%22%230b0d14%22%20stroke%3D%22%230b0d14%22%20stroke-width%3D%221.2%22%20stroke-linejoin%3D%22round%22/%3E%20%20%20%20%20%3Cpath%20d%3D%22M9%2C2%20C7.9%2C2%207%2C2.9%207%2C4%20L7%2C13%20L6.2%2C12.6%20C5.2%2C12%204%2C12.2%203.3%2C13.1%20C2.6%2C14%202.7%2C15.2%203.6%2C15.9%20L9.5%2C21.5%20C11%2C23%2013.1%2C23.9%2015.3%2C23.9%20L17.5%2C23.9%20C20.7%2C23.9%2023.3%2C21.3%2023.3%2C18.1%20L23.3%2C11.2%20C23.3%2C10.1%2022.4%2C9.2%2021.3%2C9.2%20C21%2C9.2%2020.7%2C9.3%2020.4%2C9.4%20C20.1%2C8.4%2019.2%2C7.7%2018.1%2C7.7%20C17.7%2C7.7%2017.3%2C7.8%2017%2C8%20C16.6%2C7.1%2015.6%2C6.4%2014.5%2C6.4%20C14.1%2C6.4%2013.8%2C6.5%2013.5%2C6.7%20L13.5%2C4%20C13.5%2C2.9%2012.6%2C2%2011.5%2C2%20Z%22%20%20%20%20%20%20%20%20%20%20%20fill%3D%22url%28%23gp%29%22/%3E%20%20%20%3C/g%3E%20%3C/svg%3E") 9 2, pointer;
+}
+
+html, body {
+  cursor: var(--cursor-arrow);
+}
+
+a, button, [role=button], input[type=button], input[type=submit], .btn-primary, .app-link-btn, .cat-pill, .btn-copy-addr, .house-ad, .nav-dropdown-toggle, .nav-btn, .btn-bulb, .btn-share-x, .splash-skip-btn, .splash-enter {
+  cursor: var(--cursor-pointer) !important;
+}
 
 /* COOKIE BANNER */
 #cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(180deg,#0e0e20,#07070f);border-top:1px solid #f0a50055;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;box-shadow:0 -4px 32px #00000090;}
@@ -216,7 +228,7 @@ header{z-index:1000;}
 .price-bar{z-index:999;}
 #scene{z-index:1;}
 .content-wrapper{z-index:2;position:relative;}
-#cursor,#cursor-ring{z-index:200000;}
+
 #cookie-banner{z-index:9999;}
 
 /* RESPONSIVE */
@@ -242,25 +254,25 @@ nav a.nav-btn{display:none;}
 #splash{display:flex;flex-direction:column;align-items:center;justify-content:center;}
 
 /* SPLASH SCREEN */
-#splash{position:fixed;inset:0;z-index:100000;background:#02020a;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;cursor:none;}
+#splash{position:fixed;inset:0;z-index:100000;background:#02020a;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;cursor:var(--cursor-arrow);}
 #splash.hidden{opacity:0;pointer-events:none;transition:opacity .8s ease;}
 #splashCodeSpace{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;}
 .splash-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(ellipse,rgba(240,165,0,.18) 0%,transparent 68%);top:50%;left:50%;transform:translate(-50%,-50%);animation:splashGlowPulse 3s ease-in-out infinite;z-index:0;}
 @keyframes splashGlowPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.7;}50%{transform:translate(-50%,-50%) scale(1.12);opacity:1;}}
 .splash-lines{position:absolute;inset:0;z-index:3;pointer-events:none;background:repeating-linear-gradient(0deg, transparent,transparent 3px, rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px);}
 .splash-content{position:relative;z-index:4;text-align:center;padding:0 24px;display:flex;flex-direction:column;align-items:center;gap:0;}
-.splash-welcome{font-family:'DM Mono',monospace;font-size:clamp(1rem,2.5vw,1.5rem);letter-spacing:6px;text-transform:uppercase;color:#c8a84a;opacity:0;animation:splashFadeIn .9s ease forwards;animation-delay:.6s;text-shadow:0 0 24px rgba(240,165,0,.5);margin-bottom:10px;}
-.splash-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,7rem);letter-spacing:5px;line-height:.9;color:#fff;opacity:0;animation:splashFadeIn 1s ease forwards;animation-delay:1.3s;text-shadow:0 0 50px rgba(240,165,0,.6),0 0 100px rgba(240,165,0,.3),0 4px 20px rgba(0,0,0,1);margin-bottom:6px;}
+.splash-welcome{font-family:'DM Mono',monospace;font-size:clamp(1rem,2.5vw,1.5rem);letter-spacing:6px;text-transform:uppercase;color:#c8a84a;opacity:0;animation:splashFadeIn .9s ease forwards;animation-delay:.15s;text-shadow:0 0 24px rgba(240,165,0,.5);margin-bottom:10px;}
+.splash-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,7rem);letter-spacing:5px;line-height:.9;color:#fff;opacity:0;animation:splashFadeIn 1s ease forwards;animation-delay:.45s;text-shadow:0 0 50px rgba(240,165,0,.6),0 0 100px rgba(240,165,0,.3),0 4px 20px rgba(0,0,0,1);margin-bottom:6px;}
 .splash-title .splash-hatty{color:var(--gold);position:relative;display:inline-block;animation:splashTitleGlitch 5s 2.5s infinite;}
 .splash-title .splash-hatty::before,.splash-title .splash-hatty::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;}
 .splash-title .splash-hatty::before{color:#ff003c;animation:splashGlitchTop 5s 2.5s infinite;clip-path:polygon(0 0,100% 0,100% 40%,0 40%);}
 .splash-title .splash-hatty::after{color:#00f0ff;animation:splashGlitchBot 5s 2.5s infinite;clip-path:polygon(0 60%,100% 60%,100% 100%,0 100%);}
-.splash-byline{font-family:'DM Mono',monospace;font-size:clamp(.75rem,1.8vw,1rem);letter-spacing:4px;text-transform:uppercase;color:#888;opacity:0;animation:splashFadeIn .8s ease forwards;animation-delay:2s;margin-bottom:36px;}
+.splash-byline{font-family:'DM Mono',monospace;font-size:clamp(.75rem,1.8vw,1rem);letter-spacing:4px;text-transform:uppercase;color:#888;opacity:0;animation:splashFadeIn .8s ease forwards;animation-delay:.8s;margin-bottom:36px;}
 .splash-byline .splash-hattyhats{color:#aaa;position:relative;display:inline-block;animation:splashBylineGlitch 7s 3s infinite;}
 .splash-byline .splash-hattyhats::before,.splash-byline .splash-hattyhats::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;}
 .splash-byline .splash-hattyhats::before{color:#ff003c55;animation:splashGlitchTopSm 7s 3s infinite;clip-path:polygon(0 0,100% 0,100% 45%,0 45%);}
 .splash-byline .splash-hattyhats::after{color:#00f0ff55;animation:splashGlitchBotSm 7s 3s infinite;clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%);}
-.splash-enter{opacity:0;animation:splashFadeIn .8s ease forwards;animation-delay:2.7s;}
+.splash-enter{opacity:0;animation:splashFadeIn .8s ease forwards;animation-delay:1.1s;}
 .splash-loader{width:46px;height:46px;border:4px solid rgba(240,165,0,.15);border-top-color:var(--gold);border-radius:50%;animation:splashSpin 1s linear infinite;margin:0 auto;}
 @keyframes splashSpin{to{transform:rotate(360deg);}}
 @keyframes splashFadeIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
@@ -651,7 +663,7 @@ nav a.nav-btn{display:none;}
 
 @media (hover: none) or (pointer: coarse) {
   body, #splash { cursor: auto !important; }
-  #cursor, #cursor-ring { display: none !important; opacity: 0 !important; pointer-events: none !important; }
+  #cursor { display: none !important; opacity: 0 !important; pointer-events: none !important; }
 }
 
 
@@ -853,9 +865,7 @@ nav a.nav-btn{display:none;}
 </div>
 </div>
 
-<!-- CURSOR -->
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
+<!-- GLOWING GREY NATIVE CURSOR ENABLED -->
 
 <!-- COOKIE BANNER -->
 <div id="cookie-banner" role="dialog" aria-label="Cookie consent" style="display:none">
@@ -883,6 +893,7 @@ nav a.nav-btn{display:none;}
 <div class="nav-dropdown" id="navDropdown">
 <span class="nav-dropdown-toggle" id="navDropdownToggle" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Sites</span>
 <div class="nav-dropdown-menu" role="menu">
+<a href="https://hattyhats.github.io/Hatty-s-Media-Forge/" target="_blank" rel="noopener">Hatty's Media Forge</a>
 <a href="https://hattys-gif-maker.netlify.app/" target="_blank" rel="noopener">Hatty Gif Maker</a>
 <a href="https://hattyhats.github.io/token-tokens/" target="_blank" rel="noopener">Token-Tokens</a>
 <a href="https://hatsquickpad.netlify.app" target="_blank" rel="noopener">Quick-Pad</a>
@@ -943,15 +954,15 @@ nav a.nav-btn{display:none;}
 <!-- HOUSE ADS -->
 <div class="house-ad-strip" role="complementary" aria-label="Hatty's Picks">
 <div class="house-ad-wrap">
-<a class="house-ad house-ad-slice" href="https://addslice.com/?crew=VFFbJ" target="_blank" rel="noopener noreferrer" title="Hatty's Pick: Slice App"><img src="slice-app.gif" alt="Hatty's Pick: Try Slice App"></a>
+<a class="house-ad house-ad-slice" href="https://addslice.com/?crew=VFFbJ" target="_blank" rel="noopener noreferrer" title="Hatty's Pick: Slice App"><img src="slice-app.gif" alt="Hatty's Pick: Try Slice App" loading="lazy" decoding="async"></a>
 <span class="house-ad-label">Hatty's Pick</span>
 </div>
 <div class="house-ad-wrap">
-<a class="house-ad house-ad-focus" href="https://focus.xyz/?password=ET9A6HEH" target="_blank" rel="noopener noreferrer" title="Hatty's Pick: Focus"><img src="join_focus.gif" alt="Hatty's Pick: Try Focus"></a>
+<a class="house-ad house-ad-focus" href="https://focus.xyz/?password=ET9A6HEH" target="_blank" rel="noopener noreferrer" title="Hatty's Pick: Focus"><img src="join_focus.gif" alt="Hatty's Pick: Try Focus" loading="lazy" decoding="async"></a>
 <span class="house-ad-label">Hatty's Pick</span>
 </div>
 <div class="house-ad-wrap">
-<a class="house-ad house-ad-arena" href="https://arena.social/?ref=hattyhats" target="_blank" rel="noopener noreferrer" title="Hatty's Pick: The Arena"><img src="arena_gif.gif" alt="Hatty's Pick: Try The Arena"></a>
+<a class="house-ad house-ad-arena" href="https://arena.social/?ref=hattyhats" target="_blank" rel="noopener noreferrer" title="Hatty's Pick: The Arena"><img src="arena_gif.gif" alt="Hatty's Pick: Try The Arena" loading="lazy" decoding="async"></a>
 <span class="house-ad-label">Hatty's Pick</span>
 </div>
 </div>
@@ -994,7 +1005,7 @@ nav a.nav-btn{display:none;}
 
 <!-- ===== NEW ARTICLES ===== -->
 <div class="article-card reveal" data-category="finance" data-title="how an indoor grow tent beats grocery store inflation">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1193624.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=1140&signature=e5a84be37e3e29f4c82552de8697e8566653f41caa162cc05a0cbb48124680d3" alt="How an Indoor Grow Tent Beats Grocery Store Inflation">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1193624.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=1140&signature=e5a84be37e3e29f4c82552de8697e8566653f41caa162cc05a0cbb48124680d3" alt="How an Indoor Grow Tent Beats Grocery Store Inflation">
 <div class="card-header-row">
 <span class="article-tag tag-finance">Economics</span>
 <span class="article-read-time">⏱️ 4 min read</span>
@@ -1011,7 +1022,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="tech" data-title="people are hoarding dvds, cds, and paper books">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1193493.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=1140&signature=2ef6b39ae3b0564662b8c50c7f7e92b57f15a70e6ede065a4d6632992886fb5b" alt="People Are Hoarding DVDs, CDs, and Paper Books">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1193493.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=1140&signature=2ef6b39ae3b0564662b8c50c7f7e92b57f15a70e6ede065a4d6632992886fb5b" alt="People Are Hoarding DVDs, CDs, and Paper Books">
 <div class="card-header-row">
 <span class="article-tag tag-ai">Tech</span>
 <span class="article-read-time">⏱️ 5 min read</span>
@@ -1028,7 +1039,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="privacy" data-title="why everyday people are wiping their operating systems">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1193337.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=1140&signature=e6ac7c626a795eb3ecc3715109562c2b686f8ab6553ec628ac8455a0c09656d4" alt="Why Everyday People Are Wiping Their Operating Systems">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1193337.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=1140&signature=e6ac7c626a795eb3ecc3715109562c2b686f8ab6553ec628ac8455a0c09656d4" alt="Why Everyday People Are Wiping Their Operating Systems">
 <div class="card-header-row">
 <span class="article-tag tag-privacy">Privacy</span>
 <span class="article-read-time">⏱️ 4 min read</span>
@@ -1045,7 +1056,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="ai" data-title="did you pick what you bought today, or did an algorithm?">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1192828.webp?action=fit&ar=1&enc=webp&h=570&inv=0&ori=1&st=1&up=1&w=1140&signature=ffb5997a08166411c7731fdf46c19056ca999991b8e14ddc9fbcb519f1f60856" alt="Did You Pick What You Bought Today, or Did an Algorithm?">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1192828.webp?action=fit&ar=1&enc=webp&h=570&inv=0&ori=1&st=1&up=1&w=1140&signature=ffb5997a08166411c7731fdf46c19056ca999991b8e14ddc9fbcb519f1f60856" alt="Did You Pick What You Bought Today, or Did an Algorithm?">
 <div class="card-header-row">
 <span class="article-tag tag-ai">AI</span>
 <span class="article-read-time">⏱️ 4 min read</span>
@@ -1062,7 +1073,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="crypto" data-title="decentralized science is breaking academic gatekeepers">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1192585.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=dd1c861f236c878edf2560888d40a4a1be23b2bec325996bd34b447b021859a8" alt="Decentralized Science is Breaking Academic Gatekeepers">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1192585.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=dd1c861f236c878edf2560888d40a4a1be23b2bec325996bd34b447b021859a8" alt="Decentralized Science is Breaking Academic Gatekeepers">
 <div class="card-header-row">
 <span class="article-tag tag-ai">Web3</span>
 <span class="article-read-time">⏱️ 5 min read</span>
@@ -1079,7 +1090,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="ai" data-title="your phone is now a supercomputer">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1192448.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=b082354054e848cf7e3766d2a9d8b74407405034971a950365534913a37cf8a1" alt="Your Phone is Now a Supercomputer">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1192448.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=b082354054e848cf7e3766d2a9d8b74407405034971a950365534913a37cf8a1" alt="Your Phone is Now a Supercomputer">
 <div class="card-header-row">
 <span class="article-tag tag-ai">AI</span>
 <span class="article-read-time">⏱️ 4 min read</span>
@@ -1092,7 +1103,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="security" data-title="decentralized cloud storage beats big tech servers">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1192338.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=e19b31cf2a52dc264f4814c2331af1ffe1ad3f2eacde7a4cff7c6d7c0b7e1e15" alt="Decentralized Cloud Storage Beats Big Tech Servers">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1192338.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=e19b31cf2a52dc264f4814c2331af1ffe1ad3f2eacde7a4cff7c6d7c0b7e1e15" alt="Decentralized Cloud Storage Beats Big Tech Servers">
 <div class="card-header-row">
 <span class="article-tag tag-security">Security</span>
 <span class="article-read-time">⏱️ 5 min read</span>
@@ -1105,7 +1116,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="privacy" data-title="your data built silicon valley">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1192172.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=9e201d7abd0640d671666b9cd454c4068368b302852329b645dc482bae9353ff" alt="Your Data Built Silicon Valley">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1192172.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=9e201d7abd0640d671666b9cd454c4068368b302852329b645dc482bae9353ff" alt="Your Data Built Silicon Valley">
 <div class="card-header-row">
 <span class="article-tag tag-privacy">Privacy</span>
 <span class="article-read-time">⏱️ 4 min read</span>
@@ -1118,7 +1129,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="finance" data-title="ai bubbles, corporate money, and the coming economic reset">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191969.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=860cbc2914b76243aacbd532e05f79ebcf31134f60adb539fd8e843c506fcef1" alt="AI Bubbles, Corporate Money, and the Coming Economic Reset">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1191969.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=860cbc2914b76243aacbd532e05f79ebcf31134f60adb539fd8e843c506fcef1" alt="AI Bubbles, Corporate Money, and the Coming Economic Reset">
 <div class="card-header-row">
 <span class="article-tag tag-economics">Economics</span>
 <span class="article-read-time">⏱️ 5 min read</span>
@@ -1131,7 +1142,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="privacy" data-title="your digital footprint is worth more than gold">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191824.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=44f8cf376f5ccbdfd08ea51b95c2f9b6fbd206f5f9cde2d67db788d40a52b3d2" alt="Your Digital Footprint is Worth More Than Gold">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1191824.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=44f8cf376f5ccbdfd08ea51b95c2f9b6fbd206f5f9cde2d67db788d40a52b3d2" alt="Your Digital Footprint is Worth More Than Gold">
 <div class="card-header-row">
 <span class="article-tag tag-privacy">Privacy</span>
 <span class="article-read-time">⏱️ 4 min read</span>
@@ -1144,7 +1155,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="news" data-title="telecoms want to privatize the radio spectrum">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191689.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=9d5b4a2ba74fb35bfe619534f091536907194806b63e60a66a4b010fad27fb00" alt="Telecoms Want to Privatize the Radio Spectrum">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1191689.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=9d5b4a2ba74fb35bfe619534f091536907194806b63e60a66a4b010fad27fb00" alt="Telecoms Want to Privatize the Radio Spectrum">
 <div class="card-header-row">
 <span class="article-tag tag-news">News</span>
 <span class="article-read-time">⏱️ 4 min read</span>
@@ -1157,7 +1168,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="tech" data-title="over half of web traffic no longer involves human eyes">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191616.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=6422915943b5c45d8f7cdd08df8949a52d1bbafff46c07b05f68602c64eaa6d4" alt="Over Half of Web Traffic No Longer Involves Human Eyes">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1191616.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=6422915943b5c45d8f7cdd08df8949a52d1bbafff46c07b05f68602c64eaa6d4" alt="Over Half of Web Traffic No Longer Involves Human Eyes">
 <div class="card-header-row">
 <span class="article-tag tag-ai">Tech</span>
 <span class="article-read-time">⏱️ 4 min read</span>
@@ -1171,7 +1182,7 @@ nav a.nav-btn{display:none;}
 <!-- ===== END NEW ARTICLES ===== -->
 
 <div class="article-card reveal" data-category="news" data-title="what happens when the world refuses the old rulebook?">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191529.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=2abd55f7bf29bda464461b39ada9c8b1cf0e7551e883dc12d5c3c4e51e283ced" alt="The Old Rulebook">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1191529.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=2abd55f7bf29bda464461b39ada9c8b1cf0e7551e883dc12d5c3c4e51e283ced" alt="The Old Rulebook">
 <div class="card-header-row">
 <span class="article-tag tag-news">News</span>
 <span class="article-read-time">⏱️ 5 min read</span>
@@ -1184,7 +1195,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="privacy" data-title="your smart device is quietly listening, but not how you think">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191393.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=43c24853bcc39f8ed95b70f739bc3089148f666714b8a7b75733eb6935a217b1" alt="Smart Device Listening">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1191393.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=43c24853bcc39f8ed95b70f739bc3089148f666714b8a7b75733eb6935a217b1" alt="Smart Device Listening">
 <div class="card-header-row">
 <span class="article-tag tag-privacy">Privacy</span>
 <span class="article-read-time">⏱️ 4 min read</span>
@@ -1197,7 +1208,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="ai" data-title="what happens when ai replaces human relationships?">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191302.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=4dd5dbe462c1f40c5b0f5d9bddeb1d13e73527e2019b5d79a149a809f50df295" alt="AI Replaces Human Relationships">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1191302.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=4dd5dbe462c1f40c5b0f5d9bddeb1d13e73527e2019b5d79a149a809f50df295" alt="AI Replaces Human Relationships">
 <div class="card-header-row">
 <span class="article-tag tag-ai">AI</span>
 <span class="article-read-time">⏱️ 5 min read</span>
@@ -1210,7 +1221,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="tech" data-title="social algorithms are engineered to make us hate each other">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191217.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=53f67d04865502e7ba0dcc4b8112ba4fa3099667be02e8d6ce0ab3a19ef41c73" alt="Social Algorithms and Division">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1191217.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=53f67d04865502e7ba0dcc4b8112ba4fa3099667be02e8d6ce0ab3a19ef41c73" alt="Social Algorithms and Division">
 <div class="card-header-row">
 <span class="article-tag tag-ai">Tech</span>
 <span class="article-read-time">⏱️ 4 min read</span>
@@ -1223,7 +1234,7 @@ nav a.nav-btn{display:none;}
 </div>
 
 <div class="article-card reveal" data-category="finance" data-title="the death of paper money is the end of privacy">
-<img class="article-image" loading="lazy" src="https://www.publish0x.com/img/1191148.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=b2668e640ec061099a097df5a43fdd2d7d356373b1be4108834046fec1e245e3" alt="Death of Paper Money">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1191148.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=b2668e640ec061099a097df5a43fdd2d7d356373b1be4108834046fec1e245e3" alt="Death of Paper Money">
 <div class="card-header-row">
 <span class="article-tag tag-finance">Finance</span>
 <span class="article-read-time">⏱️ 4 min read</span>
@@ -1429,10 +1440,22 @@ nav a.nav-btn{display:none;}
   <span class="section-label">Interactive Ecosystem</span>
   <div class="section-title-row">
     <div class="section-title">Hatty's Apps &amp; Tools</div>
-    <span class="ecosystem-subtitle">14 custom-built web apps, crypto market trackers, privacy utilities, and browser games.</span>
+    <span class="ecosystem-subtitle">15 custom-built web apps, privacy utilities, media processing tools, and browser games.</span>
   </div>
 
   <div class="ecosystem-grid">
+    <!-- Hatty's Media Forge -->
+    <div class="app-card reveal">
+      <div class="app-card-top">
+        <div class="app-icon-wrap">🛠️</div>
+        <span class="app-tag app-tag-privacy">100% Offline Privacy</span>
+      </div>
+      <h3>Hatty's Media Forge</h3>
+      <p>Zero-cloud universal media Swiss Army knife. Batch convert video/audio formats, compress to exact target sizes (Discord 25MB), remove backgrounds, isolate audio stems, and strip EXIF data entirely client-side.</p>
+      <a class="app-link-btn" href="https://hattyhats.github.io/Hatty-s-Media-Forge/" target="_blank" rel="noopener">
+        <span>Launch Media Forge</span><span class="arrow">↗</span>
+      </a>
+    </div>
     <!-- Hatty Gif Maker -->
     <div class="app-card reveal">
       <div class="app-card-top">
@@ -1839,9 +1862,18 @@ if(drops[i]*fontSize>canvas.height&&Math.random()>0.975){drops[i]=0;}
 drops[i]+=0.5;
 }
 }
-setInterval(function(){
-if(document.visibilityState==='visible')draw();
-},33);
+// Optimized matrix rain: runs only when scene is in view (< 3000px scroll) and tab is active
+var lastMatrixDraw = 0;
+function loopMatrix(ts){
+  if(document.visibilityState === 'visible' && window.scrollY < 3000){
+    if(ts - lastMatrixDraw >= 40){ // ~25 FPS is buttery for matrix code and saves CPU/GPU
+      lastMatrixDraw = ts;
+      draw();
+    }
+  }
+  requestAnimationFrame(loopMatrix);
+}
+requestAnimationFrame(loopMatrix);
 })();
 
 /* SCROLL FADE — three phases */
@@ -1886,8 +1918,10 @@ tx=(e.clientX-rect.left)/rect.width-.5;
 });
 phase1.addEventListener('mouseleave',function(){tx=0;});
 function anim(){
-ox+=(tx-ox)*.055;
-if(grid)grid.style.transform='rotateX(60deg) scale(2.5) translateY(10%) translateX('+(ox*25)+'px)';
+if(window.scrollY < 3000){
+  ox+=(tx-ox)*.055;
+  if(grid)grid.style.transform='rotateX(60deg) scale(2.5) translateY(10%) translateX('+(ox*25)+'px)';
+}
 requestAnimationFrame(anim);
 }
 anim();
@@ -1927,34 +1961,7 @@ dd.addEventListener('click',function(e){e.stopPropagation();});
 })();
 
 /* CUSTOM CURSOR */
-(function(){
-if(window.matchMedia && window.matchMedia('(hover: none) or (pointer: coarse)').matches) return;
-var c=document.getElementById('cursor');
-var r=document.getElementById('cursor-ring');
-if(!c||!r)return;
-var mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
-document.addEventListener('mousemove',function(e){
-mx=e.clientX;my=e.clientY;
-c.style.transform='translate3d('+mx+'px,'+my+'px,0) translate(-50%,-50%)';
-});
-function animR(){
-rx+=(mx-rx)*.15;ry+=(my-ry)*.15;
-r.style.transform='translate3d('+rx+'px,'+ry+'px,0) translate(-50%,-50%)';
-requestAnimationFrame(animR);
-}
-animR();
-document.querySelectorAll('a,button,[role=button],input,textarea,select').forEach(function(el){
-el.addEventListener('mouseenter',function(){
-c.style.width='28px';c.style.height='28px';
-r.style.width='58px';r.style.height='58px';r.style.opacity='.18';
-});
-el.addEventListener('mouseleave',function(){
-c.style.width='12px';c.style.height='12px';
-r.style.width='36px';r.style.height='36px';r.style.opacity='.4';
-});
-});
-})();
-
+/* NATIVE HARDWARE GLOWING GREY CURSOR (0ms LATENCY) */
 /* SPLASH 3D CODE SPACE */
 (function(){
 var canvas=document.getElementById('splashCodeSpace');
@@ -2050,7 +2057,9 @@ if(hasSeenSplash && splash){
 } else {
   document.body.style.overflow='hidden';
   if(splash) splash.addEventListener('click', window.enterSite);
-  setTimeout(window.enterSite,4200);
+  setTimeout(window.enterSite,2400);
+  window.addEventListener("keydown",function(e){if(e.code==="Space"||e.code==="Enter"||e.code==="Escape")window.enterSite();},{once:true});
+  window.addEventListener("wheel",function(){window.enterSite();},{once:true,passive:true});
 }
 
 if(toggle&&audio){
