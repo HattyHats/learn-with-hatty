@@ -1835,6 +1835,7 @@ This site displays advertisements via Google AdSense and may include affiliate l
 
 </div><!-- /content-wrapper -->
 
+<script src="space_assets/three.min.js"></script>
 <script data-cfasync="false">
 /* PRICE BAR */
 (function(){
@@ -2013,62 +2014,414 @@ dd.addEventListener('click',function(e){e.stopPropagation();});
 
 /* CUSTOM CURSOR */
 /* NATIVE HARDWARE GLOWING GREY CURSOR (0ms LATENCY) */
-/* SPLASH 3D CODE SPACE */
+/* PHOTOREALISTIC 3D WEBGL UNIVERSE ENGINE (REAL NASA TEXTURES + ATMOSPHERIC SHADERS) */
 (function(){
-var canvas=document.getElementById('splashCodeSpace');
-if(!canvas)return;
-var ctx=canvas.getContext('2d');
-var w,h;
-var particles=[];
-var numParticles=400;
-var chars="01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
-resize();
-window.addEventListener('resize',resize,{passive:true});
-var mouseX=0,mouseY=0;
-function initParticle(p){
-p.x=(Math.random()-0.5)*3000;
-p.y=(Math.random()-0.5)*3000;
-p.z=Math.random()*2000+100;
-p.char=chars[Math.floor(Math.random()*chars.length)];
-p.speed=5+Math.random()*10;
-p.color=Math.random()>0.2?'rgba(34,180,100,':'rgba(240,165,0,';
-}
-for(var i=0;i<numParticles;i++){var p={};initParticle(p);particles.push(p);}
-var animFrame;
-function draw(){
-ctx.clearRect(0,0,w,h);
-var cx=w/2,cy=h/2;
-for(var i=0;i<numParticles;i++){
-var p=particles[i];
-p.z-=p.speed;
-if(p.z<=0){initParticle(p);p.z=2000;}
-var scale=800/p.z;
-var px=cx+(p.x-mouseX)*scale;
-var py=cy+(p.y-mouseY)*scale;
-var size=Math.max(0.1,24*scale);
-if(px<-50||px>w+50||py<-50||py>h+50)continue;
-var alpha=Math.min(1,(2000-p.z)/500);
-if(p.z<200)alpha=Math.min(alpha,p.z/200);
-ctx.fillStyle=p.color+alpha+')';
-ctx.font='bold '+size+'px monospace';
-ctx.textAlign='center';
-ctx.textBaseline='middle';
-ctx.shadowColor=p.color+alpha+')';
-ctx.shadowBlur=size*0.4;
-ctx.fillText(p.char,px,py);
-ctx.shadowBlur=0;
-}
-animFrame=requestAnimationFrame(draw);
-}
-draw();
-var observer=new MutationObserver(function(mutations){
-mutations.forEach(function(mutation){
-if(mutation.target.classList.contains('hidden')){cancelAnimationFrame(animFrame);}
-});
-});
-var splashEl=document.getElementById('splash');
-if(splashEl)observer.observe(splashEl,{attributes:true,attributeFilter:['class']});
+  var canvas = document.getElementById('splashCodeSpace');
+  if(!canvas || typeof THREE === 'undefined') return;
+
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+
+  // WebGL Renderer with ACES Filmic Tone Mapping
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      alpha: true,
+      antialias: true,
+      powerPreference: 'high-performance'
+    });
+  } catch(e) {
+    console.warn("WebGL not available:", e);
+    return;
+  }
+
+  renderer.setSize(w, h);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.35;
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(45, w / h, 1, 12000);
+  camera.position.set(0, 0, 760);
+
+  function onResize(){
+    w = window.innerWidth;
+    h = window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  }
+  window.addEventListener('resize', onResize, {passive: true});
+
+  // Cinematic Solar Lighting
+  var sunLight = new THREE.DirectionalLight(0xfffaee, 2.8);
+  sunLight.position.set(-850, 480, 650);
+  scene.add(sunLight);
+
+  var ambientLight = new THREE.AmbientLight(0x151c30, 0.45);
+  scene.add(ambientLight);
+
+  var rimLight = new THREE.DirectionalLight(0x0ea5e9, 0.45);
+  rimLight.position.set(750, -420, -350);
+  scene.add(rimLight);
+
+  // Robust Texture Loader with Procedural Fallbacks (Guarantees zero black screens even over file://)
+  var texLoader = new THREE.TextureLoader();
+
+  function createProceduralTexture(type){
+    var c = document.createElement('canvas');
+    c.width = 1024;
+    c.height = 512;
+    var cx = c.getContext('2d');
+
+    if(type === 'earth'){
+      // Deep blue oceans
+      var oceanGrad = cx.createLinearGradient(0, 0, 0, 512);
+      oceanGrad.addColorStop(0, '#001a33');
+      oceanGrad.addColorStop(0.5, '#004080');
+      oceanGrad.addColorStop(1, '#001a33');
+      cx.fillStyle = oceanGrad;
+      cx.fillRect(0, 0, 1024, 512);
+
+      // Continents
+      cx.fillStyle = '#227744';
+      cx.beginPath();
+      cx.ellipse(280, 220, 180, 110, 0.4, 0, Math.PI * 2);
+      cx.ellipse(680, 260, 220, 140, -0.2, 0, Math.PI * 2);
+      cx.ellipse(320, 380, 120, 90, 0.6, 0, Math.PI * 2);
+      cx.fill();
+
+      // Swirling white clouds
+      cx.fillStyle = 'rgba(255,255,255,0.45)';
+      for(var i = 0; i < 12; i++){
+        cx.beginPath();
+        cx.ellipse((i * 90) % 1024, 120 + (i * 30) % 280, 140, 35, i * 0.2, 0, Math.PI * 2);
+        cx.fill();
+      }
+    } else if(type === 'saturn'){
+      // Saturn golden cloud bands
+      var sGrad = cx.createLinearGradient(0, 0, 0, 512);
+      sGrad.addColorStop(0, '#b8860b');
+      sGrad.addColorStop(0.25, '#d4a373');
+      sGrad.addColorStop(0.5, '#f4a261');
+      sGrad.addColorStop(0.75, '#e76f51');
+      sGrad.addColorStop(1, '#9a4c28');
+      cx.fillStyle = sGrad;
+      cx.fillRect(0, 0, 1024, 512);
+
+      // Fine atmospheric banding
+      for(var b = 0; b < 24; b++){
+        cx.fillStyle = (b % 2 === 0) ? 'rgba(255,230,160,0.22)' : 'rgba(120,60,10,0.25)';
+        cx.fillRect(0, b * 21.3, 1024, 11);
+      }
+    } else if(type === 'jupiter'){
+      // Jupiter Great Red Spot & ammonia belts
+      cx.fillStyle = '#c97a3e';
+      cx.fillRect(0, 0, 1024, 512);
+      for(var j = 0; j < 20; j++){
+        cx.fillStyle = (j % 2 === 0) ? '#e9c46a' : '#9c4e23';
+        cx.fillRect(0, j * 25.6, 1024, 14);
+      }
+      // Great Red Spot
+      cx.fillStyle = '#b22222';
+      cx.beginPath();
+      cx.ellipse(600, 320, 60, 38, 0, 0, Math.PI * 2);
+      cx.fill();
+    } else if(type === 'mars'){
+      cx.fillStyle = '#c1440e';
+      cx.fillRect(0, 0, 1024, 512);
+      cx.fillStyle = '#e77f4e';
+      cx.beginPath();
+      cx.ellipse(400, 250, 280, 120, 0.2, 0, Math.PI * 2);
+      cx.fill();
+      // Polar ice cap
+      cx.fillStyle = '#ffffff';
+      cx.fillRect(0, 0, 1024, 40);
+    } else if(type === 'rings'){
+      c.width = 512;
+      c.height = 64;
+      var rGrad = cx.createLinearGradient(0, 0, 512, 0);
+      rGrad.addColorStop(0, 'rgba(0,0,0,0)');
+      rGrad.addColorStop(0.15, 'rgba(240,180,80,0.5)');
+      rGrad.addColorStop(0.48, 'rgba(255,220,130,0.85)');
+      rGrad.addColorStop(0.52, 'rgba(0,0,0,0.9)'); // Cassini division
+      rGrad.addColorStop(0.55, 'rgba(240,165,0,0.75)');
+      rGrad.addColorStop(0.85, 'rgba(200,120,40,0.4)');
+      rGrad.addColorStop(1, 'rgba(0,0,0,0)');
+      cx.fillStyle = rGrad;
+      cx.fillRect(0, 0, 512, 64);
+    }
+
+    return new THREE.CanvasTexture(c);
+  }
+
+  function safeLoadTexture(url, fallbackType){
+    var fallback = createProceduralTexture(fallbackType);
+    return texLoader.load(
+      url,
+      function(loadedTex){
+        loadedTex.needsUpdate = true;
+      },
+      undefined,
+      function(err){
+        console.warn("Using procedural space texture fallback for:", url);
+      }
+    ) || fallback;
+  }
+
+  // 1. Massive 3D Deep Space Starfield (1,800 Stars)
+  var starCount = 1800;
+  var starGeo = new THREE.BufferGeometry();
+  var starPositions = new Float32Array(starCount * 3);
+  var starColors = new Float32Array(starCount * 3);
+
+  var palette = [
+    new THREE.Color(1.0, 1.0, 1.0),
+    new THREE.Color(0.95, 0.85, 0.6),
+    new THREE.Color(0.55, 0.85, 1.0),
+    new THREE.Color(0.85, 0.65, 1.0),
+    new THREE.Color(1.0, 0.95, 0.8)
+  ];
+
+  for(var s = 0; s < starCount; s++){
+    var r = 1600 + Math.random() * 2800;
+    var theta = Math.random() * Math.PI * 2;
+    var phi = Math.acos(Math.random() * 2 - 1);
+
+    starPositions[s * 3]     = r * Math.sin(phi) * Math.cos(theta);
+    starPositions[s * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+    starPositions[s * 3 + 2] = r * Math.cos(phi);
+
+    var c = palette[Math.floor(Math.random() * palette.length)];
+    starColors[s * 3]     = c.r;
+    starColors[s * 3 + 1] = c.g;
+    starColors[s * 3 + 2] = c.b;
+  }
+
+  starGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+  starGeo.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+
+  var starMat = new THREE.PointsMaterial({
+    size: 2.2,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.95,
+    sizeAttenuation: true
+  });
+  var starField = new THREE.Points(starGeo, starMat);
+  scene.add(starField);
+
+  // Atmospheric Fresnel Rayleigh Rim Scattering Shader
+  function createAtmosphere(radius, colorHex){
+    var customMat = new THREE.ShaderMaterial({
+      vertexShader: `
+        varying vec3 vNormal;
+        void main() {
+          vNormal = normalize(normalMatrix * normal);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        varying vec3 vNormal;
+        uniform vec3 color;
+        void main() {
+          float intensity = pow(0.68 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.6);
+          gl_FragColor = vec4(color, 1.0) * intensity;
+        }
+      `,
+      uniforms: {
+        color: { value: new THREE.Color(colorHex) }
+      },
+      blending: THREE.AdditiveBlending,
+      side: THREE.BackSide,
+      transparent: true
+    });
+    return new THREE.Mesh(new THREE.SphereGeometry(radius * 1.06, 48, 48), customMat);
+  }
+
+  // 2. SATURN (Photorealistic with Cassini Ring Division & Shadow)
+  var saturnGroup = new THREE.Group();
+  var saturnGeo = new THREE.SphereGeometry(62, 64, 64);
+  var saturnTex = safeLoadTexture('space_assets/saturn.jpg', 'saturn');
+  var saturnMat = new THREE.MeshStandardMaterial({
+    map: saturnTex,
+    roughness: 0.85,
+    metalness: 0.05
+  });
+  var saturnMesh = new THREE.Mesh(saturnGeo, saturnMat);
+  saturnGroup.add(saturnMesh);
+
+  var saturnAtmo = createAtmosphere(62, 0xf0a500);
+  saturnGroup.add(saturnAtmo);
+
+  // Radial UV Saturn Rings
+  var ringInner = 82;
+  var ringOuter = 180;
+  var ringGeo = new THREE.RingGeometry(ringInner, ringOuter, 128);
+  var ringPos = ringGeo.attributes.position;
+  var ringUvs = ringGeo.attributes.uv;
+  for(var i = 0; i < ringPos.count; i++){
+    var rx = ringPos.getX(i);
+    var ry = ringPos.getY(i);
+    var dist = Math.sqrt(rx * rx + ry * ry);
+    var normalized = (dist - ringInner) / (ringOuter - ringInner);
+    ringUvs.setXY(i, normalized, 0.5);
+  }
+  ringGeo.attributes.uv.needsUpdate = true;
+
+  var ringTex = safeLoadTexture('space_assets/saturn_rings.png', 'rings');
+  var ringMat = new THREE.MeshStandardMaterial({
+    map: ringTex,
+    side: THREE.DoubleSide,
+    transparent: true,
+    opacity: 0.94,
+    roughness: 0.4
+  });
+  var ringMesh = new THREE.Mesh(ringGeo, ringMat);
+  ringMesh.rotation.x = Math.PI / 2;
+  saturnGroup.add(ringMesh);
+
+  // Saturn real axial tilt (26.7 degrees)
+  saturnGroup.rotation.z = -0.46;
+  saturnGroup.rotation.x = 0.32;
+  scene.add(saturnGroup);
+
+  // 3. EARTH (Real NASA Photogrammetry with Electric Cyan Rayleigh Atmospheric Rim)
+  var earthGroup = new THREE.Group();
+  var earthGeo = new THREE.SphereGeometry(44, 64, 64);
+  var earthTex = safeLoadTexture('space_assets/earth.jpg', 'earth');
+  var earthMat = new THREE.MeshStandardMaterial({
+    map: earthTex,
+    roughness: 0.65,
+    metalness: 0.12
+  });
+  var earthMesh = new THREE.Mesh(earthGeo, earthMat);
+  earthGroup.add(earthMesh);
+
+  var earthAtmo = createAtmosphere(44, 0x00d4ff);
+  earthGroup.add(earthAtmo);
+
+  // Satellite Moon orbiting Earth
+  var moonGeo = new THREE.SphereGeometry(10.5, 32, 32);
+  var moonTex = safeLoadTexture('space_assets/moon.jpg', 'mars');
+  var moonMat = new THREE.MeshStandardMaterial({
+    map: moonTex,
+    roughness: 0.92,
+    metalness: 0.05
+  });
+  var moonMesh = new THREE.Mesh(moonGeo, moonMat);
+  earthGroup.add(moonMesh);
+
+  earthGroup.rotation.z = 0.41; // 23.5 degrees Earth axial tilt
+  scene.add(earthGroup);
+
+  // 4. JUPITER (Juno Photogrammetry with Great Red Spot)
+  var jupiterGroup = new THREE.Group();
+  var jupiterGeo = new THREE.SphereGeometry(72, 64, 64);
+  var jupiterTex = safeLoadTexture('space_assets/jupiter.jpg', 'jupiter');
+  var jupiterMat = new THREE.MeshStandardMaterial({
+    map: jupiterTex,
+    roughness: 0.8,
+    metalness: 0.05
+  });
+  var jupiterMesh = new THREE.Mesh(jupiterGeo, jupiterMat);
+  jupiterGroup.add(jupiterMesh);
+
+  var jupiterAtmo = createAtmosphere(72, 0xffa040);
+  jupiterGroup.add(jupiterAtmo);
+  scene.add(jupiterGroup);
+
+  // 5. MARS (NASA Orbit Photogrammetry)
+  var marsGroup = new THREE.Group();
+  var marsGeo = new THREE.SphereGeometry(28, 64, 64);
+  var marsTex = safeLoadTexture('space_assets/mars.jpg', 'mars');
+  var marsMat = new THREE.MeshStandardMaterial({
+    map: marsTex,
+    roughness: 0.88,
+    metalness: 0.08
+  });
+  var marsMesh = new THREE.Mesh(marsGeo, marsMat);
+  marsGroup.add(marsMesh);
+
+  var marsAtmo = createAtmosphere(28, 0xff5533);
+  marsGroup.add(marsAtmo);
+  scene.add(marsGroup);
+
+  // Dynamic Orbits & Parallax State
+  var targetCamX = 0, targetCamY = 0;
+  window.addEventListener('mousemove', function(e){
+    targetCamX = (e.clientX - w / 2) * 0.28;
+    targetCamY = -(e.clientY - h / 2) * 0.28;
+  }, {passive: true});
+
+  var animId;
+  var clock = new THREE.Clock();
+
+  function animate(){
+    var elapsed = clock.getElapsedTime();
+
+    // Smooth camera mouse parallax
+    camera.position.x += (targetCamX - camera.position.x) * 0.05;
+    camera.position.y += (targetCamY - camera.position.y) * 0.05;
+    camera.lookAt(0, 0, 0);
+
+    // Deep starfield gentle drift
+    starField.rotation.y = elapsed * 0.008;
+    starField.rotation.x = elapsed * 0.004;
+
+    // 1. Saturn 3D Orbit & Axial Rotation
+    var sAngle = elapsed * 0.12 + 0.8;
+    saturnGroup.position.x = Math.cos(sAngle) * 360 + 60;
+    saturnGroup.position.y = Math.sin(sAngle) * 190 + Math.sin(elapsed * 0.2) * 30;
+    saturnGroup.position.z = Math.sin(sAngle) * 260 - 80;
+    saturnMesh.rotation.y += 0.0035;
+
+    // 2. Earth 3D Orbit & Rotation
+    var eAngle = -elapsed * 0.16 + 2.8;
+    earthGroup.position.x = Math.cos(eAngle) * 410 - 50;
+    earthGroup.position.y = Math.sin(eAngle) * 220 - 40;
+    earthGroup.position.z = Math.sin(eAngle) * 280 + 20;
+    earthMesh.rotation.y += 0.005;
+
+    // Moon orbiting around Earth
+    var mAngle = elapsed * 0.85;
+    moonMesh.position.set(Math.cos(mAngle) * 78, Math.sin(mAngle) * 26, Math.sin(mAngle) * 45);
+    moonMesh.rotation.y += 0.003;
+
+    // 3. Jupiter 3D Orbit (Massive background planet)
+    var jAngle = elapsed * 0.08 + 4.6;
+    jupiterGroup.position.x = Math.cos(jAngle) * 480 - 40;
+    jupiterGroup.position.y = Math.sin(jAngle) * 240 + 70;
+    jupiterGroup.position.z = Math.sin(jAngle) * 320 - 240;
+    jupiterMesh.rotation.y += 0.004;
+
+    // 4. Mars 3D Orbit
+    var mOrbit = elapsed * 0.14 + 1.6;
+    marsGroup.position.x = Math.cos(mOrbit) * 380 + 120;
+    marsGroup.position.y = Math.sin(mOrbit) * 210 - 80;
+    marsGroup.position.z = Math.sin(mOrbit) * 250 - 60;
+    marsMesh.rotation.y += 0.0045;
+
+    renderer.render(scene, camera);
+    animId = requestAnimationFrame(animate);
+  }
+
+  animId = requestAnimationFrame(animate);
+
+  // Clean cancellation on main site entrance
+  var splashEl = document.getElementById('splash');
+  if(splashEl && 'MutationObserver' in window){
+    var observer = new MutationObserver(function(mutations){
+      mutations.forEach(function(m){
+        if(m.target.classList.contains('hidden')){
+          cancelAnimationFrame(animId);
+          try { renderer.dispose(); } catch(e){}
+        }
+      });
+    });
+    observer.observe(splashEl, {attributes: true, attributeFilter: ['class']});
+  }
 })();
 
 /* SPLASH CONTROL + MUSIC TOGGLE (WITH RETURNING VISITOR & CLICK TO SKIP) */
@@ -2108,7 +2461,7 @@ if(hasSeenSplash && splash){
 } else {
   document.body.style.overflow='hidden';
   if(splash) splash.addEventListener('click', window.enterSite);
-  setTimeout(window.enterSite,2400);
+  setTimeout(window.enterSite,4200);
   window.addEventListener("keydown",function(e){if(e.code==="Space"||e.code==="Enter"||e.code==="Escape")window.enterSite();},{once:true});
   window.addEventListener("wheel",function(){window.enterSite();},{once:true,passive:true});
 }
