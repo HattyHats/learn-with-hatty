@@ -46,7 +46,7 @@ html, body {
   cursor: var(--cursor-arrow);
 }
 
-a, button, [role=button], input[type=button], input[type=submit], .btn-primary, .app-link-btn, .cat-pill, .btn-copy-addr, .house-ad, .nav-dropdown-toggle, .nav-btn, .btn-bulb, .btn-share-x, .splash-skip-btn, .splash-enter {
+a, button, [role=button], input[type=button], input[type=submit], .btn-primary, .app-link-btn, .cat-pill, .btn-copy-addr, .house-ad, .nav-dropdown-toggle, .nav-btn, .btn-bulb, .btn-medium, .btn-publishox, .btn-share-x, .splash-skip-btn, .splash-enter {
   cursor: var(--cursor-pointer) !important;
 }
 
@@ -302,9 +302,11 @@ nav a.nav-btn{display:none;}
 .section-title-row .section-title{margin-bottom:0;padding-bottom:0;border-bottom:none;}
 .btn-bulb{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(180deg,#1a3a5c,#0e2240);border:1px solid rgba(100,200,255,0.35);color:#7dd3fc;padding:8px 18px;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 0 14px rgba(100,200,255,0.15);transition:all .18s ease;}
 .btn-bulb:hover{background:linear-gradient(180deg,#1e4a72,#122a52);border-color:rgba(100,200,255,0.65);color:#bae6fd;box-shadow:0 0 24px rgba(100,200,255,0.3);transform:translateY(-1px);}
+.btn-medium{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(180deg,#242424,#121212);border:1px solid rgba(255,255,255,0.28);color:#ffffff;padding:8px 18px;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 0 14px rgba(255,255,255,0.08);transition:all .18s ease;}
+.btn-medium:hover{background:linear-gradient(180deg,#383838,#1c1c1c);border-color:rgba(255,255,255,0.6);color:#ffffff;box-shadow:0 0 24px rgba(255,255,255,0.22);transform:translateY(-1px);}
 .btn-publishox{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(180deg,#5c1a1a,#400e0e);border:1px solid rgba(255,100,100,0.35);color:#fc7d7d;padding:8px 18px;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 0 14px rgba(255,100,100,0.15);transition:all .18s ease;}
 .btn-publishox:hover{background:linear-gradient(180deg,#721e1e,#521212);border-color:rgba(255,100,100,0.65);color:#fdbaba;box-shadow:0 0 24px rgba(255,100,100,0.3);transform:translateY(-1px);}
-.btn-bulb .bulb-icon,.btn-publishox .bulb-icon{font-size:.9rem;line-height:1;}
+.btn-medium .bulb-icon,.btn-bulb .bulb-icon,.btn-publishox .bulb-icon{font-size:.9rem;line-height:1;}
 
 /* ========================================================
    ARTICLE FILTER, SEARCH & PAGINATION STYLES
@@ -972,7 +974,7 @@ nav a.nav-btn{display:none;}
 <div class="section-title-row">
 <div class="section-title">Latest Articles</div>
 <div style="display:flex;gap:10px;flex-wrap:wrap;">
-<a class="btn-bulb" href="https://www.bulbapp.io/u/7E8fsJ3Wy1onNm8SPtvypAuvzw5rMnumAC6UEChFdTVY/hattyhats" target="_blank" rel="noopener"><span class="bulb-icon">💡</span> BULB</a>
+<a class="btn-medium" href="https://hattyhats.medium.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg> Medium</a>
 <a class="btn-publishox" href="https://www.publish0x.com/@HattyHats" target="_blank" rel="noopener"><span class="bulb-icon">📰</span> PublishOX</a>
 </div>
 </div>
@@ -981,15 +983,15 @@ nav a.nav-btn{display:none;}
   <div class="search-and-stats">
     <div class="articles-search-wrap">
       <span class="search-icon">🔍</span>
-      <input type="text" id="articleSearch" placeholder="Search 33 articles by title, topic, or keyword..." aria-label="Search articles">
+      <input type="text" id="articleSearch" placeholder="Search 38 articles by title, topic, or keyword..." aria-label="Search articles">
       <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">✕</button>
     </div>
     <div class="articles-count-badge" id="articlesCountBadge">
-      Showing <strong>33</strong> of <strong>33</strong> articles
+      Showing <strong>38</strong> of <strong>38</strong> articles
     </div>
   </div>
   <div class="category-pills" id="categoryPills" role="tablist" aria-label="Article categories">
-    <button class="cat-pill active" data-cat="all">All (33)</button>
+    <button class="cat-pill active" data-cat="all">All (38)</button>
     <button class="cat-pill" data-cat="ai">AI</button>
     <button class="cat-pill" data-cat="privacy">Privacy</button>
     <button class="cat-pill" data-cat="security">Security</button>
@@ -1003,6 +1005,91 @@ nav a.nav-btn{display:none;}
 <div class="articles-grid" id="articlesGrid">
 
 <!-- ===== NEW ARTICLES ===== -->
+<div class="article-card reveal" data-category="crypto" data-title="the dark truth of big tech surveillance and the rise of socialfi">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1195760.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=398a10c1407c34e9878543e97713a062e71b1e155219510faab840aab2f117a1" alt="The Dark Truth of Big Tech Surveillance and the Rise of SocialFi">
+<div class="card-header-row">
+<span class="article-tag tag-ai">SocialFi</span>
+<span class="article-read-time">⏱️ 5 min read</span>
+</div>
+<h3>The Dark Truth of Big Tech Surveillance and the Rise of SocialFi</h3>
+<p>FTC investigations have laid bare the intentional harms of surveillance capitalism and predatory algorithms. How the paradigm is shifting from passive corporate exploitation to decentralized SocialFi, where users monetize their own attention and own their social graph.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/hattys-news/the-dark-truth-of-big-tech-surveillance-and-the-rise-of-soci-xnjpqly" target="_blank" rel="noopener">Read on Publish0x →</a>
+<a class="btn-share-x" href="https://twitter.com/intent/tweet?text=The%20Dark%20Truth%20of%20Big%20Tech%20Surveillance%20and%20the%20Rise%20of%20SocialFi&url=https%3A//www.publish0x.com/hattys-news/the-dark-truth-of-big-tech-surveillance-and-the-rise-of-soci-xnjpqly&via=hattyhats" target="_blank" rel="noopener" title="Share this article on X" aria-label="Share on X">
+<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+<span>Share</span>
+</a>
+</div>
+</div>
+
+<div class="article-card reveal" data-category="privacy" data-title="prove everything, reveal nothing">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1195532.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=6dc152b64b2cd4047e4eced890292cf503cb3d5eeefe82cd5efdfd126ead8195" alt="Prove Everything, Reveal Nothing">
+<div class="card-header-row">
+<span class="article-tag tag-privacy">Privacy</span>
+<span class="article-read-time">⏱️ 5 min read</span>
+</div>
+<h3>Prove Everything, Reveal Nothing</h3>
+<p>Demanding a government ID and biometric face scan just to verify online age or access is the digital equivalent of a grocery store demanding your social security card at checkout. An urgent case for zero-knowledge proofs and cryptographic identity verification that reveals zero personal data.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/prove-everything-reveal-nothing-xwrondl" target="_blank" rel="noopener">Read on Publish0x →</a>
+<a class="btn-share-x" href="https://twitter.com/intent/tweet?text=Prove%20Everything%2C%20Reveal%20Nothing&url=https%3A//www.publish0x.com/ai-and-the-future/prove-everything-reveal-nothing-xwrondl&via=hattyhats" target="_blank" rel="noopener" title="Share this article on X" aria-label="Share on X">
+<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+<span>Share</span>
+</a>
+</div>
+</div>
+
+<div class="article-card reveal" data-category="security" data-title="how hackers automated the cyber battlefield">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1195386.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=ce75c5459f4e390c5ca49ecdcad75de34fcd045f1819a9371a3e35ba384a2159" alt="How Hackers Automated the Cyber Battlefield">
+<div class="card-header-row">
+<span class="article-tag tag-security">Security</span>
+<span class="article-read-time">⏱️ 5 min read</span>
+</div>
+<h3>How Hackers Automated the Cyber Battlefield</h3>
+<p>The myth of the lone human hacker manually crafting exploits is dead. Autonomous LLM agentic pipelines now automate reconnaissance, harvest open-source intelligence, craft weaponized spear-phishing, and scan for zero-day exploits in seconds—launching a machine-vs-machine arms race.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/how-hackers-automated-the-cyber-battlefield-xdqprmd" target="_blank" rel="noopener">Read on Publish0x →</a>
+<a class="btn-share-x" href="https://twitter.com/intent/tweet?text=How%20Hackers%20Automated%20the%20Cyber%20Battlefield&url=https%3A//www.publish0x.com/ai-and-the-future/how-hackers-automated-the-cyber-battlefield-xdqprmd&via=hattyhats" target="_blank" rel="noopener" title="Share this article on X" aria-label="Share on X">
+<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+<span>Share</span>
+</a>
+</div>
+</div>
+
+<div class="article-card reveal" data-category="ai" data-title="near protocol was built for the ai economy">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1195279.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=28cc6fec27d8da86a864b8ef740e5f64e0fcc6040a307586bbe441f95a05ea48" alt="NEAR Protocol was Built for the AI Economy">
+<div class="card-header-row">
+<span class="article-tag tag-ai">AI &amp; Web3</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
+<h3>NEAR Protocol was Built for the AI Economy</h3>
+<p>While the market watches short-term token momentum, NEAR is executing a much bigger vision: laying the computational and economic bedrock for autonomous AI agents. Why NEAR is uniquely engineered to serve as the transaction layer for the machine-to-machine economy.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/near-protocol-was-built-for-the-ai-economy-xwronvg" target="_blank" rel="noopener">Read on Publish0x →</a>
+<a class="btn-share-x" href="https://twitter.com/intent/tweet?text=NEAR%20Protocol%20was%20Built%20for%20the%20AI%20Economy&url=https%3A//www.publish0x.com/ai-and-the-future/near-protocol-was-built-for-the-ai-economy-xwronvg&via=hattyhats" target="_blank" rel="noopener" title="Share this article on X" aria-label="Share on X">
+<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+<span>Share</span>
+</a>
+</div>
+</div>
+
+<div class="article-card reveal" data-category="security" data-title="why every family needs an offline safe word today">
+<img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1195123.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=e959aea63e137e3a9187445743f981dd1740f5a8f1243f09150cd41cdc2332a8" alt="Why Every Family Needs an Offline Safe Word Today">
+<div class="card-header-row">
+<span class="article-tag tag-security">Security</span>
+<span class="article-read-time">⏱️ 4 min read</span>
+</div>
+<h3>Why Every Family Needs an Offline Safe Word Today</h3>
+<p>With just a few seconds of scraped social media audio, scammers can now clone a loved one's voice in real-time to stage emergency wire requests. When our ears can no longer be trusted, an analog, offline safe word is the simplest and most unhackable defense against AI voice theft.</p>
+<div class="card-links">
+<a class="btn-primary" href="https://www.publish0x.com/ai-and-the-future/why-every-family-needs-an-offline-safe-word-today-xqvzngg" target="_blank" rel="noopener">Read on Publish0x →</a>
+<a class="btn-share-x" href="https://twitter.com/intent/tweet?text=Why%20Every%20Family%20Needs%20an%20Offline%20Safe%20Word%20Today&url=https%3A//www.publish0x.com/ai-and-the-future/why-every-family-needs-an-offline-safe-word-today-xqvzngg&via=hattyhats" target="_blank" rel="noopener" title="Share this article on X" aria-label="Share on X">
+<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+<span>Share</span>
+</a>
+</div>
+</div>
+
 <div class="article-card reveal" data-category="ai" data-title="on-device ai chips are silently recording everything you do">
 <img class="article-image" loading="lazy" decoding="async" src="https://www.publish0x.com/img/1194697.webp?action=resize&ar=1&enc=webp&inv=0&ori=1&st=1&up=1&w=2280&signature=b104218ea010299e5833bc18b57768f8dc38e7e6934c966ff62eb43301f9a208" alt="On-Device AI Chips Are Silently Recording Everything You Do">
 <div class="card-header-row">
@@ -1475,7 +1562,7 @@ nav a.nav-btn{display:none;}
 
 <div class="load-more-wrap" id="loadMoreWrap" style="text-align:center; margin-top:40px;">
   <button id="loadMoreBtn" class="btn-load-more" aria-label="Load more articles">
-    Load More Articles <span id="loadMoreCounter">(Showing 9 of 33)</span>
+    Load More Articles <span id="loadMoreCounter">(Showing 9 of 38)</span>
   </button>
 </div>
 
@@ -1792,7 +1879,7 @@ nav a.nav-btn{display:none;}
 <a href="https://www.youtube.com/@hattyhats0" target="_blank" rel="noopener">YouTube</a>
 <a href="https://www.bulbapp.io" target="_blank" rel="noopener">Bulb</a>
 <a href="https://www.publish0x.com" target="_blank" rel="noopener">PublishOx</a>
-<a href="https://medium.com" target="_blank" rel="noopener">Medium</a>
+<a href="https://hattyhats.medium.com/" target="_blank" rel="noopener">Medium</a>
 <a href="https://cryptonaut.id/HattyHats" target="_blank" rel="noopener">Cryptonaut</a>
 <a href="https://tangled.com/u/hattyhats" target="_blank" rel="noopener">Tangled</a>
 </div>
