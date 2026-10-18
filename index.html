@@ -50,14 +50,6 @@ a, button, [role=button], input[type=button], input[type=submit], .btn-primary, 
   cursor: var(--cursor-pointer) !important;
 }
 
-/* COOKIE BANNER */
-#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(180deg,#0e0e20,#07070f);border-top:1px solid #f0a50055;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;box-shadow:0 -4px 32px #00000090;}
-#cookie-banner p{font-size:.8rem;color:#bbb;flex:1;min-width:220px;line-height:1.6;}
-#cookie-banner a{color:var(--gold);text-decoration:none;}
-.cookie-btns{display:flex;gap:10px;flex-shrink:0;}
-.btn-accept{background:linear-gradient(180deg,#f8bc20,#d08800);color:#0d0d0d;border:none;padding:9px 20px;border-radius:999px;font-weight:700;font-size:.8rem;cursor:pointer;transition:all .15s;}
-.btn-decline{background:linear-gradient(180deg,#222238,#14142a);color:#aaa;border:1px solid var(--border);padding:9px 20px;border-radius:999px;font-weight:600;font-size:.8rem;cursor:pointer;transition:all .15s;}
-
 /* HEADER */
 header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(4,4,10,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid #f0a50022;padding:14px 28px;display:flex;justify-content:space-between;align-items:center;}
 .logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:3px;color:var(--gold);text-shadow:0 0 20px #f0a50050;text-decoration:none;}
@@ -228,8 +220,6 @@ header{z-index:1000;}
 .price-bar{z-index:999;}
 #scene{z-index:1;}
 .content-wrapper{z-index:2;position:relative;}
-
-#cookie-banner{z-index:9999;}
 
 /* RESPONSIVE */
 @media (max-width:820px){
@@ -871,15 +861,6 @@ nav a.nav-btn{display:none;}
 
 <!-- GLOWING GREY NATIVE CURSOR ENABLED -->
 
-<!-- COOKIE BANNER -->
-<div id="cookie-banner" role="dialog" aria-label="Cookie consent" style="display:none">
-<p>We use cookies and similar technologies, including those from <strong>Google AdSense</strong>, to serve personalised ads and analyse site traffic. By clicking <strong>Accept</strong> you consent to our use of cookies as described in our <a href="privacy-policy.html">Privacy Policy</a>. EU/EEA visitors, you have the right to decline non-essential cookies.</p>
-<div class="cookie-btns">
-<button class="btn-accept" onclick="cookieConsent(true)">Accept All</button>
-<button class="btn-decline" onclick="cookieConsent(false)">Decline Non-Essential</button>
-</div>
-</div>
-
 <!-- HEADER -->
 <header>
 <a href="#" class="logo" data-text="Learn With Hatty">Learn With <span>Hatty</span></a>
@@ -972,6 +953,11 @@ nav a.nav-btn{display:none;}
 <a class="house-ad house-ad-cointiply" href="https://cointiply.mobi/lNm1" target="_blank" rel="noopener noreferrer" title="Hatty's Pick: Cointiply"><img src="cointiply ad gif 2.gif" alt="Hatty's Pick: Try Cointiply" loading="lazy" decoding="async"></a>
 <span class="house-ad-label">Hatty's Pick</span>
 </div>
+</div>
+
+<!-- AD BANNER -->
+<div class="ad-banner-wrap" style="max-width:1100px;margin:32px auto 0;padding:0 24px;display:flex;justify-content:center;">
+  <div ta-ad-container="" style="width:100%;"></div>
 </div>
 
 <!-- ARTICLES -->
@@ -1746,6 +1732,10 @@ nav a.nav-btn{display:none;}
 <p style="margin-top:28px;font-size:.74rem;color:#333;font-style:italic;">All articles are published for educational and informational purposes only. Nothing constitutes financial, investment, or legal advice. <a href="terms.html" style="color:var(--gold)">See full disclaimer →</a></p>
 </div>
 
+<!-- AD BANNER (AFTER ARTICLES) -->
+<div class="ad-banner-wrap" style="max-width:1100px;margin:20px auto 44px;padding:0 24px;display:flex;justify-content:center;">
+  <div ta-ad-container="" style="width:100%;"></div>
+</div>
 
 <!-- APPS & TOOLS ECOSYSTEM -->
 <div style="background:linear-gradient(180deg,#060612,#04040a);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
@@ -2079,7 +2069,7 @@ nav a.nav-btn{display:none;}
 <a href="mailto:hattyhatss@yahoo.com">Contact</a>
 </p>
 <p style="margin-top:8px;font-size:.7rem;color:#222">
-This site displays advertisements via Google AdSense and may include affiliate links. All content is for educational and informational purposes only — not financial, legal, or investment advice. © HattyHats 2026.
+This site displays advertisements and may include affiliate links. All content is for educational and informational purposes only — not financial, legal, or investment advice. © HattyHats 2026.
 </p>
 </footer>
 
@@ -2117,18 +2107,6 @@ if(bar)bar.style.display='none';
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load);else load();
 setInterval(load,60000);
-})();
-
-/* COOKIE CONSENT */
-(function(){
-var KEY='hattycookieconsent';
-window.cookieConsent=function(a){
-localStorage.setItem(KEY,a?'accepted':'declined');
-document.getElementById('cookie-banner').style.display='none';
-};
-if(!localStorage.getItem(KEY)){
-document.getElementById('cookie-banner').style.display='flex';
-}
 })();
 
 /* MATRIX RAIN */
@@ -2885,5 +2863,8 @@ window.copyCrypto = function(id, btn){
 
 </script>
 <div id="hattyToast"><span>✓</span> <span id="toastMsg">Address copied to clipboard!</span></div>
+
+<!-- TinyAds Script -->
+<script src="https://cdn.apitiny.net/scripts/v2.0/main.js" data-site-id="6ad550ad83f2058a67c6a727" data-test-mode="false" async></script>
 </body>
 </html>
