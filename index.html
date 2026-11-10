@@ -41,7 +41,8 @@
 <link rel="dns-prefetch" href="https://cdn.publish0x.com">
 <link rel="preconnect" href="https://cdn.publish0x.com" crossorigin>
 <link rel="dns-prefetch" href="https://api.coingecko.com">
-<link rel="dns-prefetch" href="https://acceptable.a-ads.com">
+<link rel="dns-prefetch" href="https://affizy.network">
+<link rel="preconnect" href="https://affizy.network" crossorigin>
 <link rel="dns-prefetch" href="https://cdn.apitiny.net">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -372,18 +373,91 @@ mark.search-highlight {
   }
 }
 
-/* A-ADS RESPONSIVE BANNER STYLING (ENSURES GRAPHIC CREATIVES ALWAYS RENDER) */
-.ad-banner-wrap{width:100%;box-sizing:border-box;}
-.aads-frame{width:100%;max-width:728px;margin:0 auto;position:relative;z-index:10;display:flex;justify-content:center;}
-.aads-frame iframe{border:0;padding:0;overflow:hidden;display:block;margin:0 auto;width:728px !important;height:90px !important;max-width:100%;aspect-ratio:728/90;transition:width 0.2s ease,height 0.2s ease;}
-@media (max-width:760px){
-  .ad-banner-wrap{padding:0 12px !important;}
-  .aads-frame{max-width:468px;}
-  .aads-frame iframe{width:468px !important;height:60px !important;aspect-ratio:468/60;}
+/* AD BANNER & AFFIZY STYLING */
+.ad-banner-wrap{width:100%;box-sizing:border-box;display:flex;justify-content:center;align-items:center;}
+.affizy-card {
+  width: 100%;
+  max-width: 740px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
 }
-@media (max-width:500px){
-  .aads-frame{max-width:320px;}
-  .aads-frame iframe{width:320px !important;height:100px !important;aspect-ratio:320/100;}
+.affizy-card.has-ad {
+  background: transparent;
+  border-color: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+.affizy-card .affizy-ad {
+  display: inline-block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+.affizy-pending-bar {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  gap: 12px;
+}
+.affizy-pending-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+}
+.affizy-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3b82f6;
+  box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  animation: affizyPulse 2s infinite;
+  flex-shrink: 0;
+}
+@keyframes affizyPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+.affizy-pending-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .ad-banner-wrap { padding: 0 12px !important; }
+}
+@media (max-width: 540px) {
+  .affizy-pending-bar {
+    font-size: 10px;
+    padding: 6px 4px;
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
 }
 
 /* ARTICLES SUBSCRIBE / UPDATES BOX */
@@ -1206,14 +1280,19 @@ mark.search-highlight {
 </div>
 </div>
 
-<!-- AD BANNER -->
+<!-- AFFIZY AD BANNER (TOP - 728x90) -->
 <div class="ad-banner-wrap" style="max-width:1100px;margin:32px auto 0;padding:0 24px;display:flex;justify-content:center;">
-  <!-- BEGIN AADS AD UNIT 2459131 -->
-  <div class="aads-frame" id="aads-frame-top">
-    <iframe data-aa='2459131' src='https://acceptable.a-ads.com/2459131/?size=Adaptive'
-            style='border:0; padding:0; width:100%; height:100%; overflow:hidden;display: block;margin: auto' title='A-ADS Adaptive Ad Banner'></iframe>
+  <div class="affizy-card" id="affizy-card-top">
+    <script src="https://affizy.network/delivery.js" async></script>
+    <div class="affizy-ad" data-zone="1017"></div>
+    <div class="affizy-pending-bar" id="affizy-pending-top">
+      <span class="affizy-pending-left">
+        <span class="affizy-pulse-dot"></span>
+        <span>AFFIZY NETWORK &bull; ZONE 1017 (728x90)</span>
+      </span>
+      <span class="affizy-pending-badge">PENDING REVIEW</span>
+    </div>
   </div>
-  <!-- END AADS AD UNIT 2459131 -->
 </div>
 
 <!-- ARTICLES -->
@@ -2218,14 +2297,9 @@ mark.search-highlight {
 <p style="margin-top:28px;font-size:.74rem;color:#8888a4;font-style:italic;">All articles are published for educational and informational purposes only. Nothing constitutes financial, investment, or legal advice. <a href="terms.html" style="color:var(--gold)">See full disclaimer →</a></p>
 </div>
 
-<!-- AD BANNER (AFTER ARTICLES) -->
-<div class="ad-banner-wrap" style="max-width:1100px;margin:20px auto 44px;padding:0 24px;display:flex;justify-content:center;">
-  <!-- BEGIN AADS AD UNIT 2459131 -->
-  <div class="aads-frame" id="aads-frame-bottom">
-    <iframe data-aa='2459131' src='https://acceptable.a-ads.com/2459131/?size=Adaptive'
-            style='border:0; padding:0; width:100%; height:100%; overflow:hidden;display: block;margin: auto' title='A-ADS Adaptive Ad Banner'></iframe>
-  </div>
-  <!-- END AADS AD UNIT 2459131 -->
+<!-- AD BANNER (AFTER ARTICLES) — Ready for second Affizy ad unit -->
+<div class="ad-banner-wrap" id="ad-banner-bottom" style="max-width:1100px;margin:20px auto 44px;padding:0 24px;display:flex;justify-content:center;">
+  <!-- Second Affizy ad will be placed here -->
 </div>
 
 <!-- APPS & TOOLS ECOSYSTEM -->
@@ -3455,6 +3529,38 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+/* AFFIZY AD OBSERVER (SYNC WITH LIVE/PENDING STATE) */
+(function(){
+  function initAffizyObservers(){
+    var cards = document.querySelectorAll('.affizy-card');
+    cards.forEach(function(card){
+      var ad = card.querySelector('.affizy-ad');
+      var pending = card.querySelector('.affizy-pending-bar');
+      if(!ad || !pending) return;
+
+      var updateState = function(){
+        var hasContent = ad.style.display !== 'none' && ad.children.length > 0;
+        if(hasContent){
+          pending.style.display = 'none';
+          card.classList.add('has-ad');
+        } else {
+          pending.style.display = 'flex';
+          card.classList.remove('has-ad');
+        }
+      };
+
+      var obs = new MutationObserver(updateState);
+      obs.observe(ad, { attributes: true, attributeFilter: ['style'], childList: true, subtree: true });
+      updateState();
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initAffizyObservers);
+  } else {
+    initAffizyObservers();
+  }
+})();
 
 </script>
 <div id="hattyToast"><span>✓</span> <span id="toastMsg">Address copied to clipboard!</span></div>
