@@ -48,7 +48,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#f0a500;--gold-dim:#c07800;--bg:#04040a;--surface:#0e0e1c;--surface2:#141426;--border:#2a2a46;--text:#e8e8f0;--muted:#666680;--header-h:58px;}
+:root{--gold:#f0a500;--gold-dim:#c07800;--bg:#04040a;--surface:#0e0e1c;--surface2:#141426;--border:#2a2a46;--text:#e8e8f0;--muted:#666680;--header-h:58px;--top-chrome-h:92px;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;scroll-padding-top:95px;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
@@ -141,7 +141,7 @@ nav a.nav-btn:hover{color:var(--gold);border-color:#f0a50060;}
 .hero-subtitle-line{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.1rem,2.5vw,1.6rem);letter-spacing:7px;color:var(--gold);opacity:.9;margin-top:12px;text-shadow:0 0 30px rgba(240,165,0,.6),0 2px 8px rgba(0,0,0,1);}
 
 /* HAT WRAPPER */
-#hat-wrapper{position:relative;z-index:10;will-change:opacity;transform-style:preserve-3d;animation:hatFloat 4s ease-in-out infinite;}
+#hat-wrapper{position:relative;z-index:10;pointer-events:none;will-change:opacity;transform-style:preserve-3d;animation:hatFloat 4s ease-in-out infinite;}
 @keyframes hatFloat{0%,100%{transform:translateY(0px) rotateX(0deg);}25%{transform:translateY(-16px) rotateX(2deg);}50%{transform:translateY(-26px) rotateX(0deg);}75%{transform:translateY(-12px) rotateX(-1.5deg);}}
 .hat-img{width:clamp(280px,72vw,900px);height:auto;display:block;background:transparent;-webkit-tap-highlight-color:transparent;image-rendering:auto;filter:drop-shadow(0 0 40px rgba(240,165,0,.55)) drop-shadow(0 0 90px rgba(240,165,0,.28)) drop-shadow(0 0 160px rgba(240,165,0,.14)) drop-shadow(0 60px 110px rgba(0,0,0,.97));}
 
@@ -457,6 +457,86 @@ mark.search-highlight {
     flex-direction: column;
     gap: 6px;
     text-align: center;
+  }
+}
+
+/* HERO FLANKING SKYSCRAPER ADS (160x600) */
+.hero-side-ad-slot {
+  position: absolute;
+  top: calc(var(--top-chrome-h, 92px) + 12px);
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+  pointer-events: auto;
+}
+.hero-side-ad-left {
+  left: max(20px, calc(50% - 620px));
+}
+.hero-side-ad-right {
+  right: max(20px, calc(50% - 620px));
+}
+.affizy-card.affizy-card-skyscraper {
+  width: 168px;
+  min-height: 600px;
+  padding: 12px 10px;
+  background: rgba(14, 14, 28, 0.58);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(42, 42, 70, 0.9);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+.affizy-card.affizy-card-skyscraper.has-ad {
+  width: auto;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  border-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65);
+}
+.affizy-card.affizy-card-skyscraper .affizy-pending-bar {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: auto 0;
+  padding: 14px 6px;
+  gap: 12px;
+}
+.affizy-card.affizy-card-skyscraper .affizy-pending-left {
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1.5;
+}
+.affizy-skyscraper-zone {
+  display: block;
+  color: var(--text);
+  opacity: 0.78;
+  font-size: 10.5px;
+  letter-spacing: 0.8px;
+}
+@media (min-width: 1080px) and (min-height: 600px) {
+  .hero-title-wrap {
+    max-width: min(900px, calc(100vw - 440px));
+  }
+  .hero-body {
+    max-width: min(780px, calc(100vw - 440px));
+  }
+}
+@media (min-width: 1080px) and (max-height: 739px) {
+  .hero-side-ad-left .affizy-card-skyscraper {
+    transform: scale(0.84);
+    transform-origin: center left;
+  }
+  .hero-side-ad-right .affizy-card-skyscraper {
+    transform: scale(0.84);
+    transform-origin: center right;
+  }
+}
+@media (max-width: 1079px), (max-height: 599px) {
+  .hero-side-ad-slot {
+    display: none !important;
   }
 }
 
@@ -1214,6 +1294,24 @@ mark.search-highlight {
 <div id="phase1">
 <div class="scene-bg-grid" id="sceneGrid"></div>
 <div class="scene-glow"></div>
+
+<!-- HERO LEFT SKYSCRAPER AD (160x600 - ZONE 1149) -->
+<div class="hero-side-ad-slot hero-side-ad-left" id="hero-ad-left">
+  <div class="affizy-card affizy-card-skyscraper" id="affizy-card-1149">
+    <script src="https://affizy.network/delivery.js" async></script>
+    <div class="affizy-ad" data-zone="1149"></div>
+    <div class="affizy-pending-bar" id="affizy-pending-1149">
+      <span class="affizy-pending-left">
+        <span class="affizy-pulse-dot"></span>
+        <span>AFFIZY NETWORK</span>
+        <span class="affizy-skyscraper-zone">ZONE 1149 (160&times;600)</span>
+      </span>
+      <span class="affizy-pending-badge">PENDING REVIEW</span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO RIGHT SKYSCRAPER AD SLOT — Ready for second 160x600 Affizy unit -->
 
 <!-- PHASE 1 -->
 <div id="hat-wrapper">
@@ -2837,10 +2935,13 @@ dd.addEventListener('click',function(e){
     var h = hdr.offsetHeight;
     if(pbar && pbar.offsetHeight > 0 && pbar.style.display !== 'none') h += pbar.offsetHeight;
     document.documentElement.style.setProperty('--header-h', hdr.offsetHeight + 'px');
+    document.documentElement.style.setProperty('--top-chrome-h', h + 'px');
     document.documentElement.style.scrollPaddingTop = (h + 16) + 'px';
   }
   window.addEventListener('resize', updateHeaderHeight, {passive: true});
   window.addEventListener('DOMContentLoaded', updateHeaderHeight);
+  window.addEventListener('load', updateHeaderHeight);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(updateHeaderHeight);
   updateHeaderHeight();
 })();
 
