@@ -1,5 +1,5 @@
 /* Earn With Hatty — Lightweight Service Worker (PWA Shell Caching) */
-var CACHE_NAME = 'hatty-shell-v1';
+var CACHE_NAME = 'hatty-shell-v2';
 var STATIC_ASSETS = [
   './',
   'index.html',
