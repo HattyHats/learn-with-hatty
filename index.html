@@ -460,7 +460,7 @@ mark.search-highlight {
   }
 }
 
-/* HERO FLANKING SKYSCRAPER ADS (160x600) */
+/* HERO FLANKING VERTICAL ADS (160x600 LEFT & 300x600 RIGHT) */
 .hero-side-ad-slot {
   position: absolute;
   top: calc(var(--top-chrome-h, 92px) + 12px);
@@ -475,7 +475,7 @@ mark.search-highlight {
   left: max(20px, calc(50% - 620px));
 }
 .hero-side-ad-right {
-  right: max(20px, calc(50% - 620px));
+  right: max(20px, calc(50% - 710px));
 }
 .affizy-card.affizy-card-skyscraper {
   width: 168px;
@@ -486,6 +486,9 @@ mark.search-highlight {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(42, 42, 70, 0.9);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+.affizy-card.affizy-card-skyscraper.affizy-card-halfpage {
+  width: 308px;
 }
 .affizy-card.affizy-card-skyscraper.has-ad {
   width: auto;
@@ -524,6 +527,14 @@ mark.search-highlight {
     max-width: min(780px, calc(100vw - 440px));
   }
 }
+@media (min-width: 1260px) and (min-height: 600px) {
+  .hero-title-wrap {
+    max-width: min(760px, calc(100vw - 700px));
+  }
+  .hero-body {
+    max-width: min(680px, calc(100vw - 700px));
+  }
+}
 @media (min-width: 1080px) and (max-height: 739px) {
   .hero-side-ad-left .affizy-card-skyscraper {
     transform: scale(0.84);
@@ -532,6 +543,11 @@ mark.search-highlight {
   .hero-side-ad-right .affizy-card-skyscraper {
     transform: scale(0.84);
     transform-origin: center right;
+  }
+}
+@media (max-width: 1259px) {
+  .hero-side-ad-right {
+    display: none !important;
   }
 }
 @media (max-width: 1079px), (max-height: 599px) {
@@ -1311,7 +1327,21 @@ mark.search-highlight {
   </div>
 </div>
 
-<!-- HERO RIGHT SKYSCRAPER AD SLOT — Ready for second 160x600 Affizy unit -->
+<!-- HERO RIGHT HALF PAGE AD (300x600 - ZONE 1150) -->
+<div class="hero-side-ad-slot hero-side-ad-right" id="hero-ad-right">
+  <div class="affizy-card affizy-card-skyscraper affizy-card-halfpage" id="affizy-card-1150">
+    <script src="https://affizy.network/delivery.js" async></script>
+    <div class="affizy-ad" data-zone="1150"></div>
+    <div class="affizy-pending-bar" id="affizy-pending-1150">
+      <span class="affizy-pending-left">
+        <span class="affizy-pulse-dot"></span>
+        <span>AFFIZY NETWORK</span>
+        <span class="affizy-skyscraper-zone">ZONE 1150 (300&times;600)</span>
+      </span>
+      <span class="affizy-pending-badge">PENDING REVIEW</span>
+    </div>
+  </div>
+</div>
 
 <!-- PHASE 1 -->
 <div id="hat-wrapper">
