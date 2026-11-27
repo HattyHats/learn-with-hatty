@@ -5,7 +5,7 @@
     <link>https://earnwithhatty.com/</link>
     <description>In-depth educational articles, tools, and interactive web apps on cryptocurrency, AI, Web3, privacy, and personal finance by HattyHats.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Nov 2026 11:58:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 15:30:00 GMT</lastBuildDate>
     <atom:link href="https://earnwithhatty.com/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://earnwithhatty.com/favicon.png</url>
@@ -14,6 +14,15 @@
       <width>64</width>
       <height>64</height>
     </image>
+    <item>
+      <title>Eleven Minutes to Break In</title>
+      <link>https://www.publish0x.com/ai-and-the-future/eleven-minutes-to-break-in-xplknjg</link>
+      <guid isPermaLink="true">https://www.publish0x.com/ai-and-the-future/eleven-minutes-to-break-in-xplknjg</guid>
+      <description>How autonomous offensive AI agents went from initial target mapping to exploiting a zero-day path traversal vulnerability in roughly eleven minutes—and what machine-speed intrusion means for traditional cybersecurity defense.</description>
+      <category>Security</category>
+      <author>hattyhatss@yahoo.com (HattyHats)</author>
+      <enclosure url="https://www.publish0x.com/img/1205337.webp?action=resize&amp;ar=1&amp;enc=webp&amp;inv=0&amp;ori=1&amp;st=1&amp;up=1&amp;w=2280&amp;signature=0d4e0f4306d5a7a6cf7cf4a053b594af56480b387940b9cd6ac5ef23467b11f7" type="image/webp" length="0" />
+    </item>
     <item>
       <title>The New “You Are the Product” AI Economy</title>
       <link>https://www.publish0x.com/ai-and-the-future/the-new-you-are-the-product-ai-economy-xzrjyeq</link>
